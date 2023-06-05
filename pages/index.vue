@@ -1,8 +1,10 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <div class="h-screen w-screen bg-orange-300">
-      <h1>bring it on</h1>
+    <div
+      class="h-screen text-9xl w-screen flex items-center justify-center bg-darkPurple"
+    >
+      <!-- <h1 class="text-mainRed">Hocus Pocus</h1> -->
     </div>
   </div>
 </template>
