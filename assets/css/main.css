@@ -53,26 +53,26 @@ input::-webkit-inner-spin-button {
   height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bb9651;
+  background: #f72585;
   border: 0px none #ffffff;
   border-radius: 86px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00ffd1;
+  background: #b5179e;
 }
 ::-webkit-scrollbar-thumb:active {
-  background: #13cfad;
+  background: #b5179e;
 }
 ::-webkit-scrollbar-track {
-  background: #ffe3cb;
+  background: #10002b;
   border: 0px none #ffffff;
   border-radius: 100px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: #f8ddd9;
+  background: #10002b;
 }
 ::-webkit-scrollbar-track:active {
-  background: #f8ddd9;
+  background: #10002b;
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
