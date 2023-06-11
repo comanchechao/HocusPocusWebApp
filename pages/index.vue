@@ -25,17 +25,42 @@
         </h1>
       </div>
     </div>
-    <div class="h-screen w-full bg-darkPurple flex">
+    <div class="h-screen w-full bg-darkPurple flex flex-col items-center">
       <div class="h-24 w-screen bg-mainRed flex items-center justify-center">
         <h2 class="text-darkPurple text-3xl flex">
           <PhCards class="mr-3" /> <span> جدیدترین کارت ها </span>
         </h2>
       </div>
+      <div class="w-screen px-10 flex items-center space-x-5">
+        <Card /> <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   </div>
 </template>
 <script setup>
+import Card from "../components/Card.vue";
 import { PhMagicWand, PhCards } from "@phosphor-icons/vue";
+import { ref } from "vue";
+const products = ref();
+const responsiveOptions = ref([
+  {
+    breakpoint: "1199px",
+    numVisible: 3,
+    numScroll: 3,
+  },
+  {
+    breakpoint: "991px",
+    numVisible: 2,
+    numScroll: 2,
+  },
+  {
+    breakpoint: "767px",
+    numVisible: 1,
+    numScroll: 1,
+  },
+]);
 </script>
 <style>
 @font-face {
