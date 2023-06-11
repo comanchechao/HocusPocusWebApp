@@ -31,12 +31,13 @@
           <PhCards class="mr-3" /> <span> جدیدترین کارت ها </span>
         </h2>
       </div>
-      <div class="w-screen px-10 flex items-center space-x-5">
+      <div class="w-screen px-10 flex items-center justify-center space-x-14">
         <Card /> <Card />
         <Card />
         <Card />
       </div>
     </div>
+    <div class="h-screen w-full bg-darkPurple flex flex-col items-center"></div>
   </div>
 </template>
 <script setup>
