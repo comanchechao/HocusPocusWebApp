@@ -37,7 +37,25 @@
         <Card />
       </div>
     </div>
-    <div class="h-screen w-full bg-darkPurple flex flex-col items-center"></div>
+    <div class="h-full w-full bg-darkPurple flex flex-col items-center px-28">
+      <h2 class="text-6xl text-mainRed neonText">کشف کن</h2>
+
+      <div class="flex items-center w-full h-full">
+        <div
+          class="w-1/2 h-screen flex items-center justify-center py-16 px-28"
+        >
+          <div
+            class="h-full w-full bg-mainYellow rounded-xl transform translate-y-80"
+          ></div>
+        </div>
+        <div
+          class="w-1/2 h-screen flex items-center justify-center py-16 px-28"
+        >
+          <div class="h-full w-full bg-mainPurple rounded-xl"></div>
+        </div>
+      </div>
+    </div>
+    <div class="h-screen w-full bg-darkPurple flex items-center px-28"></div>
   </div>
 </template>
 <script setup>
