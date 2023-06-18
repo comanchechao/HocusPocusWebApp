@@ -17,7 +17,7 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
-      <div class="w-full h-full flex items-center p-20 flex-col space-y-16">
+      <div class="w-full h-full flex items-center p-16 flex-col space-y-10">
         <h2 class="text-6xl text-mainRed neonText">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
           <div class="flex items-end flex-col space-y-4">
@@ -43,14 +43,17 @@
             >
           </div>
         </div>
-        <button
-          label="Show"
-          @click="visible = false"
-          class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
-        >
-          <span> ورود </span>
-          <PhKeyhole :size="25" />
-        </button>
+        <div class="h-full w-full flex flex-col items-center space-y-5">
+          <button
+            label="Show"
+            @click="visible = false"
+            class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+          >
+            <span> ورود </span>
+            <PhKeyhole :size="25" />
+          </button>
+          <SignUp />
+        </div>
       </div>
     </Dialog>
   </div>
