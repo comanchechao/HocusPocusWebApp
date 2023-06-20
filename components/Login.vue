@@ -18,7 +18,7 @@
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
       <div class="w-full h-full flex items-center p-16 flex-col space-y-10">
-        <h2 class="text-6xl text-mainRed neonText">ورود</h2>
+        <h2 class="text-6xl neonText">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
           <div class="flex items-end flex-col space-y-4">
             <label class="text-xl text-mainRed" for="email">ایمیل</label>

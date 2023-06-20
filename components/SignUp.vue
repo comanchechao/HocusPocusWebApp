@@ -19,7 +19,7 @@
     >
       <div class="w-full h-rem34 flex items-center justify-center">
         <div class="flex flex-col space-y-7 items-center">
-          <h2 class="text-6xl text-mainRed neonText">ثبت نام</h2>
+          <h2 class="text-6xl neonText">ثبت نام</h2>
           <div class="flex flex-col items-center space-y-4">
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainRed" for="email">ایمیل</label>
