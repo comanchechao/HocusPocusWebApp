@@ -45,12 +45,12 @@ export class AuthService {
 
     const pwMatch = await argon.verify(user.password, dto.password);
 
-    if (!pwMatch) {
-      throw new ForbiddenException('incorrecto cuuuz');
+    if (pwMatch) {
+      return { userEmail: user.email };
     } else {
       console.log('it is over');
     }
 
-    return user;
+    return null;
   }
 }
