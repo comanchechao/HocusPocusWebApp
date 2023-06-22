@@ -1,13 +1,16 @@
 <template>
   <div>
     <MultiSelect
-      v-model="selectedCities"
+      v-model="selectedCity"
       :options="cities"
       optionLabel="name"
       display="chip"
       filter
       placeholder="برندها"
-    />
+      :showToggleAll="false"
+    >
+      fklsdflsdf
+    </MultiSelect>
   </div>
 </template>
 <script setup>
@@ -18,7 +21,6 @@ const cities = ref([
   { name: "بایسیکل", code: "NY" },
   { name: "جوکر", code: "RM" },
   { name: "تلی هو", code: "LDN" },
-  { name: "فلکی", code: "IST" },
 ]);
 </script>
 
@@ -36,13 +38,9 @@ const cities = ref([
   box-shadow: 0 0 0 0 #10002b;
   border: 0;
 }
-.p-checkbox .p-checkbox-box .p-checkbox-icon.p-icon {
-  color: #f72585;
-  border-radius: 2rem;
-}
+
 .p-icon {
   color: #f72585;
-  border-radius: 2rem;
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
@@ -53,12 +51,10 @@ const cities = ref([
 }
 .p-multiselect {
   font-family: "IranSans";
-
+  border: #f72585;
   border-radius: 0.2rem;
   background-color: #10002b;
   color: #f72585;
-  border: 0;
-  border-color: #f72585;
   padding: 0px 0px;
   flex-direction: row-reverse;
 }
@@ -111,7 +107,10 @@ const cities = ref([
   border-radius: 2rem;
   background-color: #10002b;
 }
-
+.p-overlay-open {
+  border: 20;
+  border-color: #f72585;
+}
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
@@ -122,5 +121,31 @@ const cities = ref([
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  background: #f72585;
+  color: #10002b;
+}
+.p-multiselect-panel
+  .p-multiselect-items
+  .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+  background: #f9eef7;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  background-color: #f72585;
+  border: 20;
+  border-color: #10002b;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  background-color: #f72585;
+  color: #10002b;
+}
+.p-multiselect-panel
+  .p-multiselect-items
+  .p-multiselect-item.p-highlight.p-focus {
+  background: #f72585;
 }
 </style>
