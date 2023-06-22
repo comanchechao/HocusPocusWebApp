@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { env } from 'process';
+import { ConfigService } from '@nestjs/config';
+
 @Injectable()
 export class PrismaService extends PrismaClient {
-  constructor() {
+  constructor(config: ConfigService) {
     super({
       datasources: {
         db: {
-          url: 'postgresql://postgres:wildlikegreez!@localhost:5432/hocus-pocus?schema=public',
+          url: config.get('DATABASE_URL'),
         },
       },
     });
