@@ -18,12 +18,18 @@
       <span> پربازدید ترین </span>
       <PhEye :size="20" weight="fill" />
     </button>
-    <h2 class="text-mainRed text-md">
+    <h2 class="text-mainRed text-md flex items-center space-x-3">
       <span> : </span>
       مرتب سازی بر اساس
+      <PhFadersHorizontal :size="30" weight="fill" />
     </h2>
   </div>
 </template>
 <script setup>
-import { PhEye, PhCoins, PhStar } from "@phosphor-icons/vue";
+import {
+  PhEye,
+  PhCoins,
+  PhStar,
+  PhFadersHorizontal,
+} from "@phosphor-icons/vue";
 </script>

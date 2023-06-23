@@ -14,15 +14,12 @@
         <span> درباره ما </span>
         <PhSpade />
       </button>
-    </div>
-    <div class="w-full flex justify-end items-center space-x-3 Navbar">
       <button
         class="text-xl active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
       >
         <span> آموزش </span>
         <PhCube />
       </button>
-      <Login />
 
       <NuxtLink to="/shop/shop">
         <button
@@ -39,6 +36,10 @@
           <PhHouseSimple />
         </button>
       </NuxtLink>
+    </div>
+    <div class="flex justify-end items-center space-x-3 Navbar">
+      <Login />
+      <ShoppingCart />
     </div>
   </div>
 </template>
