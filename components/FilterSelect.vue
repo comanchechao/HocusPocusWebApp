@@ -9,7 +9,6 @@
       placeholder="برندها"
       :showToggleAll="false"
     >
-      fklsdflsdf
     </MultiSelect>
   </div>
 </template>
@@ -34,8 +33,12 @@ const cities = ref([
   /* unicode-range: U+0020-007F; */
 }
 
-.p-multiselect.p-focus {
-  box-shadow: 0 0 0 0 #10002b;
+..p-multiselect-items-wrapper {
+  border: 0.2rem #f72585;
+}
+
+.p-multiselect:not(.p-disabled).p-focus {
+  box-shadow: 0 0 0 0.1rem #f72585;
   border: 0;
 }
 

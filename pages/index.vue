@@ -45,11 +45,11 @@
           class="w-1/2 h-screen flex items-center justify-center py-16 px-28"
         >
           <div
-            class="h-full w-full bg-mainYellow transform rounded-3xl p-5 backdrop-brightness-50 cursor-pointer translate-y-80"
+            class="h-full w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer translate-y-80"
           >
             <img
               src="../assets/images/Cardistry.webp"
-              class="w-full h-full object-contain opacity-100 transform backdrop-brightness-75 p-10 rounded-3xl backdrop-blur-3xl"
+              class="w-full h-full object-contain opacity-100 transform backdrop-brightness-90 p-10 rounded-3xl backdrop-blur-3xl"
               alt=""
             />
           </div>
