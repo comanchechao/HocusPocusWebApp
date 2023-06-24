@@ -7,12 +7,12 @@
       <h3 class="text-lg text-mainRed">کالاهای موجود</h3>
     </div>
     <MultiSelect
-      v-model="selectedBrands"
-      :options="brands"
+      v-model="selectedRarity"
+      :options="rarity"
       optionLabel="name"
       display="chip"
       filter
-      placeholder="برندها"
+      placeholder="کمیابی"
       :showToggleAll="false"
     >
     </MultiSelect>
@@ -27,12 +27,22 @@
     >
     </MultiSelect>
     <MultiSelect
-      v-model="selectedRarity"
-      :options="rarity"
+      v-model="selectedBrands"
+      :options="brands"
       optionLabel="name"
       display="chip"
       filter
-      placeholder="کمیابی"
+      placeholder="برندها"
+      :showToggleAll="false"
+    >
+    </MultiSelect>
+    <MultiSelect
+      v-model="selectedTypes"
+      :options="types"
+      optionLabel="name"
+      display="chip"
+      filter
+      placeholder="نوع"
       :showToggleAll="false"
     >
     </MultiSelect>
@@ -41,9 +51,16 @@
 <script setup>
 import { ref } from "vue";
 const checked = ref(false);
+const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
 const selectedDesigns = ref();
+const types = ref([
+  {
+    name: "کارت ها",
+  },
+  { name: "لوازم شعبده بازی" },
+]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
 const rarity = ref([
   { name: "کمیاب" },
