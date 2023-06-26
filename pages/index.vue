@@ -2,24 +2,26 @@
   <div class="w-screen">
     <Navbar></Navbar>
     <div
-      class="h-screen text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
+      class="lg:h-screen h-carousel text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
     >
-      <div class="w-1/2 h-dialog flex items-center justify-center py-3 px-14">
+      <div
+        class="w-1/2 h-dialog lg:flex items-center justify-center py-3 px-14 hidden"
+      >
         <div
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
       </div>
       <div
-        class="w-1/2 h-dialog flex flex-col space-y-24 items-center justify-center"
+        class="lg:w-1/2 w-full h-dialog flex flex-col space-y-24 items-center justify-center"
       >
         <h1
-          class="transition flex duration-150 ease-in-out text-2xl border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="transition flex duration-150 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <PhMagicWand />
           <span>خوش اومدید به مجیک شاپِ </span>
         </h1>
         <h1
-          class="transition HocusPocus duration-150 ease-in-out text-9xl rounded-sm text-white"
+          class="transition HocusPocus duration-150 ease-in-out text-9xl text-center rounded-sm text-white"
         >
           Hocus Pocus
         </h1>
@@ -32,20 +34,24 @@
         </h2>
       </div>
       <div class="w-screen px-10 flex items-center justify-center space-x-14">
-        <Card /> <Card />
-        <Card />
-        <Card />
+        <Card /> <Card class="hidden lg:flex" />
+        <Card class="hidden lg:flex" />
+        <Card class="hidden lg:flex" />
       </div>
     </div>
-    <div class="h-full w-full bg-darkPurple flex flex-col items-center px-28">
-      <h2 class="text-6xl text-mainRed neonText">کشف کن</h2>
+    <div
+      class="h-full w-full bg-darkPurple flex flex-col items-center lg:px-28"
+    >
+      <h2 class="text-6xl text-mainRed neonText my-14 lg:my-0">کشف کن</h2>
 
-      <div class="flex items-center w-full h-full">
+      <div
+        class="flex items-center w-full h-full lg:flex-row flex-col px-7 lg:px-0 space-y-14"
+      >
         <div
-          class="w-1/2 h-screen flex items-center justify-center py-16 px-28"
+          class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-28"
         >
           <div
-            class="h-full w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer translate-y-80"
+            class="h-full w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer lg:translate-y-80"
           >
             <img
               src="../assets/images/Cardistry.webp"
@@ -55,7 +61,7 @@
           </div>
         </div>
         <div
-          class="w-1/2 h-screen flex items-center justify-center py-16 px-32"
+          class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-32"
         >
           <div
             class="h-full w-full bg-mainPurple rounded-3xl p-5 cursor-pointer"

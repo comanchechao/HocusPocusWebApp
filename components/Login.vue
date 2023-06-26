@@ -10,10 +10,11 @@
     </button>
 
     <Dialog
+      :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '30vw', backgroundColor: '#10002b', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#10002b', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
