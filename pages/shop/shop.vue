@@ -1,12 +1,12 @@
 <template>
   <Navbar></Navbar>
 
-  <div class="h-full w-screen bg-darkPurple p-20 flex items-center">
+  <div class="h-full w-screen bg-darkPurple lg:p-20 flex items-center">
     <div
       class="w-full h-full border-mainRed rounded-sm flex flex-col items-start"
     >
       <SortBy></SortBy>
-      <Filters></Filters>
+      <Filters class="lg:flex hidden"></Filters>
       <div class="h-full w-full flex items-center justify-around flex-wrap">
         <Card /> <Card /> <Card /> <Card /> <Card /> <Card /> <Card /> <Card />
       </div>
