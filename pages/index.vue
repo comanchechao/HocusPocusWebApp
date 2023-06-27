@@ -51,11 +51,11 @@
           class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-28"
         >
           <div
-            class="h-full w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer lg:translate-y-80"
+            class="h-full w-auto lg:w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer lg:translate-y-80"
           >
             <img
               src="../assets/images/Cardistry.webp"
-              class="w-full h-full object-contain opacity-100 transform backdrop-brightness-90 p-10 rounded-3xl backdrop-blur-3xl"
+              class="w-full h-dialog lg:h-full object-contain opacity-100 transform backdrop-brightness-90 p-10 rounded-3xl backdrop-blur-3xl"
               alt=""
             />
           </div>
@@ -64,11 +64,11 @@
           class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-32"
         >
           <div
-            class="h-full w-full bg-mainPurple rounded-3xl p-5 cursor-pointer"
+            class="h-full w-auto lg:w-full bg-mainPurple rounded-3xl p-5 cursor-pointer"
           >
             <img
               src="../assets/images/Dali.webp"
-              class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+              class="w-full h-dialog lg:h-full object-contain opacity-100 backdrop-blur-3xl"
               alt=""
             />
           </div>
