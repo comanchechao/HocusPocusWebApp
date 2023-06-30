@@ -11,21 +11,24 @@
         />
       </div>
       <div
-        class="w-full h-1/3 flex items-center flex-col px-7 bg-white space-y-5"
+        class="w-full h-1/3 flex items-center flex-col px-7 pt-5 bg-white space-y-3"
       >
         <h3 class="text-center leading-snug title text-xl text-darkPurple">
           Seafarers: Commodore Edition Playing Cards
         </h3>
         <button
-          class="px-12 py-2 transition text-xl duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
+          class="px-8 py-1 flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
         >
-          خرید
+          <span> جزئیات بیشتر </span> <PhInfo :size="20" />
         </button>
       </div>
     </div>
   </NuxtLink>
 </template>
 
+<script setup>
+import { PhInfo } from "@phosphor-icons/vue";
+</script>
 <style>
 @font-face {
   font-family: "Pocus";

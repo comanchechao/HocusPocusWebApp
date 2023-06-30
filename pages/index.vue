@@ -21,7 +21,7 @@
           <span>خوش اومدید به مجیک شاپِ </span>
         </h1>
         <h1
-          class="transition HocusPocus duration-150 ease-in-out text-9xl text-center rounded-sm text-white"
+          class="transition HocusPocus duration-150 ease-in-out text-center rounded-sm text-white"
         >
           Hocus Pocus
         </h1>
@@ -112,6 +112,7 @@ const responsiveOptions = ref([
 }
 
 .HocusPocus {
+  font-size: 9rem;
   font-family: "Hocus";
   text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
     0 0 20px #f72585;
