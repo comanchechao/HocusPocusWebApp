@@ -1,6 +1,7 @@
 <template>
   <div class="card md:flex md:justify-content-center">
     <Galleria
+      :thumbnailsPosition="position"
       :value="images"
       :responsiveOptions="responsiveOptions"
       :numVisible="5"

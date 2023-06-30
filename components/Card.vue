@@ -1,21 +1,23 @@
 <template>
   <NuxtLink to="/shop/productDetail">
     <div
-      class="h-rem28 bg-darkPurple rounded-lg duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 border shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+      class="h-rem28 rounded-sm duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
     >
-      <div class="w-full h-2/3 p-3">
+      <div class="w-full h-2/3 p-3 bg-white rounded-t-sm">
         <img
           src="../assets/images/Psychonauts.webp"
           class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
           alt=""
         />
       </div>
-      <div class="w-full h-1/3 flex items-center flex-col px-7 space-y-5">
-        <h3 class="text-center title text-2xl text-white">
+      <div
+        class="w-full h-1/3 flex items-center flex-col px-7 bg-white space-y-5"
+      >
+        <h3 class="text-center leading-snug title text-xl text-darkPurple">
           Seafarers: Commodore Edition Playing Cards
         </h3>
         <button
-          class="px-12 py-2 transition text-xl duration-200 ease-in-out bg-mainYellow text-darkPurple border border-mainYellow hover:text-mainYellow shadow-mainYellow hover:bg-darkPurple rounded-sm"
+          class="px-12 py-2 transition text-xl duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
         >
           خرید
         </button>

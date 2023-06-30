@@ -34,44 +34,76 @@
           class="w-1/2 h-full flex flex-col items-end space-y-6 justify-start"
         >
           <h1
-            class="text-3xl text-mainRed font-semibold italic p-2 rounded-md bg-white text-right"
+            class="text-3xl text-mainRed italic p-2 rounded-sm bg-white text-right"
           >
             Joker and the Thief : Blood Red
-            <span class="text-darkPurple not-italic font-thin">کارت بازی</span>
+            <span class="text-darkPurple not-italic text-2xl font-thin"
+              >کارت بازی</span
+            >
             Edition Playing Cards
           </h1>
-          <Rating
-            class="bg-white p-2 rounded-md"
-            v-model="value"
-            :cancel="false"
-          />
-          <div
-            class="w-full h-full bg-white rounded-md flex flex-col items-end justify-center p-7"
+          <h2
+            class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-3xl"
           >
-            <h1 class="text-2xl font-bold text-darkPurple">توضیحات</h1>
-            <h1 class="text-darkPurple text-right text-xl">
+            <span class="text-sm text-mainRed">تومان</span>
+            <span> 1,200,000 </span>
+          </h2>
+          <div class="flex items-center space-x-3">
+            <Rating
+              class="bg-white p-2 rounded-sm"
+              v-model="value"
+              :cancel="false"
+            />
+            <h3
+              class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-lg"
+            >
+              : امتیاز
+            </h3>
+          </div>
+          <div
+            class="w-full h-full bg-white rounded-sm flex flex-col items-end justify-center p-7"
+          >
+            <h1 class="text-2xl font-bold text-darkPurple">معرفی کالا</h1>
+            <h1 class="text-darkPurple text-right text-مل">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
               در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
               نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-              کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-              جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
-              طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
-              فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
-              موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد
-              نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+              نیاز شامل حروفچینی دستاوردهای اصل میباشد
             </h1>
           </div>
+          <button
+            class="text-2xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+          >
+            <span> اضافه به سبد خرید </span>
+            <PhShoppingBagOpen :size="35" weight="fill" />
+          </button>
         </div>
         <div class="w-1/2 h-full flex items-center justify-center">
           <ImageGallery />
         </div>
       </div>
+      <div
+        class="h-dialog w-full bg-darkPurple flex flex-col space-y-4 py-5 items-end"
+      >
+        <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
+        <div class="w-full h-full bg-mainPurple"></div>
+      </div>
+      <div class="h-20 w-screen bg-mainRed flex items-center justify-center">
+        <h2 class="text-darkPurple text-2xl flex">
+          <PhCards class="mr-3" /> <span> کارت های پیشنهادی </span>
+        </h2>
+      </div>
+      <div class="w-full px-10 flex items-center justify-center space-x-14">
+        <Card /> <Card class="hidden lg:flex" />
+        <Card class="hidden lg:flex" />
+        <Card class="hidden lg:flex" />
+      </div>
     </div>
   </div>
 </template>
 <script setup>
-import { PhCaretLeft } from "@phosphor-icons/vue";
+import { PhCaretLeft, PhShoppingBagOpen } from "@phosphor-icons/vue";
 
 import { ref } from "vue";
 
