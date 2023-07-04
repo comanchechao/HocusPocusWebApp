@@ -7,9 +7,15 @@
         <div class="w-full h-full flex items-center space-y-10 flex-col p-5">
           <div class="w-full flex flex-col items-center space-y-7 h-48">
             <div
-              class="w-full h-24 border rounded-md border-mainRed justify-between pr-8 flex items-center"
+              class="w-full h-24 border-y border-r rounded-md border-mainRed justify-between pr-8 flex items-center"
             >
-              <div class="w-24 h-full bg-white"></div>
+              <div class="w-24 h-24 p-3 bg-white">
+                <img
+                  src="../assets/images/Psychonauts.webp"
+                  class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+                  alt=""
+                />
+              </div>
               <h3 class="text-lg text-mainYellow flex flex-col items-center">
                 <span> 1,299,000 </span>
                 <span class="text-mainRed text-md">تومان</span>

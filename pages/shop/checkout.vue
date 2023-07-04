@@ -11,6 +11,15 @@
           >
             اطلاعات ارسال
           </h3>
+          <div class="h-full w-full flex items-center">
+            <CustomerInfo />
+          </div>
+          <button
+            class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+          >
+            <span> تایید و ادامه به درگاه بانکی </span>
+            <PhShoppingBagOpen :size="35" weight="fill" />
+          </button>
         </div>
         <div
           class="h-full w-1/3 border-l-2 border-mainRed flex flex-col items-end"
