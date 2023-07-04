@@ -17,7 +17,7 @@
           Seafarers: Commodore Edition Playing Cards
         </h3>
         <button
-          class="px-8 py-1 flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
+          class="px-8 py-2 flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" />
         </button>
