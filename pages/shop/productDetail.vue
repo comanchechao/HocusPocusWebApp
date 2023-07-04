@@ -29,7 +29,7 @@
           <span> خونه </span>
         </h2>
       </div>
-      <div class="w-full h-full flex items-center my-6 space-x-5">
+      <div class="w-full h-full flex items-center my-6 pl-4 space-x-5 bg-white">
         <div
           class="w-1/2 h-full flex flex-col items-end space-y-6 justify-start"
         >
@@ -48,20 +48,16 @@
             <span class="text-sm text-mainRed">تومان</span>
             <span> 1,200,000 </span>
           </h2>
-          <div class="flex items-center space-x-3">
-            <Rating
-              class="bg-white p-2 rounded-sm"
-              v-model="value"
-              :cancel="false"
-            />
+          <div class="flex items-center space-x-3 justify-center p-3">
+            <Rating class="rounded-sm" v-model="value" :cancel="false" />
             <h3
-              class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-lg"
+              class="font-bold rounded-sm flex items-center space-x-2 text-darkPurple text-lg"
             >
               : امتیاز
             </h3>
           </div>
           <div
-            class="w-full h-full bg-white rounded-sm flex flex-col items-end justify-center p-7"
+            class="w-full h-full bg-white rounded-sm flex flex-col items-end justify-center"
           >
             <h1 class="text-2xl font-bold text-darkPurple">معرفی کالا</h1>
             <h1 class="text-darkPurple text-right text-مل">
@@ -87,7 +83,7 @@
         class="h-dialog w-full bg-darkPurple flex flex-col space-y-4 py-5 items-end"
       >
         <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
-        <div class="w-full h-full bg-mainPurple"></div>
+        <div class="w-full h-full bg-white"></div>
       </div>
       <div class="h-20 w-screen bg-mainRed flex items-center justify-center">
         <h2 class="text-darkPurple text-2xl flex">
