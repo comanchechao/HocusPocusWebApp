@@ -80,7 +80,7 @@
         </div>
       </div>
       <div
-        class="h-dialog w-full bg-darkPurple flex flex-col space-y-4 py-5 items-end"
+        class="h-dialog w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
       >
         <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
         <div class="w-full h-full bg-white"></div>

@@ -34,12 +34,18 @@
           >
             <div class="w-full flex flex-col items-center space-y-7 h-48">
               <div
-                class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-darkPurple"
+                class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-mainRed"
               >
-                <div class="w-24 h-full bg-darkPurple"></div>
-                <h3 class="text-xl text-mainYellow flex flex-col items-center">
+                <div class="w-24 h-full bg-white p-3">
+                  <img
+                    src="../../assets/images/Psychonauts.webp"
+                    class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+                    alt=""
+                  />
+                </div>
+                <h3 class="text-xl text-darkPurple flex flex-col items-center">
                   <span> 1,299,000 </span>
-                  <span class="text-darkPurple text-md">تومان</span>
+                  <span class="text-mainRed text-sm">تومان</span>
                 </h3>
                 <!-- <div
                 class="h-full flex flex-col items-center justify-center"
@@ -69,12 +75,18 @@
             </div>
             <div class="w-full flex flex-col items-center space-y-7 h-48">
               <div
-                class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-darkPurple"
+                class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-mainRed"
               >
-                <div class="w-24 h-full bg-darkPurple"></div>
-                <h3 class="text-xl text-mainYellow flex flex-col items-center">
+                <div class="w-24 h-full bg-white p-3">
+                  <img
+                    src="../../assets/images/Psychonauts.webp"
+                    class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+                    alt=""
+                  />
+                </div>
+                <h3 class="text-xl text-darkPurple flex flex-col items-center">
                   <span> 1,299,000 </span>
-                  <span class="text-darkPurple text-md">تومان</span>
+                  <span class="text-mainRed text-sm">تومان</span>
                 </h3>
                 <!-- <div
                 class="h-full flex flex-col items-center justify-center"
