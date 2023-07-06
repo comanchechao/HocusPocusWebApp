@@ -4,12 +4,12 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';
 import { PrismaModule } from 'src/prisma/prisma.module';
-import { LocalStrategy } from './local.strategy';
-import { SessionSerializer } from './session.serielizer';
+import { AtStrategy, RtStrategy } from './strategies';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [PrismaModule, PassportModule.register({ session: true })],
+  imports: [PrismaModule, JwtModule.register({})],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, SessionSerializer],
+  providers: [AuthService, RtStrategy, AtStrategy],
 })
 export class AuthModule {}
