@@ -4,6 +4,8 @@ import { AuthService } from './auth.service';
 import { AuthDto } from './dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Tokens } from './types';
+import { AtGuard } from './common/guards';
+import { GetCurrentUser } from './common/decorators';
 
 @Controller('auth')
 export class AuthController {
@@ -15,9 +17,14 @@ export class AuthController {
     return this.authService.signup(dto);
   }
 
-  @UseGuards(AuthGuard('local'))
   @Post('signin')
-  signIn(@Request() req, @Body() user: AuthDto): any {
-    return req.session;
+  signIn(@Body() dto: AuthDto): Promise<Tokens> {
+    return this.authService.signIn(dto);
+  }
+
+  @UseGuards(AtGuard)
+  @Post('logout')
+  logout(@GetCurrentUser('sub') userId: number) {
+    return this.authService.logout(userId);
   }
 }
