@@ -55,6 +55,7 @@ export class AuthService {
       //delete user.hash;
       // return the saved user
       const tokens = await this.getTokens(user.id, user.email);
+      await this.updateRT(user.id, tokens.refresh_token);
       return tokens;
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
@@ -65,6 +66,18 @@ export class AuthService {
       }
     }
     // save the user into the dataabase
+  }
+
+  async updateRT(userId: number, rt: string) {
+    const hash = await argon.hash(rt);
+    await this.prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        rt: hash,
+      },
+    });
   }
 
   async signIn(dto: AuthDto) {
