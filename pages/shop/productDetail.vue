@@ -4,7 +4,7 @@
     <div
       class="h-auto w-screen bg-darkPurple flex-col flex items-center px-32 py-16"
     >
-      <div class="flex items-center w-full justify-end space-x-4">
+      <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
           class="text-mainRed text-lg flex space-x-3 items-center underline cursor-pointer"
         >
@@ -29,7 +29,9 @@
           <span> خونه </span>
         </h2>
       </div>
-      <div class="w-full h-full flex items-center my-6 pl-4 space-x-5 bg-white">
+      <div
+        class="w-full Product h-full flex items-center my-6 pl-4 space-x-5 bg-white"
+      >
         <div
           class="w-1/2 h-full flex flex-col items-end space-y-6 justify-start"
         >
@@ -80,7 +82,7 @@
         </div>
       </div>
       <div
-        class="h-dialog w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
+        class="h-dialog Comment w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
       >
         <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
         <div class="w-full h-full bg-white"></div>
@@ -104,6 +106,15 @@ import { PhCaretLeft, PhShoppingBagOpen } from "@phosphor-icons/vue";
 import { ref } from "vue";
 
 const value = ref(null);
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+
+onMounted(() => {
+  TM.from(".Bread", { opacity: 0, duration: 1, delay: 1 });
+  TM.from(".Product", { opacity: 0, duration: 1 });
+
+  TM.from(".Comment", { opacity: 0, duration: 1.5, stagger: 0.4 });
+});
 </script>
 
 <style>
