@@ -59,6 +59,6 @@ import {
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 onMounted(() => {
-  $gsap.from(".Navbar", { opacity: 0, duration: 2 });
+  $gsap.from(".Navbar", { opacity: 0, duration: 1 });
 });
 </script>
