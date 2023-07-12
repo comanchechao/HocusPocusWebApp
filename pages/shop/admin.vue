@@ -48,6 +48,9 @@
           </div>
         </div>
       </div>
+      <div class="w-full justify-center my-7 flex items-center">
+        <AddProduct />
+      </div>
     </div>
   </div>
 </template>
