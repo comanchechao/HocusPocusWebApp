@@ -4,7 +4,7 @@
   >
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-lg text-mainRed">کالاهای موجود</h3>
+      <h3 class="text-lg text-mainRed">موجودی کالا</h3>
     </div>
     <MultiSelect
       v-model="selectedRarity"

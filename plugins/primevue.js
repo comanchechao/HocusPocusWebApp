@@ -10,6 +10,7 @@ import Galleria from "primevue/galleria";
 import Sidebar from "primevue/sidebar";
 import Rating from "primevue/rating";
 import InputNumber from "primevue/inputnumber";
+import Textarea from "primevue/textarea";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
@@ -22,6 +23,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("Textarea", Textarea);
 
   //other components that you need
 });
