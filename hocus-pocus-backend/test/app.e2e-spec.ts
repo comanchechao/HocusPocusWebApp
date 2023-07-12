@@ -2,6 +2,8 @@
 import { Test } from '@nestjs/testing';
 import { AppModule } from '../src/app.module';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { AuthDto } from 'src/auth/dto';
+import * as pactum from 'pactum';
 
 describe('app e2e', () => {
   let app: INestApplication;
@@ -16,8 +18,26 @@ describe('app e2e', () => {
       }),
     );
     await app.init();
+    await app.listen(3000);
+    pactum.request.setBaseUrl('http://localhost:3000');
   });
   it.todo('run this');
+  describe('auth', () => {
+    describe('signup', () => {
+      it('signup', () => {
+        const dto: AuthDto = {
+          email: 'imgreez@pyou.know',
+          password: 'thisistheone',
+        };
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody(dto)
+          .expectStatus(201)
+          .inspect();
+      });
+    });
+  });
 
   afterAll(() => {
     app.close();
