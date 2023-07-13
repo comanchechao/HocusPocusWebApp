@@ -17,11 +17,11 @@
           <span> خونه </span>
         </h2>
       </div>
-      <div class="flex items-start justify-start w-full flex-col my-9">
+      <div class="flex items-start Stat1 justify-start w-full flex-col my-9">
         <div
           class="flex flex-col items-center rounded-md shadow-md shadow-mainPurple p-6"
         >
-          <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>
             <h1 class="text-6xl text-mainRed Text font-bold">221,450,88</h1>
           </div>
@@ -30,7 +30,7 @@
       </div>
       <div class="flex items-center space-x-20 my-11">
         <div
-          class="w-72 h-32 bg-white rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
+          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
         >
           <PhMoney class="text-mainRed" :size="70" weight="fill" />
           <div class="flex flex-col items-center space-y-3">
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div
-          class="w-72 h-32 bg-white rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
+          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
         >
           <PhStack class="text-mainRed" :size="60" weight="fill" />
           <div class="flex flex-col items-center space-y-3">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div
-          class="w-72 h-32 bg-white rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
+          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
         >
           <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
           <div class="flex flex-col items-center space-y-3">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="w-full justify-center my-7 flex items-center">
-        <AddProduct />
+        <AddProduct class="Product" />
       </div>
       <div class="w-full h-dialog flex flex-col items-end space-y-6x">
         <h2 class="text-4xl neonText mb-10">سفارش ها</h2>
@@ -132,7 +132,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import {
   PhCaretLeft,
   PhCoffee,
@@ -143,6 +143,16 @@ import {
   PhAirplaneTilt,
   PhPackage,
 } from "@phosphor-icons/vue";
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+
+onMounted(() => {
+  TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
+  TM.from(".Stat1", { opacity: 0, duration: 1 });
+  TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });
+
+  TM.from(".Product", { opacity: 0, duration: 0.5 });
+});
 </script>
 
 <style scoped></style>
