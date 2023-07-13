@@ -14,8 +14,8 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
-      <div class="w-full h-full flex items-center flex-col space-y-10 px-8">
-        <h2 class="neonText text-xl">آپلود تصاویر</h2>
+      <div class="w-full h-full flex items-center flex-col space-y-14 px-8">
+        <h2 class="neonText text-3xl">آپلود تصاویر</h2>
         <div class="w-full h-full flex items-center justify-between flex-wrap">
           <div
             class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
@@ -64,7 +64,16 @@
               />
             </div>
           </div>
-
+          <div class="flex items-end flex-col space-y-4">
+            <label class="text-xl text-mainRed" for="email">توضیحات کالا</label>
+            <Textarea
+              class="w-full"
+              autoResize
+              v-model="value1"
+              rows="1"
+              cols="90"
+            />
+          </div>
           <Filters />
           <div class="h-28 w-full flex items-center justify-center">
             <button
@@ -85,6 +94,7 @@
 import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 const visible = ref(false);
+const value1 = ref("");
 </script>
 
 <style>
