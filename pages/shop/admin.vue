@@ -29,24 +29,8 @@
         </div>
       </div>
       <div class="flex items-center space-x-20 my-11">
-        <div
-          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
-        >
-          <PhMoney class="text-mainRed" :size="70" weight="fill" />
-          <div class="flex flex-col items-center space-y-3">
-            <h3 class="text-mainPurple text-sm">اجناس فروخته شده</h3>
-            <h1 class="text-darkPurple text-5xl font-bold">352</h1>
-          </div>
-        </div>
-        <div
-          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
-        >
-          <PhStack class="text-mainRed" :size="60" weight="fill" />
-          <div class="flex flex-col items-center space-y-3">
-            <h3 class="text-mainPurple text-sm">اجناس در انبار</h3>
-            <h1 class="text-darkPurple text-5xl font-bold">1522000</h1>
-          </div>
-        </div>
+        <SoldDialog />
+        <InStockDialog />
         <div
           class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
         >
