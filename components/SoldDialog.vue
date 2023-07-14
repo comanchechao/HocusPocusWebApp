@@ -21,10 +21,10 @@
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
       <div
-        class="h-full w-full p-3 space-y-5 flex flex-col items-center justify-center"
+        class="h-full w-full p-3 space-y-10 flex flex-col items-center justify-center"
       >
         <h2 class="text-white text-3xl">کالاهای فروخته شده</h2>
-        <div class="w-full h-dialog bg-white rounded-md">
+        <div class="w-full h-full bg-white rounded-md">
           <div
             class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-4"
           >

@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-screen bg-darkPurple">
     <Navbar />
-    <div class="w-full h-full flex flex-col items-center px-40 py-16">
+    <div class="w-full h-full flex flex-col items-center px-5 lg:px-40 py-16">
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
           class="text-mainRed underline text-lg flex space-x-3 items-center cursor-pointer"
@@ -17,7 +17,9 @@
           <span> خونه </span>
         </h2>
       </div>
-      <div class="flex items-start Stat1 justify-start w-full flex-col my-9">
+      <div
+        class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
+      >
         <div
           class="flex flex-col items-center rounded-md shadow-md shadow-mainPurple p-6"
         >
@@ -28,25 +30,23 @@
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
         </div>
       </div>
-      <div class="flex items-center space-x-20 my-11">
+      <div
+        class="flex items-center lg:flex-row flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
+      >
         <SoldDialog />
         <InStockDialog />
-        <div
-          class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainRed flex p-4 items-center justify-around"
-        >
-          <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
-          <div class="flex flex-col items-center space-y-3">
-            <h3 class="text-mainPurple text-sm">اجناس موجود</h3>
-            <h1 class="text-darkPurple text-5xl font-bold">50000</h1>
-          </div>
-        </div>
+        <AvailableDialog />
       </div>
       <div class="w-full justify-center my-7 flex items-center">
         <AddProduct class="Product" />
       </div>
-      <div class="w-full h-dialog flex flex-col items-end space-y-6x">
+      <div
+        class="w-full mt-10 lg:mt-0 h-full lg:h-dialog flex flex-col items-end space-y-6"
+      >
         <h2 class="text-4xl neonText mb-10">سفارش ها</h2>
-        <div class="w-full h-auto bg-white flex flex-col rounded-md">
+        <div
+          class="w-full h-full bg-white flex flex-col rounded-md text-xs lg:text-lg"
+        >
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
           >
@@ -120,9 +120,6 @@
 import {
   PhCaretLeft,
   PhCoffee,
-  PhMoney,
-  PhStack,
-  PhChartPieSlice,
   PhCheckCircle,
   PhAirplaneTilt,
   PhPackage,
