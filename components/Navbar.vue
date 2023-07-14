@@ -42,7 +42,7 @@
     <div
       class="flex justify-around lg:w-auto w-full items-center space-x-3 Navbar"
     >
-      <NuxtLink to="/shop/admin">
+      <NuxtLink class="hidden lg:flex" to="/shop/admin">
         <button
           class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
         >

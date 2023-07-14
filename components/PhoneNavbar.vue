@@ -12,6 +12,14 @@
             <PhHouseSimple :size="23" />
           </button>
         </NuxtLink>
+        <NuxtLink class="flex lg:hidden" to="/shop/admin">
+          <button
+            class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          >
+            <span> مدیریت </span>
+            <PhCoffee :size="23" />
+          </button>
+        </NuxtLink>
         <NuxtLink to="/shop/shop">
           <button
             class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
