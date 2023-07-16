@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center space-x-10 w-full h-24 border-t-2 border-mainRed"
+    class="flex lg:flex-row flex-col space-y-4 lg:space-y-0 lg:pt-0 pt-6 items-center justify-center lg:space-x-10 w-screen lg:w-full h-auto lg:h-24 border-t-2 border-mainRed"
   >
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>

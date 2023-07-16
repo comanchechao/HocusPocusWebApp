@@ -18,35 +18,39 @@
     >
       <div class="w-full h-full flex items-center flex-col lg:p-10 space-y-10">
         <h2 class="neonText text-3xl">آپلود تصاویر</h2>
-        <div class="w-full h-full flex items-center justify-between flex-wrap">
+        <div
+          class="w-full h-full lg:flex items-center grid grid-cols-2 grid-rows-2 justify-items-center px-7 place-items-center gap-3 lg:space-x-0 lg:justify-between lg:flex-wrap"
+        >
           <div
-            class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="w-40 h-52 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out col-span-2 duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
         </div>
-        <div class="w-full flex items-center flex-col space-y-4">
-          <div class="flex items-center space-x-10">
+        <div class="w-full flex items-center flex-col space-y-7">
+          <div
+            class="flex lg:flex-row flex-col items-center lg:space-y-0 space-y-7 lg:space-x-10"
+          >
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainRed" for="email">قیمت کالا</label>
               <InputNumber

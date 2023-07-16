@@ -25,7 +25,9 @@
         >
           <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>
-            <h1 class="text-6xl text-mainRed Text font-bold">221,450,88</h1>
+            <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+              221,450,88
+            </h1>
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
         </div>
@@ -43,8 +45,10 @@
       <div
         class="w-full mt-10 lg:mt-0 h-full lg:h-dialog flex flex-col items-end space-y-6"
       >
-        <div class="w-full flex items-center justify-end space-x-6 mb-10">
-          <OrderManagementDialog />
+        <div
+          class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
+        >
+          <OrderManagementDialog class="lg:mt-0 mt-7" />
           <h2 class="text-4xl neonText">سفارش ها</h2>
         </div>
         <div
