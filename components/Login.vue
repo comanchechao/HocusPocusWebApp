@@ -10,7 +10,7 @@
     </button>
 
     <Dialog
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
+      :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
       modal
       :showHeader="false"
@@ -62,6 +62,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhLockKey } from "@phosphor-icons/vue";
+import { PhKeyhole } from "@phosphor-icons/vue";
 const visible = ref(false);
 </script>

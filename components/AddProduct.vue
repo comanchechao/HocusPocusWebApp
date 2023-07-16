@@ -8,13 +8,15 @@
       <PhPlus weight="fill" :size="23" />
     </button>
     <Dialog
+      :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
       modal
-      :style="{ width: '70vw', backgroundColor: '#10002b', height: '100vh' }"
+      :showHeader="false"
+      :style="{ width: '70vw', backgroundColor: '#10002b', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#10002b' }"
     >
-      <div class="w-full h-full flex items-center flex-col space-y-14 px-8">
+      <div class="w-full h-full flex items-center flex-col lg:p-10 space-y-10">
         <h2 class="neonText text-3xl">آپلود تصاویر</h2>
         <div class="w-full h-full flex items-center justify-between flex-wrap">
           <div
@@ -100,5 +102,33 @@ const value1 = ref("");
 <style>
 .p-dialog .p-dialog-header {
   background-color: #10002b;
+}
+@media only screen and (max-width: 480px) {
+  .p-dialog {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(100% - 46px) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .p-dialog {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(100% - 46px) !important;
+  }
 }
 </style>

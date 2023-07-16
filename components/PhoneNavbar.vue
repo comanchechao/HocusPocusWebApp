@@ -63,6 +63,7 @@ import {
   PhCallBell,
   PhSpade,
   PhStorefront,
+  PhCoffee,
   PhList,
 } from "@phosphor-icons/vue";
 const visible = ref(false);
