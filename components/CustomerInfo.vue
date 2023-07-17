@@ -88,7 +88,7 @@ const regions = ref([
   align-items: center;
   cursor: pointer;
   display: flex;
-  border: 1px solid #10002b;
+  border: 1px solid #555555;
   font-family: "IranSans";
   background-color: #fbf8ff;
   border-radius: 0.3rem;
@@ -98,7 +98,6 @@ const regions = ref([
   display: flex;
   border: 1px solid #10002b;
   font-family: "IranSans";
-  border-radius: 0rem;
   background-color: #fbf8ff;
   border-radius: 0.3rem;
   flex-direction: row-reverse;
