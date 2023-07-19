@@ -30,7 +30,7 @@
         </h2>
       </div>
       <div
-        class="w-full Product h-full flex items-center my-6 pl-4 space-x-5 bg-white"
+        class="w-full Product shadow-lg shadow-mainPurple rounded-md h-full flex items-center my-6 pl-4 space-x-5 bg-white"
       >
         <div
           class="w-1/2 h-full flex flex-col items-end space-y-6 justify-start"
@@ -85,7 +85,7 @@
         class="h-dialog Comment w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
       >
         <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
-        <div class="w-full h-full bg-white"></div>
+        <div class="w-full h-full bg-white rounded-md"></div>
       </div>
       <div class="h-20 w-screen bg-mainRed flex items-center justify-center">
         <h2 class="text-darkPurple text-2xl flex">

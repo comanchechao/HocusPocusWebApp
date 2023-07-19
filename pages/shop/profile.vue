@@ -56,18 +56,21 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .slide-fade-enter-active {
-  transition: all 0.5s ease-out;
+  transition: all 1s ease-in-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 1s opacity;
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translatey(80px);
   opacity: 0;
+}
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+  opacity: 1;
 }
 </style>
