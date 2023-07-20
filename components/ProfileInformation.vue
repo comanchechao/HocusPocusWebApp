@@ -4,9 +4,10 @@
   >
     <div class="w-full h-24 flex items-center justify-end px-6">
       <h2
-        class="text-4xl text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
+        class="text-4xl flex items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
       >
-        اطلاعات کاربری
+        <span> اطلاعات کاربری </span>
+        <PhAlien weight="fill" />
       </h2>
     </div>
     <transition name="slide-fade">
@@ -36,6 +37,9 @@
   </div>
 </template>
 
+<script setup>
+import { PhAlien } from "@phosphor-icons/vue";
+</script>
 <script>
 export default {
   data() {

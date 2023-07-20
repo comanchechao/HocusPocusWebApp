@@ -30,14 +30,14 @@
           @click="currentTab = 'tab1'"
         >
           <span>اطلاعات کاربری</span>
-          <PhAlien :size="25" />
+          <PhAlien weight="fill" :size="25" />
         </button>
         <button
           class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-72 justify-center px-8 py-4 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           @click="currentTab = 'tab2'"
         >
           <span> سفارش ها </span>
-          <PhClipboardText :size="25" />
+          <PhClipboardText weight="fill" :size="25" />
         </button>
       </div>
     </div>
