@@ -46,12 +46,3 @@
 <script setup>
 import { PhAlien } from "@phosphor-icons/vue";
 </script>
-<script>
-export default {
-  data() {
-    return {
-      currentTab: "tab2",
-    };
-  },
-};
-</script>
