@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-cols-2 place-items-end gap-5 h-full w-full p-20">
+  <div
+    class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:p-20 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
+  >
     <Dropdown
       v-model="selectedCity"
       :options="cities"

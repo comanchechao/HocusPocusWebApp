@@ -2,7 +2,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <Navbar />
     <div
-      class="w-full h-screen px-28 py-6 flex items-center justify-center space-x-9"
+      class="w-full h-auto lg:h-screen lg:px-28 py-6 lg:flex-row flex-col-reverse flex items-center justify-center lg:space-y-0 space-y-6 lg:space-x-9"
     >
       <div class="h-full w-full flex-col flex items-center justify-center">
         <div
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div
-        class="h-full w-1/4 flex items-center justify-center flex-col space-y-4"
+        class="h-full w-full lg:w-1/4 flex items-center justify-center flex-col space-y-4"
       >
         <button
           @click="toggleDiv1"
