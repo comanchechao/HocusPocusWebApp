@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen">
+  <div class="w-screen h-auto bg-darkPurple">
     <Navbar></Navbar>
     <div
       class="lg:h-screen h-carousel text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
@@ -27,7 +27,7 @@
         </h1>
       </div>
     </div>
-    <div class="h-screen w-full bg-darkPurple flex flex-col items-center">
+    <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
       <div class="h-24 w-screen bg-mainRed flex items-center justify-center">
         <h2 class="text-darkPurple text-3xl flex">
           <PhCards class="mr-3" /> <span> جدیدترین کارت ها </span>
@@ -38,9 +38,15 @@
         <Card class="hidden lg:flex" />
         <Card class="hidden lg:flex" />
       </div>
+
+      <img
+        src="../assets/images/MagicDivider.webp"
+        class="w-full px-36 object-contain"
+        alt=""
+      />
     </div>
     <div
-      class="h-full w-full bg-darkPurple flex flex-col items-center lg:px-28"
+      class="h-full w-full bg-darkPurple flex flex-col items-center mt-32 lg:px-28"
     >
       <h2 class="text-6xl text-mainRed neonText my-14 lg:my-0">کشف کن</h2>
 
@@ -76,6 +82,7 @@
       </div>
     </div>
     <div class="h-screen w-full bg-darkPurple flex items-center px-28"></div>
+    <Footer></Footer>
   </div>
 </template>
 <script setup>
