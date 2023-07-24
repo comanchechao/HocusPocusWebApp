@@ -47,7 +47,7 @@
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <button
             label="Show"
-            @click="visible = false"
+            @click="formSubmit()"
             class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> ورود </span>
@@ -64,4 +64,31 @@
 import { ref } from "vue";
 import { PhKeyhole } from "@phosphor-icons/vue";
 const visible = ref(false);
+
+async function formSubmit() {
+  const data = new URLSearchParams({
+    email: "adsf@gmail.com",
+    password: "sad",
+    username: "dfg",
+  });
+
+  await $fetch(
+    "http://localhost:3333/auth/signin",
+    {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: data,
+    },
+    { withCredentials: true }
+  )
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
 </script>

@@ -2,7 +2,7 @@
   <div class="card flex justify-center">
     <button
       label="Show"
-      @click="visible = true"
+      @click="formSubmit()"
       class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-6 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-dashed border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> ثبت نام </span>
@@ -62,4 +62,17 @@
 import { ref } from "vue";
 import { PhSignature } from "@phosphor-icons/vue";
 const visible = ref(false);
+
+async function formSubmit() {
+  const data = new URLSearchParams({
+    email: "adsf@gmail.com",
+    password: "sad",
+    username: "dfg",
+  });
+
+  await $fetch("http://localhost:3333/auth/signup", {
+    method: "POST",
+    body: data,
+  });
+}
 </script>
