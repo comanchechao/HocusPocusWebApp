@@ -73,6 +73,6 @@ const visible = ref(false);
   padding: 0;
 }
 .p-sidebar .p-sidebar-header {
-  background-color: #10002b;
+  background-color: #0a001a;
 }
 </style>

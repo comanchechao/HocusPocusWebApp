@@ -104,7 +104,7 @@ const brands = ref([
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
-  color: #10002b;
+  color: #0a001a;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #f72585;
@@ -113,7 +113,7 @@ const brands = ref([
   font-family: "IranSans";
   border: #f72585;
   border-radius: 0rem;
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #f72585;
   padding: 0px 0px;
   flex-direction: row-reverse;
@@ -128,7 +128,7 @@ const brands = ref([
   text-transform: uppercase;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #f72585;
 }
 .p-multiselect-panel
@@ -139,19 +139,19 @@ const brands = ref([
 }
 
 .p-multiselect-panel .p-multiselect-header {
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #f72585;
 }
 .p-multiselect-label-container {
-  background-color: #10002b;
+  background-color: #0a001a;
   border: 0;
 }
 .p-multiselect-token {
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #f72585;
 }
 .p-multiselect-panel .p-multiselect-items {
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #f72585;
 }
 
@@ -165,7 +165,7 @@ const brands = ref([
 
 .p-checkbox .p-checkbox-box {
   border-radius: 2rem;
-  background-color: #10002b;
+  background-color: #0a001a;
 }
 .p-overlay-open {
   border: 20;
@@ -175,7 +175,7 @@ const brands = ref([
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   background-color: #f72585;
-  color: #10002b;
+  color: #0a001a;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
   display: flex;
@@ -185,7 +185,7 @@ const brands = ref([
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
   background: #f72585;
-  color: #10002b;
+  color: #0a001a;
 }
 .p-multiselect-panel
   .p-multiselect-items
@@ -196,12 +196,12 @@ const brands = ref([
 .p-checkbox .p-checkbox-box.p-highlight {
   background-color: #f72585;
   border: 20;
-  border-color: #10002b;
+  border-color: #0a001a;
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
   background-color: #f72585;
-  color: #10002b;
+  color: #0a001a;
 }
 .p-multiselect-panel
   .p-multiselect-items

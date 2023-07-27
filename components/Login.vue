@@ -14,9 +14,9 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#10002b', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#0A001A', height: '100vw' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#10002b' }"
+      :contentStyle="{ backgroundColor: '#0A001A' }"
     >
       <div class="w-full h-full flex items-center lg:p-16 flex-col space-y-10">
         <h2 class="text-6xl neonText">ورود</h2>

@@ -72,7 +72,7 @@ const regions = ref([
 </script>
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {
-  color: #10002b;
+  color: #0a001a;
 }
 .p-dropdown .p-dropdown-label {
   display: flex;
@@ -104,18 +104,18 @@ const regions = ref([
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
   background-color: #fbf8ff;
-  color: #10002b;
+  color: #0a001a;
 }
 
 .p-dropdown-panel
   .p-dropdown-items
   .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
-  background-color: #10002b;
+  background-color: #0a001a;
   color: #fbf8ff;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
   background: #f72585;
-  color: #10002b;
+  color: #0a001a;
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
   padding: 0;
@@ -123,6 +123,6 @@ const regions = ref([
 input::placeholder,
 textarea::placeholder {
   background-color: #fbf8ff;
-  color: #10002b90;
+  color: #0a001a90;
 }
 </style>

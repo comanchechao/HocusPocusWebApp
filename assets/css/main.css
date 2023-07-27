@@ -26,7 +26,7 @@ body {
 * {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #10002b #f72585;
+  scrollbar-color: #0a001a #f72585;
 }
 
 *::-webkit-scrollbar {
@@ -64,15 +64,15 @@ input::-webkit-inner-spin-button {
   background: #b5179e;
 }
 ::-webkit-scrollbar-track {
-  background: #10002b;
+  background: #0a001a;
   border: 0px none #ffffff;
   border-radius: 100px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: #10002b;
+  background: #0a001a;
 }
 ::-webkit-scrollbar-track:active {
-  background: #10002b;
+  background: #0a001a;
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
