@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-20 flex items-center justify-center lg:px-10 bg-darkPurple"
+    class="w-screen h-20 flex items-center justify-center lg:px-10 bg-transparent z-50"
   >
     <div
       class="items-center justify-start space-x-3 w-full Navbar hidden lg:flex"
@@ -16,12 +16,14 @@
         <span> درباره ما </span>
         <PhSpade :size="23" />
       </button>
-      <button
-        class="text-xl active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
-      >
-        <span> آموزش </span>
-        <PhCube :size="23" />
-      </button>
+      <NuxtLink to="/learn/learn">
+        <button
+          class="text-xl active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+        >
+          <span> آموزش </span>
+          <PhCube :size="23" />
+        </button>
+      </NuxtLink>
 
       <NuxtLink to="/shop/shop">
         <button

@@ -2,8 +2,15 @@
   <div class="w-screen h-auto bg-darkPurple">
     <Navbar></Navbar>
     <div
-      class="lg:h-screen h-carousel text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
+      ref="container"
+      class="lg:h-screen container h-carousel text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
     >
+      <img
+        ref="image"
+        src="../assets/images/Pump.webp"
+        class="w-44 image object-contain opacity-40"
+        alt=""
+      />
       <div
         class="w-1/2 h-dialog lg:flex items-center justify-center py-3 px-14 hidden"
       >
@@ -88,8 +95,44 @@
 <script setup>
 import Card from "../components/Card.vue";
 import { PhMagicWand, PhCards } from "@phosphor-icons/vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
 const products = ref();
+
+const container = ref(null);
+const image = ref(null);
+
+onMounted(() => {
+  const TL = gsap.timeline();
+  TL.to(image.value, {
+    duration: 66,
+    motionPath: {
+      path: [
+        { x: 200, y: -110 },
+        { x: 1000, y: -100 },
+        { x: 1500, y: -110 },
+        { x: 1500, y: -100 },
+
+        { x: 1300, y: 500 },
+        { x: 1000, y: 600 },
+        { x: 200, y: 500 },
+
+        { x: 0, y: 100 },
+      ],
+      ease: "power1.inOut",
+      autoRotate: true,
+    },
+    repeat: -1,
+  });
+  TL.to(image.value, {
+    opacity: 0,
+    duration: 2,
+  });
+  TL.to(image.value, {
+    opacity: 0.7,
+    duration: 2,
+  });
+});
 const responsiveOptions = ref([
   {
     breakpoint: "1199px",
@@ -108,6 +151,7 @@ const responsiveOptions = ref([
   },
 ]);
 </script>
+
 <style>
 @font-face {
   font-family: "Hocus";
@@ -129,5 +173,14 @@ const responsiveOptions = ref([
   color: #fff;
   text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
     0 0 20px #f72585;
+}
+.container {
+  position: relative;
+  width: 100vw;
+}
+
+.image {
+  position: absolute;
+  left: 0;
 }
 </style>

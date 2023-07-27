@@ -68,7 +68,7 @@ watch([showDiv1, showDiv2], (values) => {
       {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.7,
         ease: "power2.out",
       }
     );
@@ -79,7 +79,7 @@ watch([showDiv1, showDiv2], (values) => {
       {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.7,
         ease: "power2.out",
       }
     );
@@ -90,6 +90,6 @@ watch([showDiv1, showDiv2], (values) => {
 <style>
 #div1,
 #div2 {
-  transition: opacity 0.6s;
+  transition: opacity 0.2s;
 }
 </style>
