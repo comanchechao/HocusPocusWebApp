@@ -8,7 +8,7 @@
       <img
         ref="image"
         src="../assets/images/Pump.webp"
-        class="w-44 image object-contain opacity-40"
+        class="w-44 image object-contain opacity-80"
         alt=""
       />
       <!-- <div
@@ -108,8 +108,8 @@ onMounted(() => {
       path: [
         { x: 200, y: -110 },
         { x: 1000, y: -100 },
-        { x: 1500, y: -110 },
-        { x: 1500, y: -100 },
+        { x: 1300, y: -110 },
+        { x: 1400, y: -100 },
 
         { x: 1300, y: 500 },
         { x: 1000, y: 600 },
