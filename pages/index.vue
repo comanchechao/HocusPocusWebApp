@@ -1,9 +1,9 @@
 <template>
-  <div class="w-screen h-auto bg-darkPurple">
+  <div class="w-screen h-auto bg-darkPurple flex flex-col items-center">
     <Navbar></Navbar>
     <div
       ref="container"
-      class="lg:h-screen container h-carousel text-9xl w-screen flex items-start pt-7 justify-center bg-darkPurple px-16"
+      class="lg:h-screen container h-carousel w-screen flex items-center pt-7 justify-center bg-darkPurple"
     >
       <img
         ref="image"
@@ -11,24 +11,22 @@
         class="w-44 image object-contain opacity-40"
         alt=""
       />
-      <div
+      <!-- <div
         class="w-1/2 h-dialog lg:flex items-center justify-center py-3 px-14 hidden"
       >
         <div
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
-      </div>
-      <div
-        class="lg:w-1/2 w-full h-dialog flex flex-col space-y-24 items-center justify-center"
-      >
+      </div> -->
+      <div class="w-full h-auto flex flex-col items-center justify-center">
         <h1
           class="transition flex duration-150 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <PhMagicWand />
-          <span>خوش اومدید به مجیک شاپِ </span>
+          <span> مجیک شاپِ </span>
         </h1>
         <h1
-          class="transition HocusPocus duration-150 ease-in-out text-center rounded-sm text-white"
+          class="transition w-full HocusPocus duration-150 ease-in-out text-center text-white"
         >
           Hocus Pocus
         </h1>
@@ -155,7 +153,7 @@ const responsiveOptions = ref([
 <style>
 @font-face {
   font-family: "Hocus";
-  src: url("../assets/fonts/Satisfy-Regular.ttf");
+  src: url("../assets/fonts/Slagless.ttf");
   font-style: normal;
   font-display: swap;
 
@@ -163,7 +161,7 @@ const responsiveOptions = ref([
 }
 
 .HocusPocus {
-  font-size: 9rem;
+  font-size: 13rem;
   font-family: "Hocus";
   text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
     0 0 20px #f72585;

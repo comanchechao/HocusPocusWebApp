@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-auto w-screen bg-darkPurple">
     <Navbar />
     <div
       class="h-auto w-screen bg-darkPurple flex-col flex items-center px-32 py-16"
@@ -98,6 +98,7 @@
         <Card class="hidden lg:flex" />
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 <script setup>
