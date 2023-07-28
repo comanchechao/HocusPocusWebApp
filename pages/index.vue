@@ -56,7 +56,7 @@
       />
     </div>
     <div
-      class="lg:h-full h-auto w-full bg-darkPurple flex flex-col items-center my-32 lg:px-28"
+      class="lg:h-rem50 h-auto w-full bg-darkPurple flex flex-col items-center my-32 lg:px-28"
     >
       <h2 class="text-6xl text-mainRed neonText my-14 lg:my-0">کشف کن</h2>
 
