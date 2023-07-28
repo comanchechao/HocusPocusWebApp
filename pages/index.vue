@@ -30,6 +30,11 @@
         >
           HOCUS POCUS
         </h1>
+        <img
+          src="../assets/images/MagicshopDivider.webp"
+          class="w-full px-8 lg:px-40 object-contain my-8"
+          alt=""
+        />
       </div>
     </div>
     <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
@@ -160,8 +165,9 @@ const responsiveOptions = ref([
 }
 
 .HocusPocus {
-  line-height: 3cm;
-  font-size: 13rem;
+  line-height: 5cm;
+
+  font-size: 14rem;
   font-family: "Hocus";
   text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
     0 0 20px #f72585;
@@ -183,6 +189,8 @@ const responsiveOptions = ref([
 }
 @media only screen and (max-width: 480px) {
   .HocusPocus {
+    line-height: 3cm;
+
     font-size: 7rem;
     font-family: "Hocus";
     text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
@@ -191,6 +199,8 @@ const responsiveOptions = ref([
 }
 @media only screen and (max-width: 768px) {
   .HocusPocus {
+    line-height: 3cm;
+
     font-size: 7rem;
     font-family: "Hocus";
     text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
