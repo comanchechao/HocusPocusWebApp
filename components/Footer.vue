@@ -1,13 +1,15 @@
 <template>
   <div
-    class="h-screen overflow-hidden w-screen flex-col bg-darkPurple flex items-center space-y-8 justify-center"
+    class="lg:h-screen h-rem40 overflow-hidden w-screen flex-col bg-darkPurple flex items-center space-y-8 justify-center"
   >
     <img
       src="../assets/images/MagicDivider2.webp"
-      class="w-full h-28 object-contain"
+      class="w-full lg:px-0 px-5 h-28 object-contain"
       alt=""
     />
-    <div class="flex w-full items-center justify-end px-20 h-full">
+    <div
+      class="flex w-full items-center justify-center text-center lg:justify-end px-20 h-full"
+    >
       <div class="flex flex-col items-center justify-center space-y-6">
         <img
           src="../assets/images/MagicianLogo.webp"
@@ -49,7 +51,6 @@
 <script setup>
 import {
   PhFacebookLogo,
-  PhGraduationCap,
   PhInstagramLogo,
   PhTelegramLogo,
   PhTwitterLogo,

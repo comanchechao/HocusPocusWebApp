@@ -2,48 +2,47 @@
   <div class="h-auto w-screen bg-darkPurple">
     <Navbar />
     <div
-      class="h-auto w-screen bg-darkPurple flex-col flex items-center px-32 py-16"
+      class="h-auto w-screen bg-darkPurple flex-col flex items-center px-7 lg:px-32 py-16"
     >
-      <div class="flex Bread items-center w-full justify-end space-x-4">
+      <div
+        class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
+      >
         <h2
-          class="text-mainRed text-lg flex space-x-3 items-center underline cursor-pointer"
+          class="text-mainRed flex space-x-3 items-center underline cursor-pointer"
         >
           <span> Joker and the Thief: Blood Red Edition Playing Cards </span>
         </h2>
-        <h2
-          class="text-mainRed text-lg flex space-x-3 items-center cursor-pointer"
-        >
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
           <span> کارت ها </span>
         </h2>
-        <h2
-          class="text-mainRed text-lg flex space-x-3 items-center cursor-pointer"
-        >
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
           <span> خرید </span>
         </h2>
-        <h2
-          class="text-mainRed text-lg flex space-x-3 items-center cursor-pointer"
-        >
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
           <span> خونه </span>
         </h2>
       </div>
       <div
-        class="w-full Product shadow-lg shadow-mainPurple rounded-md h-full flex items-center my-6 pl-4 space-x-5 bg-white"
+        class="w-full Product shadow-lg shadow-mainPurple lg:flex-row flex-col-reverse rounded-md h-full flex items-center my-6 lg:pl-4 lg:space-x-5 bg-white"
       >
         <div
-          class="w-1/2 h-full flex flex-col items-end space-y-6 justify-start"
+          class="lg:w-1/2 w-full lg:px-0 p-4 h-full flex flex-col items-end space-y-6 justify-start"
         >
-          <h1
-            class="text-3xl text-mainRed italic p-2 rounded-sm bg-white text-right"
-          >
-            Joker and the Thief : Blood Red
-            <span class="text-darkPurple not-italic text-2xl font-thin"
+          <div class="flex items-center justify-center space-x-2">
+            <h1
+              class="text-2xl text-darkPurple p-2 rounded-sm bg-white text-right"
+            >
+              <span>
+                Joker and the Thief : Blood Red Edition Playing Cards
+              </span>
+            </h1>
+            <span class="text-mainRed not-italic text-2xl font-thin"
               >کارت بازی</span
             >
-            Edition Playing Cards
-          </h1>
+          </div>
           <h2
             class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-3xl"
           >
@@ -71,13 +70,13 @@
             </h1>
           </div>
           <button
-            class="text-2xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+            class="lg:text-2xl text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-52 self-center lg:w-full justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> اضافه به سبد خرید </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
           </button>
         </div>
-        <div class="w-1/2 h-full flex items-center justify-center">
+        <div class="lg:w-1/2 w-full h-full flex items-center justify-center">
           <ImageGallery />
         </div>
       </div>

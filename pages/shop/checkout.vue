@@ -1,11 +1,28 @@
 <template>
   <div class="h-auto w-screen bg-darkPurple">
     <Navbar />
-    <div class="h-screen w-screen p-20">
+
+    <div class="lg:h-full h-auto w-screen p-8 lg:p-20">
       <div
-        class="w-full h-full bg-white p-6 flex items-center space-x-4 rounded-md"
+        class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
-        <div class="h-full w-2/3 flex flex-col items-end">
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+          <PhCaretLeft :size="20" weight="fill" />
+          <span class="pb-2 border-b-2 border-mainRed"> تکمیل خرید </span>
+        </h2>
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+          <PhCaretLeft :size="20" weight="fill" />
+          <span> خرید </span>
+        </h2>
+        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+          <PhCaretLeft :size="20" weight="fill" />
+          <span> خونه </span>
+        </h2>
+      </div>
+      <div
+        class="w-full h-full bg-white p-6 flex lg:flex-row flex-col-reverse items-center space-x-4 rounded-md"
+      >
+        <div class="h-full w-full lg:w-2/3 flex flex-col items-end">
           <h3
             class="border-b-4 pb-2 rounded-md border-mainRed text-darkPurple text-2xl"
           >
@@ -22,7 +39,7 @@
           </button>
         </div>
         <div
-          class="h-full w-1/3 border-l-2 border-mainRed flex flex-col items-end"
+          class="h-full w-full lg:w-1/3 lg:border-l-2 border-mainRed flex flex-col items-end"
         >
           <h3
             class="border-b-4 pb-2 rounded-md border-mainRed text-darkPurple text-2xl"
@@ -126,5 +143,6 @@ import {
   PhMinusSquare,
   PhPlusSquare,
   PhTrash,
+  PhCaretLeft,
 } from "@phosphor-icons/vue";
 </script>

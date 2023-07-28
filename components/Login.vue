@@ -13,12 +13,13 @@
       :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
       modal
-      :showHeader="false"
       :style="{ width: '40vw', backgroundColor: '#0A001A', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#0A001A' }"
     >
-      <div class="w-full h-full flex items-center lg:p-16 flex-col space-y-10">
+      <div
+        class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-0 pt-14 space-y-10"
+      >
         <h2 class="text-6xl neonText">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
           <div class="flex items-end flex-col space-y-4">

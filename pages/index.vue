@@ -20,15 +20,15 @@
       </div> -->
       <div class="w-full h-auto flex flex-col items-center justify-center">
         <h1
-          class="transition flex duration-150 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="transition flex duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <PhMagicWand />
           <span> مجیک شاپِ </span>
         </h1>
         <h1
-          class="transition w-full HocusPocus duration-150 ease-in-out text-center text-white"
+          class="transition w-full capitalize HocusPocus duration-150 ease-in-out text-center text-white"
         >
-          Hocus Pocus
+          HOCUS POCUS
         </h1>
       </div>
     </div>
@@ -46,12 +46,12 @@
 
       <img
         src="../assets/images/MagicDivider.webp"
-        class="w-full px-36 object-contain"
+        class="w-full px-5 lg:px-36 object-contain"
         alt=""
       />
     </div>
     <div
-      class="h-full w-full bg-darkPurple flex flex-col items-center mt-32 lg:px-28"
+      class="lg:h-full h-auto w-full bg-darkPurple flex flex-col items-center my-32 lg:px-28"
     >
       <h2 class="text-6xl text-mainRed neonText my-14 lg:my-0">کشف کن</h2>
 
@@ -86,7 +86,6 @@
         </div>
       </div>
     </div>
-    <div class="h-screen w-full bg-darkPurple flex items-center px-28"></div>
     <Footer></Footer>
   </div>
 </template>
@@ -161,6 +160,7 @@ const responsiveOptions = ref([
 }
 
 .HocusPocus {
+  line-height: 3cm;
   font-size: 13rem;
   font-family: "Hocus";
   text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
@@ -180,5 +180,21 @@ const responsiveOptions = ref([
 .image {
   position: absolute;
   left: 0;
+}
+@media only screen and (max-width: 480px) {
+  .HocusPocus {
+    font-size: 7rem;
+    font-family: "Hocus";
+    text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
+      0 0 20px #f72585;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .HocusPocus {
+    font-size: 7rem;
+    font-family: "Hocus";
+    text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
+      0 0 20px #f72585;
+  }
 }
 </style>

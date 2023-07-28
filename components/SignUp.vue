@@ -2,7 +2,7 @@
   <div class="card flex justify-center">
     <button
       label="Show"
-      @click="formSubmit()"
+      @click="visible = true"
       class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-6 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-dashed border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> ثبت نام </span>
@@ -12,7 +12,6 @@
     <Dialog
       v-model:visible="visible"
       modal
-      :showHeader="false"
       :style="{ width: '30vw', backgroundColor: '#0A001A' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#0A001A' }"

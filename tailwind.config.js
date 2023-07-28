@@ -34,6 +34,7 @@ module.exports = {
         rem33: "33rem",
         rem34: "34rem",
         rem35: "35rem",
+        rem40: "40rem",
         carousel: "38rem",
         rem50: "99rem",
       },
