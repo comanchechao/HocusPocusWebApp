@@ -39,6 +39,7 @@ module.exports = {
         rem50: "99rem",
       },
       width: {
+        rem38: "38rem",
         carousel: "50rem",
         textArea: "66rem",
         blog: "30rem",

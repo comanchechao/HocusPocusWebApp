@@ -12,13 +12,24 @@
         alt=""
       />
     </div>
-    <div class="h-screen w-full flex items-start">
+    <div
+      class="h-screen w-full flex items-center justify-center flex-col space-y-20"
+    >
       <div class="h-24 w-screen bg-mainYellow flex items-center justify-center">
         <h2 class="text-mainBrown text-3xl flex">
-          <PhCards class="mr-3" /> <span> جدیدترین کارت ها </span>
+          <PhCards class="mr-3" /> <span> جدیدترین آموزش ها </span>
         </h2>
       </div>
+      <div class="grid mb-12 grid-cols-2 gap-2 px-14 place-items-center w-full">
+        <VideoCard></VideoCard> <VideoCard></VideoCard>
+      </div>
+      <img
+        src="../../assets/images/MagicHat.webp"
+        class="h-52 object-contain my-14"
+        alt=""
+      />
     </div>
+    <div class="h-screen w-full bg-mainBrown"></div>
   </div>
 </template>
 <style>

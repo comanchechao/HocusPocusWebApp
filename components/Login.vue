@@ -18,7 +18,7 @@
       :contentStyle="{ backgroundColor: '#0A001A' }"
     >
       <div
-        class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-0 pt-14 space-y-10"
+        class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-8 pt-14 space-y-10"
       >
         <h2 class="text-6xl neonText">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
@@ -54,7 +54,7 @@
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
-          <SignUp />
+          <LazySignUp />
         </div>
       </div>
     </Dialog>

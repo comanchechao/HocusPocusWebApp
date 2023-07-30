@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen h-auto bg-darkPurple flex flex-col items-center">
-    <Navbar></Navbar>
+    <LazyNavbar></LazyNavbar>
     <div
       ref="container"
       class="lg:h-screen container h-carousel w-screen flex items-center pt-7 justify-center bg-darkPurple"
@@ -8,7 +8,7 @@
       <img
         ref="image"
         src="../assets/images/Pump.webp"
-        class="w-44 image object-contain opacity-80"
+        class="w-44 image object-contain opacity-80 Stat2"
         alt=""
       />
       <!-- <div
@@ -18,7 +18,9 @@
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
       </div> -->
-      <div class="w-full h-auto flex flex-col items-center justify-center">
+      <div
+        class="w-full h-auto flex flex-col Bread items-center justify-center"
+      >
         <h1
           class="transition flex duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
@@ -91,7 +93,7 @@
         </div>
       </div>
     </div>
-    <Footer></Footer>
+    <LazyFooter></LazyFooter>
   </div>
 </template>
 <script setup>
@@ -106,6 +108,12 @@ const image = ref(null);
 
 onMounted(() => {
   const TL = gsap.timeline();
+  TL.from(".Bread", { opacity: 0, duration: 1, delay: 1 });
+
+  TL.from(image.value, {
+    opacity: 0,
+    duration: 1,
+  });
   TL.to(image.value, {
     duration: 66,
     motionPath: {

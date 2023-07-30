@@ -18,7 +18,7 @@
       </button>
       <NuxtLink to="/learn/learn">
         <button
-          class="text-xl active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+          class="text-xl active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
         >
           <span> آموزش </span>
           <PhCube :size="23" />
@@ -27,7 +27,22 @@
 
       <NuxtLink to="/shop/shop">
         <button
+          :class="{
+            hidden:
+              $route.path === '/learn/learn' ||
+              $route.path.startsWith('/learn/'),
+          }"
           class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+        >
+          <span> خرید </span> <PhStorefront :size="23" />
+        </button>
+      </NuxtLink>
+      <NuxtLink to="/learn/shop">
+        <button
+          :class="{
+            hidden: $route.path === '/' || $route.path.startsWith('/shop/'),
+          }"
+          class="text-xl active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
         >
           <span> خرید </span> <PhStorefront :size="23" />
         </button>
@@ -60,9 +75,9 @@
           <PhCoffee :size="23" />
         </button>
       </NuxtLink>
-      <PhoneNavbar class="flex lg:hidden" />
-      <Login />
-      <ShoppingCart />
+      <LazyPhoneNavbar class="flex lg:hidden" />
+      <LazyLogin />
+      <LazyShoppingCart />
     </div>
   </div>
 </template>

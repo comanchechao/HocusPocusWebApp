@@ -1,30 +1,23 @@
 <template>
-  <div class="h-full w-screen bg-darkPurple">
+  <div class="h-full w-screen bg-mainBrown">
     <LazyNavbar></LazyNavbar>
 
-    <div
-      class="h-full w-screen bg-darkPurple md:p-10 lg:p-20 flex items-center"
-    >
+    <div class="h-full w-screen bg-mainBrown md:p-10 lg:p-20 flex items-center">
       <div
-        class="w-full h-full border-mainRed rounded-sm flex flex-col items-start"
+        class="w-full h-full border-mainYellow rounded-sm flex flex-col items-start"
       >
         <LazySortBy class="Sort"></LazySortBy>
-        <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
         <div
-          class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 gap-4 justify-items-center"
+          class="h-screen w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-10 justify-items-center"
         >
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <VideoCard class=" " />
+          <VideoCard class=" " />
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator :rows="10" :totalRecords="120"></Paginator>
         </div>
       </div>
     </div>
-
-    <LazyFooter></LazyFooter>
   </div>
 </template>
 
@@ -36,7 +29,7 @@ onMounted(() => {
   TM.from(".Sort", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Filter", { opacity: 0, duration: 1 });
 
-  TM.from(".LazyCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
+  TM.from(".VideoCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
 });
 </script>
 
