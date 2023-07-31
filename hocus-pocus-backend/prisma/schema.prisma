@@ -18,7 +18,7 @@ model User {
   password  String?
   rt        String?
   user_type UserTypes @default(NORMAL)
-  orders    orders[]
+  orders    Orders[]
 }
 
 enum UserTypes {
@@ -57,16 +57,23 @@ enum Rarities {
   Limited
 }
 
-model orders {
-  id                    Int      @id @default(autoincrement())
+model Orders {
+  id                    Int          @id @default(autoincrement())
   owner                 String
-  created_at            DateTime @default(now())
-  updated_at            DateTime @updatedAt
+  created_at            DateTime     @default(now())
+  updated_at            DateTime     @updatedAt
   totalPrice            Float
   estimatedDeliveryDays String
   adderss               String
   phone_number          String
   postal_code           String
   user_id               Int
-  user                  User     @relation(fields: [user_id], references: [id])
+  user                  User         @relation(fields: [user_id], references: [id])
+  orderItems            orderItems[]
+}
+
+model orderItems {
+  id       Int    @id @default(autoincrement())
+  order_id Int
+  order    Orders @relation(fields: [order_id], references: [id])
 }
