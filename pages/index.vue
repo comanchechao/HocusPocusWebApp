@@ -29,34 +29,34 @@
           <div class="absolute w-96 lg:w-full">
             <img
               src="../assets/images/HocusUp.webp"
-              class="lg:w-screen object-contain Up"
+              class="lg:w-screen object-contain Up opacity-0"
               alt=""
             />
           </div>
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusDownP.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute P"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute P opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownO.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute O"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute O opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownC.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute C"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute C opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownU.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute U"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute U opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownS.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute S"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute S opacity-0"
               alt=""
             />
           </div>
@@ -137,12 +137,12 @@ const image = ref(null);
 
 onMounted(() => {
   const TL = gsap.timeline();
-  TL.from(".Up", { opacity: 0, duration: 1, delay: 1 });
-  TL.from(".P", { opacity: 0, duration: 0.5 });
-  TL.from(".O", { opacity: 0, duration: 0.5 });
-  TL.from(".C", { opacity: 0, duration: 0.5 });
-  TL.from(".U", { opacity: 0, duration: 0.5 });
-  TL.from(".S", { opacity: 0, duration: 0.5 });
+  TL.to(".Up", { opacity: 1, duration: 1, delay: 1 });
+  TL.to(".P", { opacity: 1, duration: 0.5 });
+  TL.to(".O", { opacity: 1, duration: 0.5 });
+  TL.to(".C", { opacity: 1, duration: 0.5 });
+  TL.to(".U", { opacity: 1, duration: 0.5 });
+  TL.to(".S", { opacity: 1, duration: 0.5 });
 
   TL.from(image.value, {
     opacity: 0,

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lg:h-screen h-rem40 overflow-hidden w-screen flex-col bg-darkPurple flex items-center space-y-8 justify-center"
+    class="lg:h-rem77 h-full overflow-hidden w-screen flex-col bg-darkPurple flex items-center space-y-8 justify-center"
   >
     <img
       src="../assets/images/MagicDivider2.webp"
@@ -8,7 +8,7 @@
       alt=""
     />
     <div
-      class="flex w-full items-center justify-center text-center lg:justify-end px-20 h-full"
+      class="flex w-full items-center justify-center text-center lg:justify-center h-full"
     >
       <div class="flex flex-col items-center justify-center space-y-6">
         <img
@@ -45,6 +45,11 @@
         </div>
       </div>
     </div>
+    <img
+      src="../assets/images/FooterPic.webp"
+      class="w-screen object-contain"
+      alt=""
+    />
   </div>
 </template>
 
