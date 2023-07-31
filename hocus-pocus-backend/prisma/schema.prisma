@@ -11,11 +11,62 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  email     String    @unique
   name      String?
-  password  String?   
+  password  String?
   rt        String?
+  user_type UserTypes @default(NORMAL)
+  orders    orders[]
+}
 
+enum UserTypes {
+  NORMAL
+  ADMIN
+}
+
+model Products {
+  id            Int             @id @default(autoincrement())
+  createdAt     DateTime        @default(now())
+  title         String
+  price         Float
+  category      Category
+  rarity        Rarities
+  ProductImages ProductImages[]
+}
+
+model ProductImages {
+  id         Int      @id @default(autoincrement())
+  url        String
+  created_at DateTime @default(now())
+  update_at  DateTime @updatedAt
+  product_id Int
+  product    Products @relation(fields: [product_id], references: [id])
+}
+
+enum Category {
+  deck
+  magicItem
+}
+
+enum Rarities {
+  Common
+  Rare
+  VeryRare
+  Limited
+}
+
+model orders {
+  id                    Int      @id @default(autoincrement())
+  owner                 String
+  created_at            DateTime @default(now())
+  updated_at            DateTime @updatedAt
+  totalPrice            Float
+  estimatedDeliveryDays String
+  adderss               String
+  phone_number          String
+  postal_code           String
+  user_id               Int
+  user                  User     @relation(fields: [user_id], references: [id])
 }
