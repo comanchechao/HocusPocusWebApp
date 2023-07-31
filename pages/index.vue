@@ -3,7 +3,7 @@
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
-      class="lg:h-screen container h-carousel w-screen flex items-center pt-7 justify-center bg-darkPurple"
+      class="lg:h-full container h-carousel w-full flex flex-col items-center pt-10 justify-center"
     >
       <img
         ref="image"
@@ -18,26 +18,55 @@
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
       </div> -->
-      <div
-        class="w-full h-auto flex flex-col Bread items-center justify-center"
+      <h1
+        class="transition flex duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
       >
-        <h1
-          class="transition flex duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
-        >
-          <PhMagicWand />
-          <span> مجیک شاپِ </span>
-        </h1>
-        <h1
-          class="transition w-full capitalize HocusPocus duration-150 ease-in-out text-center text-white"
-        >
-          HOCUS POCUS
-        </h1>
-        <img
-          src="../assets/images/MagicshopDivider.webp"
-          class="w-full px-8 lg:px-40 object-contain my-8"
-          alt=""
-        />
+        <PhMagicWand />
+        <span> مجیک شاپِ </span>
+      </h1>
+      <div class="w-full h-rem40 flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center px-48">
+          <div class="absolute w-96 lg:w-full">
+            <img
+              src="../assets/images/HocusUp.webp"
+              class="lg:w-screen object-contain Up"
+              alt=""
+            />
+          </div>
+          <div class="flex items-center absolute justify-center w-full">
+            <img
+              src="../assets/images/HocusDownP.webp"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute P"
+              alt=""
+            />
+            <img
+              src="../assets/images/HocusDownO.webp"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute O"
+              alt=""
+            />
+            <img
+              src="../assets/images/HocusDownC.webp"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute C"
+              alt=""
+            />
+            <img
+              src="../assets/images/HocusDownU.webp"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute U"
+              alt=""
+            />
+            <img
+              src="../assets/images/HocusDownS.webp"
+              class="object-contain lg:w-full w-96 md:w-rem38 absolute S"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
+      <img
+        src="../assets/images/MagicshopDivider.webp"
+        class="w-full px-8 lg:px-40 object-contain my-8"
+        alt=""
+      />
     </div>
     <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
       <div class="h-24 w-screen bg-mainRed flex items-center justify-center">
@@ -108,7 +137,12 @@ const image = ref(null);
 
 onMounted(() => {
   const TL = gsap.timeline();
-  TL.from(".Bread", { opacity: 0, duration: 1, delay: 1 });
+  TL.from(".Up", { opacity: 0, duration: 1, delay: 1 });
+  TL.from(".P", { opacity: 0, duration: 0.5 });
+  TL.from(".O", { opacity: 0, duration: 0.5 });
+  TL.from(".C", { opacity: 0, duration: 0.5 });
+  TL.from(".U", { opacity: 0, duration: 0.5 });
+  TL.from(".S", { opacity: 0, duration: 0.5 });
 
   TL.from(image.value, {
     opacity: 0,

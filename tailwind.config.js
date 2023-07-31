@@ -35,10 +35,12 @@ module.exports = {
         rem34: "34rem",
         rem35: "35rem",
         rem40: "40rem",
+        rem45: "45rem",
         carousel: "38rem",
         rem50: "99rem",
       },
       width: {
+        rem28: "28rem",
         rem38: "38rem",
         carousel: "50rem",
         textArea: "66rem",
