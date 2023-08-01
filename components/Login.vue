@@ -68,9 +68,9 @@ const visible = ref(false);
 
 async function formSubmit() {
   const data = new URLSearchParams({
-    email: "adsf@gmail.com",
-    password: "sad",
-    username: "dfg",
+    email: "newgreezx@gmail.com",
+    password: "test123456",
+    username: "dfgg",
   });
 
   await $fetch(
@@ -82,6 +82,7 @@ async function formSubmit() {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: data,
+      credentials: "include",
     },
     { withCredentials: true }
   )
