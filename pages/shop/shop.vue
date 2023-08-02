@@ -19,7 +19,11 @@
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
         </div>
         <div class="flex items-center justify-center w-full">
-          <Paginator :rows="10" :totalRecords="120"></Paginator>
+          <Paginator
+            class="Paginator opacity-0"
+            :rows="10"
+            :totalRecords="120"
+          ></Paginator>
         </div>
       </div>
     </div>
@@ -37,6 +41,7 @@ onMounted(() => {
   TM.from(".Filter", { opacity: 0, duration: 1 });
 
   TM.from(".LazyCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
+  TM.to(".Paginator", { opacity: 1, duration: 1 });
 });
 </script>
 

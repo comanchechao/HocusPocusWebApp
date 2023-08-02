@@ -16,11 +16,13 @@
         از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
         سطرآنچنان که لازم است،
       </h3>
-      <button
-        class="px-8 py-2 shadow-md shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-mainBrown text-mainOrange hover:text-mainBrown hover:bg-mainOrange rounded-md"
-      >
-        <span> جزئیات بیشتر </span> <PhInfo :size="20" />
-      </button>
+      <NuxtLink to="/learn/productDetail">
+        <button
+          class="px-8 py-2 shadow-md shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-mainBrown text-mainOrange hover:text-mainBrown hover:bg-mainOrange rounded-md"
+        >
+          <span> جزئیات بیشتر </span> <PhInfo :size="20" />
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>

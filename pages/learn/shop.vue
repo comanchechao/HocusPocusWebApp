@@ -32,19 +32,18 @@ onMounted(() => {
   TM.from(".VideoCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
 });
 </script>
-
 <style>
 .p-paginator {
-  background-color: #0a001a;
-  color: #f72585;
+  background-color: transparent;
+  color: #170800;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page {
-  color: #f72585;
+  color: #e9e7e6;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background-color: #f72585;
+  background-color: #f2edeb;
   color: #0a001a;
 }
 
