@@ -22,7 +22,7 @@
           class="text-lg border-2 border-dashed border-mainOrange rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainOrange">تومان</span>
-          <span>599000</span>
+          <span>599,000</span>
           <PhMoney :size="20" weight="fill" />
         </h3>
         <NuxtLink to="/learn/productDetail">

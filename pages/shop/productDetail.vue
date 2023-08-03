@@ -29,7 +29,7 @@
         class="w-full Product shadow-lg shadow-mainPurple lg:flex-row flex-col-reverse rounded-md h-full flex items-center my-6 lg:pl-4 lg:space-x-5 bg-white"
       >
         <div
-          class="lg:w-1/2 w-full lg:px-0 p-4 h-full flex flex-col items-end space-y-6 justify-start"
+          class="lg:w-1/2 w-full lg:px-0 h-full flex flex-col items-end space-y-6 justify-start"
         >
           <div class="flex items-center justify-center space-x-2">
             <h1
@@ -70,7 +70,7 @@
             </h1>
           </div>
           <button
-            class="lg:text-2xl text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-52 self-center lg:w-full justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+            class="lg:text-lg text-md active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-12 justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> اضافه به سبد خرید </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
