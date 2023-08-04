@@ -63,7 +63,7 @@
             class="h-auto rounded-md bg-gray-100 w-full text-right p-5 flex-col items-end flex justify-around"
           >
             <h2 class="text-mainBrown text-2xl font-bold">توضیحات کالا</h2>
-            <h3>
+            <h3 class="text-sm">
               ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
               در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
