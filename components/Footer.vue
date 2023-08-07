@@ -1,6 +1,12 @@
 <template>
   <div
-    class="lg:h-rem77 h-full overflow-hidden w-screen flex-col bg-darkPurple flex items-center space-y-8 justify-center"
+    :class="{
+      'bg-mainBrown':
+        $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+      'bg-darkPurple':
+        $route.path === '/shop/shop' || $route.path.startsWith('/shop/'),
+    }"
+    class="lg:h-rem77 h-full overflow-hidden w-screen flex-col flex items-center space-y-8 justify-center"
   >
     <img
       src="../assets/images/MagicDivider2.webp"

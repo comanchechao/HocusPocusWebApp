@@ -6,12 +6,24 @@
       class="items-center justify-start space-x-2 w-full Navbar hidden lg:flex"
     >
       <button
-        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+        :class="{
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
       >
         <span> تماس با ما </span> <PhCallBell :size="23" />
       </button>
       <button
-        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+        :class="{
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
       >
         <span> درباره ما </span>
         <PhSpade :size="23" />
@@ -49,7 +61,14 @@
       </NuxtLink>
       <NuxtLink to="/" class="">
         <button
-          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          :class="{
+            'hover:shadow-mainOrange hover:text-mainBrown text-mainBrown bg-mainYellow hover:border-mainOrange':
+              $route.path === '/learn/learn' ||
+              $route.path.startsWith('/learn/'),
+            'hover:shadow-mainViolet hover:text-darkPurple text-darkPurple bg-mainRed hover:border-mainViolet':
+              $route.path === '/' || $route.path.startsWith('/shop/'),
+          }"
+          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
         >
           <span> خونه </span>
           <PhHouseSimple :size="23" />

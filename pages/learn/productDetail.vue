@@ -82,7 +82,19 @@
           </div>
         </div>
       </div>
+      <div
+        class="h-auto w-full flex flex-col items-end my-12 justify-center space-y-7"
+      >
+        <h2 class="text-gray-100 flex items-center space-x-3 text-4xl">
+          <span>نظرات کاربران</span>
+          <PhUserList class="text-mainYellow" :size="55" />
+        </h2>
+        <div
+          class="w-full h-rem26 bg-white rounded-md shadow-md shadow-mainYellow"
+        ></div>
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -91,6 +103,7 @@ import {
   PhCaretLeft,
   PhMagicWand,
   PhShoppingBagOpen,
+  PhUserList,
 } from "@phosphor-icons/vue";
 </script>
 

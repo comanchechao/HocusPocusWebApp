@@ -47,21 +47,22 @@ onMounted(() => {
 
 <style>
 .p-paginator {
-  background-color: #0a001a;
-  color: #f72585;
+  background-color: transparent;
+  color: white;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page {
-  color: #f72585;
+  color: white;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background-color: #f72585;
+  background-color: white;
   color: #0a001a;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
-  background-color: #f72585;
-  color: #0a001a;
+  background-color: gray;
+  color: white;
+  transition: all ease 2;
 }
 </style>
