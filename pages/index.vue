@@ -5,12 +5,12 @@
       ref="container"
       class="lg:h-full container h-carousel w-full flex flex-col items-center pt-10 justify-center"
     >
-      <img
+      <!-- <img
         ref="image"
         src="../assets/images/Pump.webp"
         class="w-44 image object-contain opacity-80 Stat2"
         alt=""
-      />
+      /> -->
       <!-- <div
         class="w-1/2 h-dialog lg:flex items-center justify-center py-3 px-14 hidden"
       >
@@ -26,10 +26,15 @@
       </h1>
       <div class="w-full h-rem40 flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center px-48">
-          <div class="absolute w-96 lg:w-full">
+          <div class="flex items-center absolute justify-center w-full">
             <img
-              src="../assets/images/HocusUp.webp"
-              class="lg:w-screen object-contain Up opacity-0"
+              src="../assets/images/HocusUp1.webp"
+              class="object-contain absolute Up opacity-0"
+              alt=""
+            />
+            <img
+              src="../assets/images/HocusUp2.webp"
+              class="object-contain absolute Up2"
               alt=""
             />
           </div>
@@ -138,44 +143,46 @@ const image = ref(null);
 onMounted(() => {
   const TL = gsap.timeline();
   TL.to(".Up", { opacity: 1, duration: 1, delay: 1 });
+  TL.from(".Up2", { opacity: 0, y: 80, duration: 1, rotate: 100 });
+
   TL.to(".P", { opacity: 1, duration: 0.5 });
   TL.to(".O", { opacity: 1, duration: 0.5 });
   TL.to(".C", { opacity: 1, duration: 0.5 });
   TL.to(".U", { opacity: 1, duration: 0.5 });
   TL.to(".S", { opacity: 1, duration: 0.5 });
 
-  TL.from(image.value, {
-    opacity: 0,
-    duration: 1,
-  });
-  TL.to(image.value, {
-    duration: 66,
-    motionPath: {
-      path: [
-        { x: 200, y: -110 },
-        { x: 1000, y: -100 },
-        { x: 1300, y: -110 },
-        { x: 1400, y: -100 },
+  // TL.from(image.value, {
+  //   opacity: 0,
+  //   duration: 1,
+  // });
+  // TL.to(image.value, {
+  //   duration: 66,
+  //   motionPath: {
+  //     path: [
+  //       { x: 200, y: -110 },
+  //       { x: 1000, y: -100 },
+  //       { x: 1300, y: -110 },
+  //       { x: 1400, y: -100 },
 
-        { x: 1300, y: 500 },
-        { x: 1000, y: 600 },
-        { x: 200, y: 500 },
+  //       { x: 1300, y: 500 },
+  //       { x: 1000, y: 600 },
+  //       { x: 200, y: 500 },
 
-        { x: 0, y: 100 },
-      ],
-      ease: "power1.inOut",
-      autoRotate: true,
-    },
-    repeat: -1,
-  });
-  TL.to(image.value, {
-    opacity: 0,
-    duration: 2,
-  });
-  TL.to(image.value, {
-    opacity: 0.7,
-    duration: 2,
-  });
+  //       { x: 0, y: 100 },
+  //     ],
+  //     ease: "power1.inOut",
+  //     autoRotate: true,
+  //   },
+  //   repeat: -1,
+  // });
+  // TL.to(image.value, {
+  //   opacity: 0,
+  //   duration: 2,
+  // });
+  // TL.to(image.value, {
+  //   opacity: 0.7,
+  //   duration: 2,
+  // });
 });
 const responsiveOptions = ref([
   {

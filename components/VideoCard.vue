@@ -19,11 +19,11 @@
       </h3>
       <div class="w-full h-full flex items-center justify-around px-3">
         <h3
-          class="text-4xl border-2 border-dashed border-mainOrange rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
+          class="text-4xl border-2 border-dashed border-mainOrange rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainOrange">تومان</span>
           <span>599,000</span>
-          <PhMoney :size="20" weight="fill" />
+          <PhMoney :size="34" weight="fill" />
         </h3>
         <div class="flex items-center space-y-4 flex-col">
           <NuxtLink to="/learn/productDetail">

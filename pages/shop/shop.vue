@@ -63,6 +63,5 @@ onMounted(() => {
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
   background-color: gray;
   color: white;
-  transition: all ease 2;
 }
 </style>

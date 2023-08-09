@@ -32,6 +32,7 @@
       />
     </div>
     <div class="h-screen w-full bg-mainBrown"></div>
+    <Footer />
   </div>
 </template>
 
