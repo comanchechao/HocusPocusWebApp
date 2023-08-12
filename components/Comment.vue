@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center p-10 h-full w-full">
     <div
-      class="h-full w-full p-5 flex flex-col items-end bg-gray-100 shadow-md shadow-mainYellow"
+      class="h-auto w-full p-7 flex flex-col items-end bg-gray-100 rounded-md"
     >
       <div class="flex items-center space-x-6">
         <h2 class="text-2xl text-mainBrown">نام کاربر</h2>

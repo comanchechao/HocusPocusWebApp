@@ -78,7 +78,11 @@
     <div
       class="flex justify-around lg:w-auto w-full items-center space-x-3 Navbar"
     >
-      <NuxtLink class="hidden lg:flex" to="/shop/profile">
+      <NuxtLink
+        v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
+        class="hidden lg:flex"
+        to="/shop/profile"
+      >
         <button
           class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
         >
@@ -86,9 +90,36 @@
           <PhAlien :size="23" />
         </button>
       </NuxtLink>
-      <NuxtLink class="hidden lg:flex" to="/shop/admin">
+      <NuxtLink
+        v-if="$route.path.startsWith('/learn')"
+        class="hidden lg:flex"
+        to="/shop/profile"
+      >
+        <button
+          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+        >
+          <span> پروفایل </span>
+          <PhAlien :size="23" />
+        </button>
+      </NuxtLink>
+      <NuxtLink
+        v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
+        class="hidden lg:flex"
+        to="/shop/admin"
+      >
         <button
           class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+        >
+          <span> مدیریت </span>
+          <PhCoffee :size="23" />
+        </button> </NuxtLink
+      ><NuxtLink
+        v-if="$route.path.startsWith('/learn')"
+        class="hidden lg:flex"
+        to="/shop/admin"
+      >
+        <button
+          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
         >
           <span> مدیریت </span>
           <PhCoffee :size="23" />
