@@ -1,8 +1,15 @@
 <template>
   <div
-    class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:p-20 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
+    :class="{
+      'lg:grid lg:grid-cols-1 lg:place-items-end lg:gap-5 h-full w-full lg:p-20 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col':
+        $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+      'lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:p-20 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col':
+        $route.path === '/' || $route.path.startsWith('/shop/'),
+    }"
+    class=""
   >
     <Dropdown
+      v-if="isVisible"
       v-model="selectedCity"
       :options="cities"
       optionLabel="name"
@@ -11,6 +18,7 @@
       class="w-full rounded-lg h-11"
     />
     <Dropdown
+      v-if="isVisible"
       v-model="selectedRegion"
       :options="regions"
       optionLabel="name"
@@ -31,6 +39,7 @@
       aria-describedby="username-help"
     />
     <InputText
+      v-if="isVisible"
       placeholder="آدرس کامل"
       id="email"
       v-model="value"
@@ -69,6 +78,12 @@ const regions = ref([
   { name: "البرز", code: "LDN" },
   { name: "هرمزگان", code: "IST" },
 ]);
+</script>
+
+<script>
+export default {
+  props: ["isVisible"],
+};
 </script>
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {

@@ -3,7 +3,7 @@
     class="w-screen h-20 flex items-center justify-center lg:px-10 bg-transparent z-50"
   >
     <div
-      class="items-center justify-start space-x-2 w-full Navbar hidden lg:flex"
+      class="items-center justify-start space-x-2 w-full opacity-0 Navbar hidden lg:flex"
     >
       <button
         :class="{
@@ -76,7 +76,7 @@
       </NuxtLink>
     </div>
     <div
-      class="flex justify-around lg:w-auto w-full items-center space-x-3 Navbar"
+      class="flex justify-around lg:w-auto w-full items-center space-x-3 opacity-0 Navbar"
     >
       <NuxtLink
         v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
@@ -93,7 +93,7 @@
       <NuxtLink
         v-if="$route.path.startsWith('/learn')"
         class="hidden lg:flex"
-        to="/shop/profile"
+        to="/learn/profile"
       >
         <button
           class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
@@ -116,7 +116,7 @@
       ><NuxtLink
         v-if="$route.path.startsWith('/learn')"
         class="hidden lg:flex"
-        to="/shop/admin"
+        to="/learn/admin"
       >
         <button
           class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
@@ -143,6 +143,6 @@ import {
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 onMounted(() => {
-  $gsap.from(".Navbar", { opacity: 0, duration: 1 });
+  $gsap.to(".Navbar", { opacity: 1, duration: 1 });
 });
 </script>

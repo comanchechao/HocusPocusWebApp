@@ -18,12 +18,14 @@
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
       </div> -->
-      <h1
-        class="transition flex duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
-      >
-        <PhMagicWand />
-        <span> مجیک شاپِ </span>
-      </h1>
+      <div class="Store opacity-0">
+        <h1
+          class="transition flex space-x-2 duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+        >
+          <span> فروشگاه لوازم شعبده بازیِ </span>
+          <PhMagicWand :size="35" weight="fill" />
+        </h1>
+      </div>
       <div class="w-full h-rem40 flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
@@ -34,7 +36,7 @@
             />
             <img
               src="../assets/images/HocusUp2.webp"
-              class="object-contain absolute Up2"
+              class="object-contain absolute Up2 opacity-0"
               alt=""
             />
           </div>
@@ -142,8 +144,14 @@ const image = ref(null);
 
 onMounted(() => {
   const TL = gsap.timeline();
-  TL.to(".Up", { opacity: 1, duration: 1, delay: 1 });
-  TL.from(".Up2", { opacity: 0, y: 80, duration: 1, rotate: 100 });
+  TL.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
+
+  TL.to(".Up", { opacity: 1, duration: 1, delay: 0.5 });
+  TL.fromTo(
+    ".Up2",
+    { opacity: 0, y: 80, duration: 1, rotate: 100 },
+    { opacity: 1, y: 0, duration: 1, rotate: 0 }
+  );
 
   TL.to(".P", { opacity: 1, duration: 0.5 });
   TL.to(".O", { opacity: 1, duration: 0.5 });

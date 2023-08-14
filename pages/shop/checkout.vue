@@ -1,8 +1,8 @@
 <template>
-  <div class="h-auto w-screen bg-darkPurple">
+  <div class="h-full w-screen bg-darkPurple">
     <Navbar />
 
-    <div class="lg:h-full h-auto w-screen p-8 lg:p-20">
+    <div class="lg:h-full h-auto w-screen p-8 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
@@ -22,29 +22,31 @@
       <div
         class="w-full h-full bg-white p-6 flex lg:flex-row flex-col-reverse items-center space-x-4 rounded-md"
       >
-        <div class="h-full w-full lg:w-2/3 flex flex-col items-end">
+        <div class="lg:h-dialog h-full w-full lg:w-2/3 flex flex-col items-end">
           <h3
-            class="border-b-4 pb-2 rounded-md border-mainRed text-darkPurple text-2xl"
+            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-2xl"
           >
-            اطلاعات ارسال
+            <span> اطلاعات ارسال </span>
+            <PhInfo :size="30" weight="fill" />
           </h3>
           <div class="h-full w-full flex items-center">
-            <CustomerInfo />
+            <CustomerInfo :isVisible="true" />
           </div>
           <button
-            class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+            class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
           </button>
         </div>
         <div
-          class="h-full w-full lg:w-1/3 lg:border-l-2 border-mainRed flex flex-col items-end"
+          class="h-dialog w-full lg:w-1/3 lg:border-l-2 border-mainRed flex flex-col items-end"
         >
           <h3
-            class="border-b-4 pb-2 rounded-md border-mainRed text-darkPurple text-2xl"
+            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-2xl"
           >
-            محصولات انتخاب شده
+            <span> محصولات انتخاب شده </span>
+            <PhBasket :size="30" weight="fill" />
           </h3>
           <div
             class="w-full h-full flex items-center flex-col px-9 pt-9 overscroll-y-scroll"
@@ -144,5 +146,8 @@ import {
   PhPlusSquare,
   PhTrash,
   PhCaretLeft,
+  PhInfo,
+  PhBasket,
 } from "@phosphor-icons/vue";
+const isVisible = true;
 </script>
