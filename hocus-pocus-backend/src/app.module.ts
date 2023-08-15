@@ -9,6 +9,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { PassportModule } from '@nestjs/passport';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
+import { ManagementModule } from './management/management.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { OrdersModule } from './orders/orders.module';
     PrismaModule,
     ProductsModule,
     OrdersModule,
+    ManagementModule,
   ],
   controllers: [AppController],
   providers: [AppService],
