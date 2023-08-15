@@ -17,7 +17,7 @@ model User {
   username  String    @unique
   password  String?
   rt        String?
-  user_type UserTypes @default(NORMAL)
+  role      UserTypes @default(NORMAL)
   orders    Orders[]
 }
 
