@@ -2,7 +2,7 @@
   <div class="flex justify-center">
     <button
       @click="visible = true"
-      class="text-md flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-4 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-md flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-4 py-1 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> مدیریت سفارش ها </span>
       <PhPackage />
@@ -90,7 +90,7 @@
           <button
             label="Show"
             @click="visible = false"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+            class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> تایید تغییرات </span>
             <PhKeyhole :size="25" />

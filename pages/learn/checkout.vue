@@ -171,8 +171,6 @@ import {
   PhInfo,
   PhBasket,
 } from "@phosphor-icons/vue";
-
-const isVisible = true;
 </script>
 
 <style lang="scss" scoped></style>

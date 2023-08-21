@@ -4,28 +4,46 @@
   >
     <div class="w-full h-24 flex items-center justify-end lg:px-6">
       <h2
-        class="lg:text-4xl text-2xl flex items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
+        :class="{
+          'lg:text-4xl text-2xl flex items-center space-x-2 text-mainBrown border-b-4 border-mainYellow pb-2 rounded-md':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'lg:text-4xl text-2xl flex items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+        class=""
       >
         <span> اطلاعات کاربری </span>
         <PhAlien weight="fill" />
       </h2>
     </div>
     <div class="flex w-full items-center h-full" id="Info" v-show="infoDiv">
-      <CustomerInfo />
+      <CustomerInfo isVisible="true" />
     </div>
     <div class="flex w-full items-center h-full" id="edit" v-show="editDiv">
-      <ProfileInfo />
+      <div class="h-full w-full flex items-center justify-center">
+        <LazyProfileInfo />
+      </div>
     </div>
     <div class="w-full flex items-center justify-center space-x-5">
       <button
         @click="toggleedit"
-        class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 justify-center px-8 py-2 transform scale-100 hover:scale-105 Transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+        :class="{
+          'text-lg flex active:text-mainYellow active:bg-mainBrown items-center space-x-2 justify-center px-8 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange   text-darkPurple':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 justify-center px-8 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet   text-darkPurple':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
       >
         تایید تغییرات
       </button>
       <button
         @click="toggleInfo"
-        class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 justify-center px-8 py-2 transform scale-100 hover:scale-105 Transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+        :class="{
+          'text-lg flex active:text-mainYellow active:bg-mainBrown items-center space-x-2 justify-center px-8 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange   text-darkPurple':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 justify-center px-8 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet   text-darkPurple':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
       >
         ویرایش اطلاعات
       </button>

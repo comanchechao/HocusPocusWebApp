@@ -12,10 +12,10 @@
         <NuxtLink class="w-full" to="/">
           <button
             :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
             class=""
@@ -27,10 +27,10 @@
         <NuxtLink class="w-full" to="/shop/profile">
           <button
             :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
@@ -41,10 +41,10 @@
         <NuxtLink class="w-full" to="/shop/admin">
           <button
             :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
+              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
@@ -55,10 +55,10 @@
         <NuxtLink class="w-full" to="/shop/shop">
           <button
             :class="{
-              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
             class=""
@@ -68,7 +68,7 @@
         </NuxtLink>
         <NuxtLink class="w-full" to="/learn/learn">
           <button
-            class="text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+            class="text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
           >
             <span> آموزش </span>
             <PhCube :size="23" />
@@ -76,10 +76,10 @@
         </NuxtLink>
         <button
           :class="{
-            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
               $route.path === '/learn/learn' ||
               $route.path.startsWith('/learn/'),
-            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
@@ -87,10 +87,10 @@
         </button>
         <button
           :class="{
-            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
               $route.path === '/learn/learn' ||
               $route.path.startsWith('/learn/'),
-            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
@@ -100,7 +100,7 @@
       </div>
     </Sidebar>
     <button
-      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
       @click="visible = true"
     >
       <PhList :size="30" />

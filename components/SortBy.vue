@@ -4,28 +4,28 @@
   >
     <button
       :class="{
-        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> بیشترین امتیاز </span> <PhStar :size="18" weight="fill" />
     </button>
     <button
       :class="{
-        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> پرفروش ترین </span> <PhCoins :size="20" weight="fill" />
     </button>
     <button
       :class="{
-        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+        'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> پربازدید ترین </span>
       <PhEye :size="20" weight="fill" />

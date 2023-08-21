@@ -10,7 +10,7 @@
           id="div1"
           v-show="showDiv1"
         >
-          <ProfileInformation class="h-full w-full" />
+          <ProfileInformation :isVisible="true" class="h-full w-full" />
         </div>
         <div
           class="w-full h-full flex items-center py-14"
@@ -25,13 +25,13 @@
       >
         <button
           @click="toggleDiv1"
-          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-72 justify-center px-8 py-4 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-72 justify-center px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
         >
           <span>اطلاعات کاربری</span>
           <PhAlien weight="fill" :size="25" />
         </button>
         <button
-          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-72 justify-center px-8 py-4 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-72 justify-center px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
           @click="toggleDiv2"
         >
           <span> سفارش ها </span>

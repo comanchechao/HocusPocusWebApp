@@ -30,7 +30,7 @@
             <PhInfo :size="30" weight="fill" />
           </h3>
           <div class="h-full w-full flex items-center">
-            <CustomerInfo :isVisible="true" />
+            <LazyCustomerInfo :isVisible="true" />
           </div>
           <button
             class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
@@ -149,5 +149,4 @@ import {
   PhInfo,
   PhBasket,
 } from "@phosphor-icons/vue";
-const isVisible = true;
 </script>

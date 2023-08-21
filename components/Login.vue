@@ -9,7 +9,7 @@
         'hover:border-mainViolet text-mainRed hover:shadow-mainViolet hover:text-mainViolet':
           $route.path === '/' || $route.path.startsWith('/shop/'),
       }"
-      class="text-xl flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+      class="text-xl flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
     >
       <span> ورود </span>
       <PhLockKey weight="fill" :size="25" />
@@ -55,7 +55,7 @@
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+            class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
