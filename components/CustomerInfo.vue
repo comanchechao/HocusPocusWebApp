@@ -129,7 +129,7 @@ export default {
   color: #fbf8ff;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
-  background: #f72585;
+  background: #f36b31;
   color: #0a001a;
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {

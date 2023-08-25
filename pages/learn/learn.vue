@@ -19,7 +19,7 @@
     >
       <div class="h-24 w-screen bg-mainYellow flex items-center justify-center">
         <h2 class="text-mainBrown text-3xl flex">
-          <PhCards class="mr-3" /> <span> جدیدترین آموزش ها </span>
+          <span> جدیدترین آموزش ها </span>
         </h2>
       </div>
       <div

@@ -1,12 +1,12 @@
 <template>
   <div class="">
-    <Sidebar position="left" v-model:visible="visible">
+    <Sidebar position="right" v-model:visible="visible">
       <div
         class="h-full w-full bg-darkPurple flex flex-col items-center justify-start space-y-5 px-20"
       >
         <img
           src="../assets/images/MagicianLogo.webp"
-          class="object-contain w-32"
+          class="object-contain w-24"
           alt=""
         />
         <NuxtLink class="w-full" to="/">

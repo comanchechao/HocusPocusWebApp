@@ -61,12 +61,13 @@ module.exports = {
     },
     colors: {
       // Build your palette here
+      mainWhite: "#F9F9FA",
       transparent: "transparent",
       current: "currentColor",
       mainPurple: "#551CB6",
-      darkPurple: "#0A001A",
+      darkPurple: "#150531",
       mainViolet: "#b5179e",
-      mainRed: "#f72585",
+      mainRed: "#F36B31",
       mainBlue: "#1982C4",
       mainBrown: "#170800",
       mainYellow: "#fdbe39",

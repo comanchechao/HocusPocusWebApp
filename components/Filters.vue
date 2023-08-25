@@ -88,33 +88,33 @@ const brands = ref([
   background-color: #9a0649;
 }
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background-color: #f72585;
+  background-color: #f36b31;
 }
 .p-multiselect-items-wrapper {
-  border: 0.2rem #f72585;
+  border: 0.2rem #f36b31;
 }
 
 .p-multiselect:not(.p-disabled).p-focus {
-  box-shadow: 0 0 0 0.1rem #f72585;
+  box-shadow: 0 0 0 0.1rem #f36b31;
   border: 0;
 }
 
 .p-icon {
-  color: #f72585;
+  color: #f36b31;
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   color: #0a001a;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
-  color: #f72585;
+  color: #f36b31;
 }
 .p-multiselect {
   font-family: "IranSans";
-  border: #f72585;
+  border: #f36b31;
   border-radius: 0rem;
   background-color: #0a001a;
-  color: #f72585;
+  color: #f36b31;
   padding: 0px 0px;
   flex-direction: row-reverse;
 }
@@ -123,13 +123,13 @@ const brands = ref([
 .p-inputtext {
   font-family: "IranSans";
 
-  color: #f72585;
+  color: #f36b31;
   font-size: 1rem;
   text-transform: uppercase;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
   background-color: #0a001a;
-  color: #f72585;
+  color: #f36b31;
 }
 .p-multiselect-panel
   .p-multiselect-header
@@ -140,7 +140,7 @@ const brands = ref([
 
 .p-multiselect-panel .p-multiselect-header {
   background-color: #0a001a;
-  color: #f72585;
+  color: #f36b31;
 }
 .p-multiselect-label-container {
   background-color: #0a001a;
@@ -148,19 +148,19 @@ const brands = ref([
 }
 .p-multiselect-token {
   background-color: #0a001a;
-  color: #f72585;
+  color: #f36b31;
 }
 .p-multiselect-panel .p-multiselect-items {
   background-color: #0a001a;
-  color: #f72585;
+  color: #f36b31;
 }
 
 .p-checkbox {
-  color: #f72585;
+  color: #f36b31;
 }
 
 .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
-  border-color: #f72585;
+  border-color: #f36b31;
 }
 
 .p-checkbox .p-checkbox-box {
@@ -169,12 +169,12 @@ const brands = ref([
 }
 .p-overlay-open {
   border: 20;
-  border-color: #f72585;
+  border-color: #f36b31;
 }
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-  background-color: #f72585;
+  background-color: #f36b31;
   color: #0a001a;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
@@ -184,7 +184,7 @@ const brands = ref([
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-  background: #f72585;
+  background: #f36b31;
   color: #0a001a;
 }
 .p-multiselect-panel
@@ -194,18 +194,18 @@ const brands = ref([
 }
 
 .p-checkbox .p-checkbox-box.p-highlight {
-  background-color: #f72585;
+  background-color: #f36b31;
   border: 20;
   border-color: #0a001a;
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-  background-color: #f72585;
+  background-color: #f36b31;
   color: #0a001a;
 }
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item.p-highlight.p-focus {
-  background: #f72585;
+  background: #f36b31;
 }
 </style>

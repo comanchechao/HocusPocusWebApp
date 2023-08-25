@@ -7,11 +7,6 @@
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
       >
-        <h2
-          class="text-mainRed flex space-x-3 items-center underline cursor-pointer"
-        >
-          <span> Joker and the Thief: Blood Red Edition Playing Cards </span>
-        </h2>
         <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
           <span> کارت ها </span>
@@ -97,11 +92,11 @@
         <Card class="hidden lg:flex" />
       </div>
     </div>
-    <Footer></Footer>
+    <LazyFooter />
   </div>
 </template>
 <script setup>
-import { PhCaretLeft, PhShoppingBagOpen } from "@phosphor-icons/vue";
+import { PhCaretLeft, PhShoppingBagOpen, PhCards } from "@phosphor-icons/vue";
 
 import { ref } from "vue";
 
@@ -119,7 +114,7 @@ onMounted(() => {
 
 <style>
 .p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
-  color: #f72585;
+  color: #f36b31;
 }
 .p-rating .p-rating-item .p-rating-icon.p-icon {
   width: 1.7rem;

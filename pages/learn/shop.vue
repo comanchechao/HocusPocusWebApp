@@ -50,7 +50,7 @@ onMounted(() => {
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
-  background-color: #f72585;
+  background-color: #f36b31;
   color: #0a001a;
 }
 </style>

@@ -8,11 +8,11 @@
     }"
     class="lg:h-rem77 h-full overflow-hidden w-screen flex-col flex items-center space-y-8 justify-center"
   >
-    <img
+    <!-- <img
       src="../assets/images/MagicDivider2.webp"
       class="w-full lg:px-0 px-5 h-28 object-contain"
       alt=""
-    />
+    /> -->
     <div
       class="flex w-full items-center justify-center text-center lg:justify-center h-full"
     >

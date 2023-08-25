@@ -26,7 +26,7 @@ body {
 * {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #0a001a #f72585;
+  scrollbar-color: #0a001a #f36b31;
 }
 
 *::-webkit-scrollbar {
@@ -53,7 +53,7 @@ input::-webkit-inner-spin-button {
   height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #f72585;
+  background: #f36b31;
   border: 0px none #ffffff;
   border-radius: 86px;
 }

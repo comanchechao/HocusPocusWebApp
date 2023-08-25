@@ -3,7 +3,7 @@
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
-      class="lg:h-full container h-carousel w-full flex flex-col items-center pt-10 justify-center"
+      class="lg:h-full container h-carousel w-full flex flex-col items-center bg pt-7 justify-center"
     >
       <!-- <img
         ref="image"
@@ -22,11 +22,11 @@
         <h1
           class="transition flex space-x-2 duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
-          <span> فروشگاه لوازم شعبده بازیِ </span>
+          <span> آنلاین شاپ و وبسایت آموزشی شعبده بازیِ </span>
           <PhMagicWand :size="35" weight="fill" />
         </h1>
       </div>
-      <div class="w-full h-rem40 flex flex-col items-center justify-center">
+      <div class="w-full h-screen flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
             <img
@@ -69,16 +69,21 @@
           </div>
         </div>
       </div>
-      <img
+      <!-- <img
         src="../assets/images/MagicshopDivider.webp"
         class="w-full px-8 lg:px-40 object-contain my-8"
         alt=""
-      />
+      /> -->
     </div>
     <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
-      <div class="h-24 w-screen bg-mainRed flex items-center justify-center">
-        <h2 class="text-darkPurple text-3xl flex">
-          <PhCards class="mr-3" /> <span> جدیدترین کارت ها </span>
+      <img
+        src="../assets/images/PumpkinMain.webp"
+        class="object-contain h-64 w-full"
+        alt=""
+      />
+      <div class="h-36 w-screen flex items-center justify-center">
+        <h2 class="text-mainRed text-5xl flex">
+          <PhCards class="mr-3" /> <span> کارت های منتخب هفته </span>
         </h2>
       </div>
       <div class="w-screen px-10 flex items-center justify-center space-x-14">
@@ -93,42 +98,7 @@
         alt=""
       />
     </div>
-    <div
-      class="lg:h-rem50 h-auto w-full bg-darkPurple flex flex-col items-center my-32 lg:px-28"
-    >
-      <h2 class="text-6xl text-mainRed neonText my-14 lg:my-0">کشف کن</h2>
 
-      <div
-        class="flex items-center w-full h-full lg:flex-row flex-col px-7 lg:px-0 space-y-14"
-      >
-        <div
-          class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-28"
-        >
-          <div
-            class="h-full w-auto lg:w-full bg-mainYellow transform rounded-3xl p-5 cursor-pointer lg:translate-y-80"
-          >
-            <img
-              src="../assets/images/Cardistry.webp"
-              class="w-full h-dialog lg:h-full object-contain opacity-100 transform backdrop-brightness-90 p-10 rounded-3xl backdrop-blur-3xl"
-              alt=""
-            />
-          </div>
-        </div>
-        <div
-          class="lg:w-1/2 w-full h-full lg:h-screen flex items-center justify-center lg:py-16 lg:px-32"
-        >
-          <div
-            class="h-full w-auto lg:w-full bg-mainPurple rounded-3xl p-5 cursor-pointer"
-          >
-            <img
-              src="../assets/images/Dali.webp"
-              class="w-full h-dialog lg:h-full object-contain opacity-100 backdrop-blur-3xl"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
     <LazyFooter></LazyFooter>
   </div>
 </template>
@@ -147,11 +117,7 @@ onMounted(() => {
   TL.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
 
   TL.to(".Up", { opacity: 1, duration: 1, delay: 0.5 });
-  TL.fromTo(
-    ".Up2",
-    { opacity: 0, y: 80, duration: 1, rotate: 100 },
-    { opacity: 1, y: 0, duration: 1, rotate: 0 }
-  );
+  TL.fromTo(".Up2", { opacity: 0, duration: 1 }, { opacity: 1, duration: 1 });
 
   TL.to(".P", { opacity: 1, duration: 0.5 });
   TL.to(".O", { opacity: 1, duration: 0.5 });
@@ -226,14 +192,14 @@ const responsiveOptions = ref([
 
   font-size: 14rem;
   font-family: "Hocus";
-  text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
-    0 0 20px #f72585;
+  text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
+    0 0 20px #f36b31;
 }
 
 .neonText {
   color: #fff;
-  text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
-    0 0 20px #f72585;
+  text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
+    0 0 20px #f36b31;
 }
 .container {
   position: relative;
@@ -250,8 +216,8 @@ const responsiveOptions = ref([
 
     font-size: 7rem;
     font-family: "Hocus";
-    text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
-      0 0 20px #f72585;
+    text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
+      0 0 20px #f36b31;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -260,8 +226,8 @@ const responsiveOptions = ref([
 
     font-size: 7rem;
     font-family: "Hocus";
-    text-shadow: 0 0 1px #f72585, 0 0 4px #f72585, 0 0 10px #f72585,
-      0 0 20px #f72585;
+    text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
+      0 0 20px #f36b31;
   }
 }
 </style>
