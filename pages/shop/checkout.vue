@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-screen bg-darkPurple">
-    <Navbar />
+    <LazyNavbar />
 
     <div class="lg:h-full h-auto w-screen p-8 lg:px-20">
       <div

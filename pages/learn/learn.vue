@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen h-full bg-mainBrown">
-    <Navbar />
+    <LazyNavbar />
     <div class="flex items-center justify-center h-screen flex-col w-full">
       <div
         class="flex-col flex items-center Bread opacity-0 justify-center space-y-6"

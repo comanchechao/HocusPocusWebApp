@@ -100,12 +100,35 @@
         </h2>
         <LazyVideoCardsCarousel class="self-center" />
       </div>
+      <div
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
+      >
+        <h2
+          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <span> شعبده باز تازه کارید؟ </span>
+        </h2>
+        <h2
+          class="text-darkPurple rounded-lg text-center text-3xl lg:text-xl flex"
+        >
+          <span> این بخش مخصوص شماست</span>
+        </h2>
+        <NuxtLink to="/learn/learn">
+          <button
+            class="px-20 py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-2xl rounded-full"
+          >
+            <PhNotebook :size="35" weight="fill" class="mr-3" />
+            <span>ورود به بخش آموزش هوکوس پوکوس </span>
+          </button>
+        </NuxtLink>
+      </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
         <h2
           class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-7 text-center text-3xl lg:text-3xl flex"
         >
-          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
-          <span> جدیدترین کارت ها </span>
+          <PhCards :size="35" weight="fill" class="mr-3" />
+          <span> جدیدترین محصولات </span>
         </h2>
         <LazyCardsCarousel class="self-center" />
       </div>
@@ -134,6 +157,22 @@
         alt=""
       />
     </div>
+    <div class="w-full h-rem22 my-14 flex flex-col">
+      <div
+        class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
+      >
+        <button
+          class="px-7 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-2xl rounded-sm"
+        >
+          <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
+          <span>دنبال کن </span>
+        </button>
+        <h2 class="text-2xl flex items-center space-x-3">
+          <span>تازه ترین ها در اینستاگرام </span>
+          <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
+        </h2>
+      </div>
+    </div>
     <LazyFooter></LazyFooter>
   </div>
 </template>
@@ -143,6 +182,8 @@ import {
   PhCards,
   PhPackage,
   PhGraduationCap,
+  PhNotebook,
+  PhInstagramLogo,
 } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
