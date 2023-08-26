@@ -18,15 +18,18 @@
           class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
         ></div>
       </div> -->
+      <!-- <TestSwiper /> -->
       <div class="Store opacity-0">
         <h1
-          class="transition flex space-x-2 duration-150 my-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="transition flex space-x-2 duration-150 mt-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <span> آنلاین شاپ و وبسایت آموزشی شعبده بازیِ </span>
           <PhMagicWand :size="35" weight="fill" />
         </h1>
       </div>
-      <div class="w-full h-screen flex flex-col items-center justify-center">
+      <div
+        class="w-full h-96 lg:h-screen flex flex-col items-center justify-center"
+      >
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
             <img
@@ -75,21 +78,54 @@
         alt=""
       /> -->
     </div>
+    <div class="h-full w-screen my-9 flex flex-col items-center">
+      <img
+        src="../assets/images/PumpkinMain1.webp"
+        class="object-contain h-48 w-full lg:px-0 px-4"
+        alt=""
+      />
+      <h2
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-5xl flex"
+      >
+        <PhPackage weight="fill" class="mr-3" />
+        <span> محصولات هوکوس پوکوس </span>
+      </h2>
+
+      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-20">
+        <h2
+          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <span> جدیدترین آموزش ها </span>
+        </h2>
+        <LazyVideoCardsCarousel class="self-center" />
+      </div>
+      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
+        <h2
+          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <span> جدیدترین کارت ها </span>
+        </h2>
+        <LazyCardsCarousel class="self-center" />
+      </div>
+    </div>
+
     <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain.webp"
-        class="object-contain h-64 w-full"
+        class="object-contain h-64 w-full lg:px-0 px-4"
         alt=""
       />
-      <div class="h-36 w-screen flex items-center justify-center">
-        <h2 class="text-mainRed text-5xl flex">
-          <PhCards class="mr-3" /> <span> کارت های منتخب هفته </span>
+
+      <div class="h-44 w-screen flex items-center justify-center">
+        <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+          <PhCards weight="fill" class="mr-3" />
+          <span> کارت های منتخب هفته </span>
         </h2>
       </div>
-      <div class="w-screen px-10 flex items-center justify-center space-x-14">
-        <Card /> <Card class="hidden lg:flex" />
-        <Card class="hidden lg:flex" />
-        <Card class="hidden lg:flex" />
+      <div class="w-screen px-32 flex items-center justify-center my-10">
+        <LazyCardsSwiper /> <LazyCardsSwiper />
       </div>
 
       <img
@@ -98,13 +134,16 @@
         alt=""
       />
     </div>
-
     <LazyFooter></LazyFooter>
   </div>
 </template>
 <script setup>
-import Card from "../components/Card.vue";
-import { PhMagicWand, PhCards } from "@phosphor-icons/vue";
+import {
+  PhMagicWand,
+  PhCards,
+  PhPackage,
+  PhGraduationCap,
+} from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 const products = ref();
