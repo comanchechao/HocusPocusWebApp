@@ -12,9 +12,9 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '70vw', backgroundColor: '#0A001A', height: '100vw' }"
+      :style="{ width: '70vw', backgroundColor: '#150531', height: '100vw' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#0A001A' }"
+      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div class="w-full h-full flex items-center flex-col lg:p-10 space-y-10">
         <h2 class="neonText text-3xl">آپلود تصاویر</h2>
@@ -105,7 +105,7 @@ const value1 = ref("");
 
 <style>
 .p-dialog .p-dialog-header {
-  background-color: #0a001a;
+  background-color: #150531;
 }
 @media only screen and (max-width: 480px) {
   .p-dialog {

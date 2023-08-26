@@ -87,7 +87,7 @@ export default {
 </script>
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {
-  color: #0a001a;
+  color: #150531;
 }
 .p-dropdown .p-dropdown-label {
   display: flex;
@@ -119,18 +119,18 @@ export default {
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
   background-color: #fbf8ff;
-  color: #0a001a;
+  color: #150531;
 }
 
 .p-dropdown-panel
   .p-dropdown-items
   .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
-  background-color: #0a001a;
+  background-color: #150531;
   color: #fbf8ff;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
   background: #f36b31;
-  color: #0a001a;
+  color: #150531;
 }
 .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
   padding: 0;
@@ -138,6 +138,6 @@ export default {
 input::placeholder,
 textarea::placeholder {
   background-color: #fbf8ff;
-  color: #0a001a90;
+  color: #15053190;
 }
 </style>

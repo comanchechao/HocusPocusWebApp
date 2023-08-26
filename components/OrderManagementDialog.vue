@@ -12,9 +12,9 @@
       :responsive="['md', 'lg', 'xl']"
       modal
       :showHeader="false"
-      :style="{ width: '70vw', backgroundColor: '#0A001A', height: '100vw' }"
+      :style="{ width: '70vw', backgroundColor: '#150531', height: '100vw' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#0A001A' }"
+      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div class="w-full h-full flex items-center flex-col py-7">
         <h2 class="text-2xl neonText">مدیریت سفارش ها</h2>

@@ -46,11 +46,11 @@ onMounted(() => {
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
   background-color: #f2edeb;
-  color: #0a001a;
+  color: #150531;
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
   background-color: #f36b31;
-  color: #0a001a;
+  color: #150531;
 }
 </style>

@@ -12,9 +12,9 @@
     <Dialog
       v-model:visible="visible"
       modal
-      :style="{ width: '30vw', backgroundColor: '#0A001A' }"
+      :style="{ width: '30vw', backgroundColor: '#150531' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#0A001A' }"
+      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div class="w-full h-rem34 flex items-center justify-center">
         <div class="flex flex-col space-y-7 items-center">

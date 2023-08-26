@@ -2,7 +2,7 @@
   <div class="h-full w-screen px-5 lg:px-14">
     <swiper
       :breakpoints="{
-        '400': {
+        '640': {
           slidesPerView: 1,
           spaceBetween: 20,
         },

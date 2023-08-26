@@ -16,9 +16,9 @@
       v-model:visible="visible"
       modal
       :showHeader="true"
-      :style="{ width: '40vw', backgroundColor: '#0A001A', height: '60vh' }"
+      :style="{ width: '40vw', backgroundColor: '#150531', height: '60vh' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#0A001A' }"
+      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
         class="h-full w-full p-3 space-y-10 flex flex-col items-center justify-center"

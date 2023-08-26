@@ -19,9 +19,9 @@
       :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
       modal
-      :style="{ width: '40vw', backgroundColor: '#0A001A', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#150531', height: '100vw' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#0A001A' }"
+      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
         class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-8 pt-14 space-y-10"
