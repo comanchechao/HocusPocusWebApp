@@ -76,7 +76,7 @@ export class AuthService {
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === 'P2002') {
-          throw new ForbiddenException('credentials already in use');
+          throw new ForbiddenException('نام کاربری قبلا استفاده شده');
         }
         throw error;
       }

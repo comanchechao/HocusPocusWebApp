@@ -11,9 +11,9 @@ import { createClient } from 'redis';
 
 // const redisClient = createClient();
 
-const RedisStore = connectRedis(session);
-const redisClient = new Redis();
-redisClient.connect().catch(console.error);
+// const RedisStore = connectRedis(session);
+// const redisClient = new Redis();
+// redisClient.connect().catch(console.error);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -28,7 +28,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.use(
     session({
-      store: new RedisStore({ client: redisClient }),
       secret: 'keyboard',
       resave: false,
       saveUninitialized: false,

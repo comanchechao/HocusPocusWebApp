@@ -3,14 +3,14 @@ import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class AuthDto {
   @IsEmail()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'لطفا ایمیل خود را وارد کنید' })
   email: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'لطفا پسوورد خود را وارد کنید' })
   password: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'لطفا نام کاربری خود را وارد کنید' })
   username: string;
 }

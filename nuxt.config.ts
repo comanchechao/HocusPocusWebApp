@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ["@hypernym/nuxt-gsap"],
+  modules: ["@hypernym/nuxt-gsap", "@pinia/nuxt"],
   gsap: {
     extraPlugins: {
       scrollTrigger: true,

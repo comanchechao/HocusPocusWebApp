@@ -29,10 +29,12 @@
         <h2 class="text-6xl neonText">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainRed" for="email">ایمیل</label>
+            <label class="text-xl text-mainRed" for="username"
+              >نام کاربری</label
+            >
             <InputText
-              id="email"
-              v-model="value"
+              id="username"
+              v-model="loginUsername"
               aria-describedby="username-help"
             />
             <small class="text-sm text-mainViolet" id="username-help"
@@ -40,16 +42,33 @@
             >
           </div>
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainRed" for="email">رمز عبور</label>
+            <label class="text-xl text-mainRed" for="email">ایمیل</label>
             <InputText
               id="email"
-              v-model="value"
+              v-model="loginEmail"
+              aria-describedby="username-help"
+            />
+            <small class="text-sm text-mainViolet" id="username-help"
+              >ایمیل خودتون رو وارد کنید</small
+            >
+          </div>
+          <div class="flex items-end flex-col space-y-4">
+            <label class="text-xl text-mainRed" for="password">رمز عبور</label>
+            <InputText
+              id="password"
+              v-model="loginPassword"
               aria-describedby="username-help"
             />
             <small class="text-sm text-mainViolet" id="username-help"
               >رمز عبور خودتون رو وارد کنید</small
             >
           </div>
+          <Message class="w-full" v-show="successLogin" severity="success">
+            <span class="text-2xl">وارد حساب خود شدید</span>
+          </Message>
+          <Message class="w-full" v-show="faildLogin" severity="error">
+            <span class="text-2xl">اطلاعات ورودی خود را چک کنید</span>
+          </Message>
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <button
@@ -70,13 +89,29 @@
 <script setup>
 import { ref } from "vue";
 import { PhKeyhole } from "@phosphor-icons/vue";
+import { useUserStore } from "../stores/user";
+
 const visible = ref(false);
+
+//set up store
+
+const userStore = useUserStore();
+
+const loginEmail = ref("");
+const loginPassword = ref("");
+const loginUsername = ref("");
+
+// log state configuration
+
+const successLogin = ref(false);
+const faildLogin = ref(false);
+const errorMessage = ref("");
 
 async function formSubmit() {
   const data = new URLSearchParams({
-    email: "newgreezx@gmail.com",
-    password: "test123456",
-    username: "dfgg",
+    email: loginEmail.value,
+    password: loginPassword.value,
+    username: loginUsername.value,
   });
 
   await $fetch(
@@ -94,9 +129,18 @@ async function formSubmit() {
   )
     .then(function (response) {
       console.log(response);
+      userStore.setLogState();
+      successLogin.value = true;
+      setTimeout(() => {
+        successLogin.value = false;
+      }, 3000);
     })
     .catch(function (error) {
       console.error(error);
+      faildLogin.value = true;
+      setTimeout(() => {
+        faildLogin.value = false;
+      }, 3000);
     });
 }
 </script>

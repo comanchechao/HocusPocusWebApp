@@ -103,6 +103,7 @@
         </button>
       </NuxtLink>
       <NuxtLink
+        v-show="isLogged"
         v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
         class="hidden lg:flex"
         to="/shop/admin"
@@ -141,7 +142,14 @@ import {
   PhStorefront,
   PhAlien,
 } from "@phosphor-icons/vue";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "../stores/user";
 const { $gsap } = useNuxtApp();
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
+
 onMounted(() => {
   $gsap.to(".Navbar", { opacity: 1, duration: 1 });
 });

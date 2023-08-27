@@ -19,9 +19,14 @@
   "dependencies": {
     "@nestjs/config": "^2.3.2",
     "@phosphor-icons/vue": "^2.1.4",
+    "@pinia/nuxt": "^0.4.11",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
-    "primevue": "^3.31.0",
+    "pinia": "^2.1.6",
+    "primevue": "^3.32.2",
     "swiper": "^10.2.0"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

@@ -9,6 +9,7 @@ import Paginator from "primevue/paginator";
 import Galleria from "primevue/galleria";
 import Sidebar from "primevue/sidebar";
 import Rating from "primevue/rating";
+import Message from "primevue/message";
 import InputNumber from "primevue/inputnumber";
 import Textarea from "primevue/textarea";
 export default defineNuxtPlugin((nuxtApp) => {
@@ -22,6 +23,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
+  nuxtApp.vueApp.component("Message", Message);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
   nuxtApp.vueApp.component("Textarea", Textarea);
 
