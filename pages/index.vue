@@ -157,7 +157,7 @@
         alt=""
       />
     </div>
-    <div class="w-full h-rem22 my-14 flex flex-col">
+    <div class="w-full h-full my-14 flex flex-col">
       <div
         class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
       >
@@ -171,6 +171,13 @@
           <span>تازه ترین ها در اینستاگرام </span>
           <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
         </h2>
+      </div>
+      <div class="w-full flex items-center">
+        <LazyInstagramCard /> <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
       </div>
     </div>
     <LazyFooter></LazyFooter>
