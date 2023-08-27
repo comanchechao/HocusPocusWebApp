@@ -2,7 +2,7 @@
   <div class="flex justify-center">
     <button
       @click="visible = true"
-      class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+      class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
     >
       <span> اضافه کردن کالا </span>
       <PhPlus weight="fill" :size="23" />
@@ -84,7 +84,7 @@
           <div class="h-28 w-full flex items-center justify-center">
             <button
               @click="visible = false"
-              class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+              class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کالا </span>
               <PhPlus weight="fill" :size="23" />

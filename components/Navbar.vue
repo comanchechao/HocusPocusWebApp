@@ -9,7 +9,7 @@
         :class="{
           'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+          'text-mainRed hover:shadow-mainPurple hover:text-mainPurple hover:border-mainPurple':
             $route.path === '/' || $route.path.startsWith('/shop/'),
         }"
         class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
@@ -20,7 +20,7 @@
         :class="{
           'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+          'text-mainRed hover:shadow-mainPurple hover:text-mainPurple hover:border-mainPurple':
             $route.path === '/' || $route.path.startsWith('/shop/'),
         }"
         class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
@@ -54,7 +54,7 @@
               $route.path === '/learn/learn' ||
               $route.path.startsWith('/learn/'),
           }"
-          class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+          class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainPurple hover:text-mainPurple text-mainRed"
         >
           <span> خرید </span> <PhStorefront :size="23" />
         </button>
@@ -65,7 +65,7 @@
             'hover:shadow-mainOrange hover:text-mainBrown text-mainBrown bg-mainYellow hover:border-mainOrange':
               $route.path === '/learn/learn' ||
               $route.path.startsWith('/learn/'),
-            'hover:shadow-mainViolet hover:text-darkPurple text-darkPurple bg-mainRed hover:border-mainViolet':
+            'hover:shadow-mainPurple hover:text-darkPurple text-darkPurple bg-mainRed hover:border-mainPurple':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
           class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
@@ -84,7 +84,7 @@
         to="/shop/profile"
       >
         <button
-          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
         >
           <span> پروفایل </span>
           <PhAlien :size="23" />
@@ -108,7 +108,7 @@
         to="/shop/admin"
       >
         <button
-          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
         >
           <span> مدیریت </span>
           <PhCoffee :size="23" />

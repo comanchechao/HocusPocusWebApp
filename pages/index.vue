@@ -90,15 +90,11 @@
         <PhPackage weight="fill" class="mr-3" />
         <span> محصولات هوکوس پوکوس </span>
       </h2>
-
-      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-20">
-        <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
-        >
-          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
-          <span> جدیدترین آموزش ها </span>
-        </h2>
-        <LazyVideoCardsCarousel class="self-center" />
+      <div
+        class="h-dialog w-full flex items-center justify-between space-x-20 p-10 my-8"
+      >
+        <div class="w-1/2 h-full bg-mainYellow cursor-pointer"></div>
+        <div class="w-1/2 h-full bg-mainPink cursor-pointer"></div>
       </div>
       <div
         class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
@@ -123,9 +119,41 @@
           </button>
         </NuxtLink>
       </div>
+      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
+        <h2
+          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <span> جدیدترین آموزش ها </span>
+        </h2>
+        <LazyVideoCardsCarousel class="self-center" />
+      </div>
+      <div
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 bg-mainPink"
+      >
+        <h2
+          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhShoppingBagOpen :size="35" weight="fill" class="mr-3" />
+          <span> دنبال محصولات شعبده بازی میگردید؟ </span>
+        </h2>
+        <h2
+          class="text-darkPurple rounded-lg text-center text-3xl lg:text-xl flex"
+        >
+          <span> این بخش مخصوص شماست</span>
+        </h2>
+        <NuxtLink to="/learn/learn">
+          <button
+            class="px-20 py-4 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-2xl rounded-full"
+          >
+            <PhShoppingBag :size="35" weight="fill" class="mr-3" />
+            <span>ورود به بخش خرید هوکوس پوکوس </span>
+          </button>
+        </NuxtLink>
+      </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
         >
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
@@ -191,6 +219,8 @@ import {
   PhGraduationCap,
   PhNotebook,
   PhInstagramLogo,
+  PhShoppingBagOpen,
+  PhShoppingBag,
 } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
