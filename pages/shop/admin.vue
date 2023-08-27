@@ -41,7 +41,7 @@
       </div>
       <div class="w-full justify-center my-7 space-x-6 flex items-center">
         <LazyAddProduct class="Product" />
-        <LazyAddFilter />
+        <LazyAddFilter class="Product" />
       </div>
       <div
         class="w-full mt-10 lg:mt-0 h-full lg:h-dialog flex flex-col items-end space-y-6"
@@ -49,7 +49,7 @@
         <div
           class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
         >
-          <Lazy OrderManagementDialog class="lg:mt-0 mt-7" />
+          <LazyOrderManagementDialog class="lg:mt-0 mt-7" />
           <h2 class="text-4xl neonText">سفارش ها</h2>
         </div>
         <div

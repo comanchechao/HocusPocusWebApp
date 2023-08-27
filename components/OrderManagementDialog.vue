@@ -38,6 +38,7 @@
               <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
               <span>تحویل داده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
             <h3 class="text-mainRed text-center px-5">
               Joker and the Thief: Blood Red Edition Playing Cards
@@ -52,6 +53,7 @@
               <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
 
               <span>فرستاده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
             <h3 class="text-mainRed text-center px-5">
               Joker and the Thief: Psychonaut Edition Playing Cards
@@ -66,6 +68,7 @@
               <PhPackage class="text-mainViolet" :size="25" weight="fill" />
 
               <span>در حال پردازش</span>
+              <LazyChangeStatusDialog />
             </h3>
             <h3 class="text-mainRed text-center px-5">
               Bicycle: Batman Edition Playing Cards
@@ -80,6 +83,7 @@
               <PhPackage class="text-mainViolet" :size="25" weight="fill" />
 
               <span>در حال پردازش</span>
+              <LazyChangeStatusDialog />
             </h3>
             <h3 class="text-mainRed text-center px-5">
               Bicycle: Batman Edition Playing Cards
