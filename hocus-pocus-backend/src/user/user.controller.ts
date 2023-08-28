@@ -1,6 +1,16 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Post,
+  Body,
+  Session,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
+import { LocalAuthGuard } from 'src/auth/common/guards/local.guard';
+import { UserInfoDto } from './dto';
+import { AuthenticatedGuards } from 'src/auth/authGuards/authenticated.guards';
 
 @Controller('user')
 export class UserController {
@@ -14,5 +24,14 @@ export class UserController {
   @Get('/orders')
   getOrders() {
     return this.userServices.getOrders();
+  }
+
+  @UseGuards(AuthenticatedGuards)
+  @Post('submitinfo')
+  submitInfo(
+    @Body() dto: UserInfoDto,
+    @Session() session: Record<string, any>,
+  ) {
+    return this.userServices.submitInfo(dto, session.passport.user.username);
   }
 }

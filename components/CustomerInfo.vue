@@ -27,57 +27,111 @@
     />
     <InputNumber
       placeholder="شماره تلفن"
-      v-model="value"
+      v-model="phoneNumber"
       class="w-full rounded-lg h-11"
       aria-describedby="username-help"
     />
     <InputText
       placeholder="نام و نام خانوادگی"
-      id="email"
-      v-model="value"
+      id="fullname"
+      v-model="fullname"
       class="w-full rounded-lg h-11"
       aria-describedby="username-help"
     />
     <InputText
       v-if="isVisible"
       placeholder="آدرس کامل"
-      id="email"
-      v-model="value"
+      id="address"
+      v-model="address"
       class="w-full rounded-lg h-11 col-span-2"
       aria-describedby="username-help"
     />
     <InputText
       placeholder="ایمیل"
       id="email"
-      v-model="value"
+      v-model="email"
       class="w-full rounded-lg h-11 self"
       aria-describedby="username-help"
     />
     <InputText
       placeholder="کد پستی"
-      id="email"
-      v-model="value"
+      id="postalCode"
+      v-model="postalCode"
       class="w-full rounded-lg h-11 self"
       aria-describedby="username-help"
     />
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useProfileStore } from "../stores/profileStore";
+import { storeToRefs } from "pinia";
+
+// register profile store
+
+const profileStore = useProfileStore();
+
+const { storeFullname } = storeToRefs(profileStore);
+
+// customer information
+
+const fullname = ref("");
+const phoneNumber = ref("");
 const selectedCity = ref();
+const address = ref("");
+const postalCode = ref("");
+const email = ref("");
+const selectedRegion = ref();
+
 const cities = ref([
   { name: "تهران", code: "NY" },
   { name: "تبریز", code: "RM" },
   { name: "ارومیه", code: "LDN" },
   { name: "شیراز", code: "IST" },
 ]);
-const selectedRegion = ref();
 const regions = ref([
   { name: "آذربایجان غربی", code: "NY" },
   { name: "آذربایجان شرقی", code: "RM" },
   { name: "البرز", code: "LDN" },
   { name: "هرمزگان", code: "IST" },
 ]);
+
+// handle information submit
+
+watch(fullname, (current, old) => {
+  console.log(current);
+  profileStore.setFullname(current);
+});
+
+watch(phoneNumber, (current, old) => {
+  console.log(current);
+  profileStore.setPhoneNumber(current);
+});
+
+watch(address, (current, old) => {
+  console.log(current);
+  profileStore.setAddress(current);
+});
+
+watch(email, (current, old) => {
+  console.log(current);
+  profileStore.setEmail(current);
+});
+
+watch(selectedCity, (current, old) => {
+  console.log(current.name);
+  profileStore.setCity(current.name);
+});
+
+watch(selectedRegion, (current, old) => {
+  console.log(current.name);
+  profileStore.setRegion(current.name);
+});
+
+watch(postalCode, (current, old) => {
+  console.log(current);
+  profileStore.setPostalCode(current);
+});
 </script>
 
 <script>

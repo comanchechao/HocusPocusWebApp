@@ -11,14 +11,19 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  email     String    @unique
-  username  String    @unique
-  password  String?
-  rt        String?
-  role      UserTypes @default(NORMAL)
-  orders    Orders[]
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  email       String
+  username    String    @unique
+  password    String?
+  address     String?
+  city        String?
+  region      String?
+  postalCode  String?
+  fullname    String?
+  phonenumber String?
+  role        UserTypes @default(NORMAL)
+  orders      Orders[]
 }
 
 enum UserTypes {

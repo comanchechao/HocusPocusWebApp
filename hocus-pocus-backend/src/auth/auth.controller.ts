@@ -37,11 +37,11 @@ export class AuthController {
     };
   }
 
-  @UseGuards(AtGuard)
-  @Post('logout')
-  logout(@GetCurrentUser('sub') userId: number) {
-    return this.authService.logout(userId);
-  }
+  // @UseGuards(AtGuard)
+  // @Post('logout')
+  // logout(@GetCurrentUser('sub') userId: number) {
+  //   return this.authService.logout(userId);
+  // }
 
   @Roles('ADMIN')
   @UseGuards(LocalAuthGuard, RolesGuard)

@@ -26,7 +26,10 @@
     </div>
     <div class="w-full flex items-center justify-center space-x-5">
       <button
-        @click="toggleedit"
+        @click="
+          toggleedit();
+          handleForm();
+        "
         :class="{
           'text-lg flex active:text-mainYellow active:bg-mainBrown items-center space-x-2 justify-center px-8 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange   text-darkPurple':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
@@ -54,6 +57,16 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { PhAlien, PhClipboardText } from "@phosphor-icons/vue";
+import { useProfileStore } from "../stores/profileStore";
+
+// register store
+
+const profileStore = useProfileStore();
+
+const handleForm = async () => {
+  profileStore.submitInformation();
+};
+
 const { $gsap } = useNuxtApp();
 const infoDiv = ref(true);
 const editDiv = ref();

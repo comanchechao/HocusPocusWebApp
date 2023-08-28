@@ -96,39 +96,39 @@ export class AuthService {
   //   });
   // }
 
-  async signIn(dto: AuthDto): Promise<Tokens> {
-    const user = await this.prisma.user.findUnique({
-      where: {
-        email: dto.email,
-      },
-    });
-    if (!user) {
-      throw new ForbiddenException('incorrect credentials');
-    }
+  // async signIn(dto: AuthDto): Promise<Tokens> {
+  //   const user = await this.prisma.user.findUnique({
+  //     where: {
+  //       email: dto.email,
+  //     },
+  //   });
+  //   if (!user) {
+  //     throw new ForbiddenException('incorrect credentials');
+  //   }
 
-    const pwMatch = await argon.verify(user.password, dto.password);
+  //   const pwMatch = await argon.verify(user.password, dto.password);
 
-    if (pwMatch) {
-      // const tokens = await this.getTokens(user.id, user.email);
-      // await this.updateRT(user.id, tokens.refresh_token);
-      // return tokens;
-    } else {
-      console.log('it is over');
-    }
+  //   if (pwMatch) {
+  //     // const tokens = await this.getTokens(user.id, user.email);
+  //     // await this.updateRT(user.id, tokens.refresh_token);
+  //     // return tokens;
+  //   } else {
+  //     console.log('it is over');
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
-  async logout(userId: number) {
-    await this.prisma.user.updateMany({
-      where: {
-        id: userId,
-      },
-      data: {
-        rt: null,
-      },
-    });
-  }
+  // async logout(userId: number) {
+  //   await this.prisma.user.updateMany({
+  //     where: {
+  //       id: userId,
+  //     },
+  //     data: {
+  //       rt: null,
+  //     },
+  //   });
+  // }
 
   async refreshToken(userId: number, rt: string) {
     const user = await this.prisma.user.findUnique({
@@ -137,11 +137,11 @@ export class AuthService {
       },
     });
 
-    if (!user) throw new ForbiddenException('credentials not found');
+    // if (!user) throw new ForbiddenException('credentials not found');
 
-    const rtMatches = await argon.verify(rt, user.rt);
+    // const rtMatches = await argon.verify(rt, user.rt);
 
-    if (!rtMatches) throw new ForbiddenException('invalid token');
+    // if (!rtMatches) throw new ForbiddenException('invalid token');
 
     // const tokens = await this.getTokens(user.id, user.email);
     // await this.updateRT(user.id, tokens.refresh_token);
