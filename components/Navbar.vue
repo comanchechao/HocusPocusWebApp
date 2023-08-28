@@ -128,9 +128,9 @@
           <PhCoffee :size="23" />
         </button>
       </NuxtLink>
-      <LazyPhoneNavbar class="flex lg:hidden" />
-      <LazyLogin v-show="!isLogged" />
       <LazyShoppingCart />
+      <LazyLogin v-show="!isLogged" />
+      <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-rem38 h-rem30 bg-mainPurple rounded-md shadow-lg transition flex-col items-center shadow-mainYellow"
+    class="lg:w-rem38 w-full h-full lg:h-rem30 bg-mainPurple rounded-md shadow-lg transition flex-col items-center shadow-mainYellow"
   >
     <div class="h-2/6 w-full bg-white rounded-t-md"></div>
     <div
@@ -17,7 +17,9 @@
         از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
         سطرآنچنان که لازم است،
       </h3>
-      <div class="w-full h-full flex items-center justify-around px-3">
+      <div
+        class="w-full h-full flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-around px-3"
+      >
         <h3
           class="text-4xl border-2 border-dashed border-mainOrange rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
         >

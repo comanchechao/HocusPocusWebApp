@@ -3,7 +3,7 @@
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
-      class="lg:h-full container h-carousel w-full flex flex-col items-center bg pt-7 justify-center"
+      class="lg:h-full container h-auto w-full flex flex-col items-center bg pt-7 justify-center"
     >
       <!-- <img
         ref="image"
@@ -21,14 +21,13 @@
       <!-- <TestSwiper /> -->
       <div class="Store opacity-0">
         <h1
-          class="transition flex space-x-2 duration-150 mt-7 ease-in-out text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-3xl lg:text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <span> آنلاین شاپ و وبسایت آموزشی شعبده بازیِ </span>
-          <PhMagicWand :size="35" weight="fill" />
         </h1>
       </div>
       <div
-        class="w-full h-96 lg:h-screen flex flex-col items-center justify-center"
+        class="w-full h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
       >
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
@@ -78,26 +77,30 @@
         alt=""
       /> -->
     </div>
-    <div class="h-full w-screen my-9 flex flex-col items-center">
+    <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain1.webp"
         class="object-contain h-48 w-full lg:px-0 px-4"
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 lg:my-14 text-center text-3xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" class="mr-3" />
         <span> محصولات هوکوس پوکوس </span>
       </h2>
       <div
-        class="h-dialog w-full flex items-center justify-between space-x-20 p-10 my-8"
+        class="h-dialog w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
-        <div class="w-1/2 h-full bg-mainYellow cursor-pointer"></div>
-        <div class="w-1/2 h-full bg-mainPink cursor-pointer"></div>
+        <div
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+        ></div>
+        <div
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+        ></div>
       </div>
       <div
-        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
+        class="w-full lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
       >
         <h2
           class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
@@ -106,13 +109,13 @@
           <span> شعبده باز تازه کارید؟ </span>
         </h2>
         <h2
-          class="text-darkPurple rounded-lg text-center text-3xl lg:text-xl flex"
+          class="text-darkPurple rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="px-20 py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-2xl rounded-full"
+            class="lg:px-20 px-4 py-2 lg:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
           >
             <PhNotebook :size="35" weight="fill" class="mr-3" />
             <span>ورود به بخش آموزش هوکوس پوکوس </span>

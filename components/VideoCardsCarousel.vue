@@ -2,6 +2,10 @@
   <div class="h-full w-screen px-5 lg:px-14">
     <swiper
       :breakpoints="{
+        '480': {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
         '640': {
           slidesPerView: 1,
           spaceBetween: 20,
@@ -19,7 +23,8 @@
         delay: 2500,
         disableOnInteraction: true,
       }"
-      :slidesPerView="2"
+      :slidesPerView="1"
+      :spaceBetween="10"
       class="mySwiper w-full"
     >
       <swiper-slide><LazyVideoCard /></swiper-slide>
