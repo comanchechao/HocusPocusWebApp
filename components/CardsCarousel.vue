@@ -19,7 +19,7 @@
         delay: 2500,
         disableOnInteraction: true,
       }"
-      :slidesPerView="3"
+      :slidesPerView="1"
       class="mySwiper w-full"
     >
       <swiper-slide><LazyCard /></swiper-slide>

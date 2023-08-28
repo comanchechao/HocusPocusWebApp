@@ -27,18 +27,18 @@
         </h1>
       </div>
       <div
-        class="w-full h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
+        class="w-full md:h-rem26 h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
       >
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusUp1.webp"
-              class="object-contain absolute Up opacity-0"
+              class="object-contain absolute Up opacity-0 lg:w-full w-96 md:w-rem38"
               alt=""
             />
             <img
               src="../assets/images/HocusUp2.webp"
-              class="object-contain absolute Up2 opacity-0"
+              class="object-contain absolute Up2 opacity-0 lg:w-full w-96 md:w-rem38"
               alt=""
             />
           </div>
@@ -84,7 +84,7 @@
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 lg:my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" class="mr-3" />
         <span> محصولات هوکوس پوکوس </span>
@@ -115,9 +115,13 @@
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="lg:px-20 px-4 py-2 lg:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
           >
-            <PhNotebook :size="35" weight="fill" class="mr-3" />
+            <PhNoteboo
+              :size="35"
+              weight="fill"
+              class="mr-3 lg:flex hidden md:flex"
+            />
             <span>ورود به بخش آموزش هوکوس پوکوس </span>
           </button>
         </NuxtLink>
@@ -132,22 +136,22 @@
         <LazyVideoCardsCarousel class="self-center" />
       </div>
       <div
-        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 bg-mainPink"
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
       >
         <h2
-          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
+          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
         >
           <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
         </h2>
         <h2
-          class="text-darkPurple rounded-lg text-center text-3xl lg:text-xl flex"
+          class="text-darkPurple rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
         <NuxtLink to="/shop/shop">
           <button
-            class="px-20 py-4 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-2xl rounded-full"
+            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-lg lg:text-2xl rounded-full"
           >
             <PhShoppingBag :size="35" weight="fill" class="mr-3" />
             <span>ورود به بخش خرید هوکوس پوکوس </span>
@@ -172,14 +176,21 @@
         alt=""
       />
 
-      <div class="h-44 w-screen flex items-center justify-center">
+      <div
+        class="h-auto lg:my-10 my-5 w-screen flex items-center justify-center"
+      >
         <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
           <PhCards weight="fill" class="mr-3" />
           <span> کارت های منتخب هفته </span>
         </h2>
       </div>
-      <div class="w-screen px-32 flex items-center justify-center my-10">
-        <LazyCardsSwiper /> <LazyCardsSwiper />
+      <div
+        class="w-screen lg:px-32 flex items-center justify-center my-7 lg:my-10"
+      >
+        <div class="lg:flex hidden md:flex">
+          <LazyCardsSwiper />
+        </div>
+        <LazyCardsSwiper />
       </div>
 
       <img
