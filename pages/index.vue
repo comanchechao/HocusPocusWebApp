@@ -134,7 +134,7 @@
         <h2
           class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
         >
-          <PhShoppingBagOpen :size="35" weight="fill" class="mr-3" />
+          <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
         </h2>
         <h2
@@ -142,7 +142,7 @@
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
-        <NuxtLink to="/learn/learn">
+        <NuxtLink to="/shop/shop">
           <button
             class="px-20 py-4 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-2xl rounded-full"
           >

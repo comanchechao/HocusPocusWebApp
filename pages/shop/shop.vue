@@ -11,8 +11,12 @@
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
         <div
-          class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 gap-4 justify-items-center"
+          class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 overscroll-y-scroll gap-4 justify-items-center"
         >
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
@@ -37,6 +41,13 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   TM.from(".Sort", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Filter", { opacity: 0, duration: 1 });
 
@@ -44,7 +55,7 @@ onMounted(() => {
   TM.to(".Paginator", { opacity: 1, duration: 1 });
 });
 </script>
-
+<script></script>
 <style>
 .p-paginator {
   background-color: transparent;
