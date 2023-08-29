@@ -16,7 +16,7 @@
           }"
           class=""
         >
-          ارومیه
+          {{ data.city }}
         </h2>
         <h2 class="text-mainPurple">شهر</h2>
       </div>
@@ -32,7 +32,7 @@
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
-          آذربایجان غربی
+          {{ data.region }}
         </h2>
         <h2 class="text-mainPurple">استان</h2>
       </div>
@@ -48,7 +48,7 @@
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
-          09145623377
+          {{ data.phonenumber }}
         </h2>
         <h2 class="text-mainPurple">شماره تلفن</h2>
       </div>
@@ -64,7 +64,7 @@
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
-          آروین نیک بین
+          {{ data.fullname }}
         </h2>
         <h2 class="text-mainPurple">نام و نام خانوادگی</h2>
       </div>
@@ -81,7 +81,7 @@
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
-            ارومیه - خیابان عمار - خیابان حج - مجتمع مسکونی ارم - بلوک یک
+            {{ data.address }}
           </h2>
           <h2 class="text-mainPurple">آدرس کامل</h2>
         </div>
@@ -98,7 +98,7 @@
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
-          arvin.nikbin22@gmail.com
+          {{ data.email }}
         </h2>
         <h2 class="text-mainPurple">ایمیل</h2>
       </div>
@@ -114,16 +114,49 @@
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
         >
-          5727575427
+          {{ data.postalCode }}
         </h2>
         <h2 class="text-mainPurple">کد پستی</h2>
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: ["isVisible"],
+<script setup>
+import { storeToRefs } from "pinia";
+import { ref, onMounted } from "vue";
+import { useProfileStore } from "../stores/profileStore";
+
+// register store profile
+
+const profileStore = useProfileStore();
+
+const { submitted } = storeToRefs(profileStore);
+
+watch(submitted, (current, old) => {
+  profileStore.setSubmit();
+});
+
+// profile data
+
+const data = ref({});
+
+onMounted(() => {
+  getProfile();
+});
+
+const getProfile = async () => {
+  await $fetch("http://localhost:3333/user/profileinfo", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then((response, error) => {
+    data.value = response.data;
+    console.log(response);
+    console.log(error);
+  });
 };
 </script>
 <style></style>

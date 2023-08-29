@@ -34,4 +34,10 @@ export class UserController {
   ) {
     return this.userServices.submitInfo(dto, session.passport.user.username);
   }
+
+  @UseGuards(AuthenticatedGuards)
+  @Get('/profileinfo')
+  getProfile(@Session() session: Record<string, any>) {
+    return this.userServices.getProfile(session.passport.user.username);
+  }
 }

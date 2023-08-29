@@ -8,11 +8,12 @@ export const useProfileStore = defineStore("profileStore", {
     storeCity: "",
     storeRegion: "",
     storePostalCode: "",
+    submitted: false,
   }),
   actions: {
-    setLogState() {
-      this.isLogged = true;
-      console.log("this is log state : ", this.isLogged);
+    setSubmit() {
+      this.submitted = true;
+      console.log("this is log state : ", this.submitted);
     },
     setFullname(fullname) {
       this.storeFullname = fullname;

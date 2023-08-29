@@ -21,7 +21,7 @@
     </div>
     <div class="flex w-full items-center h-full" id="edit" v-show="editDiv">
       <div class="h-full w-full flex items-center justify-center">
-        <LazyProfileInfo />
+        <LazyProfileInfo isVisible="true" />
       </div>
     </div>
     <div class="w-full flex items-center justify-center space-x-5">
@@ -65,11 +65,12 @@ const profileStore = useProfileStore();
 
 const handleForm = async () => {
   profileStore.submitInformation();
+  profileStore.setSubmit();
 };
 
 const { $gsap } = useNuxtApp();
-const infoDiv = ref(true);
-const editDiv = ref();
+const infoDiv = ref();
+const editDiv = ref(true);
 function toggleInfo() {
   infoDiv.value = true;
   editDiv.value = false;

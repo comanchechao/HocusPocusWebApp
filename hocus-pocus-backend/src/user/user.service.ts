@@ -58,4 +58,26 @@ export class UserService {
     });
     return { msg: 'properties have been updated', user: updatedUser };
   }
+
+  async getProfile(username: string) {
+    const user = await this.prismaService.user.findUnique({
+      where: {
+        username: username,
+      },
+    });
+    if (!user) {
+      throw new NotAcceptableException('نام کاربری پیدا نشد');
+    }
+    return {
+      data: {
+        fullname: user.fullname,
+        phonenumber: user.phonenumber,
+        city: user.city,
+        region: user.region,
+        address: user.address,
+        postalCode: user.postalCode,
+        email: user.email,
+      },
+    };
+  }
 }

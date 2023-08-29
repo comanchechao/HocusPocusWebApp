@@ -80,7 +80,11 @@
               cols="90"
             />
           </div>
-          <Filters />
+          <FiltersAdmin />
+          {{ type }}
+          {{ design }}
+          {{ brand }}
+          {{ rarity }}
           <div class="h-28 w-full flex items-center justify-center">
             <button
               @click="visible = false"
@@ -99,8 +103,16 @@
 <script setup>
 import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
+import { useManagementStore } from "../stores/productManagement";
+import { storeToRefs } from "pinia";
 const visible = ref(false);
 const value1 = ref("");
+
+// regiter management store
+
+const managementStore = useManagementStore();
+
+const { type, brand, design, rarity } = storeToRefs(managementStore);
 </script>
 
 <style>
