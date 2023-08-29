@@ -12,7 +12,7 @@ export class ManagementService {
     const product = await this.prismaService.products.create({
       data: {
         title: dto.title,
-        price: dto.price,
+        price: Number(dto.price),
         type: dto.type,
         brand: dto.brand,
         design: dto.design,
