@@ -55,27 +55,29 @@
               <label class="text-xl text-mainRed" for="email">قیمت کالا</label>
               <InputNumber
                 id="email"
-                v-model="value"
+                v-model="productPrice"
                 aria-describedby="username-help"
                 class="w-full"
               />
             </div>
             <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainRed" for="email">نام کالا</label>
+              <label class="text-xl text-mainRed" for="title">نام کالا</label>
               <InputText
-                id="email"
-                v-model="value"
+                id="title"
+                v-model="productTitle"
                 aria-describedby="username-help"
                 class="w-full"
               />
             </div>
           </div>
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainRed" for="email">توضیحات کالا</label>
+            <label class="text-xl text-mainRed" for="description"
+              >توضیحات کالا</label
+            >
             <Textarea
               class="w-full"
               autoResize
-              v-model="value1"
+              v-model="productDescription"
               rows="1"
               cols="90"
             />
@@ -87,7 +89,10 @@
           {{ rarity }}
           <div class="h-28 w-full flex items-center justify-center">
             <button
-              @click="visible = false"
+              @click="
+                visible = false;
+                handleProduct();
+              "
               class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کالا </span>
@@ -106,13 +111,61 @@ import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 const visible = ref(false);
-const value1 = ref("");
+
+const productTitle = ref("");
+const productDescription = ref("");
+const productPrice = ref();
 
 // regiter management store
 
 const managementStore = useManagementStore();
 
-const { type, brand, design, rarity } = storeToRefs(managementStore);
+const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
+
+// handle adding product via submit
+
+const handleProduct = async () => {
+  const data = new URLSearchParams({
+    title: productTitle.value,
+    price: productPrice.value,
+    type: type.value,
+    brand: brand.value,
+    design: design.value,
+    rarity: rarity.value,
+    inStock: inStock.value,
+    description: productDescription.value,
+  });
+
+  await $fetch("http://localhost:3333/user/submitinfo", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  }).then((response, error) => {
+    console.log(response);
+    console.log(error);
+  });
+
+  console.log(
+    "type:",
+    type.value,
+    "brand:",
+    brand.value,
+    "design",
+    design.value,
+    "rarirty",
+    rarity.value,
+    "price",
+    productPrice.value,
+    "title",
+    productTitle.value,
+    "description",
+    productDescription.value
+  );
+};
 </script>
 
 <style>
