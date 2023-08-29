@@ -9,10 +9,9 @@ import { ManagementDto } from './dto/ManagementDto';
 export class ManagementController {
   constructor(private readonly managementService: ManagementService) {}
 
-  @Roles('ADMIN')
   @Get('/products')
   getProducts() {
-    return { msg: 'see all products' };
+    return this.managementService.getProducts();
   }
 
   @Roles('ADMIN')

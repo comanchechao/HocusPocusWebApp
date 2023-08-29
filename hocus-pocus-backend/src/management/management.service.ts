@@ -21,4 +21,9 @@ export class ManagementService {
     });
     console.log(product);
   }
+
+  async getProducts() {
+    const products = await this.prismaService.products.findMany({});
+    return { products: products };
+  }
 }

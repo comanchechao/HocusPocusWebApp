@@ -136,7 +136,7 @@ const handleProduct = async () => {
     description: productDescription.value,
   });
 
-  await $fetch("http://localhost:3333/user/submitinfo", {
+  await $fetch("http://localhost:3333/management/addproduct", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

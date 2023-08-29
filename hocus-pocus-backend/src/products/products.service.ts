@@ -1,27 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class ProductsService {
-  getAllProducts() {
-    const products = [
-      {
-        title: 'deck',
-        price: 20000,
-      },
-      {
-        title: 'deck 2',
-        price: 20000,
-      },
-      {
-        title: 'deck 3 ',
-        price: 20000,
-      },
-      {
-        title: 'deck 4 ',
-        price: 20000,
-      },
-    ];
-
-    return products;
+  constructor(private readonly prismaService: PrismaService) {}
+  async getAllProducts() {
+    const products = await this.prismaService.products.findMany({});
+    return { products: products };
   }
 }
