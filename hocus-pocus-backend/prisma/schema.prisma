@@ -53,9 +53,11 @@ model ProductImages {
   product    Products @relation(fields: [product_id], references: [id])
 }
 
-enum Category {
-  deck
-  magicItem
+model Categories {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  update_at  DateTime @updatedAt
+  title      String
 }
 
 enum Rarities {

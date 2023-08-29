@@ -4,6 +4,7 @@ import { LocalAuthGuard } from 'src/auth/common/guards/local.guard';
 import { RolesGuard } from 'src/auth/common/guards/roleBased.guard';
 import { ManagementService } from './management.service';
 import { ManagementDto } from './dto/ManagementDto';
+import { CategoryDto } from './dto/CategoryDto';
 
 @Controller('management')
 export class ManagementController {
@@ -45,5 +46,15 @@ export class ManagementController {
   @Get('info')
   gettingDesiredInfo() {
     return { msg: 'return desired info from database' };
+  }
+
+  @Post('/addcategory')
+  addCategory(@Body() dto: CategoryDto) {
+    return this.managementService.addCategory(dto);
+  }
+
+  @Get('/categories')
+  getCategories() {
+    return this.managementService.getCategories();
   }
 }

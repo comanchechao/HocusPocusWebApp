@@ -2,6 +2,7 @@ import { Injectable, ForbiddenException } from '@nestjs/common';
 import { ManagementDto } from './dto/ManagementDto';
 import { PrismaService } from '../prisma/prisma.service';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+import { CategoryDto } from './dto/CategoryDto';
 
 @Injectable()
 export class ManagementService {
@@ -25,5 +26,19 @@ export class ManagementService {
   async getProducts() {
     const products = await this.prismaService.products.findMany({});
     return { products: products };
+  }
+
+  async getCategories() {
+    const categories = await this.prismaService.categories.findMany({});
+    return { categories: categories };
+  }
+
+  async addCategory(dto: CategoryDto) {
+    const category = await this.prismaService.categories.create({
+      data: {
+        title: dto.title,
+      },
+    });
+    return { msg: 'کاتاگوی با موفقیت اضافه شد' };
   }
 }

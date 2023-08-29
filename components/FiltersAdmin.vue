@@ -7,6 +7,15 @@
       <h3 class="text-lg text-mainRed">موجودی کالا</h3>
     </div>
     <MultiSelect
+      v-model="selectedCategory"
+      :options="categories"
+      optionLabel="name"
+      display="chip"
+      filter
+      placeholder="کاتاگوری"
+      :showToggleAll="false"
+    ></MultiSelect>
+    <MultiSelect
       v-model="selectedRarity"
       :options="rarity"
       optionLabel="name"
@@ -59,6 +68,7 @@ const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
 const selectedDesigns = ref();
+const selectedCategory = ref();
 
 // register management store
 
@@ -108,6 +118,17 @@ const brands = ref([
   { name: "بایسیکل", code: "NY" },
   { name: "جوکر", code: "RM" },
   { name: "تلی هو", code: "LDN" },
+]);
+const categories = ref([
+  { name: "کلوس آپ مجیک", code: "NY" },
+  { name: "کارت مجیک", code: "RM" },
+  { name: "سکه و پول", code: "LDN" },
+  { name: "حرکت اجسام", code: "LDN" },
+  { name: "منتالیسم", code: "LDN" },
+  { name: "جادوی خیابانی", code: "LDN" },
+  { name: "جادوی استند آپ", code: "LDN" },
+  { name: "جادوی اجرا بزرگ", code: "LDN" },
+  { name: "جادوی کافی شاپ", code: "LDN" },
 ]);
 </script>
 

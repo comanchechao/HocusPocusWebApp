@@ -3,6 +3,7 @@ import PrimeVue from "primevue/config";
 import Dialog from "primevue/dialog";
 import InputText from "primevue/inputtext";
 import Dropdown from "primevue/dropdown";
+import Listbox from "primevue/listbox";
 import MultiSelect from "primevue/multiselect";
 import InputSwitch from "primevue/inputswitch";
 import Paginator from "primevue/paginator";
@@ -24,6 +25,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("Message", Message);
+  nuxtApp.vueApp.component("Listbox  ", Listbox);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
   nuxtApp.vueApp.component("Textarea", Textarea);
 
