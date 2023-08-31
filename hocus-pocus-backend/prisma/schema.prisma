@@ -32,15 +32,15 @@ enum UserTypes {
 }
 
 model Products {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  title       String
-  price       Float
-  description String?
-  brand       String?
-  type        String?
-  design      String?
-
+  id            Int             @id @default(autoincrement())
+  createdAt     DateTime        @default(now())
+  title         String
+  price         Float
+  description   String?
+  brand         String?
+  type          String?
+  design        String?
+  inStock       Boolean?        @default(true)
   ProductImages ProductImages[]
 }
 

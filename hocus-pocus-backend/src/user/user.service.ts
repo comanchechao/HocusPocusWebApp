@@ -31,6 +31,8 @@ export class UserService {
     return orders;
   }
 
+  // profile service functions
+
   async submitInfo(dto: UserInfoDto, username: string) {
     console.log(username);
     const user = await this.prismaService.user.findUnique({

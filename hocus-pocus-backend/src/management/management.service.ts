@@ -7,6 +7,9 @@ import { CategoryDto } from './dto/CategoryDto';
 @Injectable()
 export class ManagementService {
   constructor(private readonly prismaService: PrismaService) {}
+
+  // product services
+
   async addProduct(dto: ManagementDto) {
     console.log('functnio is running');
 
@@ -27,6 +30,26 @@ export class ManagementService {
     const products = await this.prismaService.products.findMany({});
     return { products: products };
   }
+
+  async updateProduct(dto: ManagementDto) {
+    const product = await this.prismaService.products.updateMany({
+      where: {
+        id: Number(dto.productId),
+      },
+      data: {
+        title: dto.title,
+        price: dto.price,
+        description: dto.description,
+        brand: dto.brand,
+        type: dto.type,
+        design: dto.design,
+      },
+    });
+
+    return { updatedProduct: product };
+  }
+
+  // category services
 
   async getCategories() {
     const categories = await this.prismaService.categories.findMany({});

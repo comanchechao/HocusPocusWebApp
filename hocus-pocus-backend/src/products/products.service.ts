@@ -8,4 +8,14 @@ export class ProductsService {
     const products = await this.prismaService.products.findMany({});
     return { products: products };
   }
+
+  async getProductById(id: string) {
+    const product = await this.prismaService.products.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return { product: product };
+  }
 }

@@ -16,4 +16,6 @@ export class ManagementDto {
   rarity: string;
 
   inStock: boolean;
+
+  productId: string;
 }
