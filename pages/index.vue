@@ -185,12 +185,14 @@
         </h2>
       </div>
       <div
-        class="w-screen lg:px-32 flex items-center justify-center my-7 lg:my-10"
+        class="w-screen lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
         <div class="lg:flex hidden md:flex">
           <LazyCardsSwiper />
         </div>
-        <LazyCardsSwiper />
+        <div class="lg:flex hidden md:flex">
+          <LazyCardsSwiper />
+        </div>
       </div>
 
       <img
