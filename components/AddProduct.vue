@@ -87,12 +87,20 @@
           {{ design }}
           {{ brand }}
           {{ rarity }}
-          <div class="h-28 w-full flex items-center justify-center">
+          <div class="h-28 w-full flex flex-col items-center justify-center">
+            <div>
+              <Message v-show="success">کالا به انبار اضافه شد</Message>
+            </div>
+            <div v-if="Array.isArray(errorMessage)">
+              <Message
+                v-for="error in errorMessage"
+                :key="error"
+                v-show="faild"
+                >{{ error }}</Message
+              >
+            </div>
             <button
-              @click="
-                visible = false;
-                handleProduct();
-              "
+              @click="handleProduct()"
               class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کالا </span>
@@ -111,6 +119,13 @@ import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 const visible = ref(false);
+
+// product refs
+
+const success = ref(false);
+const faild = ref(false);
+
+const errorMessage = ref("");
 
 const productTitle = ref("");
 const productDescription = ref("");
@@ -144,10 +159,22 @@ const handleProduct = async () => {
     credentials: "include",
     body: data,
     withCredentials: true,
-  }).then((response, error) => {
-    console.log(response);
-    console.log(error);
-  });
+  })
+    .then((response, error) => {
+      console.log(response);
+      console.log(error);
+      success.value = true;
+      setTimeout(() => {
+        success.value = false;
+      }, 3000);
+    })
+    .catch((error) => {
+      faild.value = true;
+      errorMessage.value = error.data.message;
+      setTimeout(() => {
+        faild.value = false;
+      }, 3000);
+    });
 
   console.log(
     "type:",

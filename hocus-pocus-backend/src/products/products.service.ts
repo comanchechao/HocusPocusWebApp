@@ -5,7 +5,16 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ProductsService {
   constructor(private readonly prismaService: PrismaService) {}
   async getAllProducts() {
-    const products = await this.prismaService.products.findMany({});
+    const products = await this.prismaService.products.findMany({
+      select: {
+        id: true,
+        title: true,
+        price: true,
+        brand: true,
+        type: true,
+        design: true,
+      },
+    });
     return { products: products };
   }
 
