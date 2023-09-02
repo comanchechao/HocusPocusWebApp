@@ -23,4 +23,14 @@ export class OrdersService {
   submitDraft() {
     return { msg: 'drafted' };
   }
+
+  async getOrderById(id: string) {
+    const order = await this.prismaService.orderItems.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return { order: order };
+  }
 }
