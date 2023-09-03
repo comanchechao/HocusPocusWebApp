@@ -49,6 +49,18 @@ export class ManagementService {
     return { updatedProduct: product };
   }
 
+  async storeImage(file: any) {
+    const image = await this.prismaService.productImages.create({
+      data: {
+        filename: file.originalname,
+        buffer: file.buffer.toString('base64'),
+        product_id: 3,
+      },
+    });
+
+    return { data: image };
+  }
+
   // category services
 
   async getCategories() {

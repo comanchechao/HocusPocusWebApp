@@ -27,4 +27,15 @@ export class ProductsService {
 
     return { product: product };
   }
+
+  async getImageById(id: string) {
+    const image = await this.prismaService.productImages.findUnique({
+      where: {
+        id: 1,
+      },
+    });
+
+    const imageDataURL = `data:image/jpeg;base64,${image.buffer}`;
+    return { image: imageDataURL };
+  }
 }

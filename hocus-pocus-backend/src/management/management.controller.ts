@@ -60,7 +60,8 @@ export class ManagementController {
   ) {
     const { filename, path } = file;
     console.log(file.buffer.toString('base64'));
-    console.log(filename, path);
+    console.log(file);
+    return this.managementService.storeImage(file);
   }
 
   // orders requests
