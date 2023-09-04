@@ -1,25 +1,32 @@
-import { Controller, Get, Body, Post, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  UseInterceptors,
+  Get,
+  Body,
+  Post,
+  UseGuards,
+  UploadedFile,
+  ParseFilePipeBuilder,
+  HttpStatus,
+} from '@nestjs/common';
 import { Roles } from 'src/auth/common/decorators/Role.decorator';
 import { LocalAuthGuard } from 'src/auth/common/guards/local.guard';
 import { RolesGuard } from 'src/auth/common/guards/roleBased.guard';
 import { ManagementService } from './management.service';
 import { ManagementDto } from './dto/ManagementDto';
 import { CategoryDto } from './dto/CategoryDto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Express } from 'express';
 
 @Controller('management')
 export class ManagementController {
   constructor(private readonly managementService: ManagementService) {}
 
+  // products requests
+
   @Get('/products')
   getProducts() {
     return this.managementService.getProducts();
-  }
-
-  @Roles('ADMIN')
-  @UseGuards(LocalAuthGuard, RolesGuard)
-  @Get('/orders')
-  getOrders() {
-    return { msg: 'see all orders' };
   }
 
   @Post('/addproduct')
@@ -32,6 +39,37 @@ export class ManagementController {
   @Post('/updateProduct')
   updateProduct() {
     return { msg: 'here we will update some things' };
+  }
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadFile(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: 'jpeg' || 'png',
+        })
+        .addMaxSizeValidator({
+          maxSize: 5000,
+        })
+        .build({
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        }),
+    )
+    file: Express.Multer.File,
+  ) {
+    const { filename, path } = file;
+    console.log(file.buffer.toString('base64'));
+    console.log(file);
+    return this.managementService.storeImage(file);
+  }
+
+  // orders requests
+  @Roles('ADMIN')
+  @UseGuards(LocalAuthGuard, RolesGuard)
+  @Get('/orders')
+  getOrders() {
+    return { msg: 'see all orders' };
   }
 
   @Roles('ADMIN')
@@ -47,6 +85,8 @@ export class ManagementController {
   gettingDesiredInfo() {
     return { msg: 'return desired info from database' };
   }
+
+  // category requests
 
   @Post('/addcategory')
   addCategory(@Body() dto: CategoryDto) {

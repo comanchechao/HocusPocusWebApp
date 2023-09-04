@@ -14,4 +14,9 @@ export class ProductsController {
   getProductsById(@Param('id') id: string) {
     return this.productService.getProductById(id);
   }
+
+  @Get('image/:id')
+  getImageById(@Param('id') id: string) {
+    return this.productService.getImageById(id);
+  }
 }
