@@ -18,6 +18,7 @@
     <Dialog
       :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
+      :showHeader="false"
       modal
       :style="{ width: '40vw', backgroundColor: '#150531', height: '100vw' }"
       dismissableMask
