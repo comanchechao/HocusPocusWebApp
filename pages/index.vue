@@ -187,7 +187,7 @@
       <div
         class="w-screen lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
-        <div class="lg:flex hidden md:flex">
+        <div class=" ">
           <LazyCardsSwiper />
         </div>
         <div class="lg:flex hidden md:flex">

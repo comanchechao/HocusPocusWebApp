@@ -2,24 +2,26 @@
   <div
     class="w-full h-full flex items-center justify-center flex-col space-y-6"
   >
-    <div class="flex items-center justify-center space-x-5 h-14 w-full">
+    <div
+      class="flex items-center justify-center lg:space-y-0 space-y-5 lg:space-x-5 h-auto lg:flex-row flex-col lg:h-14 w-full"
+    >
       <button
         @click="toggleRecieved"
-        class="w-full h-14 text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-green-700 active:text-white hover:shadow-green-500 bg-green-500 text-white transition ease-in duration-150 hover:bg-white hover:text-green-500"
+        class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-green-700 active:text-white hover:shadow-green-500 bg-green-500 text-white transition ease-in duration-150 hover:bg-white hover:text-green-500"
       >
         <span>تحویل داده شده</span>
         <PhCheckCircle weight="fill" :size="30" />
       </button>
       <button
         @click="togglesent"
-        class="w-full h-14 text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-blue-900 active:text-white hover:shadow-blue-700 bg-blue-700 text-white transition ease-in duration-150 hover:bg-white hover:text-blue-700"
+        class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-blue-900 active:text-white hover:shadow-blue-700 bg-blue-700 text-white transition ease-in duration-150 hover:bg-white hover:text-blue-700"
       >
         <span>فرستاده شده</span>
         <PhAirplaneTakeoff weight="fill" :size="30" />
       </button>
       <button
         @click="toggleProcess"
-        class="w-full h-14 text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-Fuchsia-950 active:text-white hover:shadow-mainViolet bg-mainViolet text-white transition ease-in duration-150 hover:bg-white hover:text-mainViolet"
+        class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-Fuchsia-950 active:text-white hover:shadow-mainViolet bg-mainYellow text-white transition ease-in duration-150 hover:bg-white hover:text-mainViolet"
       >
         <span>در حال پردازش</span>
         <PhPackage weight="fill" :size="30" />
@@ -31,16 +33,16 @@
       <div
         id="process"
         v-show="processDiv"
-        class="flex w-full items-center h-full flex-col justify-around space-y-5 p-10"
+        class="flex w-full items-center h-full flex-col justify-around space-y-5 p-4 lg:p-10"
       >
         <h2
-          class="text-2xl flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
+          class="text-2xl font-bold flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
         >
           <span>اطلاعات سفارش ها</span>
           <PhClipboardText weight="fill" :size="25" />
         </h2>
         <div
-          class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
+          class="h-full pt-6 w-full flex flex-col justify-center px-2 space-y-5 overflow-y-scroll items-center"
         >
           <Order />
           <Order />
@@ -53,7 +55,7 @@
         class="flex w-full items-center h-full flex-col justify-around space-y-5 p-10"
       >
         <h2
-          class="text-2xl flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
+          class="text-2xl font-bold flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
         >
           <span>اطلاعات سفارش ها</span>
           <PhClipboardText weight="fill" :size="25" />
@@ -72,7 +74,7 @@
         class="flex w-full items-center h-full flex-col justify-around space-y-5 p-10"
       >
         <h2
-          class="text-2xl flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
+          class="text-2xl font-bold flex self-end items-center space-x-2 text-darkPurple border-b-4 border-mainRed pb-2 rounded-md"
         >
           <span>اطلاعات سفارش ها</span>
           <PhClipboardText weight="fill" :size="25" />
