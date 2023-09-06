@@ -16,7 +16,9 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div class="w-full h-full flex items-center flex-col lg:p-10 space-y-10">
+      <div
+        class="w-full h-full pt-10 pt flex items-center flex-col lg:p-10 space-y-10"
+      >
         <h2 class="neonText text-3xl">اضافه کردن آموزش</h2>
 
         <div class="w-full flex items-center flex-col space-y-7">
