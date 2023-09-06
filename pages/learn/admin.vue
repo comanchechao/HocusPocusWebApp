@@ -20,7 +20,9 @@
       <div
         class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
       >
-        <div class="w-full h-auto flex items-center justify-around">
+        <div
+          class="w-full h-auto lg:flex-row flex-col lg:space-y-0 space-y-7 flex items-center justify-around"
+        >
           <div
             class="flex flex-col items-center rounded-md shadow-md shadow-mainPurple p-6"
           >
