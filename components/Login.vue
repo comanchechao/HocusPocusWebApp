@@ -67,14 +67,26 @@
               >رمز عبور خودتون رو وارد کنید</small
             >
           </div>
-          <Message class="w-full" v-show="successLogin" severity="success">
-            <span class="text-2xl">وارد حساب خود شدید</span>
-          </Message>
-          <Message class="w-full" v-show="faildLogin" severity="error">
-            <span class="text-2xl">اطلاعات ورودی خود را چک کنید</span>
-          </Message>
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
+          <Message
+            class="w-full text-right"
+            v-show="successLogin"
+            severity="success"
+          >
+            <span class="lg:text-2xl text-md font-bold"
+              >ورود موفقیت آمیز بود</span
+            >
+          </Message>
+          <Message
+            class="w-full text-right"
+            v-show="faildLogin"
+            severity="error"
+          >
+            <span class="lg:text-2xl text-md font-bold"
+              >اطلاعات ورودی خود را چک کنید</span
+            >
+          </Message>
           <button
             label="Show"
             @click="formSubmit()"
@@ -108,7 +120,7 @@ const loginUsername = ref("");
 // log state configuration
 
 const successLogin = ref(false);
-const faildLogin = ref(false);
+const faildLogin = ref(true);
 const errorMessage = ref("");
 
 async function formSubmit() {
@@ -148,3 +160,12 @@ async function formSubmit() {
     });
 }
 </script>
+<style>
+.p-message-wrapper {
+  align-items: center;
+  justify-content: center;
+}
+.p-message-close.p-link {
+  margin-left: 0;
+}
+</style>
