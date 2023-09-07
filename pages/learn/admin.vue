@@ -21,10 +21,10 @@
         class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
       >
         <div
-          class="w-full h-auto lg:flex-row flex-col lg:space-y-0 space-y-7 flex items-center justify-around"
+          class="w-full h-auto md:flex-row lg:flex-row flex-col lg:space-y-0 space-y-7 flex items-center justify-around"
         >
           <div
-            class="flex flex-col items-center rounded-md shadow-md shadow-mainPurple p-6"
+            class="flex flex-col items-center rounded-md shadow-lg border border-mainPink shadow-mainPurple p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
               <h4 class="text-white">تومان</h4>
@@ -57,75 +57,71 @@
         <div
           class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
         >
-          <LazyOrderManagementDialog class="lg:mt-0 mt-7" />
-          <h2 class="text-4xl neonText">سفارش ها</h2>
+          <LazySubscriptionManagement class="lg:mt-0 mt-7" />
+          <h2 class="text-4xl neonText">اشتراک ها</h2>
         </div>
         <div
-          class="w-full h-full bg-white flex flex-col rounded-md text-xs lg:text-lg"
+          class="w-full h-full border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
         >
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
           >
-            <h3 class="text-mainPurple">کد سفارش</h3>
-            <h3 class="text-mainPurple">تاریخ سفارش</h3>
-            <h3 class="text-mainPurple">وضعیت سفارش</h3>
-            <h3 class="text-mainPurple">نام کالا</h3>
+            <h3 class="text-mainPurple font-bold">تاریخ سفارش</h3>
+            <h3 class="text-mainPurple font-bold">وضعیت سفارش</h3>
+            <h3 class="text-mainPurple font-bold">نام خریدار</h3>
+            <h3 class="text-mainPurple font-bold">نام اشتراک</h3>
           </div>
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
-            <h3 class="text-mainBrown">1544455</h3>
-            <h3 class="text-mainBrown">دوشنبه 25 تیر</h3>
-            <h3 class="text-mainBrown flex items-center space-x-2">
+            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
+            <h3 class="text-darkPurple flex items-center space-x-2">
               <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
               <span>تحویل داده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
-            <h3 class="text-mainYellow text-center px-5">
-              Joker and the Thief: Blood Red Edition Playing Cards
-            </h3>
+            <h3 class="text-darkPurple">آروین نیک بین</h3>
+            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
           </div>
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
-            <h3 class="text-mainBrown">4566564</h3>
-            <h3 class="text-mainBrown">شنبه 23 تیر</h3>
-            <h3 class="text-mainBrown flex items-center space-x-2">
+            <h3 class="text-darkPurple">شنبه 23 تیر</h3>
+            <h3 class="text-darkPurple flex items-center space-x-2">
               <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
 
               <span>فرستاده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
-            <h3 class="text-mainYellow text-center px-5">
-              Joker and the Thief: Psychonaut Edition Playing Cards
-            </h3>
+            <h3 class="text-darkPurple">آروین نیک بین</h3>
+            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
           </div>
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
-            <h3 class="text-mainBrown">789555</h3>
-            <h3 class="text-mainBrown">چهارشنبه 20 تیر</h3>
-            <h3 class="text-mainBrown flex items-center space-x-2">
-              <PhPackage class="text-mainViolet" :size="25" weight="fill" />
+            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
+            <h3 class="text-darkPurple flex items-center space-x-2">
+              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-              <span>در حال پردازش</span>
+              <span>تحویل داده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
-            <h3 class="text-mainYellow text-center px-5">
-              Bicycle: Batman Edition Playing Cards
-            </h3>
+            <h3 class="text-darkPurple">آروین نیک بین</h3>
+            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
           </div>
           <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-mainYellow"
+            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
-            <h3 class="text-mainBrown">789555</h3>
-            <h3 class="text-mainBrown">چهارشنبه 20 تیر</h3>
-            <h3 class="text-mainBrown flex items-center space-x-2">
-              <PhPackage class="text-mainViolet" :size="25" weight="fill" />
+            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
+            <h3 class="text-darkPurple flex items-center space-x-2">
+              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-              <span>در حال پردازش</span>
+              <span>تحویل داده شده</span>
+              <LazyChangeStatusDialog />
             </h3>
-            <h3 class="text-mainYellow text-center px-5">
-              Bicycle: Batman Edition Playing Cards
-            </h3>
+            <h3 class="text-darkPurple">آروین نیک بین</h3>
+            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@
         class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
       >
         <div
-          class="flex flex-col items-center rounded-md shadow-md shadow-mainPurple p-6"
+          class="flex flex-col items-center rounded-md shadow-md border border-mainPink shadow-mainPurple p-6"
         >
           <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>

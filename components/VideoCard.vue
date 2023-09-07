@@ -1,10 +1,10 @@
 <template>
   <div
-    class="lg:w-rem38 w-full h-full lg:h-rem30 bg-mainPurple rounded-md shadow-lg transition flex-col items-center shadow-mainYellow"
+    class="lg:w-rem38 w-full h-auto lg:h-rem30 bg-mainPurple rounded-md shadow-lg transition flex-col items-center shadow-mainYellow"
   >
-    <div class="h-2/6 w-full bg-white rounded-t-md"></div>
+    <div class="lg:h-2/6 h-96 w-full bg-white rounded-t-md"></div>
     <div
-      class="h-4/6 space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
+      class="lg:h-4/6 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
     >
       <h2
         class="text-xl flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
@@ -18,7 +18,7 @@
         سطرآنچنان که لازم است،
       </h3>
       <div
-        class="w-full h-full flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-around px-3"
+        class="w-full h-auto flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-center lg:justify-around px-3"
       >
         <h3
           class="text-4xl border-2 border-dashed border-mainOrange rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"

@@ -6,7 +6,7 @@
       >
         <img
           src="../assets/images/MagicianLogo.webp"
-          class="object-contain w-24"
+          class="object-contain w-20"
           alt=""
         />
         <NuxtLink class="w-full" to="/">
@@ -21,47 +21,76 @@
             class=""
           >
             <span> خونه </span>
-            <PhHouseSimple :size="23" />
+            <PhHouseSimple weight="fill" :size="23" />
           </button>
         </NuxtLink>
-        <NuxtLink class="w-full" to="/shop/profile">
+        <NuxtLink
+          v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
+          class="w-full"
+          to="/shop/profile"
+        >
           <button
-            :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
-                $route.path === '/learn/learn' ||
-                $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
-                $route.path === '/' || $route.path.startsWith('/shop/'),
-            }"
+            class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           >
             <span> پروفایل </span>
-            <PhAlien :size="23" />
+            <PhAlien weight="fill" :size="23" />
           </button>
         </NuxtLink>
-        <NuxtLink class="w-full" to="/shop/admin">
+        <NuxtLink
+          v-if="$route.path.startsWith('/learn')"
+          class="w-full"
+          to="/learn/profile"
+        >
           <button
-            :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
-                $route.path === '/learn/learn' ||
-                $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
-                $route.path === '/' || $route.path.startsWith('/shop/'),
-            }"
+            class="text-xl flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+          >
+            <span> پروفایل </span>
+            <PhAlien weight="fill" :size="23" />
+          </button>
+        </NuxtLink>
+        <NuxtLink
+          v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
+          class="w-full"
+          to="/shop/admin"
+        >
+          <button
+            class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           >
             <span> مدیریت </span>
-            <PhCoffee :size="23" />
+            <PhCoffee weight="fill" :size="23" />
           </button>
         </NuxtLink>
-        <NuxtLink class="w-full" to="/shop/shop">
+        <NuxtLink
+          v-if="$route.path.startsWith('/learn')"
+          class="w-full"
+          to="/learn/admin"
+        >
           <button
-            :class="{
-              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
-                $route.path === '/learn/learn' ||
-                $route.path.startsWith('/learn/'),
-              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
-                $route.path === '/' || $route.path.startsWith('/shop/'),
-            }"
-            class=""
+            class="text-xl flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+          >
+            <span> مدیریت </span>
+            <PhCoffee weight="fill" :size="23" />
+          </button>
+        </NuxtLink>
+
+        <NuxtLink
+          v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
+          class="w-full"
+          to="/shop/shop"
+        >
+          <button
+            class="text-xl border-dashed active:text-darkPurple active:bg-mainViolet flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+          >
+            <span> خرید </span> <PhStorefront :size="23" />
+          </button>
+        </NuxtLink>
+        <NuxtLink
+          v-if="$route.path.startsWith('/learn')"
+          class="w-full"
+          to="/learn/shop"
+        >
+          <button
+            class="text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
           >
             <span> خرید </span> <PhStorefront :size="23" />
           </button>
@@ -100,7 +129,12 @@
       </div>
     </Sidebar>
     <button
-      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      :class="{
+        'text-xl active:text-mainBrown active:bg-mainYellow flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+          $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+        'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+          $route.path === '/' || $route.path.startsWith('/shop/'),
+      }"
       @click="visible = true"
     >
       <PhList :size="30" />

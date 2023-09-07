@@ -23,7 +23,7 @@
         </h2>
       </div>
       <div
-        class="grid mb-12 grid-cols-1 space-y-9 lg:grid-cols-2 gap-2 px-14 place-items-center w-full"
+        class="grid mb-12 h-full grid-cols-1 space-y-9 lg:grid-cols-2 gap-2 px-14 place-items-center w-full"
       >
         <VideoCard></VideoCard> <VideoCard></VideoCard>
       </div>
