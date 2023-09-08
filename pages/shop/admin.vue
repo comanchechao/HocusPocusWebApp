@@ -21,7 +21,7 @@
         class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
       >
         <div
-          class="flex flex-col items-center rounded-md shadow-md border border-mainPink shadow-mainPurple p-6"
+          class="flex flex-col items-center rounded-md shadow-lg border border-mainPink shadow-mainPurple p-6"
         >
           <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>
@@ -33,13 +33,15 @@
         </div>
       </div>
       <div
-        class="flex items-center lg:flex-row flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
+        class="flex items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
         <LazySoldDialog />
         <LazyInStockDialog />
         <LazyAvailableDialog />
       </div>
-      <div class="w-full justify-center my-7 space-x-6 flex items-center">
+      <div
+        class="md:space-x-6 md:flex-row md:space-y-0 w-full justify-center my-7 lg:space-x-6 lg:flex-row flex-col space-x-0 lg:space-y-0 space-y-4 flex items-center"
+      >
         <LazyAddProduct class="Product" />
         <LazyAddFilter class="Product" />
       </div>

@@ -17,20 +17,17 @@
 
     <Dialog
       v-model:visible="visible"
-      :showHeader="false"
       modal
-      :style="{ width: '70vw', backgroundColor: '#150531', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#150531', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div
-        class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-8 pt-32 space-y-10"
-      >
-        <h2 class="text-6xl neonText">ورود</h2>
+      <div class="w-full h-full justify-center flex items-center p-8 flex-col">
+        <!-- <h2 class="text-6xl neonText">ورود</h2> -->
         <div
-          class="grid lg:grid-cols-2 place-items-center gap-10 md:grid-cols-2 grid-cols-1"
+          class="grid lg:grid-cols-2 place-items-center gap-3 md:grid-cols-2 grid-cols-1"
         >
-          <div class="flex items-end flex-col space-y-4">
+          <div class="flex items-end flex-col space-y-2">
             <label class="text-xl text-mainRed" for="username"
               >نام کاربری</label
             >
@@ -43,7 +40,7 @@
               >ایمیل خودتون رو وارد کنید</small
             >
           </div>
-          <div class="flex items-end flex-col space-y-4">
+          <div class="flex items-end flex-col space-y-2">
             <label class="text-xl text-mainRed" for="email">ایمیل</label>
             <InputText
               id="email"
@@ -55,7 +52,7 @@
             >
           </div>
           <div
-            class="flex items-end flex-col space-y-4 md:col-auto lg:col-span-2"
+            class="flex items-end flex-col space-y-2 md:col-span-2 justify-self-end lg:col-span-2"
           >
             <label class="text-xl text-mainRed" for="password">رمز عبور</label>
             <InputText
@@ -70,7 +67,7 @@
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <Message
-            class="w-full text-right"
+            class="w-full text-right absolute"
             v-show="successLogin"
             severity="success"
           >
@@ -79,7 +76,7 @@
             >
           </Message>
           <Message
-            class="w-full text-right"
+            class="w-full text-right absolute"
             v-show="faildLogin"
             severity="error"
           >
@@ -87,15 +84,17 @@
               >اطلاعات ورودی خود را چک کنید</span
             >
           </Message>
-          <button
-            label="Show"
-            @click="formSubmit()"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
-          >
-            <span> ورود </span>
-            <PhKeyhole :size="25" />
-          </button>
-          <LazySignUp />
+          <div class="flex items-center space-x-4">
+            <LazySignUp />
+            <button
+              label="Show"
+              @click="formSubmit()"
+              class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+            >
+              <span> ورود </span>
+              <PhKeyhole :size="25" />
+            </button>
+          </div>
         </div>
       </div>
     </Dialog>
@@ -161,11 +160,14 @@ async function formSubmit() {
 }
 </script>
 <style>
+.p-dialog {
+  max-height: 100% !important;
+}
 .p-message-wrapper {
   align-items: center;
   justify-content: center;
 }
-.p-message-close.p-link {
+.p-message.p-message-error .p-message-close {
   margin-left: 0;
 }
 </style>

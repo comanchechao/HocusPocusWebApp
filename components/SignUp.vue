@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-6 py-1 transition duration-150 ease-in-out border-2 border-dashed border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="text-xl flex items-center space-x-2 px-5 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />
@@ -12,18 +12,16 @@
     <Dialog
       :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
-      :showHeader="false"
       modal
-      :style="{ width: '60vw', backgroundColor: '#150531', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#150531', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
-        class="w-full h-full justify-center flex items-center lg:p-16 flex-col lg:pt-8 pt-32 space-y-10"
+        class="w-full h-full justify-center flex items-center p-7 lg:p-24 flex-col space-y-4"
       >
-        <h2 class="text-6xl neonText">ثبت نام</h2>
-        <div class="grid lg:grid-cols-2 place-items-center gap-10 grid-cols-1">
-          <div class="flex items-end flex-col space-y-4">
+        <div class="grid lg:grid-cols-2 place-items-center gap-4 grid-cols-1">
+          <div class="flex items-end flex-col space-y-2">
             <label class="text-xl text-mainRed" for="username"
               >نام کاربری</label
             >
@@ -36,7 +34,7 @@
               >ایمیل خودتون رو وارد کنید</small
             >
           </div>
-          <div class="flex items-end flex-col space-y-4">
+          <div class="flex items-end flex-col space-y-2">
             <label class="text-xl text-mainRed" for="email">ایمیل</label>
             <InputText
               id="email"
@@ -47,7 +45,9 @@
               >ایمیل خودتون رو وارد کنید</small
             >
           </div>
-          <div class="flex items-end flex-col space-y-4 lg:col-span-2">
+          <div
+            class="flex items-end flex-col space-y-2 md:col-span-2 lg:col-span-2"
+          >
             <label class="text-xl text-mainRed" for="password">رمز عبور</label>
             <InputText
               id="password"
@@ -58,13 +58,17 @@
               >رمز عبور خودتون رو وارد کنید</small
             >
           </div>
-          <Message class="w-full" v-show="successSignup" severity="success">
-            <span class="text-2xl">حساب کاربری با موفقیت ساخته شد</span>
-          </Message>
-          <Message class="w-full" v-show="succussLogin" severity="success">
-            <span class="text-2xl">وارد حساب کاربری شدید</span>
-          </Message>
-          <div v-if="Array.isArray(errorMessage)" class="flex flex-col">
+        </div>
+        <div
+          class="h-full w-full flex flex-col items-center relative space-y-5"
+        >
+          <div class="absolute" v-if="Array.isArray(errorMessage)">
+            <Message class="w-full" v-show="successSignup" severity="success">
+              <span class="text-2xl">حساب کاربری با موفقیت ساخته شد</span>
+            </Message>
+            <Message class="w-full" v-show="succussLogin" severity="success">
+              <span class="text-2xl">وارد حساب کاربری شدید</span>
+            </Message>
             <Message
               v-for="error in errorMessage"
               :key="error"
@@ -76,7 +80,11 @@
             </Message>
           </div>
           <div v-else>
-            <Message class="w-full" v-show="faildSignup" severity="error">
+            <Message
+              class="w-full text-right"
+              v-show="faildSignup"
+              severity="error"
+            >
               <span class="text-2xl">{{ errorMessage }}</span>
             </Message>
           </div>
@@ -84,7 +92,7 @@
         <button
           label="Show"
           @click="formSubmit()"
-          class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainRed rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+          class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
         >
           <span> ثبت نام </span>
           <PhSignature :size="25" />
