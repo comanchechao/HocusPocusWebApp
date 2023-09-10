@@ -107,7 +107,7 @@
             </div>
           </div>
 
-          <FiltersAdmin />
+          <LazyVideoFilter />
           <!-- {{ type }}
           {{ design }}
           {{ brand }}
