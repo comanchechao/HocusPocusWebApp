@@ -1,11 +1,7 @@
 <template>
   <div
-    class="flex md:flex-row lg:flex-row flex-col flex-wrap space-y-4 lg:space-y-0 lg:pt-0 pt-6 items-center justify-end lg:space-x-10 w-screen lg:w-full h-full lg:h-full border-t-2 border-mainRed"
+    class="flex items-center justify-center flex-wrap w-screen lg:w-full h-full lg:h-full border-t-2 border-mainRed"
   >
-    <div class="flex items-center space-x-3">
-      <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-lg text-mainRed">موجودی آموزش</h3>
-    </div>
     <MultiSelect
       v-model="selectedCategory"
       :options="categories"

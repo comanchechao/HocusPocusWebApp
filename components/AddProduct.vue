@@ -11,38 +11,32 @@
       :breakpoints="{ '960px': '100vw', '641px': '100vw' }"
       v-model:visible="visible"
       modal
-      :showHeader="false"
       :style="{ width: '70vw', backgroundColor: '#150531', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div class="w-full h-full flex items-center flex-col lg:p-10 space-y-10">
+      <div class="w-full h-full flex items-center flex-col pb-24">
         <h2 class="neonText text-3xl">آپلود تصاویر</h2>
         <div
-          class="w-full h-full lg:flex items-center grid grid-cols-2 grid-rows-2 justify-items-center px-7 place-items-center gap-3 lg:space-x-0 lg:justify-between lg:flex-wrap"
+          class="w-full h-full grid my-10 lg:grid-cols-4 grid-cols-2 justify-items-center px-7 place-items-center gap-3"
         >
           <div
-            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
           <div
-            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
-          >
-            <PhUpload weight="fill" :size="66" />
-          </div>
-          <div
-            class="lg:w-40 lg:h-52 w-28 h-32 bg-mainRed transition ease-in-out col-span-2 duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+            class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
           </div>
@@ -52,7 +46,9 @@
             class="flex lg:flex-row flex-col items-center lg:space-y-0 space-y-7 lg:space-x-10"
           >
             <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainRed" for="email">قیمت کالا</label>
+              <label class="text-xl text-mainRed" for="email"
+                >قیمت کالا <span class="text-sm">(به تومان)</span></label
+              >
               <InputNumber
                 id="email"
                 v-model="productPrice"
@@ -75,18 +71,22 @@
               >توضیحات کالا</label
             >
             <Textarea
-              class="w-full"
+              class="w-full text-darkPurple"
               autoResize
               v-model="productDescription"
               rows="1"
               cols="90"
             />
           </div>
-          <FiltersAdmin />
-          {{ type }}
+          <div class="flex items-center space-x-3">
+            <InputSwitch v-model="checked"></InputSwitch>
+            <h3 class="text-lg text-mainRed">موجودی کالا</h3>
+          </div>
+          <LazyFiltersAdmin />
+          <!-- {{ type }}
           {{ design }}
           {{ brand }}
-          {{ rarity }}
+          {{ rarity }} -->
           <div class="h-28 w-full flex flex-col items-center justify-center">
             <div>
               <Message v-show="success">کالا به انبار اضافه شد</Message>
@@ -101,7 +101,7 @@
             </div>
             <button
               @click="handleProduct()"
-              class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+              class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کالا </span>
               <PhPlus weight="fill" :size="23" />
