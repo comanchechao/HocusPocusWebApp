@@ -18,7 +18,7 @@
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
-        class="w-full h-full justify-center flex items-center p-7 lg:p-24 flex-col space-y-4"
+        class="w-full h-full justify-center flex items-center lg:p-3 p-2 flex-col space-y-4"
       >
         <div class="grid lg:grid-cols-2 place-items-center gap-4 grid-cols-1">
           <div class="flex items-end flex-col space-y-2">
@@ -76,7 +76,7 @@
               v-show="faildSignup"
               severity="error"
             >
-              <span class="text-2xl">{{ error }}</span>
+              <span class="lg:text-xl text-md">{{ error }}</span>
             </Message>
           </div>
           <div v-else>
@@ -85,7 +85,7 @@
               v-show="faildSignup"
               severity="error"
             >
-              <span class="text-2xl">{{ errorMessage }}</span>
+              <span class="lg:text-xl text-md">{{ errorMessage }}</span>
             </Message>
           </div>
         </div>

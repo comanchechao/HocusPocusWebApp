@@ -201,6 +201,97 @@
         alt=""
       />
     </div>
+    <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
+      <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+        <PhHeartStraight weight="fill" class="mr-3" />
+        <span> محصولات پرطرفدار </span>
+      </h2>
+      <div
+        class="w-full h-screen grid grid-cols-4 grid-rows-2 place-items-center px-24 py-9 gap-5"
+      >
+        <div
+          class="h-full space-y-4 w-full bg-mainPink col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-4xl border-2 border-dashed border-darkPurple rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-darkPurple">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-darkPurple font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-darkPurple">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-darkPurple font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-darkPurple">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-darkPurple font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-darkPurple">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-darkPurple font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-darkPurple">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+      </div>
+    </div>
     <div class="w-full h-full my-14 flex flex-col">
       <div
         class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
@@ -237,6 +328,7 @@ import {
   PhInstagramLogo,
   PhShoppingBagOpen,
   PhShoppingBag,
+  PhHeartStraight,
 } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";

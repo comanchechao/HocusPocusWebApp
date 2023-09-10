@@ -61,7 +61,7 @@
           <h2 class="text-4xl neonText">اشتراک ها</h2>
         </div>
         <div
-          class="w-full h-full border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
+          class="w-full h-auto border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
         >
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
@@ -78,21 +78,20 @@
             <h3 class="text-darkPurple flex items-center space-x-2">
               <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-              <span>تحویل داده شده</span>
-              <LazyChangeStatusDialog />
+              <span>خریداری شده</span>
             </h3>
             <h3 class="text-darkPurple">آروین نیک بین</h3>
             <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
           </div>
+
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
-            <h3 class="text-darkPurple">شنبه 23 تیر</h3>
+            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
             <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
+              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-              <span>فرستاده شده</span>
-              <LazyChangeStatusDialog />
+              <span>لغو شده</span>
             </h3>
             <h3 class="text-darkPurple">آروین نیک بین</h3>
             <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
@@ -104,21 +103,7 @@
             <h3 class="text-darkPurple flex items-center space-x-2">
               <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-              <span>تحویل داده شده</span>
-              <LazyChangeStatusDialog />
-            </h3>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-              <span>تحویل داده شده</span>
-              <LazyChangeStatusDialog />
+              <span>لغو شده</span>
             </h3>
             <h3 class="text-darkPurple">آروین نیک بین</h3>
             <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>

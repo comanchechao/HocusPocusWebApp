@@ -80,7 +80,7 @@
             v-show="faildLogin"
             severity="error"
           >
-            <span class="lg:text-2xl text-md font-bold"
+            <span class="lg:text-xl text-md px-7"
               >اطلاعات ورودی خود را چک کنید</span
             >
           </Message>
@@ -119,7 +119,7 @@ const loginUsername = ref("");
 // log state configuration
 
 const successLogin = ref(false);
-const faildLogin = ref(true);
+const faildLogin = ref(false);
 const errorMessage = ref("");
 
 async function formSubmit() {
