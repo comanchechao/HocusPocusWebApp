@@ -32,13 +32,12 @@
     </button>
     <h2
       :class="{
-        'text-mainYellow':
+        'text-mainYellow my-5':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-mainRed lg:order-1 text-md -order-4 flex items-center space-x-3"
+      class="text-mainRed my-5 lg:order-1 text-md -order-4 flex items-center space-x-3"
     >
-      <span> : </span>
-      مرتب سازی بر اساس
+      <span> مرتب سازی بر اساس </span>
       <PhFadersHorizontal :size="30" weight="fill" />
     </h2>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <NuxtLink to="/shop/productDetail">
     <div
-      class="h-full rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+      class="h-auto rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
     >
       <div class="w-full h-96 p-9 bg-white rounded-t-sm">
         <img
