@@ -35,13 +35,11 @@
               <span> جزئیات بیشتر </span> <PhInfo :size="20" />
             </button>
           </NuxtLink>
-          <NuxtLink class="self-center my-5" to="/learn/productDetail">
-            <button
-              class="w-44 justify-center py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
-            >
-              <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
-            </button>
-          </NuxtLink>
+          <button
+            class="w-44 justify-center py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+          >
+            <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+          </button>
         </div>
       </div>
     </div>

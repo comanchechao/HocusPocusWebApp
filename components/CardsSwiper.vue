@@ -3,7 +3,7 @@
     :effect="'cards'"
     :grabCursor="true"
     :modules="modules"
-    class="mySwiper"
+    class="mySwiper h-full"
   >
     <swiper-slide><LazyCard /></swiper-slide
     ><swiper-slide><LazyCard /></swiper-slide>
@@ -39,7 +39,7 @@ export default {
 <style scoped>
 .swiper {
   width: 300px;
-  height: 450px;
+  height: 660px;
 }
 
 .swiper-slide {
@@ -48,6 +48,5 @@ export default {
   justify-content: center;
   border-radius: 3px;
   font-size: 22px;
-  font-weight: bold;
 }
 </style>

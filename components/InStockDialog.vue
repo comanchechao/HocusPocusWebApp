@@ -6,7 +6,7 @@
     >
       <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
       <div class="flex flex-col items-center space-y-3">
-        <h3 class="text-darkPurple text-md">کالاهای موجود</h3>
+        <h3 class="text-mainPurple text-md">کالاهای موجود</h3>
         <h1 class="text-darkPurple text-5xl font-bold">50000</h1>
       </div>
     </div>

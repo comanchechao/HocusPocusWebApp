@@ -18,7 +18,7 @@
         </h2>
       </div>
       <div
-        class="flex lg:items-start justify-center items-center Stat1 lg:justify-start w-full flex-col my-9"
+        class="flex lg:items-start space-x-8 justify-center items-center Stat1 lg:justify-start w-full my-9"
       >
         <div
           class="flex flex-col items-center rounded-md shadow-lg border border-mainPink shadow-mainPurple p-6"
@@ -30,6 +30,16 @@
             </h1>
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
+        </div>
+        <div
+          class="flex flex-col items-center rounded-md w-96 shadow-lg border border-mainPink shadow-mainPurple p-6"
+        >
+          <div class="flex items-center space-x-3 Stat1">
+            <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+              5421
+            </h1>
+          </div>
+          <h3 class="text-white text-lg">مجموع سفارش ها</h3>
         </div>
       </div>
       <div
@@ -46,82 +56,22 @@
         <LazyAddFilter class="Product" />
       </div>
       <div
-        class="w-full mt-10 lg:mt-0 h-full lg:h-dialog flex flex-col items-end space-y-6"
+        class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
       >
-        <div
-          class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
+        <h2
+          class="text-4xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
         >
-          <LazyOrderManagementDialog class="lg:mt-0 mt-7" />
-          <h2 class="text-4xl neonText">سفارش ها</h2>
-        </div>
-        <div
-          class="w-full h-full bg-white flex flex-col rounded-md text-xs lg:text-lg"
+          سفارش ها
+        </h2>
+        <LazySortBy />
+        <LazyOrderManagement />
+      </div>
+      <div class="w-full h-screen mt-20 flex flex-col items-end space-y-6">
+        <h2
+          class="text-4xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
         >
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
-          >
-            <h3 class="text-mainPurple">کد سفارش</h3>
-            <h3 class="text-mainPurple">تاریخ سفارش</h3>
-            <h3 class="text-mainPurple">وضعیت سفارش</h3>
-            <h3 class="text-mainPurple">نام کالا</h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainRed"
-          >
-            <h3 class="text-darkPurple">1544455</h3>
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-              <span>تحویل داده شده</span>
-            </h3>
-            <h3 class="text-mainRed text-center px-5">
-              Joker and the Thief: Blood Red Edition Playing Cards
-            </h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainRed"
-          >
-            <h3 class="text-darkPurple">4566564</h3>
-            <h3 class="text-darkPurple">شنبه 23 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
-
-              <span>فرستاده شده</span>
-            </h3>
-            <h3 class="text-mainRed text-center px-5">
-              Joker and the Thief: Psychonaut Edition Playing Cards
-            </h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainRed"
-          >
-            <h3 class="text-darkPurple">789555</h3>
-            <h3 class="text-darkPurple">چهارشنبه 20 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-              <span>در حال پردازش</span>
-            </h3>
-            <h3 class="text-mainRed text-center px-5">
-              Bicycle: Batman Edition Playing Cards
-            </h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-mainRed"
-          >
-            <h3 class="text-darkPurple">789555</h3>
-            <h3 class="text-darkPurple">چهارشنبه 20 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-              <span>در حال پردازش</span>
-            </h3>
-            <h3 class="text-mainRed text-center px-5">
-              Bicycle: Batman Edition Playing Cards
-            </h3>
-          </div>
-        </div>
+          مدیریت صفحه ی اول
+        </h2>
       </div>
     </div>
   </div>

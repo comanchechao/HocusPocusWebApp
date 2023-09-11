@@ -185,7 +185,7 @@
         </h2>
       </div>
       <div
-        class="w-screen lg:px-32 flex items-center justify-around my-7 lg:my-10"
+        class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
         <div class=" ">
           <LazyCardsSwiper />
@@ -324,7 +324,7 @@ import {
   PhCards,
   PhPackage,
   PhGraduationCap,
-  PhNotebook,
+  PhMoney,
   PhInstagramLogo,
   PhShoppingBagOpen,
   PhShoppingBag,

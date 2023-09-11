@@ -1,9 +1,9 @@
 <template>
   <NuxtLink to="/shop/productDetail">
     <div
-      class="h-rem28 rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+      class="h-full rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
     >
-      <div class="w-full h-2/3 p-3 bg-white rounded-t-sm">
+      <div class="w-full h-96 p-9 bg-white rounded-t-sm">
         <img
           src="../assets/images/Psychonauts.webp"
           class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
@@ -11,13 +11,25 @@
         />
       </div>
       <div
-        class="w-full h-1/3 flex items-center flex-col px-7 pt-5 bg-white space-y-3"
+        class="w-full h-full flex items-center flex-col px-7 py-5 bg-white space-y-4"
       >
         <h3 class="text-center leading-snug title text-xl text-darkPurple">
           Seafarers: Commodore Edition Playing Cards
         </h3>
+        <h3
+          class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+        >
+          <span class="text-xs text-mainRed">تومان</span>
+          <span>599,000</span>
+          <PhMoney :size="34" weight="fill" />
+        </h3>
         <button
-          class="px-8 py-2 flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-darkPurple text-mainRed hover:text-darkPurple shadow-mainRed hover:bg-mainRed rounded-sm"
+          class="w-44 justify-center py-2 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+        >
+          <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+        </button>
+        <button
+          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" />
         </button>
@@ -27,7 +39,7 @@
 </template>
 
 <script setup>
-import { PhInfo } from "@phosphor-icons/vue";
+import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
 </script>
 <style>
 @font-face {

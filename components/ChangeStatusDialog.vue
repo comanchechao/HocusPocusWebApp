@@ -19,7 +19,11 @@
       <div
         class="h-full w-full p-3 space-y-10 flex flex-col items-center justify-center"
       >
-        <h2 class="text-white text-3xl">تغییر وضعیت سفارش</h2>
+        <h2
+          class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
+        >
+          تغییر وضعیت سفارش
+        </h2>
         <div
           class="flex items-center justify-center text-right space-x-7 w-full h-full"
         >
@@ -36,6 +40,13 @@
             <h3 class="text-lg text-mainRed">تحویل داده شده</h3>
           </div>
         </div>
+        <button
+          @click="visible = false"
+          class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+        >
+          <span> تایید تغییرات </span>
+          <PhCheckCircle weight="fill" :size="23" />
+        </button>
       </div>
     </Dialog>
   </div>
@@ -43,7 +54,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhInfo } from "@phosphor-icons/vue";
+import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
 const visible = ref(false);
 
 const checked = ref(false);
