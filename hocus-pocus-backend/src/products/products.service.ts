@@ -13,6 +13,7 @@ export class ProductsService {
         brand: true,
         type: true,
         design: true,
+        ProductImages: true,
       },
     });
     return { products: products };
@@ -23,6 +24,15 @@ export class ProductsService {
       where: {
         id: Number(id),
       },
+      select: {
+        id: true,
+        title: true,
+        price: true,
+        brand: true,
+        type: true,
+        design: true,
+        ProductImages: true,
+      },
     });
 
     return { product: product };
@@ -31,7 +41,7 @@ export class ProductsService {
   async getImageById(id: string) {
     const image = await this.prismaService.productImages.findUnique({
       where: {
-        id: 1,
+        product_id: id,
       },
     });
 

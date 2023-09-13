@@ -13,14 +13,19 @@
         <div
           class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 overscroll-y-scroll gap-4 justify-items-center"
         >
+          <LazyCard
+            v-for="product in products"
+            :key="product"
+            :product="product"
+          ></LazyCard>
+          <!-- <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
-          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" /> -->
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator
@@ -40,7 +45,29 @@
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const loading = ref(false);
+const products = ref([]);
+
+const getArticles = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getArticles();
   TM.to(window, {
     scrollTo: {
       top: 0,

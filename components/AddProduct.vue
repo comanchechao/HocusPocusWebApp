@@ -20,26 +20,70 @@
         <div
           class="w-full h-full grid my-10 lg:grid-cols-4 grid-cols-2 justify-items-center px-7 place-items-center gap-3"
         >
-          <div
+          <label
+            for="imageone"
             class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
-          </div>
-          <div
+            <input
+              @change="
+                (event) => {
+                  eventFileOne = event.target.files[0];
+                }
+              "
+              type="file"
+              id="imageone"
+              class="hidden"
+            />
+          </label>
+          <label
+            for="imagetwo"
             class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
-          </div>
-          <div
+            <input
+              @change="
+                (event) => {
+                  eventFileTwo = event.target.files[0];
+                }
+              "
+              type="file"
+              id="imagetwo"
+              class="hidden"
+            />
+          </label>
+          <label
+            for="imagethree"
             class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
-          </div>
-          <div
+            <input
+              @change="
+                (event) => {
+                  eventFileThree = event.target.files[0];
+                }
+              "
+              type="file"
+              id="imagethree"
+              class="hidden"
+            />
+          </label>
+          <label
+            for="imagefour"
             class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
             <PhUpload weight="fill" :size="66" />
-          </div>
+            <input
+              @change="
+                (event) => {
+                  eventFileFour = event.target.files[0];
+                }
+              "
+              type="file"
+              id="imagefour"
+              class="hidden"
+            />
+          </label>
         </div>
         <div class="w-full flex items-center flex-col space-y-7">
           <div
@@ -120,6 +164,13 @@ import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 const visible = ref(false);
 
+// image from events
+
+const eventFileOne = ref();
+const eventFileTwo = ref();
+const eventFileThree = ref();
+const eventFileFour = ref();
+
 // product refs
 
 const success = ref(false);
@@ -130,6 +181,8 @@ const errorMessage = ref("");
 const productTitle = ref("");
 const productDescription = ref("");
 const productPrice = ref();
+
+const addedProductID = ref();
 
 // regiter management store
 
@@ -161,12 +214,25 @@ const handleProduct = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response);
+      console.log(response.product);
+      addedProductID.value = response.product.id;
       console.log(error);
+      if (response.product) {
+        addedProductID.value = response.product.id;
+      }
+      let images = [
+        eventFileOne.value,
+        eventFileTwo.value,
+        eventFileThree.value,
+        eventFileFour.value,
+      ];
       success.value = true;
       setTimeout(() => {
         success.value = false;
       }, 3000);
+      images.forEach((image) => {
+        uploadImage(image);
+      });
     })
     .catch((error) => {
       faild.value = true;
@@ -192,6 +258,31 @@ const handleProduct = async () => {
     "description",
     productDescription.value
   );
+};
+
+// handling image upload
+
+const imageUploadError = ref(false);
+const uploadErrorMessage = ref("");
+
+const uploadImage = async function (image) {
+  const formData = new FormData();
+
+  formData.append("file", image);
+  formData.append("productId", addedProductID.value);
+  console.log(image);
+  await $fetch("http://localhost:3333/management/upload", {
+    method: "POST",
+
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      imageUploadError.value = true;
+      uploadErrorMessage.value = error.data.message;
+    });
 };
 </script>
 

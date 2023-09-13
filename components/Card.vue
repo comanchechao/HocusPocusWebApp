@@ -4,23 +4,20 @@
       class="h-auto rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
     >
       <div class="w-full h-96 p-9 bg-white rounded-t-sm">
-        <img
-          src="../assets/images/Psychonauts.webp"
-          class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
-          alt=""
-        />
+        <ProductImage :productId="props.product.ProductImages[0].id">
+        </ProductImage>
       </div>
       <div
         class="w-full h-full flex items-center flex-col px-7 py-5 bg-white space-y-4"
       >
         <h3 class="text-center leading-snug title text-xl text-darkPurple">
-          Seafarers: Commodore Edition Playing Cards
+          {{ product.title }}
         </h3>
         <h3
           class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainRed">تومان</span>
-          <span>599,000</span>
+          <span>{{ product.price }}</span>
           <PhMoney :size="34" weight="fill" />
         </h3>
         <button
@@ -40,6 +37,9 @@
 
 <script setup>
 import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
+const props = defineProps(["product"]);
+
+onMounted(() => {});
 </script>
 <style>
 @font-face {

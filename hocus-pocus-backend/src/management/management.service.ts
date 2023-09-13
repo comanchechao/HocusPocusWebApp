@@ -23,7 +23,7 @@ export class ManagementService {
         description: dto.type,
       },
     });
-    console.log(product);
+    return { product: product };
   }
 
   async getProducts() {
@@ -49,12 +49,12 @@ export class ManagementService {
     return { updatedProduct: product };
   }
 
-  async storeImage(file: any) {
+  async storeImage(file: any, body: any) {
     const image = await this.prismaService.productImages.create({
       data: {
         filename: file.originalname,
         buffer: file.buffer.toString('base64'),
-        product_id: 3,
+        product_id: Number(body.productId),
       },
     });
 

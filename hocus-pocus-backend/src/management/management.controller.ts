@@ -47,21 +47,22 @@ export class ManagementController {
     @UploadedFile(
       new ParseFilePipeBuilder()
         .addFileTypeValidator({
-          fileType: 'jpeg' || 'png',
+          fileType: 'jpeg||png',
         })
         .addMaxSizeValidator({
-          maxSize: 5000,
+          maxSize: 500000,
         })
         .build({
           errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
         }),
     )
     file: Express.Multer.File,
+    @Body() body: any,
   ) {
     const { filename, path } = file;
     console.log(file.buffer.toString('base64'));
     console.log(file);
-    return this.managementService.storeImage(file);
+    return this.managementService.storeImage(file, body);
   }
 
   // orders requests
