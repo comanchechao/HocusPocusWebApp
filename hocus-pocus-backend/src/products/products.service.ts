@@ -41,7 +41,7 @@ export class ProductsService {
   async getImageById(id: string) {
     const image = await this.prismaService.productImages.findUnique({
       where: {
-        product_id: id,
+        id: Number(id),
       },
     });
 

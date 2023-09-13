@@ -5,11 +5,11 @@
     :modules="modules"
     class="mySwiper h-full"
   >
-    <swiper-slide><LazyCard /></swiper-slide
+    <!-- <swiper-slide><LazyCard /></swiper-slide
     ><swiper-slide><LazyCard /></swiper-slide>
     <swiper-slide><LazyCard /></swiper-slide>
     <swiper-slide><LazyCard /></swiper-slide
-    ><swiper-slide><LazyCard /></swiper-slide>
+    ><swiper-slide><LazyCard /></swiper-slide> -->
   </swiper>
 </template>
 <script>
@@ -23,6 +23,10 @@ import "swiper/css/effect-cards";
 
 // import required modules
 import { EffectCards } from "swiper/modules";
+import { useProductStore } from "../stores/productStore";
+import { storeToRefs } from "pinia";
+
+// register product store
 
 export default {
   components: {

@@ -332,12 +332,40 @@ import {
 } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
+import { useProductStore } from "../stores/productStore";
+
+// assign product store
+
+const productStore = useProductStore();
+
 const products = ref();
 
 const container = ref(null);
 const image = ref(null);
 
+const loading = ref(false);
+
+const getProducts = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loading.value = false;
+      productStore.setProducts(response.products);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getProducts();
   const TL = gsap.timeline();
   TL.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
 

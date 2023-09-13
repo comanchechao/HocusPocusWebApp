@@ -13,11 +13,11 @@
         <div
           class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 overscroll-y-scroll gap-4 justify-items-center"
         >
-          <LazyCard
+          <!-- <LazyCard
             v-for="product in products"
             :key="product"
             :product="product"
-          ></LazyCard>
+          ></LazyCard> -->
           <!-- <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
@@ -42,13 +42,14 @@
 </template>
 
 <script setup lang="ts">
+import { useProductStore } from "../../stores/productStore";
+import { storeToRefs } from "pinia";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
-
-const loading = ref(false);
 const products = ref([]);
 
-const getArticles = async () => {
+// register product store
+const getProducts = async () => {
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/products", {
     headers: {},
@@ -66,8 +67,10 @@ const getArticles = async () => {
     });
 };
 
+const loading = ref(false);
+
 onMounted(() => {
-  getArticles();
+  getProducts();
   TM.to(window, {
     scrollTo: {
       top: 0,

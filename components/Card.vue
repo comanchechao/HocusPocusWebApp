@@ -11,13 +11,13 @@
         class="w-full h-full flex items-center flex-col px-7 py-5 bg-white space-y-4"
       >
         <h3 class="text-center leading-snug title text-xl text-darkPurple">
-          {{ product.title }}
+          {{ props.product.title }}
         </h3>
         <h3
           class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainRed">تومان</span>
-          <span>{{ product.price }}</span>
+          <span>{{ props.product.price }}</span>
           <PhMoney :size="34" weight="fill" />
         </h3>
         <button
@@ -39,7 +39,9 @@
 import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
 const props = defineProps(["product"]);
 
-onMounted(() => {});
+onMounted(() => {
+  console.log();
+});
 </script>
 <style>
 @font-face {
