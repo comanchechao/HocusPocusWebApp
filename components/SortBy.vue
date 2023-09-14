@@ -1,13 +1,23 @@
 <template>
   <div
-    class="rounded-t-lg shadow-mainRed h-auto space-y-4 my-5 lg:space-y-0 md:h-24 md:space-y-0 lg:h-24 w-full md:flex-row-reverse lg:flex-row flex-col flex md:justify-start md:space-x-4 lg:justify-end lg:space-x-4 px-8 items-center"
+    class="rounded-t-lg grid grid-cols-3 gap-3 px-5 place-items-center shadow-mainRed h-full my-5 w-full"
   >
+    <h2
+      :class="{
+        'text-mainYellow my-5':
+          $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+      }"
+      class="text-mainRed my-5 text-md justify-self-end col-span-3 flex items-center space-x-3"
+    >
+      <span> مرتب سازی بر اساس </span>
+      <PhFadersHorizontal :size="30" weight="fill" />
+    </h2>
     <button
       :class="{
         'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="lg:text-sm text-xs flex items-center space-x-2 px-2 lg:px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> بیشترین امتیاز </span> <PhStar :size="18" weight="fill" />
     </button>
@@ -16,7 +26,7 @@
         'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="lg:text-sm text-xs flex items-center space-x-2 px-2 lg:px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> پرفروش ترین </span> <PhCoins :size="20" weight="fill" />
     </button>
@@ -25,21 +35,11 @@
         'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-1   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
       }"
-      class="text-sm flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="lg:text-sm text-xs flex items-center space-x-2 px-2 lg:px-8 py-1 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> پربازدید ترین </span>
       <PhEye :size="20" weight="fill" />
     </button>
-    <h2
-      :class="{
-        'text-mainYellow my-5':
-          $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-      }"
-      class="text-mainRed my-5 lg:order-1 text-md -order-4 flex items-center space-x-3"
-    >
-      <span> مرتب سازی بر اساس </span>
-      <PhFadersHorizontal :size="30" weight="fill" />
-    </h2>
   </div>
 </template>
 <script setup>

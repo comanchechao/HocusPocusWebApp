@@ -72,6 +72,7 @@
         >
           مدیریت صفحه ی اول
         </h2>
+        <LazyProductStatusManagement />
       </div>
     </div>
   </div>
