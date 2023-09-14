@@ -25,11 +25,12 @@
       >
         <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
       </button>
-      <button
-        class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
-      >
-        <span> جزئیات بیشتر </span> <PhInfo :size="20" />
-      </button>
+      <NuxtLink :to="'productdetail/' + product.id">
+        <button
+          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+        >
+          <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
+      ></NuxtLink>
     </div>
   </div>
 </template>

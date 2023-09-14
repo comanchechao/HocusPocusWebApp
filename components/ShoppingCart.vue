@@ -6,6 +6,7 @@
       >
         <div class="w-full h-full flex items-center space-y-10 flex-col p-5">
           <div
+            v-show="shoppingCart.length"
             v-for="item in shoppingCart"
             :key="item"
             class="w-full flex flex-col items-center space-y-7 h-48"
