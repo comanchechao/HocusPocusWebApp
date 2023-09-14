@@ -5,19 +5,27 @@
         class="w-full h-full bg-darkPurple flex items-center justify-center flex-col pb-5"
       >
         <div class="w-full h-full flex items-center space-y-10 flex-col p-5">
-          <div class="w-full flex flex-col items-center space-y-7 h-48">
+          <div
+            v-for="item in shoppingCart"
+            :key="item"
+            class="w-full flex flex-col items-center space-y-7 h-48"
+          >
             <div
               class="w-full h-24 border-y border-r rounded-md border-mainRed justify-between pr-8 flex items-center"
             >
               <div class="w-24 h-24 p-3 bg-white">
-                <img
+                <LazyProductImage
+                  :productId="item.ProductImages[0].id"
                   src="../assets/images/Psychonauts.webp"
                   class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
                   alt=""
                 />
               </div>
               <h3 class="text-lg text-mainYellow flex flex-col items-center">
-                <span> 1,299,000 </span>
+                <span> {{ item.title }} </span>
+              </h3>
+              <h3 class="text-lg text-mainYellow flex flex-col items-center">
+                <span> {{ item.price }} </span>
                 <span class="text-mainRed text-md">تومان</span>
               </h3>
               <!-- <div
@@ -33,7 +41,7 @@
               <h4
                 class="px-3 py-1 border-2 text-mainRed font-bold border-mainYellow rounded-full"
               >
-                2
+                {{ item.quantity }}
               </h4>
               <PhMinusSquare
                 class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
@@ -82,12 +90,24 @@
 </template>
 
 <script setup>
+import { useProductStore } from "../stores/productStore";
+
+// register product store
+
+const productStore = useProductStore();
+const { shoppingCart } = storeToRefs(productStore);
+
+onMounted(() => {
+  console.log(shoppingCart.value);
+});
+
 import {
   PhShoppingBagOpen,
   PhMinusSquare,
   PhPlusSquare,
   PhTrash,
 } from "@phosphor-icons/vue";
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 
 const visible = ref(false);

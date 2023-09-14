@@ -13,11 +13,11 @@
         <div
           class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 overscroll-y-scroll gap-4 justify-items-center"
         >
-          <!-- <LazyCard
+          <LazyCard
             v-for="product in products"
             :key="product"
             :product="product"
-          ></LazyCard> -->
+          ></LazyCard>
           <!-- <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
           <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
