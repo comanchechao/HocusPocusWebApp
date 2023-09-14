@@ -22,14 +22,14 @@
       :slidesPerView="1"
       class="mySwiper w-full"
     >
-      <!-- <swiper-slide v-for="product in products" :key="product"
+      <swiper-slide v-for="product in products" :key="product"
         ><LazyCard :product="product"
-      /></swiper-slide> -->
+      /></swiper-slide>
     </swiper>
   </div>
 </template>
 
-<script setup>
+<script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
@@ -39,12 +39,21 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useProductStore } from "../stores/productStore";
 import { storeToRefs } from "pinia";
-
+export default {
+  props: ["products"],
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [Autoplay],
+    };
+  },
+};
 // register product store
 
 const productStore = useProductStore();
-
-const { products } = storeToRefs(productStore);
 </script>
 <style scoped>
 .swiper {

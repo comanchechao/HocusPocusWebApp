@@ -165,7 +165,7 @@
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
-        <LazyCardsCarousel class="self-center" />
+        <LazyCardsCarousel :products="products" class="self-center" />
       </div>
     </div>
 
@@ -188,10 +188,10 @@
         class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
         <div class=" ">
-          <LazyCardsSwiper />
+          <LazyCardsSwiper :products="products" />
         </div>
         <div class="lg:flex hidden md:flex">
-          <LazyCardsSwiper />
+          <LazyCardsSwiper :products="products" />
         </div>
       </div>
 

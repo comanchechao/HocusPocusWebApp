@@ -5,18 +5,15 @@
     :modules="modules"
     class="mySwiper h-full"
   >
-    <!-- <swiper-slide><LazyCard /></swiper-slide
-    ><swiper-slide><LazyCard /></swiper-slide>
-    <swiper-slide><LazyCard /></swiper-slide>
-    <swiper-slide><LazyCard /></swiper-slide
-    ><swiper-slide><LazyCard /></swiper-slide> -->
+    <swiper-slide v-for="product in products" :key="product"
+      ><LazyCard :product="product"
+    /></swiper-slide>
   </swiper>
 </template>
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-// Import Swiper styles
 import "swiper/css";
 
 import "swiper/css/effect-cards";
@@ -25,10 +22,10 @@ import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
 import { useProductStore } from "../stores/productStore";
 import { storeToRefs } from "pinia";
-
 // register product store
 
 export default {
+  props: ["products"],
   components: {
     Swiper,
     SwiperSlide,
