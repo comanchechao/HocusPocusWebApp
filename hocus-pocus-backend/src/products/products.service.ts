@@ -12,6 +12,7 @@ export class ProductsService {
         price: true,
         brand: true,
         type: true,
+        category: true,
         design: true,
         ProductImages: true,
       },
@@ -31,6 +32,7 @@ export class ProductsService {
         brand: true,
         type: true,
         design: true,
+        category: true,
         ProductImages: true,
       },
     });

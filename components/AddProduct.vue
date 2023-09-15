@@ -188,7 +188,8 @@ const addedProductID = ref();
 
 const managementStore = useManagementStore();
 
-const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
+const { type, brand, design, rarity, inStock, category } =
+  storeToRefs(managementStore);
 
 // handle adding product via submit
 
@@ -199,6 +200,7 @@ const handleProduct = async () => {
     type: type.value,
     brand: brand.value,
     design: design.value,
+    category: category.value,
     rarity: rarity.value,
     inStock: inStock.value,
     description: productDescription.value,
@@ -251,6 +253,8 @@ const handleProduct = async () => {
     design.value,
     "rarirty",
     rarity.value,
+    "category",
+    category.value,
     "price",
     productPrice.value,
     "title",

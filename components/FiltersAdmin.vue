@@ -54,6 +54,7 @@
   </div>
 </template>
 <script setup>
+import { current } from "tailwindcss/colors";
 import { ref } from "vue";
 import { useManagementStore } from "../stores/productManagement";
 
@@ -75,6 +76,10 @@ const managementStore = useManagementStore();
 watch(selectedTypes, (current, old) => {
   managementStore.setType(current[0].name);
   console.log(current[0].name);
+});
+
+watch(selectedCategory, (current, old) => {
+  managementStore.setCategory(current[0].name);
 });
 
 watch(inStock, (current, old) => {

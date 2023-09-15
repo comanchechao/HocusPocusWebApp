@@ -62,11 +62,9 @@ const filterOp = ref();
 
 const filterStore = useFilterStore();
 
-const { brands, types } = storeToRefs(filterStore);
+const { brands, types, designs, category } = storeToRefs(filterStore);
 
-watch([types, brands], (cur, old) => {
-  console.log(cur, "here is the shopping page for those who are lost");
-  console.log(products.value);
+watch([types, category, brands, designs], (cur, old) => {
   if (types.value.length === 0) {
     filteredProducts.value = products.value;
   }
@@ -92,8 +90,37 @@ watch([types, brands], (cur, old) => {
   }
 
   for (let obj of products.value) {
+    for (let filterObj of category.value) {
+      if (obj.category === filterObj.name) {
+        const existingProduct = filteredArray.find(
+          (item) => item.title === obj.title
+        );
+        if (!existingProduct) {
+          filteredArray.push(obj);
+          filteredProducts.value = filteredArray;
+          break;
+        }
+      }
+    }
+  }
+
+  for (let obj of products.value) {
+    for (let filterObj of designs.value) {
+      if (obj.design === filterObj.name) {
+        const existingProduct = filteredArray.find(
+          (item) => item.title === obj.title
+        );
+        if (!existingProduct) {
+          filteredArray.push(obj);
+          filteredProducts.value = filteredArray;
+          break;
+        }
+      }
+    }
+  }
+
+  for (let obj of products.value) {
     for (let filterObj of brands.value) {
-      console.log("fied");
       if (obj.brand === filterObj.name) {
         const existingProduct = filteredArray.find(
           (item) => item.title === obj.title
@@ -106,10 +133,6 @@ watch([types, brands], (cur, old) => {
       }
     }
   }
-});
-
-watch(filterOp, (cur, old) => {
-  console.log(cur, "cur");
 });
 
 // register product store

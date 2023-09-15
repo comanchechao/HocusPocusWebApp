@@ -4,12 +4,16 @@ export const useManagementStore = defineStore("managementStore", {
     type: "",
     brand: "",
     rarity: "",
+    category: "",
     design: "",
     inStock: true,
   }),
   actions: {
     setType(type) {
       this.type = type;
+    },
+    setCategory(category) {
+      this.category = category;
     },
     setBrand(brand) {
       this.brand = brand;

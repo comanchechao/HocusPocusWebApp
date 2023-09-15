@@ -17,6 +17,9 @@ export class ManagementDto {
   @IsNotEmpty({ message: 'نوع کالا را وارد کنید' })
   type: string;
 
+  @IsNotEmpty({ message: 'کتگوری کالا را وارد کنید' })
+  category: string;
+
   @IsNotEmpty({ message: 'طرح کالا را وارد کنید' })
   design: string;
 

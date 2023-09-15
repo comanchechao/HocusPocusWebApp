@@ -81,6 +81,16 @@ watch(selectedBrands, (cur, old) => {
   filterStore.setBrand(selectedBrands.value);
 });
 
+watch(selectedDesigns, (cur, old) => {
+  console.log(selectedDesigns.value);
+  filterStore.setDesign(selectedDesigns.value);
+});
+
+watch(selectedCategory, (cur, old) => {
+  console.log(selectedCategory.value);
+  filterStore.setCategory(selectedCategory.value);
+});
+
 const types = ref([
   {
     name: "کارت ها",

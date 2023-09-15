@@ -20,6 +20,15 @@ export const useFilterStore = defineStore("filterStore", {
       this.brands = brand;
       console.log(this.brand);
     },
+    setRarity(rarity) {
+      this.rarity = rarity;
+      console.log(this.rarity);
+    },
+    setCategory(category) {
+      this.category = category;
+      console.log(this.category);
+    },
+
     // setCategory(rarity) {
     //   const alreadyExists = this.shoppingCart.find(
     //     (item) => item === filterName

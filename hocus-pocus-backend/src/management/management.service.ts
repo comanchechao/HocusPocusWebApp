@@ -20,6 +20,7 @@ export class ManagementService {
         type: dto.type,
         brand: dto.brand,
         design: dto.design,
+        category: dto.category,
         description: dto.type,
       },
     });

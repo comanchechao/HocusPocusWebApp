@@ -39,6 +39,7 @@ model Products {
   description   String?
   brand         String?
   type          String?
+  category      String?
   design        String?
   inStock       Boolean?        @default(true)
   ProductImages ProductImages[]
