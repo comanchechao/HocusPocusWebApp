@@ -4,7 +4,7 @@
 
     <div class="h-full w-screen bg-mainBrown md:p-10 lg:p-20 flex items-center">
       <div
-        class="w-full h-full border-mainYellow rounded-sm flex flex-col items-start"
+        class="w-full h-full border-mainYellow rounded-sm flex flex-col items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
         <div

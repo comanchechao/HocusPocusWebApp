@@ -14,31 +14,250 @@
         alt=""
       />
     </div>
-    <div
-      class="h-full w-full flex items-center justify-center flex-col space-y-20"
-    >
-      <div class="h-24 w-screen bg-mainYellow flex items-center justify-center">
-        <h2 class="text-mainBrown text-3xl flex">
+
+    <div class="h-full w-screen lg:my-9 flex flex-col items-center">
+      <h2
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
+      >
+        <PhPackage weight="fill" />
+        <span> محصولات هوکوس پوکوس </span>
+      </h2>
+      <div
+        class="h-dialog w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
+      >
+        <div
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+        ></div>
+        <div
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+        ></div>
+      </div>
+      <div
+        class="w-full lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
+      >
+        <h2
+          class="text-mainBrown border-b-8 rounded-2xl border-mainBrown pb-5 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <span> شعبده باز تازه کارید؟ </span>
+        </h2>
+        <h2
+          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
+        >
+          <span> این بخش مخصوص شماست</span>
+        </h2>
+        <NuxtLink to="/learn/learn">
+          <button
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
+          >
+            <PhNoteboo
+              :size="35"
+              weight="fill"
+              class="mr-3 lg:flex hidden md:flex"
+            />
+            <span>ورود به بخش آموزش هوکوس پوکوس </span>
+          </button>
+        </NuxtLink>
+      </div>
+      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
+        <h2
+          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
+        </h2>
+        <LazyVideoCardsCarousel class="self-center" />
+      </div>
+      <div
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
+      >
+        <h2
+          class="text-mainBrown border-b-8 rounded-2xl border-mainBrown pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
+        >
+          <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
+          <span> دنبال محصولات شعبده بازی میگردید؟ </span>
+        </h2>
+        <h2
+          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
+        >
+          <span> این بخش مخصوص شماست</span>
+        </h2>
+        <NuxtLink to="/shop/shop">
+          <button
+            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainPink text-lg lg:text-2xl rounded-full"
+          >
+            <PhShoppingBag :size="35" weight="fill" class="mr-3" />
+            <span>ورود به بخش خرید هوکوس پوکوس </span>
+          </button>
+        </NuxtLink>
+      </div>
+      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
+        <h2
+          class="text-mainRed border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+        >
+          <PhCards :size="35" weight="fill" class="mr-3" />
+          <span> جدیدترین محصولات </span>
+        </h2>
+        <LazyCardsCarousel :products="products" class="self-center" />
+      </div>
+    </div>
+
+    <div class="h-auto w-full bg-mainBrown flex flex-col items-center">
+      <div
+        class="h-auto lg:my-10 my-5 w-screen flex items-center justify-center"
+      >
+        <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+          <PhCards weight="fill" class="mr-3" />
+          <span> کارت های منتخب هفته </span>
         </h2>
       </div>
       <div
-        class="grid mb-12 h-full grid-cols-1 space-y-9 lg:grid-cols-2 gap-2 px-14 place-items-center w-full"
+        class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
-        <VideoCard></VideoCard> <VideoCard></VideoCard>
+        <div class=" ">
+          <LazyCardsSwiper :products="products" />
+        </div>
+        <div class="lg:flex hidden md:flex">
+          <LazyCardsSwiper :products="products" />
+        </div>
       </div>
+
       <img
-        src="../../assets/images/MagicHat.webp"
-        class="h-52 object-contain my-14"
+        src="../assets/images/MagicDivider.webp"
+        class="w-full px-5 lg:px-36 object-contain"
         alt=""
       />
     </div>
-    <div class="h-screen w-full bg-mainBrown"></div>
+    <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
+      <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+        <PhHeartStraight weight="fill" class="mr-3" />
+        <span> محصولات پرطرفدار </span>
+      </h2>
+      <div
+        class="w-full h-screen grid grid-cols-4 grid-rows-2 place-items-center px-24 py-9 gap-5"
+      >
+        <div
+          class="h-full space-y-4 w-full bg-mainPink col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-mainBrown font-bold text-center text-lg lg:text-3xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-4xl border-2 border-dashed border-mainBrown rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-mainBrown">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-mainBrown">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-mainBrown">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-mainBrown">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+        <div
+          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+        >
+          <h2
+            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
+          >
+            <span> مجموعه آموزشی برای شروع </span>
+          </h2>
+          <h3
+            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+          >
+            <span class="text-xs text-mainBrown">تومان</span>
+            <span>599,000</span>
+            <PhMoney :size="34" weight="fill" />
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="w-full h-full my-14 flex flex-col">
+      <div
+        class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
+      >
+        <button
+          class="px-7 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-2xl rounded-sm"
+        >
+          <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
+          <span>دنبال کن </span>
+        </button>
+        <h2 class="text-2xl flex items-center space-x-3">
+          <span>تازه ترین ها در اینستاگرام </span>
+          <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
+        </h2>
+      </div>
+      <div class="w-full flex items-center">
+        <LazyInstagramCard /> <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
+        <LazyInstagramCard />
+      </div>
+    </div>
     <LazyFooter />
   </div>
 </template>
 
 <script setup lang="ts">
+import {
+  PhMagicWand,
+  PhCards,
+  PhPackage,
+  PhGraduationCap,
+  PhMoney,
+  PhInstagramLogo,
+  PhShoppingBagOpen,
+  PhShoppingBag,
+  PhHeartStraight,
+} from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 

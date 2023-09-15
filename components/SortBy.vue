@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-t-lg grid grid-cols-3 gap-3 px-5 place-items-center shadow-mainRed h-full my-5 w-full"
+    class="rounded-t-lg grid grid-cols-3 gap-3 px-5 place-items-center shadow-mainRed h-full my-5 w-auto"
   >
     <h2
       :class="{

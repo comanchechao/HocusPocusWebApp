@@ -6,7 +6,7 @@
       class="h-full w-screen bg-darkPurple md:p-10 lg:p-20 flex items-center"
     >
       <div
-        class="w-full h-full border-mainRed rounded-sm flex flex-col items-start"
+        class="w-full h-full border-mainRed rounded-sm flex flex-col items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
