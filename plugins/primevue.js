@@ -12,6 +12,7 @@ import Sidebar from "primevue/sidebar";
 import Rating from "primevue/rating";
 import Message from "primevue/message";
 import InputNumber from "primevue/inputnumber";
+import Badge from "primevue/badge";
 import Textarea from "primevue/textarea";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -24,6 +25,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Galleria", Galleria);
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
+  nuxtApp.vueApp.component("Badge", Badge);
   nuxtApp.vueApp.component("Message", Message);
   nuxtApp.vueApp.component("Listbox  ", Listbox);
   nuxtApp.vueApp.component("InputNumber", InputNumber);

@@ -12,7 +12,7 @@
       optionLabel="name"
       display="chip"
       filter
-      placeholder="کمیابی"
+      placeholder="کتگوری"
       :showToggleAll="false"
     ></MultiSelect>
     <MultiSelect
@@ -59,12 +59,23 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useFilterStore } from "../stores/filtersStore";
 const checked = ref(false);
 const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
 const selectedDesigns = ref();
 const selectedCategory = ref();
+
+// register filter store
+
+const filterStore = useFilterStore();
+
+watch(selectedTypes, (cur, old) => {
+  console.log(selectedTypes.value);
+  filterStore.setCategory(selectedTypes.value);
+});
+
 const types = ref([
   {
     name: "کارت ها",

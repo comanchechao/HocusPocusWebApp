@@ -22,5 +22,33 @@ export const useProductStore = defineStore("productStore", {
       }
       console.log(this.shoppingCart);
     },
+    removeProduct(productId) {
+      for (let i = 0; i < this.shoppingCart.length; i++) {
+        if (this.shoppingCart[i].id === productId) {
+          this.shoppingCart.splice(i, 1);
+          break;
+        }
+      }
+    },
+    increaseQuantity(productId) {
+      for (let i = 0; i < this.shoppingCart.length; i++) {
+        if (this.shoppingCart[i].id === productId) {
+          if (this.shoppingCart[i].quantity <= 5) {
+            this.shoppingCart[i].quantity++;
+            break;
+          }
+        }
+      }
+    },
+    decreaseQuantity(productId) {
+      for (let i = 0; i < this.shoppingCart.length; i++) {
+        if (this.shoppingCart[i].id === productId) {
+          if (this.shoppingCart[i].quantity > 1) {
+            this.shoppingCart[i].quantity--;
+            break;
+          }
+        }
+      }
+    },
   },
 });

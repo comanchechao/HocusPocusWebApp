@@ -35,6 +35,7 @@
             </div>
             <div class="flex items-center space-x-3">
               <PhPlusSquare
+                @click="increaseItem(item.id)"
                 class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
                 :size="32"
               />
@@ -45,10 +46,12 @@
                 {{ item.quantity }}
               </h4>
               <PhMinusSquare
+                @click="decreaseItem(item.id)"
                 class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
                 :size="32"
               />
               <button
+                @click="removeFromCart(item.id)"
                 class="text-red-500 px-5 py-1 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
               >
                 <PhTrash :size="30" />
@@ -85,6 +88,11 @@
       class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
       @click="visible = true"
     >
+      <Badge
+        class="translate-x-4 -translate-y-2"
+        v-show="shoppingCart.length"
+        :value="shoppingCart.length"
+      ></Badge>
       <PhShoppingBagOpen :size="30" />
     </button>
   </div>
@@ -97,6 +105,18 @@ import { useProductStore } from "../stores/productStore";
 
 const productStore = useProductStore();
 const { shoppingCart } = storeToRefs(productStore);
+
+const removeFromCart = (product) => {
+  productStore.removeProduct(product);
+};
+
+const decreaseItem = (product) => {
+  productStore.decreaseQuantity(product);
+};
+
+const increaseItem = (product) => {
+  productStore.increaseQuantity(product);
+};
 
 onMounted(() => {
   console.log(shoppingCart.value);

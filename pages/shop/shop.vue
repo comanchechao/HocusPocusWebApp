@@ -43,10 +43,35 @@
 
 <script setup lang="ts">
 import { useProductStore } from "../../stores/productStore";
+import { useFilterStore } from "../../stores/filtersStore";
 import { storeToRefs } from "pinia";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
-const products = ref([]);
+const products = ref();
+const filterOp = ref();
+
+// register filter store
+
+const filterStore = useFilterStore();
+
+const { brands, types } = storeToRefs(filterStore);
+
+watch(types, (cur, old) => {
+  console.log(cur, "here is the shopping page for those who are lost");
+  console.log(products.value);
+
+  const filteredData = products.value.filter((obj) => {
+    if (obj.type !== null) {
+      console.log(types.value);
+      return obj.type.includes(types.value);
+    }
+  });
+  filterOp.value = filteredData;
+});
+
+watch(filterOp, (cur, old) => {
+  console.log(cur, "cur");
+});
 
 // register product store
 const getProducts = async () => {

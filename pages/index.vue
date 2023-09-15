@@ -340,6 +340,8 @@ const productStore = useProductStore();
 
 const products = ref();
 
+onMounted(() => {});
+
 const container = ref(null);
 const image = ref(null);
 
