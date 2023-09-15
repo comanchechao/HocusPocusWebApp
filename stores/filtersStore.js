@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 export const useFilterStore = defineStore("filterStore", {
   state: () => ({
-    types: "",
-    designs: "",
-    brands: "",
-    category: "",
-    rarity: "",
+    types: [],
+    designs: [],
+    brands: [],
+    category: [],
+    rarity: [],
   }),
   actions: {
-    setCategory(category) {
+    setTypes(category) {
       this.types = category;
       console.log(this.types);
     },

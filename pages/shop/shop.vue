@@ -60,13 +60,16 @@ watch(types, (cur, old) => {
   console.log(cur, "here is the shopping page for those who are lost");
   console.log(products.value);
 
-  const filteredData = products.value.filter((obj) => {
-    if (obj.type !== null) {
-      console.log(types.value);
-      return obj.type.includes(types.value);
+  let filteredArray = [];
+  for (let obj of products.value) {
+    for (let filterObj of types.value) {
+      if (obj.type === filterObj.name) {
+        filteredArray.push(obj);
+        break;
+      }
     }
-  });
-  filterOp.value = filteredData;
+    console.log(filteredArray);
+  }
 });
 
 watch(filterOp, (cur, old) => {

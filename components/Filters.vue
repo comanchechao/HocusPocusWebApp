@@ -73,7 +73,7 @@ const filterStore = useFilterStore();
 
 watch(selectedTypes, (cur, old) => {
   console.log(selectedTypes.value);
-  filterStore.setCategory(selectedTypes.value);
+  filterStore.setTypes(selectedTypes.value);
 });
 
 const types = ref([
