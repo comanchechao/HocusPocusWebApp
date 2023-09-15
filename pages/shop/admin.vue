@@ -66,12 +66,16 @@
         <LazySortBy />
         <LazyOrderManagement />
       </div>
-      <div class="w-full h-screen mt-20 flex flex-col items-end space-y-6">
+      <div
+        class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"
+      >
         <h2
           class="text-4xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
         >
           مدیریت صفحه ی اول
         </h2>
+        <LazySortBy />
+
         <LazyProductStatusManagement />
       </div>
     </div>
