@@ -62,7 +62,7 @@ const filterOp = ref();
 
 const filterStore = useFilterStore();
 
-const { brands, types, designs, category } = storeToRefs(filterStore);
+const { brands, types, designs, category, sortBy } = storeToRefs(filterStore);
 
 watch([types, category, brands, designs], (cur, old) => {
   if (types.value.length === 0) {
@@ -132,6 +132,20 @@ watch([types, category, brands, designs], (cur, old) => {
         }
       }
     }
+  }
+});
+
+watch(sortBy, (cur, old) => {
+  if (sortBy.value === "lowest") {
+    filteredProducts.value = products.value.sort(
+      (a: any, b: any) => Number(a.price) - Number(b.price)
+    );
+  }
+
+  if (sortBy.value === "highest") {
+    filteredProducts.value = products.value.sort(
+      (a: any, b: any) => Number(b.price) - Number(a.price)
+    );
   }
 });
 
