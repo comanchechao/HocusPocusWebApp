@@ -26,8 +26,5 @@ export class ManagementDto {
   @IsNotEmpty({ message: 'کمیت کالا را وارد کنید' })
   rarity: string;
 
-  @IsNotEmpty({ message: 'موجودی کالا را وارد کنید' })
-  inStock: boolean;
-
   productId: string;
 }

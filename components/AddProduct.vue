@@ -221,6 +221,14 @@ const handleProduct = async () => {
       console.log(error);
       if (response.product) {
         addedProductID.value = response.product.id;
+        productTitle.value = "";
+        productPrice.value = "";
+        type.value = "";
+        brand.value = "";
+        design.value = "";
+        category.value = "";
+        rarity.value = "";
+        productDescription.value = "";
       }
       let images = [
         eventFileOne.value,

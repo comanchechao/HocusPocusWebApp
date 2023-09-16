@@ -30,7 +30,7 @@
             <PhInfo :size="30" weight="fill" />
           </h3>
           <div class="h-full w-full flex items-center">
-            <LazyCustomerInfo :isVisible="true" />
+            <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
             class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
@@ -51,7 +51,11 @@
           <div
             class="w-full h-full flex items-center flex-col px-9 pt-9 overscroll-y-scroll"
           >
-            <div class="w-full flex flex-col items-center space-y-7 h-48">
+            <div
+              v-for="item in shoppingCart"
+              :key="item"
+              class="w-full flex flex-col items-center space-y-7 h-48"
+            >
               <div
                 class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-mainRed"
               >
@@ -63,7 +67,7 @@
                   />
                 </div>
                 <h3 class="text-xl text-darkPurple flex flex-col items-center">
-                  <span> 1,299,000 </span>
+                  <span> {{ item.price }} </span>
                   <span class="text-mainRed text-sm">تومان</span>
                 </h3>
                 <!-- <div
@@ -72,6 +76,7 @@
               </div>
               <div class="flex items-center space-x-3">
                 <PhPlusSquare
+                  @click="increaseItem(item.id)"
                   class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
                   :size="32"
                 />
@@ -79,57 +84,17 @@
                 <h4
                   class="px-3 py-1 border-2 text-darkPurple font-bold border-mainYellow rounded-full"
                 >
-                  2
+                  {{ item.quantity }}
                 </h4>
                 <PhMinusSquare
+                  @click="decreaseItem(item.id)"
                   class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
                   :size="32"
                 />
                 <button
                   class="text-red-500 px-5 py-1 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
                 >
-                  <PhTrash :size="30" />
-                </button>
-              </div>
-            </div>
-            <div class="w-full flex flex-col items-center space-y-7 h-48">
-              <div
-                class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-mainRed"
-              >
-                <div class="w-24 h-full bg-white p-3">
-                  <img
-                    src="../../assets/images/Psychonauts.webp"
-                    class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
-                    alt=""
-                  />
-                </div>
-                <h3 class="text-xl text-darkPurple flex flex-col items-center">
-                  <span> 1,299,000 </span>
-                  <span class="text-mainRed text-sm">تومان</span>
-                </h3>
-                <!-- <div
-                class="h-full flex flex-col items-center justify-center"
-              ></div> -->
-              </div>
-              <div class="flex items-center space-x-3">
-                <PhPlusSquare
-                  class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
-                  :size="32"
-                />
-
-                <h4
-                  class="px-3 py-1 border-2 text-darkPurple font-bold border-mainYellow rounded-full"
-                >
-                  2
-                </h4>
-                <PhMinusSquare
-                  class="text-mainYellow cursor-pointer transition ease-in hover:bg-mainYellow hover:text-darkPurple"
-                  :size="32"
-                />
-                <button
-                  class="text-red-500 px-5 py-1 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
-                >
-                  <PhTrash :size="30" />
+                  <PhTrash @click="removeItem(item.id)" :size="30" />
                 </button>
               </div>
             </div>
@@ -149,4 +114,23 @@ import {
   PhInfo,
   PhBasket,
 } from "@phosphor-icons/vue";
+import { storeToRefs } from "pinia";
+import { useProductStore } from "../../stores/productStore";
+
+// register product store
+
+const productStore = useProductStore();
+
+const { shoppingCart } = storeToRefs(productStore);
+
+const increaseItem = (itemId) => {
+  productStore.increaseQuantity(itemId);
+};
+const decreaseItem = (itemId) => {
+  productStore.decreaseQuantity(itemId);
+};
+
+const removeItem = (itemId) => {
+  productStore.removeProduct(itemId);
+};
 </script>
