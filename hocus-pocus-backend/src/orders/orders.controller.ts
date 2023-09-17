@@ -1,6 +1,7 @@
 import { Body, Controller, Param, Get, Post } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { OrdersDto } from './dto/OrdersDto';
+import { OrderItemsDto } from './dto/OrderItemsDto';
 
 @Controller('orders')
 export class OrdersController {
@@ -19,5 +20,10 @@ export class OrdersController {
   @Post('/draft')
   submitDraft() {
     return this.ordersService.submitDraft();
+  }
+
+  @Post('/submititems')
+  submitOrderItems(@Body() dto: OrderItemsDto) {
+    return this.ordersService.submitItems(dto);
   }
 }

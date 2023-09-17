@@ -157,6 +157,8 @@ const removeItem = (itemId) => {
 
 // handle order submit
 
+const submitedOrdersId = ref();
+
 const submitOrder = async () => {
   const data = new URLSearchParams({
     user_id: 2,
@@ -164,7 +166,7 @@ const submitOrder = async () => {
     estimatedDeliveryDays: 5,
     city: city.value,
     region: region.value,
-    adderss: address.value,
+    address: address.value,
     fullname: fullname.value,
     phone_number: phoneNumber.value,
     postal_code: postalCode.value,
@@ -181,6 +183,10 @@ const submitOrder = async () => {
   })
     .then((response, error) => {
       console.log(response);
+      if (response.order) {
+        submitedOrdersId.value = response.order.id;
+        orderItems();
+      }
     })
     .catch((error) => {
       console.log(error);
@@ -198,18 +204,13 @@ const submitOrder = async () => {
 };
 
 const orderItems = async () => {
-  const data = new URLSearchParams({
-    user_id: 2,
-    totalPrice: cartTotalPrice.value,
-    estimatedDeliveryDays: 5,
-    adderss: address.value,
-    phone_number: phoneNumber.value,
-    postal_code: postalCode.value,
-    city: city.value,
-    region: region.value,
-  });
+  const cart = JSON.stringify(shoppingCart.value);
+  const data = new URLSearchParams({});
 
-  await $fetch("http://localhost:3333/orders/addproduct", {
+  data.append("order_id", submitedOrdersId.value);
+  data.append("items", cart);
+
+  await $fetch("http://localhost:3333/orders/submititems", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
