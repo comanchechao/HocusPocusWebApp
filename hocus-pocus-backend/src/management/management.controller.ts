@@ -17,6 +17,7 @@ import { ManagementDto } from './dto/ManagementDto';
 import { CategoryDto } from './dto/CategoryDto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
+import { VideosDto } from './dto/VideoDto';
 
 @Controller('management')
 export class ManagementController {
@@ -66,6 +67,7 @@ export class ManagementController {
   }
 
   // orders requests
+
   @Roles('ADMIN')
   @UseGuards(LocalAuthGuard, RolesGuard)
   @Get('/orders')
@@ -85,6 +87,22 @@ export class ManagementController {
   @Get('info')
   gettingDesiredInfo() {
     return { msg: 'return desired info from database' };
+  }
+
+  // videos and training section requests
+
+  @Post('/addvideo')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadVideo(
+    @UploadedFile(
+      new ParseFilePipeBuilder().build({
+        errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+      }),
+    )
+    file: Express.Multer.File,
+    dto: VideosDto,
+  ) {
+    return this.managementService.addVideo(file, dto);
   }
 
   // category requests

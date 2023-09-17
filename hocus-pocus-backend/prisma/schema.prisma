@@ -92,3 +92,14 @@ model orderItems {
   items    Json?
   order    Orders @relation(fields: [order_id], references: [id])
 }
+
+model Videos {
+  id          Int      @id @default(autoincrement())
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  file        Bytes
+  title       String?
+  trainer     String?
+  price       String?
+  description String?
+}

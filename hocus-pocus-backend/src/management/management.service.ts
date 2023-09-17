@@ -3,6 +3,7 @@ import { ManagementDto } from './dto/ManagementDto';
 import { PrismaService } from '../prisma/prisma.service';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { CategoryDto } from './dto/CategoryDto';
+import { VideosDto } from './dto/VideoDto';
 
 @Injectable()
 export class ManagementService {
@@ -76,5 +77,17 @@ export class ManagementService {
       },
     });
     return { msg: 'کاتاگوی با موفقیت اضافه شد' };
+  }
+
+  // video services functions
+
+  async addVideo(file: any, dto: VideosDto) {
+    const video = await this.prismaService.videos.create({
+      file: file,
+      title: dto.title,
+      description: dto.description,
+      price: dto.price,
+      trainer: dto.trainer,
+    });
   }
 }

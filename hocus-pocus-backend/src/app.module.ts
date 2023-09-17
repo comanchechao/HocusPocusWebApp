@@ -10,6 +10,7 @@ import { PassportModule } from '@nestjs/passport';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { ManagementModule } from './management/management.module';
+import { VideosModule } from './videos/videos.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ManagementModule } from './management/management.module';
     ProductsModule,
     OrdersModule,
     ManagementModule,
+    VideosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
