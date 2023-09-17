@@ -65,6 +65,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useProfileStore } from "../stores/profileStore";
+import { useCheckoutStore } from "../stores/checkoutStore";
 import { storeToRefs } from "pinia";
 
 // register profile store
@@ -72,6 +73,10 @@ import { storeToRefs } from "pinia";
 const profileStore = useProfileStore();
 
 const { storeFullname } = storeToRefs(profileStore);
+
+// register checkout store
+
+const checkoutStore = useCheckoutStore();
 
 // customer information
 
@@ -82,6 +87,37 @@ const address = ref("");
 const postalCode = ref("");
 const email = ref("");
 const selectedRegion = ref();
+
+// set order information to checkout store to proccess inside checkout page
+
+watch(selectedCity, (cur, old) => {
+  checkoutStore.setCity(cur.name);
+});
+
+watch(selectedRegion, (cur, old) => {
+  checkoutStore.setRegion(cur.name);
+});
+
+watch(address, (cur, old) => {
+  checkoutStore.setAddress(cur);
+});
+
+watch(fullname, (cur, old) => {
+  checkoutStore.setFullName(cur);
+});
+
+watch(phoneNumber, (cur, old) => {
+  checkoutStore.setPhoneNumber(cur);
+});
+watch(email, (cur, old) => {
+  checkoutStore.setEmail(cur);
+});
+
+watch(postalCode, (cur, old) => {
+  checkoutStore.setPostalCode(cur);
+});
+
+// values
 
 const cities = ref([
   { name: "تهران", code: "NY" },

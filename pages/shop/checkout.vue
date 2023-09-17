@@ -33,6 +33,7 @@
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
+            @click="submitOrder()"
             class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
@@ -115,13 +116,33 @@ import {
   PhBasket,
 } from "@phosphor-icons/vue";
 import { storeToRefs } from "pinia";
+import { useCheckoutStore } from "../../stores/checkoutStore";
 import { useProductStore } from "../../stores/productStore";
 
 // register product store
 
 const productStore = useProductStore();
 
-const { shoppingCart } = storeToRefs(productStore);
+const { shoppingCart, cartTotalPrice } = storeToRefs(productStore);
+
+// register checkout store
+
+const checkoutStore = useCheckoutStore();
+
+const { phoneNumber, fullname, city, region, postalCode, email, address } =
+  storeToRefs(checkoutStore);
+
+watch(phoneNumber, (cur, old) => {
+  console.log(
+    phoneNumber.value,
+    fullname.value,
+    city.value,
+    region.value,
+    postalCode.value,
+    email.value,
+    address.value
+  );
+});
 
 const increaseItem = (itemId) => {
   productStore.increaseQuantity(itemId);
@@ -132,5 +153,86 @@ const decreaseItem = (itemId) => {
 
 const removeItem = (itemId) => {
   productStore.removeProduct(itemId);
+};
+
+// handle order submit
+
+const submitOrder = async () => {
+  const data = new URLSearchParams({
+    user_id: 2,
+    totalPrice: cartTotalPrice.value,
+    estimatedDeliveryDays: 5,
+    city: city.value,
+    region: region.value,
+    adderss: address.value,
+    fullname: fullname.value,
+    phone_number: phoneNumber.value,
+    postal_code: postalCode.value,
+  });
+
+  await $fetch("http://localhost:3333/orders/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  console.log(
+    phoneNumber.value,
+    fullname.value,
+    city.value,
+    region.value,
+    postalCode.value,
+    email.value,
+    address.value
+  );
+};
+
+const orderItems = async () => {
+  const data = new URLSearchParams({
+    user_id: 2,
+    totalPrice: cartTotalPrice.value,
+    estimatedDeliveryDays: 5,
+    adderss: address.value,
+    phone_number: phoneNumber.value,
+    postal_code: postalCode.value,
+    city: city.value,
+    region: region.value,
+  });
+
+  await $fetch("http://localhost:3333/orders/addproduct", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  console.log(
+    phoneNumber.value,
+    fullname.value,
+    city.value,
+    region.value,
+    postalCode.value,
+    email.value,
+    address.value
+  );
 };
 </script>

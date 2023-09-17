@@ -9,15 +9,19 @@ export class OrdersService {
   async submitOrder(dto: OrdersDto) {
     const order = await this.prismaService.orders.create({
       data: {
-        owner: 'me',
-        totalPrice: Number(dto.totalPrice),
+        totalPrice: dto.totalPrice,
         estimatedDeliveryDays: dto.estimatedDeliveryDays,
         adderss: dto.address,
+        region: dto.region,
+        city: dto.city,
+        fullname: dto.fullname,
         postal_code: dto.postal_code,
         phone_number: dto.phone_number,
         user_id: 2,
       },
     });
+
+    return { order: order };
   }
 
   submitDraft() {

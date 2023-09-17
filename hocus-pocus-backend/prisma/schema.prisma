@@ -71,14 +71,16 @@ enum Rarities {
 
 model Orders {
   id                    Int          @id @default(autoincrement())
-  owner                 String
   created_at            DateTime     @default(now())
   updated_at            DateTime     @updatedAt
-  totalPrice            Float
-  estimatedDeliveryDays String
-  adderss               String
-  phone_number          String
-  postal_code           String
+  totalPrice            String?
+  estimatedDeliveryDays String?
+  adderss               String?
+  phone_number          String?
+  city                  String?
+  fullname              String?
+  region                String?
+  postal_code           String?
   user_id               Int
   user                  User         @relation(fields: [user_id], references: [id])
   orderItems            orderItems[]
@@ -87,5 +89,6 @@ model Orders {
 model orderItems {
   id       Int    @id @default(autoincrement())
   order_id Int
+  items    Json?
   order    Orders @relation(fields: [order_id], references: [id])
 }

@@ -3,6 +3,7 @@ export const useProductStore = defineStore("productStore", {
   state: () => ({
     products: [],
     shoppingCart: [],
+    cartTotalPrice: 0,
   }),
   actions: {
     setProducts(products) {
@@ -21,6 +22,7 @@ export const useProductStore = defineStore("productStore", {
         this.shoppingCart.push({ ...product, quantity: 1 });
       }
       console.log(this.shoppingCart);
+      this.sumArrayOfObjectsPrice();
     },
     removeProduct(productId) {
       for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -49,6 +51,13 @@ export const useProductStore = defineStore("productStore", {
           }
         }
       }
+    },
+    sumArrayOfObjectsPrice() {
+      this.cartTotalPrice = this.shoppingCart.reduce(
+        (total, obj) => total + obj.price,
+        0
+      );
+      console.log(this.cartTotalPrice);
     },
   },
 });

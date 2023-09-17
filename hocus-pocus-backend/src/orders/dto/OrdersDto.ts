@@ -6,6 +6,12 @@ export class OrdersDto {
 
   address: string;
 
+  city: string;
+
+  region: string;
+
+  fullname: string;
+
   phone_number: string;
 
   postal_code: string;
