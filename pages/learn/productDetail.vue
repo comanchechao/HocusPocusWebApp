@@ -60,10 +60,14 @@
             </button>
           </div>
           <div
-            class="h-auto rounded-md bg-gray-100 w-full text-right p-5 flex-col items-end flex justify-around"
+            class="h-auto rounded-md w-full text-right flex-col items-end flex justify-around"
           >
-            <h2 class="text-mainBrown text-2xl font-bold">توضیحات کالا</h2>
-            <h3 class="text-sm">
+            <h2
+              class="text-mainBrown text-2xl bg-gray-100 p-3 rounded-md my-3 font-bold"
+            >
+              توضیحات کالا
+            </h2>
+            <h3 class="text-sm bg-gray-100 p-3 rounded-md my-3">
               ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
               در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
