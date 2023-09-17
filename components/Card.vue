@@ -1,19 +1,35 @@
 <template>
   <div
-    class="h-auto rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-96 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
-    <div class="w-full h-72 p-3 bg-white rounded-t-sm">
-      <!-- <ProductImage :productId="props.product.ProductImages[0].id">
-      </ProductImage> -->
+    <div
+      class="w-full h-full bg-white rounded-t-sm opacity-0 mb-2"
+      id="div1"
+      v-show="showDiv1"
+      @mouseenter="toggleDiv1"
+      @mouseleave="toggleDiv2"
+    >
       <img
-        src="../assets/images/Psychonauts.webp"
+        src="../assets/images/Psychonauts2.webp"
         class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
         alt=""
       />
     </div>
     <div
-      class="w-full h-full flex items-center flex-col px-7 py-5 bg-white space-y-4"
+      class="w-full h-72 bg-white rounded-t-sm mb-2"
+      id="div2"
+      v-show="showDiv2"
+      @mouseenter="toggleDiv1"
+      @mouseleave="toggleDiv2"
     >
+      <img
+        src="../assets/images/Psychonauts.webp"
+        class="w-full mt-4 h-full object-contain opacity-100 backdrop-blur-3xl"
+        alt=""
+      />
+    </div>
+
+    <div class="w-full h-full flex items-center flex-col px-7 py-5 space-y-4">
       <h3 class="text-center leading-snug title text-xl text-darkPurple">
         <!-- {{ props.product.title }} -->
         Seafarers: Commodore Edition Playing Cards
@@ -47,10 +63,52 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
+<script setup lang="ts">
 import { useProductStore } from "../stores/productStore";
+
+import { ref, watch } from "vue";
+import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
+const { $gsap } = useNuxtApp();
+const showDiv1 = ref(true);
+const showDiv2 = ref();
+function toggleDiv1() {
+  showDiv1.value = true;
+  showDiv2.value = false;
+}
+
+function toggleDiv2() {
+  showDiv1.value = false;
+  showDiv2.value = true;
+}
+
+watch([showDiv1, showDiv2], (values) => {
+  const [div1Visible, div2Visible] = values;
+  const TL = $gsap.timeline();
+  if (div1Visible) {
+    TL.fromTo(
+      "#div1",
+      { opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.3,
+        ease: "power2.out",
+      }
+    );
+  } else if (div2Visible) {
+    TL.fromTo(
+      "#div2",
+      { opacity: 0 },
+      {
+        y: 0,
+
+        opacity: 1,
+        duration: 1.3,
+        ease: "power2.out",
+      }
+    );
+  }
+});
 const props = defineProps(["product"]);
 
 // register product store
@@ -65,6 +123,13 @@ onMounted(() => {
   console.log();
 });
 </script>
+
+<style>
+#div1,
+#div2 {
+  transition: opacity 0.2s;
+}
+</style>
 <style>
 @font-face {
   font-family: "Pocus";

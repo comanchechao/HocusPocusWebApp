@@ -44,7 +44,7 @@ export default {
 </script>
 <style scoped>
 .swiper {
-  width: 300px;
+  width: 370px;
   height: 660px;
 }
 
