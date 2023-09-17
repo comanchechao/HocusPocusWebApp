@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="Navbar"
     class="w-screen h-20 flex items-center justify-center lg:px-10 bg-transparent z-50"
   >
     <div
@@ -146,13 +147,29 @@ import {
 } from "@phosphor-icons/vue";
 import { storeToRefs } from "pinia";
 import { useUserStore } from "../stores/user";
+import { ref } from "vue";
+
 const { $gsap } = useNuxtApp();
 
 const userStore = useUserStore();
 
 const { isLogged } = storeToRefs(userStore);
-
+const Navbar = ref();
 onMounted(() => {
   $gsap.to(".Navbar", { opacity: 1, duration: 1 });
+  $gsap.to(Navbar.value, {
+    backgroundColor: "#150531",
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".NavbarTrigger",
+      onEnter: () => {
+        Navbar.value.classList.add("fixed");
+      },
+      scrub: 2.5,
+      start: "bottom top",
+      end: "bottom bottom",
+      toggleActions: "play none none none none",
+    },
+  });
 });
 </script>

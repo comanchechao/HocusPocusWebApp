@@ -78,7 +78,6 @@
       <div
         class="h-full Comment w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
       >
-        <h1 class="text-mainRed text-3xl mt-5">نظرات مشتریان</h1>
         <Comments />
       </div>
       <div class="h-20 w-screen bg-mainRed flex items-center justify-center">

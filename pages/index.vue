@@ -3,7 +3,7 @@
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
-      class="lg:h-full container h-auto w-full flex flex-col items-center bg pt-7 justify-center"
+      class="lg:h-full container h-auto w-full flex flex-col items-center bg pt-20 justify-center"
     >
       <!-- <img
         ref="image"
@@ -21,7 +21,7 @@
       <!-- <TestSwiper /> -->
       <div class="Store opacity-0">
         <h1
-          class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-3xl lg:text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex space-x-2 lg:px-0 px-8 NavbarTrigger lg:mt-7 ease-in-out text-3xl lg:text-2xl text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <span> آنلاین شاپ و وبسایت آموزشی شعبده بازیِ </span>
         </h1>

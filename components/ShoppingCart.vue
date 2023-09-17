@@ -80,16 +80,16 @@
     </Sidebar>
     <button
       :class="{
-        'hover:border-mainOrange text-mainYellow hover:shadow-mainOrange hover:text-mainOrange':
+        'hover:border-mainOrange relative text-mainYellow hover:shadow-mainOrange hover:text-mainOrange':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-        'hover:border-mainViolet text-mainRed hover:shadow-mainViolet hover:text-mainViolet':
+        'hover:border-mainViolet relative text-mainRed hover:shadow-mainViolet hover:text-mainViolet':
           $route.path === '/' || $route.path.startsWith('/shop/'),
       }"
-      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+      class="text-xl active:text-darkPurple active:bg-mainRed flex items-center px-2 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
       @click="visible = true"
     >
       <Badge
-        class="translate-x-4 -translate-y-2"
+        class="absolute -top-2 right-7"
         v-show="shoppingCart.length"
         :value="shoppingCart.length"
       ></Badge>
@@ -133,3 +133,8 @@ import { ref } from "vue";
 
 const visible = ref(false);
 </script>
+<style>
+.p-badge {
+  background-color: chocolate;
+}
+</style>

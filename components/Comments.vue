@@ -1,12 +1,14 @@
 <template>
   <div class="flex flex-col items-center">
-    <SortBy />
+    <div class="flex items-center justify-end w-full space-x-3">
+      <LazyAddComment />
+      <h1 class="text-mainRed text-3xl">نظرات مشتریان</h1>
+    </div>
+    <LazySortBy />
     <div class="flex flex-col items-center">
-      <Comment /> <Comment /> <Comment />
+      <LazyComment /> <LazyComment /> <LazyComment />
     </div>
   </div>
 </template>
-
-<script></script>
 
 <style lang="scss" scoped></style>

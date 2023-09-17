@@ -2,7 +2,7 @@
   <div
     class="h-auto rounded-md duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-72 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
-    <div class="w-full h-96 p-9 bg-white rounded-t-sm">
+    <div class="w-full h-72 p-3 bg-white rounded-t-sm">
       <!-- <ProductImage :productId="props.product.ProductImages[0].id">
       </ProductImage> -->
       <img
