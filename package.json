@@ -22,7 +22,9 @@
     "@pinia/nuxt": "^0.4.11",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
+    "nuxt-video-player": "^1.0.17",
     "pinia": "^2.1.6",
+    "plyr": "^3.7.8",
     "primevue": "^3.32.2",
     "swiper": "^10.2.0"
   },

@@ -13,6 +13,8 @@
     <swiper-slide><LazyCard /></swiper-slide>
     <swiper-slide><LazyCard /></swiper-slide>
     <swiper-slide><LazyCard /></swiper-slide>
+
+    <!-- <swiper-slide><LazyCard /></swiper-slide> -->
   </swiper>
 </template>
 <script>

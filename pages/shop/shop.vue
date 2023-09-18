@@ -13,7 +13,26 @@
         <div
           class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-1 overscroll-y-scroll gap-4 justify-items-center"
         >
-          <LazyCard class="LazyCard" />
+          <LazyCard
+            v-show="!filteredProducts"
+            v-for="product in products"
+            :key="product"
+            :product="product"
+          ></LazyCard>
+          <LazyCard
+            v-show="filteredProducts"
+            v-for="product in filteredProducts"
+            :key="product"
+            :product="product"
+          ></LazyCard>
+          <!-- <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" />
+          <LazyCard class="LazyCard" /> <LazyCard class="LazyCard" /> -->
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator

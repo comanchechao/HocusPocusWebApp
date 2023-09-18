@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, ForbiddenException } from '@nestjs/common';
 import { ManagementDto } from './dto/ManagementDto';
 import { PrismaService } from '../prisma/prisma.service';
@@ -82,12 +83,13 @@ export class ManagementService {
   // video services functions
 
   async addVideo(file: any, dto: VideosDto) {
-    const video = await this.prismaService.videos.create({
-      file: file,
-      title: dto.title,
-      description: dto.description,
-      price: dto.price,
-      trainer: dto.trainer,
-    });
+    console.log(file);
+    // const video = await this.prismaService.videos.create({
+    //   title: dto.title,
+    //   file: file.buffer,
+    //   description: dto.description,
+    //   price: dto.price,
+    //   trainer: dto.trainer,
+    // });
   }
 }

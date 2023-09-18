@@ -6,6 +6,12 @@
     <div
       class="lg:h-4/6 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
     >
+      <video controls>
+        <source
+          type="video/mp4"
+          src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
+        />
+      </video>
       <h2
         class="text-xl flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
       >
