@@ -32,18 +32,18 @@
     </div>
 
     <div class="w-full h-full flex items-center flex-col px-7 py-5 space-y-4">
-      <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        {{ props.product.title }}
-      </h3>
       <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        Seafarers: Commodore Edition Playing Cards
+        {{ props.product.title }}
       </h3> -->
+      <h3 class="text-center leading-snug title text-xl text-darkPurple">
+        Seafarers: Commodore Edition Playing Cards
+      </h3>
       <h3
         class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span>{{ props.product.price }}</span>
-        <!-- <span>599,000</span> -->
+        <!-- <span>{{ props.product.price }}</span> -->
+        <span>599,000</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
       <button
@@ -52,18 +52,18 @@
       >
         <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
       </button>
-      <NuxtLink :to="'/shop/productdetail/' + product.id">
-        <button
-          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
-        >
-          <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
-      ></NuxtLink>
-      <!-- <NuxtLink>
+      <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
         <button
           class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
       ></NuxtLink> -->
+      <NuxtLink>
+        <button
+          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+        >
+          <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
+      ></NuxtLink>
     </div>
   </div>
 </template>
