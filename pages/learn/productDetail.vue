@@ -31,7 +31,17 @@
     >
       <div
         class="w-full h-dialog rounded-md shadow-lg shadow-mainYellow bg-white"
-      ></div>
+      >
+        <video
+          controls
+          class="h-full w-full bg-gray-900 flex items-center rounded-t-md"
+        >
+          <source
+            type="video/mp4"
+            src="../../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
+          />
+        </video>
+      </div>
 
       <div class="h-full w-full flex flex-col my-12 items-end space-y-7">
         <h1
