@@ -46,6 +46,7 @@
         <span>599,000</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
+
       <button
         @click="addToCart(props.product)"
         class="w-44 justify-center py-2 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
@@ -64,6 +65,13 @@
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
       ></NuxtLink>
+      <Message
+        class="w-full text-right absolute"
+        v-show="addSuccess"
+        severity="success"
+      >
+        <span class="lg:text-lg text-md">به سبد خرید اضافه شد</span>
+      </Message>
     </div>
   </div>
 </template>
@@ -73,6 +81,8 @@ import { useProductStore } from "../stores/productStore";
 import { ref, watch } from "vue";
 import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
+const addSuccess = ref(false);
+
 const showDiv1 = ref();
 const showDiv2 = ref(true);
 function toggleDiv1() {
@@ -121,6 +131,11 @@ const productStore = useProductStore();
 
 const addToCart = (product: any) => {
   productStore.addToShoppingCart(product);
+  addSuccess.value = true;
+
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
 };
 
 onMounted(() => {
