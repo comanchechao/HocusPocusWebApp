@@ -73,8 +73,8 @@ import { useProductStore } from "../stores/productStore";
 import { ref, watch } from "vue";
 import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
-const showDiv1 = ref(true);
-const showDiv2 = ref();
+const showDiv1 = ref();
+const showDiv2 = ref(true);
 function toggleDiv1() {
   showDiv1.value = true;
   showDiv2.value = false;

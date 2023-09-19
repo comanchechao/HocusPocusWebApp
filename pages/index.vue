@@ -207,7 +207,7 @@
         <span> محصولات پرطرفدار </span>
       </h2>
       <div
-        class="w-full h-screen grid grid-cols-4 grid-rows-2 place-items-center px-24 py-9 gap-5"
+        class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
       >
         <div
           class="h-full space-y-4 w-full bg-white col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
@@ -251,12 +251,8 @@
           <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
         </h2>
       </div>
-      <div class="w-full flex items-center">
-        <LazyInstagramCard /> <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
+      <div class="w-full flex justify-center items-center">
+        <LazyInstagramCarousel />
       </div>
     </div>
     <LazyFooter></LazyFooter>

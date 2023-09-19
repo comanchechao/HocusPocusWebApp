@@ -1,17 +1,19 @@
 <template>
   <div
-    class="lg:w-rem38 w-full h-auto lg:h-rem30 bg-mainPurple rounded-md shadow-lg transition flex-col items-center shadow-mainYellow"
+    class="lg:w-rem38 w-full h-auto lg:h-rem33 rounded-md shadow-lg transition flex-col items-center"
   >
-    <div class="lg:h-2/6 h-96 w-full bg-white rounded-t-md"></div>
-    <div
-      class="lg:h-4/6 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
+    <video
+      controls
+      class="lg:h-2/4 h-96 w-full bg-gray-900 flex items-center rounded-t-md"
     >
-      <video controls>
-        <source
-          type="video/mp4"
-          src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
-        />
-      </video>
+      <source
+        type="video/mp4"
+        src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
+      />
+    </video>
+    <div
+      class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
+    >
       <h2
         class="text-xl flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
       >

@@ -235,11 +235,7 @@
         </h2>
       </div>
       <div class="w-full flex items-center">
-        <LazyInstagramCard /> <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
-        <LazyInstagramCard />
+        <LazyInstagramCarousel />
       </div>
     </div>
     <LazyFooter />

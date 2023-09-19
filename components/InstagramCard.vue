@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-64 relative h-64 rounded-sm cursor-pointer m-4 bg-mainWhite flex items-center justify-center"
+    class="w-full relative h-64 rounded-sm cursor-pointer bg-mainWhite flex items-center justify-center"
   >
     <img
       src="../assets/images/Psychonauts.webp"

@@ -6,29 +6,36 @@
     <div
       class="items-center justify-start space-x-2 w-full opacity-0 Navbar hidden lg:flex"
     >
-      <button
-        :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
-            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
-            $route.path === '/' || $route.path.startsWith('/shop/'),
-        }"
-        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
-      >
-        <span> تماس با ما </span> <PhCallBell :size="23" />
-      </button>
-      <button
-        :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
-            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
-            $route.path === '/' || $route.path.startsWith('/shop/'),
-        }"
-        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
-      >
-        <span> درباره ما </span>
-        <PhSpade :size="23" />
-      </button>
+      <NuxtLink to="/shop/contactUs">
+        <button
+          :class="{
+            'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
+              $route.path === '/learn/learn' ||
+              $route.path.startsWith('/learn/'),
+            'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+              $route.path === '/' || $route.path.startsWith('/shop/'),
+          }"
+          class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+        >
+          <span> تماس با ما </span> <PhCallBell :size="23" />
+        </button>
+      </NuxtLink>
+      <NuxtLink to="/shop/aboutUs">
+        <button
+          :class="{
+            'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
+              $route.path === '/learn/learn' ||
+              $route.path.startsWith('/learn/'),
+            'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+              $route.path === '/' || $route.path.startsWith('/shop/'),
+          }"
+          class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+        >
+          <span> درباره ما </span>
+          <PhSpade :size="23" />
+        </button>
+      </NuxtLink>
+
       <NuxtLink to="/learn/learn">
         <button
           class="text-xl active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"

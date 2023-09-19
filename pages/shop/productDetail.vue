@@ -21,7 +21,7 @@
         </h2>
       </div>
       <div
-        class="w-full Product flex lg:flex-row flex-col-reverse items-start mt-9 shadow-lg shadow-mainPurple rounded-md h-full lg:space-x-5"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-start mt-9 rounded-md h-full lg:space-x-5"
       >
         <div class="lg:w-1/2 w-full h-full flex flex-col items-start">
           <div
@@ -64,12 +64,28 @@
               >
             </h1>
           </div>
-          <button
-            class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
-          >
-            <span> اضافه به سبد خرید </span>
-            <PhShoppingBagOpen :size="35" weight="fill" />
-          </button>
+          <div class="w-full h-full flex items-center mt-7 justify-around">
+            <div class="flex items-center justify-center space-x-3">
+              <PhMinus
+                class="text-mainRed cursor-pointer p-2 border-2 border-transparent duration-200 ease-in transition hover:border-mainPink"
+                :size="55"
+                weight="fill"
+              />
+              <h3 class="text-3xl font-bold text-mainRed font-SultanFont">6</h3>
+              <PhPlus
+                class="text-mainRed cursor-pointer p-2 border-2 border-transparent duration-200 ease-in transition hover:border-mainPink"
+                :size="55"
+                weight="fill"
+              />
+              <h3 class="text-xl text-mainRed">تعداد</h3>
+            </div>
+            <button
+              class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+            >
+              <span> اضافه به سبد خرید </span>
+              <PhShoppingBagOpen :size="35" weight="fill" />
+            </button>
+          </div>
         </div>
         <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
           <div class="w-full h-full flex items-center mb-7 justify-center">
@@ -134,7 +150,13 @@
   </div>
 </template>
 <script setup>
-import { PhCaretLeft, PhShoppingBagOpen, PhCards } from "@phosphor-icons/vue";
+import {
+  PhCaretLeft,
+  PhShoppingBagOpen,
+  PhCards,
+  PhPlus,
+  PhMinus,
+} from "@phosphor-icons/vue";
 
 import { ref } from "vue";
 
