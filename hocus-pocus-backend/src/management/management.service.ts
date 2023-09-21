@@ -84,12 +84,12 @@ export class ManagementService {
 
   async addVideo(file: any, dto: VideosDto) {
     console.log(file);
-    // const video = await this.prismaService.videos.create({
-    //   title: dto.title,
-    //   file: file.buffer,
-    //   description: dto.description,
-    //   price: dto.price,
-    //   trainer: dto.trainer,
-    // });
+    const video = await this.prismaService.courses.create({
+      title: dto.title,
+      file: file.buffer,
+      description: dto.description,
+      price: dto.price,
+      trainer: dto.trainer,
+    });
   }
 }
