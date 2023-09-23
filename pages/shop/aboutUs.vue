@@ -1,7 +1,13 @@
 <template>
   <div class="h-full w-full bg-darkPurple">
     <LazyNavbar />
-    <div class="h-screen w-full"></div>
+    <div class="h-auto w-full lg:px-44 px-6 my-16">
+      <img
+        src="../../assets/images/aboutUsBg.webp"
+        class="w-full object-contain"
+        alt=""
+      />
+    </div>
     <div
       class="h-full w-full md:px-24 px-7 lg:px-44 flex items-center flex-col mb-48"
     >
