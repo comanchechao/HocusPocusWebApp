@@ -1,9 +1,9 @@
 <template>
   <div
-    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-96 shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
-      class="w-full h-full bg-white rounded-t-sm opacity-0 mb-2"
+      class="w-full bg-white rounded-t-sm opacity-0 mb-2"
       id="div1"
       v-show="showDiv1"
       @mouseenter="toggleDiv1"
@@ -59,7 +59,7 @@
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
       ></NuxtLink> -->
-      <NuxtLink>
+      <NuxtLink to="/shop/productDetail">
         <button
           class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
         >

@@ -171,7 +171,6 @@ onMounted(() => {
       onEnter: () => {
         Navbar.value.classList.add("fixed");
       },
-      scrub: 2.5,
       start: "bottom top",
       end: "bottom bottom",
       toggleActions: "play none none none none",
