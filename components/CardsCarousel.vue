@@ -26,6 +26,10 @@
         ><LazyCard :product="product"
       /></swiper-slide> -->
       <swiper-slide><LazyCard /></swiper-slide>
+      <swiper-slide><LazyCard /></swiper-slide>
+      <swiper-slide><LazyCard /></swiper-slide>
+
+      <swiper-slide><LazyCard /></swiper-slide>
     </swiper>
   </div>
 </template>
@@ -63,7 +67,6 @@ const productStore = useProductStore();
 }
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
 
   /* Center slide text vertically */
   display: flex;

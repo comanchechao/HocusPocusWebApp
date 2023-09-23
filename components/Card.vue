@@ -22,7 +22,6 @@
       id="div2"
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
-      @mouseleave="toggleDiv2"
     >
       <img
         src="../assets/images/Psychonauts.webp"
@@ -47,7 +46,7 @@
         <PhMoney :size="34" weight="fill" />
       </h3>
 
-      <div class="flex space-x-3 items-center w-full">
+      <div class="flex space-x-3 items-center h-full w-full">
         <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
         <button
           class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
@@ -56,13 +55,13 @@
       ></NuxtLink> -->
         <NuxtLink to="/shop/productDetail" class="w-full">
           <button
-            class="px-3 w-full flex items-center justify-center py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+            class="px-3 w-full flex items-center justify-center py-2 border-2 border-darkPurple shadow-sm shadow-mainRed space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
           >
             <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
         ></NuxtLink>
         <!-- <button
           @click="addToCart(props.product)"
-          class="w-44 justify-center py-2 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+          class="justify-center w-20 h-10 shadow-md bg-mainPink hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-sm"
         >
           <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
         </button>
@@ -121,17 +120,13 @@ watch([showDiv1, showDiv2], (values) => {
       }
     );
   } else if (div2Visible) {
-    TL.fromTo(
-      "#div2",
-      { opacity: 0 },
-      {
-        y: 0,
+    TL.to("#div2", {
+      y: 0,
 
-        opacity: 1,
-        duration: 1.3,
-        ease: "power2.out",
-      }
-    );
+      opacity: 1,
+      duration: 1.3,
+      ease: "power2.out",
+    });
   }
 });
 const props = defineProps(["product"]);
