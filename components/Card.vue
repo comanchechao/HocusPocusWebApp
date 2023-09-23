@@ -9,13 +9,13 @@
       @mouseenter="toggleDiv1"
       @mouseleave="toggleDiv2"
     >
-      <!-- <img
+      <img
         src="../assets/images/Psychonauts2.webp"
         class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
-      /> -->
-      <ProductImage :productId="props.product.ProductImages[0].id">
-      </ProductImage>
+      />
+      <!-- <ProductImage :productId="props.product.ProductImages[0].id">
+      </ProductImage> -->
     </div>
     <div
       class="w-full h-72 mb-3 bg-mainWhite rounded-t-sm"
@@ -32,18 +32,18 @@
     </div>
 
     <div class="w-full h-full flex items-center flex-col px-7 py-5 space-y-4">
-      <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        {{ props.product.title }}
-      </h3>
       <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        Seafarers: Commodore Edition Playing Cards
+        {{ props.product.title }}
       </h3> -->
+      <h3 class="text-center leading-snug title text-xl text-darkPurple">
+        Seafarers: Commodore Edition Playing Cards
+      </h3>
       <h3
         class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span>{{ props.product.price }}</span>
-        <!-- <span>599,000</span> -->
+        <!-- <span>{{ props.product.price }}</span> -->
+        <span>599,000</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
 
@@ -60,7 +60,7 @@
           >
             <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
         ></NuxtLink>
-        <button
+        <!-- <button
           @click="addToCart(props.product)"
           class="w-44 justify-center py-2 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
         >
@@ -73,7 +73,7 @@
           >
             <PhShoppingBagOpen :size="30" weight="fill" />
           </button>
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
       <Message
         :closable="false"
