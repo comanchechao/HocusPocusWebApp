@@ -3,7 +3,7 @@
     class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
-      class="w-full bg-white rounded-t-sm opacity-0 mb-2"
+      class="w-full h-72 mb-3 bg-mainWhite rounded-t-sm opacity-0"
       id="div1"
       v-show="showDiv1"
       @mouseenter="toggleDiv1"
@@ -11,14 +11,14 @@
     >
       <img
         src="../assets/images/Psychonauts2.webp"
-        class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+        class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
       />
       <!-- <ProductImage :productId="props.product.ProductImages[0].id">
       </ProductImage> -->
     </div>
     <div
-      class="w-full h-72 bg-white rounded-t-sm mb-2"
+      class="w-full h-72 mb-3 bg-mainWhite rounded-t-sm"
       id="div2"
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
@@ -26,7 +26,7 @@
     >
       <img
         src="../assets/images/Psychonauts.webp"
-        class="w-full mt-4 h-full object-contain opacity-100 backdrop-blur-3xl"
+        class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
         alt=""
       />
     </div>
@@ -47,30 +47,33 @@
         <PhMoney :size="34" weight="fill" />
       </h3>
 
-      <button
-        @click="addToCart(props.product)"
-        class="w-44 justify-center py-2 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
-      >
-        <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
-      </button>
-      <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
+      <div class="flex space-x-3 items-center w-full">
+        <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
         <button
           class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
         >
           <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
       ></NuxtLink> -->
-      <NuxtLink to="/shop/productDetail">
+        <NuxtLink to="/shop/productDetail" class="w-full">
+          <button
+            class="px-3 w-full flex items-center justify-center py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+          >
+            <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
+        ></NuxtLink>
         <button
-          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+          @click="addToCart(props.product)"
+          class="justify-center w-20 h-full shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-md"
         >
-          <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
-      ></NuxtLink>
+          <PhShoppingBagOpen :size="30" weight="fill" />
+        </button>
+      </div>
       <Message
-        class="w-full text-right absolute"
+        :closable="false"
+        class="w-full text-right"
         v-show="addSuccess"
         severity="success"
       >
-        <span class="lg:text-lg text-md">به سبد خرید اضافه شد</span>
+        <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
       </Message>
     </div>
   </div>
