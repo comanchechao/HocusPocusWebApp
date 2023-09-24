@@ -17,7 +17,7 @@
     >
       <button
         :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
         }"
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
@@ -26,7 +26,7 @@
       </button>
       <button
         :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
         }"
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
@@ -35,7 +35,7 @@
       </button>
       <button
         :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
         }"
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
@@ -47,7 +47,7 @@
       <button
         @click="sortFunction('lowest')"
         :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
         }"
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
@@ -58,7 +58,7 @@
       <button
         @click="sortFunction('highest')"
         :class="{
-          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-8 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
         }"
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
