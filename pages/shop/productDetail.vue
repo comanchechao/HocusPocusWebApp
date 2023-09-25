@@ -1,9 +1,7 @@
 <template>
-  <div class="h-auto w-screen bg-darkPurple">
+  <div class="h-auto w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
     <LazyNavbar />
-    <div
-      class="h-auto w-screen bg-darkPurple flex-col flex items-center px-7 lg:px-32 py-16"
-    >
+    <div class="h-auto w-screen flex-col flex items-center px-7 lg:px-32 py-16">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
       >
@@ -132,7 +130,7 @@
         </div>
       </div>
       <div
-        class="h-full mt-20 Comment w-full mb-11 bg-darkPurple flex flex-col space-y-4 py-5 items-end"
+        class="h-full mt-20 Comment w-full mb-11 flex flex-col space-y-4 py-5 items-end"
       >
         <Comments />
       </div>
@@ -146,7 +144,6 @@
         <LazyCardsCarousel :products="products" class="self-center" />
       </div>
     </div>
-    <LazyFooter />
   </div>
 </template>
 <script setup>
