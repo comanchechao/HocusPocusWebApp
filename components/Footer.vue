@@ -3,7 +3,7 @@
     :class="{
       'bg-mainBrown':
         $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-      'bg-darkPurple':
+      'from-mainPurple to-darkPurple bg-gradient-to-b':
         $route.path === '/shop/shop' || $route.path.startsWith('/shop/'),
     }"
     class="lg:h-full h-full overflow-hidden w-screen flex-col flex items-center space-y-8 justify-center"

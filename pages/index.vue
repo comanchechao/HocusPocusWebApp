@@ -1,5 +1,7 @@
 <template>
-  <div class="w-screen h-auto bg-darkPurple flex flex-col items-center">
+  <div
+    class="w-screen h-auto from-mainPurple to-darkPurple bg-gradient-to-t flex flex-col items-center"
+  >
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
@@ -170,7 +172,7 @@
       </div>
     </div>
 
-    <div class="h-auto w-full bg-darkPurple flex flex-col items-center">
+    <div class="h-auto w-full flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain.webp"
         class="object-contain h-64 w-full lg:px-0 px-4"

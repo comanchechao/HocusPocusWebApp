@@ -47,7 +47,7 @@ export default {
 <style scoped>
 .swiper {
   width: 340px;
-  height: 660px;
+  height: 510px;
 }
 
 .swiper-slide {

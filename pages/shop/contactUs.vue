@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-screen bg-darkPurple">
+  <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
     <LazyNavbar />
     <div
       class="h-full lg:pt-24 flex-col w-full pb-36 lg:px-24 justify-start flex items-center"
@@ -105,7 +105,6 @@
         </div>
       </div>
     </div>
-    <LazyFooter />
   </div>
 </template>
 <script setup>

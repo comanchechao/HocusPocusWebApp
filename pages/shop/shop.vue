@@ -1,9 +1,9 @@
 <template>
-  <div class="h-full w-screen bg-darkPurple">
+  <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
     <LazyNavbar></LazyNavbar>
 
     <div
-      class="h-full w-screen bg-darkPurple md:p-10 lg:p-20 flex items-center"
+      class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 lg:p-20 flex items-center"
     >
       <div
         class="w-full h-full border-mainRed rounded-sm flex flex-col items-end"

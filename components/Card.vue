@@ -3,7 +3,7 @@
     class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
-      class="w-full h-72 mb-3 bg-mainWhite rounded-t-sm opacity-0"
+      class="w-full h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
       id="div1"
       v-show="showDiv1"
       @mouseenter="toggleDiv1"
@@ -18,7 +18,7 @@
       </ProductImage> -->
     </div>
     <div
-      class="w-full h-72 mb-3 bg-mainWhite rounded-t-sm"
+      class="w-full h-72 mb-3 bg-mainWhite rounded-t-lg"
       id="div2"
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
