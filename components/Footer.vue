@@ -6,7 +6,7 @@
       'from-mainPurple to-darkPurple bg-gradient-to-b':
         $route.path === '/shop/shop' || $route.path.startsWith('/shop/'),
     }"
-    class="lg:h-full h-full overflow-hidden w-screen flex-col flex items-center space-y-8 justify-center"
+    class="lg:h-full h-full pt-24 overflow-hidden w-screen flex-col flex items-center space-y-8 justify-center"
   >
     <!-- <img
       src="../assets/images/MagicDivider2.webp"

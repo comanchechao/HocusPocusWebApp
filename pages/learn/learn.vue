@@ -69,16 +69,16 @@
         <LazyVideoCardsCarousel class="self-center" />
       </div>
       <div
-        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPurple"
       >
         <h2
-          class="text-mainBrown border-b-8 rounded-2xl border-mainBrown pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
+          class="text-mainPink border-b-8 rounded-2xl border-mainBrown pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
         >
           <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
         </h2>
         <h2
-          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
+          class="text-mainPink rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
@@ -128,7 +128,9 @@
         alt=""
       />
     </div>
-    <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
+    <div
+      class="w-full py-5 fh-full bg-mainBrown flex items-center space-y-9 flex-col"
+    >
       <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
         <PhHeartStraight weight="fill" class="mr-3" />
         <span> محصولات پرطرفدار </span>
@@ -219,7 +221,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full h-full my-14 flex flex-col">
+    <div class="w-full h-full bg-mainBrown flex flex-col">
       <div
         class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
       >
