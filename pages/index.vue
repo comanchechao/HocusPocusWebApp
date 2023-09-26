@@ -5,7 +5,7 @@
     <LazyNavbar></LazyNavbar>
     <div
       ref="container"
-      class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-20 justify-center"
+      class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-5 justify-center"
     >
       <!-- <img
         ref="image"
@@ -41,7 +41,7 @@
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusDownP.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute P opacity-0"
+              class="object-contain lg:w-full z-10 w-96 md:w-rem38 absolute P opacity-0"
               alt=""
             />
             <img
