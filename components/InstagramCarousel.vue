@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-screen px-5">
+  <div class="h-full w-screen">
     <swiper
       :breakpoints="{
         '640': {
