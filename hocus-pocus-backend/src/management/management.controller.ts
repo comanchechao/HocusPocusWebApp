@@ -48,7 +48,7 @@ export class ManagementController {
     @UploadedFile(
       new ParseFilePipeBuilder()
         .addFileTypeValidator({
-          fileType: 'jpeg||png',
+          fileType: 'jpeg||png||webp',
         })
         .addMaxSizeValidator({
           maxSize: 500000,
