@@ -87,7 +87,7 @@
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed FCardsTrigger font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -96,14 +96,14 @@
         class="h-dialog w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+          class="lg:w-1/2 FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
         ></div>
         <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+          class="lg:w-1/2 CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
         ></div>
       </div>
       <div
-        class="w-full lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
+        class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
       >
         <h2
           class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
@@ -180,7 +180,7 @@
       />
 
       <div
-        class="h-auto lg:my-10 my-5 w-screen flex items-center justify-center"
+        class="h-auto lg:my-10 SCardsTrigger my-5 w-screen flex items-center justify-center"
       >
         <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
           <PhCards weight="fill" class="mr-3" />
@@ -190,10 +190,10 @@
       <div
         class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
-        <div class=" ">
+        <div class="SCards">
           <LazyCardsSwiper :products="products" />
         </div>
-        <div class="lg:flex hidden md:flex">
+        <div class="lg:flex SCards hidden md:flex">
           <LazyCardsSwiper :products="products" />
         </div>
       </div>
@@ -311,50 +311,59 @@ const getProducts = async () => {
 
 onMounted(() => {
   getProducts();
+  gsap.from(".SCards", {
+    opacity: 0,
+    x: 80,
+    stagger: 0.4,
+    duration: 0.5,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".SCardsTrigger",
+      start: "bottom center",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+  });
+  gsap.from(".FCards", {
+    opacity: 0,
+    y: 80,
+    duration: 0.9,
+    stagger: 0.4,
+
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".FCardsTrigger",
+      start: "bottom center",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+  });
+  gsap.from(".Cardist", {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".CardistTrigger",
+      start: "bottom center",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse",
+    },
+  });
   const TL = gsap.timeline();
-  TL.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
 
-  TL.to(".Up", { opacity: 1, duration: 1, delay: 0.5 });
-  TL.fromTo(".Up2", { opacity: 0, duration: 1 }, { opacity: 1, duration: 1 });
+  TL.to(".Up", { opacity: 1, duration: 0.7, delay: 0.9 });
+  TL.fromTo(
+    ".Up2",
+    { opacity: 0, duration: 0.6 },
+    { opacity: 1, duration: 0.6 }
+  );
 
-  TL.to(".P", { opacity: 1, duration: 0.5 });
-  TL.to(".O", { opacity: 1, duration: 0.5 });
-  TL.to(".C", { opacity: 1, duration: 0.5 });
-  TL.to(".U", { opacity: 1, duration: 0.5 });
-  TL.to(".S", { opacity: 1, duration: 0.5 });
-
-  // TL.from(image.value, {
-  //   opacity: 0,
-  //   duration: 1,
-  // });
-  // TL.to(image.value, {
-  //   duration: 66,
-  //   motionPath: {
-  //     path: [
-  //       { x: 200, y: -110 },
-  //       { x: 1000, y: -100 },
-  //       { x: 1300, y: -110 },
-  //       { x: 1400, y: -100 },
-
-  //       { x: 1300, y: 500 },
-  //       { x: 1000, y: 600 },
-  //       { x: 200, y: 500 },
-
-  //       { x: 0, y: 100 },
-  //     ],
-  //     ease: "power1.inOut",
-  //     autoRotate: true,
-  //   },
-  //   repeat: -1,
-  // });
-  // TL.to(image.value, {
-  //   opacity: 0,
-  //   duration: 2,
-  // });
-  // TL.to(image.value, {
-  //   opacity: 0.7,
-  //   duration: 2,
-  // });
+  TL.to(".P", { opacity: 1, duration: 0.3 });
+  TL.to(".O", { opacity: 1, duration: 0.3 });
+  TL.to(".C", { opacity: 1, duration: 0.3 });
+  TL.to(".U", { opacity: 1, duration: 0.3 });
+  TL.to(".S", { opacity: 1, duration: 0.3 });
 });
 const responsiveOptions = ref([
   {

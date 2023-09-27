@@ -134,9 +134,9 @@
       >
         <Comments />
       </div>
-      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
+      <div class="h-full flex flex-col items-end w-screen lg:px-24 px-5">
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+          class="text-mainPink border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
         >
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
