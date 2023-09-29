@@ -82,7 +82,7 @@
 import { useProductStore } from "../stores/productStore";
 
 import { ref, watch } from "vue";
-import { PhInfo, PhShoppingBagOpen } from "@phosphor-icons/vue";
+import { PhInfo, PhShoppingBagOpen, PhMoney } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const addSuccess = ref(false);
 

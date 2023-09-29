@@ -92,11 +92,11 @@
         </div>
       </div>
     </div>
-    <img
+    <!-- <img
       src="../assets/images/FooterPic.webp"
       class="w-screen object-contain"
       alt=""
-    />
+    /> -->
   </div>
 </template>
 

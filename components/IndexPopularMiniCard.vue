@@ -19,3 +19,6 @@
     </button>
   </div>
 </template>
+<script setup>
+import { PhMoney, PhShoppingBagOpen } from "@phosphor-icons/vue";
+</script>

@@ -78,7 +78,11 @@
           class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
         >
           <span> خونه </span>
-          <PhHouseSimple :size="23" />
+          <img
+            src="../assets/images/MagicianLogo.webp"
+            class="w-7 object-contain"
+            alt=""
+          />
         </button>
       </NuxtLink>
     </div>

@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div class="Store opacity-0">
+      <div class="Store">
         <h1
           class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-3xl lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
@@ -120,7 +120,7 @@
           <button
             class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
           >
-            <PhNoteboo
+            <PhNotebooK
               :size="35"
               weight="fill"
               class="mr-3 lg:flex hidden md:flex"
@@ -241,17 +241,16 @@
     </div>
     <div class="w-full h-full my-14 flex flex-col">
       <div
-        class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
+        class="h-24 w-full bg-mainYellow items-center justify-between lg:px-10 flex"
       >
         <button
-          class="px-7 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-2xl rounded-sm"
+          class="lg:px-7 px-2 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-xl rounded-sm"
         >
           <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
           <span>دنبال کن </span>
         </button>
-        <h2 class="text-2xl flex items-center space-x-3">
+        <h2 class="text-xl font-bold flex items-center mr-3">
           <span>تازه ترین ها در اینستاگرام </span>
-          <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
         </h2>
       </div>
       <div class="w-full flex justify-center items-center">

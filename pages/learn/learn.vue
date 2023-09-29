@@ -50,7 +50,7 @@
           <button
             class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
           >
-            <PhNoteboo
+            <PhNotebook
               :size="35"
               weight="fill"
               class="mr-3 lg:flex hidden md:flex"
