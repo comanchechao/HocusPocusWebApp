@@ -123,7 +123,7 @@
       </div>
 
       <img
-        src="../assets/images/MagicDivider.webp"
+        src="../../assets/images/MagicDivider.webp"
         class="w-full px-5 lg:px-36 object-contain"
         alt=""
       />
