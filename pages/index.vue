@@ -409,24 +409,6 @@ export default {
 };
 </script>
 <style>
-@font-face {
-  font-family: "Hocus";
-  src: url("../assets/fonts/Slagless.ttf");
-  font-style: normal;
-  font-display: swap;
-
-  /* unicode-range: U+0020-007F; */
-}
-
-.HocusPocus {
-  line-height: 5cm;
-
-  font-size: 14rem;
-  font-family: "Hocus";
-  text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
-    0 0 20px #f36b31;
-}
-
 .neonText {
   color: #fff;
   text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
@@ -440,25 +422,5 @@ export default {
 .image {
   position: absolute;
   left: 0;
-}
-@media only screen and (max-width: 480px) {
-  .HocusPocus {
-    line-height: 3cm;
-
-    font-size: 7rem;
-    font-family: "Hocus";
-    text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
-      0 0 20px #f36b31;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .HocusPocus {
-    line-height: 3cm;
-
-    font-size: 7rem;
-    font-family: "Hocus";
-    text-shadow: 0 0 1px #f36b31, 0 0 4px #f36b31, 0 0 10px #f36b31,
-      0 0 20px #f36b31;
-  }
 }
 </style>
