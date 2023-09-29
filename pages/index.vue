@@ -1,5 +1,18 @@
 <template>
   <div
+    v-if="!isLoaded"
+    class="w-screen h-screen bg-darkPurple flex items-center justify-center"
+  >
+    <ProgressSpinner
+      style="width: 50px; height: 50px"
+      strokeWidth="8"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
+  </div>
+  <div
+    v-else
     class="w-screen h-auto from-mainPurple to-darkPurple bg-gradient-to-t flex flex-col items-center"
   >
     <LazyNavbar></LazyNavbar>
@@ -382,7 +395,19 @@ const responsiveOptions = ref([
   },
 ]);
 </script>
-
+<script>
+export default {
+  name: "MyPage",
+  data() {
+    return {
+      isLoaded: false,
+    };
+  },
+  mounted() {
+    this.isLoaded = true;
+  },
+};
+</script>
 <style>
 @font-face {
   font-family: "Hocus";
