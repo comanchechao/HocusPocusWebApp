@@ -59,7 +59,6 @@
                   class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
                 >
                   <img
-                    src="../../assets/images/TeachMagic.webp"
                     class="w-full h-full object-contain opacity-100"
                     alt=""
                   />
@@ -94,7 +93,6 @@
                   class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
                 >
                   <img
-                    src="../../assets/images/TeachMagic.webp"
                     class="w-full h-full object-contain opacity-100"
                     alt=""
                   />
@@ -129,7 +127,6 @@
                   class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
                 >
                   <img
-                    src="../../assets/images/TeachMagic.webp"
                     class="w-full h-full object-contain opacity-100"
                     alt=""
                   />
