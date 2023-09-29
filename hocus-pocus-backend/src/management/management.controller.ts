@@ -53,7 +53,7 @@ export class ManagementController {
           fileType: 'jpeg||png||webp',
         })
         .addMaxSizeValidator({
-          maxSize: 500000,
+          maxSize: 5000000,
         })
         .build({
           errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,

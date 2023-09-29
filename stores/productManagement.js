@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 export const useManagementStore = defineStore("managementStore", {
   state: () => ({
+    stateChange: false,
     type: "",
     brand: "",
     rarity: "",
@@ -9,6 +10,9 @@ export const useManagementStore = defineStore("managementStore", {
     inStock: true,
   }),
   actions: {
+    setStateChange() {
+      this.stateChange = !this.stateChange;
+    },
     setType(type) {
       this.type = type;
     },
