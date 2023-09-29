@@ -64,6 +64,25 @@ export class ManagementService {
     return { data: image };
   }
 
+  async removeProductImage(id: string) {
+    const image = await this.prismaService.productImages.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'image remove' };
+  }
+
+  async removeProduct(id: string) {
+    const product = await this.prismaService.products.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return { msg: 'محصول حذف شد' };
+  }
+
   // category services
 
   async getCategories() {

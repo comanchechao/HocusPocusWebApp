@@ -6,6 +6,7 @@ import {
   Body,
   Post,
   UseGuards,
+  Param,
   UploadedFile,
   ParseFilePipeBuilder,
   HttpStatus,
@@ -65,6 +66,16 @@ export class ManagementController {
     console.log(file.buffer.toString('base64'));
     console.log(file);
     return this.managementService.storeImage(file, body);
+  }
+
+  @Post('/removeproductimage/:id')
+  removeProductImage(@Param('id') id: string) {
+    return this.managementService.removeProductImage(id);
+  }
+
+  @Post('/removeproduct/:id')
+  removeProduct(@Param('id') id: string) {
+    return this.managementService.removeProduct(id);
   }
 
   // orders requests
