@@ -14,6 +14,8 @@ import Message from "primevue/message";
 import InputNumber from "primevue/inputnumber";
 import Badge from "primevue/badge";
 import Textarea from "primevue/textarea";
+import ProgressSpinner from "primevue/progressspinner";
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
@@ -30,6 +32,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Listbox  ", Listbox);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
   nuxtApp.vueApp.component("Textarea", Textarea);
+  nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
 
   //other components that you need
 });
