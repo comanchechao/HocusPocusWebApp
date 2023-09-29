@@ -27,7 +27,29 @@
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const loading = ref(false);
+const courses = ref();
+
+const getCourses = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.courses);
+      courses.value = response.courses;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getCourses();
   TM.from(".Sort", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Filter", { opacity: 0, duration: 1 });
 

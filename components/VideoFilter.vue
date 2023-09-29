@@ -15,36 +15,7 @@
       placeholder="دسته بندی"
       :showToggleAll="false"
     ></MultiSelect>
-    <MultiSelect
-      v-model="selectedRarity"
-      :options="rarity"
-      optionLabel="name"
-      display="chip"
-      filter
-      placeholder="کمیابی"
-      :showToggleAll="false"
-    >
-    </MultiSelect>
-    <MultiSelect
-      v-model="selectedDesigns"
-      :options="designs"
-      optionLabel="name"
-      display="chip"
-      filter
-      placeholder="طرح ها"
-      :showToggleAll="false"
-    >
-    </MultiSelect>
-    <MultiSelect
-      v-model="selectedBrands"
-      :options="brands"
-      optionLabel="name"
-      display="chip"
-      filter
-      placeholder="برندها"
-      :showToggleAll="false"
-    >
-    </MultiSelect>
+
     <MultiSelect
       v-model="selectedTypes"
       :options="types"

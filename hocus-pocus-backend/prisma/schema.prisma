@@ -46,15 +46,25 @@ model Products {
 }
 
 model Courses {
-  id          Int      @id @default(autoincrement())
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-  file        Bytes
-  preview     String?
-  title       String?
-  trainer     String?
-  price       String?
-  description String?
+  id            Int             @id @default(autoincrement())
+  created_at    DateTime        @default(now())
+  updated_at    DateTime        @updatedAt
+  file          Bytes
+  preview       Bytes?
+  title         String?
+  trainer       String?
+  price         String?
+  description   String?
+  CoursesImages CoursesImages[]
+}
+
+model CoursesImages {
+  id         Int      @id @default(autoincrement())
+  create_at  DateTime @default(now())
+  updated_at DateTime @updatedAt
+  image      String
+  course_id  Int
+  course     Courses  @relation(fields: [course_id], references: [id])
 }
 
 model ProductImages {

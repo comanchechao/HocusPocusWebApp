@@ -31,7 +31,7 @@
               >
               <InputNumber
                 id="email"
-                v-model="productPrice"
+                v-model="coursePrice"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -42,7 +42,7 @@
               >
               <InputText
                 id="title"
-                v-model="productTitle"
+                v-model="courseTitle"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -63,12 +63,12 @@
               />
             </div>
             <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainYellow" for="title"
+              <label class="text-xl text-mainYellow" for="trainer"
                 >نام مدرس</label
               >
               <InputText
-                id="title"
-                v-model="productTitle"
+                id="trainer"
+                v-model="trainer"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -81,7 +81,7 @@
             <Textarea
               class="w-full text-right text-2xl py-3"
               autoResize
-              v-model="productDescription"
+              v-model="courseDescription"
               rows="6"
               cols="90"
             />
@@ -124,11 +124,29 @@
                 >{{ error }}</Message
               >
             </div>
-            <button
-              @click="handleProduct()"
+            <label
+              for="videoFile"
               class="text-xl flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> آپلود ویدیو آموزش </span>
+              <PhPlus weight="fill" :size="23" />
+            </label>
+            <input
+              @change="
+                (event) => {
+                  eventVideo = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="videoFile"
+            />
+            <button
+              for="videoFile"
+              @click="handleCourse()"
+              class="text-xl flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+            >
+              <span> اضافه کردن آموزش </span>
               <PhPlus weight="fill" :size="23" />
             </button>
           </div>
@@ -152,9 +170,12 @@ const faild = ref(false);
 
 const errorMessage = ref("");
 
-const productTitle = ref("");
-const productDescription = ref("");
-const productPrice = ref();
+const courseTitle = ref("");
+const courseDescription = ref("");
+const coursePrice = ref();
+const trainer = ref("");
+
+const eventVideo = ref();
 
 // regiter management store
 
@@ -164,25 +185,31 @@ const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
 
 // handle adding product via submit
 
-const handleProduct = async () => {
-  const data = new URLSearchParams({
-    title: productTitle.value,
-    price: productPrice.value,
-    type: type.value,
-    brand: brand.value,
-    design: design.value,
-    rarity: rarity.value,
-    inStock: inStock.value,
-    description: productDescription.value,
-  });
+const handleCourse = async () => {
+  console.log(eventVideo.value);
+  // const data = new URLSearchParams({
+  //   title: courseTitle.value,
+  //   price: coursePrice.value,
+  //   type: type.value,
+  //   file: eventVideo.value,
+  //   trainer: trainer.value,
+  //   description: courseDescription.value,
+  // });
 
-  await $fetch("http://localhost:3333/management/addproduct", {
+  const formData = new FormData();
+
+  formData.append("file", eventVideo.value);
+  formData.append("title", courseTitle.value);
+  formData.append("price", coursePrice.value);
+  formData.append("type", type.value);
+  formData.append("trainer", trainer.value);
+  formData.append("description", courseDescription.value);
+
+  await $fetch("http://localhost:3333/management/addvideo", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
+    headers: {},
     credentials: "include",
-    body: data,
+    body: formData,
     withCredentials: true,
   })
     .then((response, error) => {
@@ -200,23 +227,6 @@ const handleProduct = async () => {
         faild.value = false;
       }, 3000);
     });
-
-  console.log(
-    "type:",
-    type.value,
-    "brand:",
-    brand.value,
-    "design",
-    design.value,
-    "rarirty",
-    rarity.value,
-    "price",
-    productPrice.value,
-    "title",
-    productTitle.value,
-    "description",
-    productDescription.value
-  );
 };
 </script>
 

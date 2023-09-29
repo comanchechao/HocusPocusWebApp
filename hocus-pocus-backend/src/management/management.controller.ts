@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Controller,
   UseInterceptors,
@@ -100,9 +101,9 @@ export class ManagementController {
       }),
     )
     file: Express.Multer.File,
-    dto: VideosDto,
+    @Body() body: any,
   ) {
-    return this.managementService.addVideo(file, dto);
+    return this.managementService.addVideo(file, body);
   }
 
   // category requests
