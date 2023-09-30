@@ -96,6 +96,7 @@ onMounted(() => {
   TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
   TM.from(".Stat1", { opacity: 0, duration: 1 });
   TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });
+  TM.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
 
   TM.from(".Product", { opacity: 0, duration: 0.5 });
 });
