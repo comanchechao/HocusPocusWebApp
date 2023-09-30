@@ -117,6 +117,28 @@ export class ManagementController {
     return this.managementService.addVideo(file, body);
   }
 
+  @Post('courseimageupload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadCourseImage(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: 'jpeg||png||webp',
+        })
+        .addMaxSizeValidator({
+          maxSize: 5000000,
+        })
+        .build({
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        }),
+    )
+    file: Express.Multer.File,
+    @Body() body: any,
+  ) {
+    const { filename, path } = file;
+    return this.managementService.storeCourseImage(file, body);
+  }
+
   // category requests
 
   @Post('/addcategory')

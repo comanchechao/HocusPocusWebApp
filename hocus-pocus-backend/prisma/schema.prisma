@@ -63,6 +63,7 @@ model CoursesImages {
   create_at  DateTime @default(now())
   updated_at DateTime @updatedAt
   image      String
+  filename   String
   course_id  Int
   course     Courses  @relation(fields: [course_id], references: [id])
 }

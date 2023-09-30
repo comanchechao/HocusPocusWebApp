@@ -90,21 +90,54 @@
           <div
             class="w-full h-full lg:flex items-center grid grid-cols-2 grid-rows-2 justify-items-center px-7 place-items-center gap-3 lg:space-x-0 lg:justify-center lg:flex-wrap"
           >
-            <div
+            <label
+              for="imageOne"
               class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
             >
               <PhUpload weight="fill" :size="66" />
-            </div>
-            <div
+            </label>
+            <input
+              @change="
+                (event) => {
+                  eventImageOne = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="imageOne"
+            />
+            <label
+              for="imageTwo"
               class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
             >
               <PhUpload weight="fill" :size="66" />
-            </div>
-            <div
+            </label>
+            <input
+              @change="
+                (event) => {
+                  eventImageTwo = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="imageTwo"
+            />
+            <label
+              for="imageThree"
               class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out col-span-2 duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
             >
               <PhUpload weight="fill" :size="66" />
-            </div>
+            </label>
+            <input
+              @change="
+                (event) => {
+                  eventImageThree = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="imageThree"
+            />
           </div>
 
           <LazyVideoFilter />
@@ -170,12 +203,24 @@ const faild = ref(false);
 
 const errorMessage = ref("");
 
+// course properties
+
 const courseTitle = ref("");
 const courseDescription = ref("");
 const coursePrice = ref();
 const trainer = ref("");
 
 const eventVideo = ref();
+
+// event images
+
+const eventImageOne = ref();
+const eventImageTwo = ref();
+const eventImageThree = ref();
+
+// for uploading functnon
+
+const addedCourseId = ref();
 
 // regiter management store
 
@@ -215,6 +260,15 @@ const handleCourse = async () => {
     .then((response, error) => {
       console.log(response);
       console.log(error);
+      let images = [
+        eventImageOne.value,
+        eventImageTwo.value,
+        eventImageThree.value,
+      ];
+
+      images.forEach((image) => {
+        uploadImage(image);
+      });
       success.value = true;
       setTimeout(() => {
         success.value = false;
@@ -226,6 +280,31 @@ const handleCourse = async () => {
       setTimeout(() => {
         faild.value = false;
       }, 3000);
+    });
+};
+
+// handling image upload
+
+const imageUploadError = ref(false);
+const uploadErrorMessage = ref("");
+
+const uploadImage = async function (image) {
+  const formData = new FormData();
+
+  formData.append("file", image);
+  formData.append("courseId", addedCourseId.value);
+  console.log(image);
+  await $fetch("http://localhost:3333/management/courseimageupload", {
+    method: "POST",
+
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      imageUploadError.value = true;
+      uploadErrorMessage.value = error.data.message;
     });
 };
 </script>

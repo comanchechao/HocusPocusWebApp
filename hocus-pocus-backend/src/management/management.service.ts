@@ -113,4 +113,17 @@ export class ManagementService {
       },
     });
   }
+
+  async storeCourseImage(file: any, body: any) {
+     console.log(file.buffer.toString('base64'));
+    const image = await this.prismaService.coursesImages.create({
+      data: {
+        filename: 'somename',
+        image: file.buffer.toString('base64'),
+        course_id: 2,
+      },
+    });
+
+    return { data: image };
+  }
 }
