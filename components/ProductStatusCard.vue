@@ -14,9 +14,12 @@
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
     </div>
-    <h3 class="text-darkPurple text-center px-5">
-      {{ product.title }}
+    <h3 class="text-dark-purple text-center px-5">
+      Joker and the Thief: Blood Red Edition Playing Cards
     </h3>
+    <!-- <h3 class="text-darkPurple text-center px-5">
+      {{ product.title }}
+    </h3> -->
   </div>
 </template>
 <script setup>

@@ -11,18 +11,18 @@
       <h3 class="text-mainPurple">نام کالا</h3>
     </div>
 
-    <LazyProductStatusCard
+    <!-- <LazyProductStatusCard
       v-for="product in products"
       :key="product.id"
       :product="product"
-    ></LazyProductStatusCard>
-    <!-- <LazyProductStatusCard />
+    ></LazyProductStatusCard> -->
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
-    <LazyProductStatusCard /> -->
+    <LazyProductStatusCard />
+    <LazyProductStatusCard />
   </div>
 </template>
 
