@@ -1,10 +1,10 @@
 <template>
   <div
-    v-if="!isLoaded"
-    class="w-screen h-screen bg-darkPurple flex items-center justify-center"
+    class="w-full h-screen absolute LoadingDiv bg-darkPurple flex items-center justify-center"
   >
     <ProgressSpinner
-      style="width: 50px; height: 50px"
+      class="bg-darkPurple"
+      style="width: 80px; height: 80px"
       strokeWidth="8"
       fill="var(--surface-ground)"
       animationDuration=".5s"
@@ -12,29 +12,14 @@
     />
   </div>
   <div
-    v-else
     class="w-screen h-auto from-mainPurple to-darkPurple bg-gradient-to-t flex flex-col items-center"
   >
     <LazyNavbar></LazyNavbar>
+
     <div
       ref="container"
       class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-5 justify-center"
     >
-      <!-- <img
-        ref="image"
-        src="../assets/images/Pump.webp"
-        class="w-44 image object-contain opacity-80 Stat2"
-        alt=""
-      /> -->
-      <!-- <div
-        class="w-1/2 h-dialog lg:flex items-center justify-center py-3 px-14 hidden"
-      >
-        <div
-          class="transition h-full w-full duration-150 ease-in-out border-2 cursor-pointer border-mainViolet rounded-md shadow-xl shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
-        ></div>
-      </div> -->
-      <!-- <TestSwiper /> -->
-
       <div
         class="w-full md:h-rem26 h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
       >
@@ -100,13 +85,13 @@
         alt=""
       />
       <h2
-        class="text-mainRed FCardsTrigger font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
       </h2>
       <div
-        class="h-dialog w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
+        class="h-dialog FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <div
           class="lg:w-1/2 FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
@@ -133,7 +118,7 @@
           <button
             class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
           >
-            <PhNotebooK
+            <PhNotebook
               :size="35"
               weight="fill"
               class="mr-3 lg:flex hidden md:flex"
@@ -275,7 +260,7 @@
 </template>
 <script setup>
 import {
-  PhMagicWand,
+  PhNotebook,
   PhCards,
   PhPackage,
   PhGraduationCap,
@@ -295,13 +280,10 @@ const productStore = useProductStore();
 
 const products = ref();
 
-onMounted(() => {});
-
 const container = ref(null);
 const image = ref(null);
 
 const loading = ref(false);
-
 const getProducts = async () => {
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/products", {
@@ -322,7 +304,27 @@ const getProducts = async () => {
 };
 
 onMounted(() => {
+  const TL = gsap.timeline();
+  TL.to(".LoadingDiv", {
+    display: "none",
+  });
+  TL.to(".Up", { opacity: 1, duration: 0.7, delay: 0.9 });
+  TL.fromTo(
+    ".Up2",
+    { opacity: 0, duration: 0.6 },
+    { opacity: 1, duration: 0.6 }
+  );
+
+  TL.to(".P", { opacity: 1, duration: 0.3 });
+  TL.to(".O", { opacity: 1, duration: 0.3 });
+  TL.to(".C", { opacity: 1, duration: 0.3 });
+  TL.to(".U", { opacity: 1, duration: 0.3 });
+  TL.to(".S", { opacity: 1, duration: 0.3 });
+  window.addEventListener("load", () => {
+    TL.play();
+  });
   getProducts();
+
   gsap.from(".SCards", {
     opacity: 0,
     x: 80,
@@ -345,8 +347,7 @@ onMounted(() => {
     ease: "power4.out",
     scrollTrigger: {
       trigger: ".FCardsTrigger",
-      start: "bottom center",
-      end: "bottom bottom",
+      start: "top 70%",
       toggleActions: "play none none reverse",
     },
   });
@@ -362,20 +363,6 @@ onMounted(() => {
       toggleActions: "play none none reverse",
     },
   });
-  const TL = gsap.timeline();
-
-  TL.to(".Up", { opacity: 1, duration: 0.7, delay: 0.9 });
-  TL.fromTo(
-    ".Up2",
-    { opacity: 0, duration: 0.6 },
-    { opacity: 1, duration: 0.6 }
-  );
-
-  TL.to(".P", { opacity: 1, duration: 0.3 });
-  TL.to(".O", { opacity: 1, duration: 0.3 });
-  TL.to(".C", { opacity: 1, duration: 0.3 });
-  TL.to(".U", { opacity: 1, duration: 0.3 });
-  TL.to(".S", { opacity: 1, duration: 0.3 });
 });
 const responsiveOptions = ref([
   {
@@ -395,19 +382,7 @@ const responsiveOptions = ref([
   },
 ]);
 </script>
-<script>
-export default {
-  name: "MyPage",
-  data() {
-    return {
-      isLoaded: false,
-    };
-  },
-  mounted() {
-    this.isLoaded = true;
-  },
-};
-</script>
+
 <style>
 .neonText {
   color: #fff;
