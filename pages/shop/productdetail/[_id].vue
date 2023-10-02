@@ -31,18 +31,18 @@
               class="text-2xl text-darkPurple p-2 rounded-sm bg-white text-right"
             >
               <span>
-                Joker and the Thief : Blood Red Edition Playing Cards
+                {{ product.title }}
               </span>
             </h1>
-            <span class="text-mainRed not-italic text-2xl font-thin"
-              >کارت بازی</span
-            >
+            <span class="text-mainRed not-italic text-2xl font-thin">{{
+              product.category
+            }}</span>
           </div>
           <h2
             class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-3xl"
           >
             <span class="text-sm text-mainRed">تومان</span>
-            <span> 1,200,000 </span>
+            <span>{{ product.price }} </span>
           </h2>
           <div class="flex items-center space-x-3 justify-center p-3">
             <Rating class="rounded-sm" v-model="value" :cancel="false" />
@@ -104,12 +104,63 @@ const value = ref(null);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const product = ref({});
+const loading = ref(true);
+const imageLoading = ref(true);
+
+const image = ref();
+
+const router = useRoute();
+const getProduct = async () => {
+  console.log(router);
+  loading.value = true;
+  const { data } = await $fetch(
+    `http://localhost:3333/products/${router.params._id}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      product.value = response.product;
+      // if (response.product) {
+      //   getProductImage();
+      // }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  loading.value = false;
+};
+
+// const getProductImage = async () => {
+//   console.log(product);
+//   const { data } = await $fetch(
+//     `http://localhost:3333/articles/image/${product.value.ArticleImage[0].id}`,
+//     {
+//       headers: {},
+//       withCredentials: true,
+//       credentials: "include",
+//     }
+//   )
+//     .then(function (response) {
+//       console.log(response);
+//       image.value = response.image;
+//       imageLoading.value = false;
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+// };
+
 onMounted(() => {
   TM.from(".Bread", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Product", { opacity: 0, duration: 1 });
 
   TM.from(".Comment", { opacity: 0, duration: 1.5, stagger: 0.4 });
 });
+getProduct();
 </script>
 
 <style>

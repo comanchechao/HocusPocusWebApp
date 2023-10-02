@@ -63,8 +63,6 @@ export class ManagementController {
     @Body() body: any,
   ) {
     const { filename, path } = file;
-    console.log(file.buffer.toString('base64'));
-    console.log(file);
     return this.managementService.storeImage(file, body);
   }
 
