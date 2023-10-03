@@ -3,8 +3,21 @@
     class="w-screen h-auto overflow-hidden from-mainPurple to-darkPurple bg-gradient-to-t"
   >
     <LazyNavbar />
+
     <div
-      class="h-auto pt-24 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
+      class="w-full h-screen absolute LoadingDiv bg-darkPurple flex items-center justify-center"
+    >
+      <ProgressSpinner
+        class="bg-darkPurple"
+        style="width: 80px; height: 80px"
+        strokeWidth="8"
+        fill="var(--surface-ground)"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+    </div>
+    <div
+      class="h-auto pt-44 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
@@ -90,25 +103,44 @@ import { PhMagicWand, PhBookOpenText } from "@phosphor-icons/vue";
 import { gsap } from "gsap";
 onMounted(() => {
   const TL = gsap.timeline();
+  TL.to(".LoadingDiv", {
+    display: "none",
+  });
 
+  TL.from(".P", { opacity: 0, duration: 0.3 });
   TL.fromTo(
     ".H",
     { opacity: 0, duration: 0.6, delay: 0.9 },
     { opacity: 1, duration: 0.6, delay: 0.9 }
   );
-
-  TL.from(".P", { opacity: 0, duration: 0.3 });
-
-  TL.fromTo(
+  window.addEventListener("load", () => {
+    TM.play();
+  });
+  gsap.fromTo(
     ".Hand",
-    { rotate: 0, duration: 1, delay: 0.5 },
+    { rotate: -30, duration: 1, delay: 0.5 },
     {
       yoyo: true,
-      rotate: 20,
-      duration: 0.9,
+      rotate: 40,
+      duration: 1,
+      ease: "back.out(1.7)",
       delay: 0.5,
       repeat: -1,
       transformOrigin: "15% 60%",
+    }
+  );
+  gsap.fromTo(
+    ".H",
+    { scale: 0, opacity: 0, duration: 1, delay: 1 },
+    {
+      opacity: 1,
+      yoyo: true,
+      scale: 1,
+      duration: 1,
+      ease: "back.out(1.7)",
+      delay: 0.5,
+      repeat: -1,
+      transformOrigin: "55% 60%",
     }
   );
 });
