@@ -2,7 +2,7 @@
   <div class="flex justify-center">
     <button
       @click="visible = true"
-      class="text-sm flex active:text-mainRed active:bg-darkPurple items-center px-1 py-1 rounded-full transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainPurple shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+      class="text-sm flex active:text-mainRed active:bg-darkPurple items-center px-1 py-1 rounded-full transition duration-300 ease-in-out bg-mainPink hover:bg-darkPurple hover:text-mainPink text-darkPurple"
     >
       <PhInfo weight="fill" :size="23" />
     </button>

@@ -1,6 +1,18 @@
 <template>
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
+    <div
+      class="LoadingDiv h-screen w-screen flex items-center justify-center bg-darkPurple"
+    >
+      <ProgressSpinner
+        class="bg-darkPurple"
+        style="width: 80px; height: 80px"
+        strokeWidth="8"
+        fill="var(--surface-ground)"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+    </div>
     <div class="w-full h-full flex flex-col items-center px-5 lg:px-40 py-16">
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
@@ -18,7 +30,7 @@
         </h2>
       </div>
       <div
-        class="flex lg:items-start lg:flex-row flex-col lg:space-y-0 space-y-8 px-7 lg:space-x-8 justify-center items-center Stat1 lg:justify-start w-full my-9"
+        class="flex lg:items-center lg:flex-row flex-col lg:space-y-0 space-y-8 px-7 lg:space-x-8 justify-center items-center Stat1 lg:justify-center w-full my-9"
       >
         <div
           class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
@@ -45,9 +57,9 @@
       <div
         class="flex items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
-        <LazySoldDialog />
-        <LazyInStockDialog />
-        <LazyAvailableDialog />
+        <LazySoldDialog class="Stat2" />
+        <LazyInStockDialog class="Stat2" />
+        <LazyAvailableDialog class="Stat2" />
       </div>
       <div
         class="md:space-x-6 md:flex-row md:space-y-0 w-full justify-center my-7 lg:space-x-6 lg:flex-row flex-col space-x-0 lg:space-y-0 space-y-4 flex items-center"
@@ -82,23 +94,22 @@
   </div>
 </template>
 <script setup lang="ts">
-import {
-  PhCaretLeft,
-  PhCoffee,
-  PhCheckCircle,
-  PhAirplaneTilt,
-  PhPackage,
-} from "@phosphor-icons/vue";
+import { PhCaretLeft, PhCoffee } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 onMounted(() => {
-  TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
-  TM.from(".Stat1", { opacity: 0, duration: 1 });
-  TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });
-  TM.to(".Store", { opacity: 1, delay: 1, duration: 0.5 });
+  TM.to(".LoadingDiv", {
+    display: "none",
+  });
+  TM.from(".Bread", { opacity: 0, duration: 0.7 });
+  TM.from(".Stat1", { opacity: 0, duration: 0.7 });
+  TM.from(".Stat2", { opacity: 0, duration: 0.7, stagger: 0.2 });
 
   TM.from(".Product", { opacity: 0, duration: 0.5 });
+  window.addEventListener("load", () => {
+    TM.play();
+  });
 });
 </script>
 

@@ -2,7 +2,7 @@
   <div class="flex justify-center">
     <div
       @click="visible = true"
-      class="w-72 h-32 bg-white transition text-darkPurple ease-in duration-200 hover:bg-mainYellow Stat2 rounded-xl cursor-pointer shadow-lg shadow-mainRed flex p-4 items-center justify-around"
+      class="w-72 h-32 bg-white transition text-darkPurple ease-in duration-200 hover:bg-mainYellow rounded-xl cursor-pointer shadow-lg shadow-mainRed flex p-4 items-center justify-around"
     >
       <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
       <div class="flex flex-col items-center space-y-3">

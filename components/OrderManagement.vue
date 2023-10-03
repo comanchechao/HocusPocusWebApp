@@ -5,7 +5,7 @@
     <div
       class="w-full h-96 py-5 grid grid-cols-4 place-items-center border-b border-Indigo-600"
     >
-      <h3 class="text-mainPurple">کد سفارش</h3>
+      <h3 class="text-mainPurple">اطلاعات تکمیلی</h3>
       <h3 class="text-mainPurple">تاریخ سفارش</h3>
       <h3 class="text-mainPurple">وضعیت سفارش</h3>
       <h3 class="text-mainPurple">نام کالا</h3>
