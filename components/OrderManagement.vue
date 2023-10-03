@@ -86,6 +86,27 @@
 <script setup>
 import { ref } from "vue";
 
+const loading = ref(false);
+const orders = ref();
+
+const getProducts = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 import { PhCheckCircle, PhAirplaneTilt, PhPackage } from "@phosphor-icons/vue";
 </script>
 

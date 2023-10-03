@@ -20,6 +20,7 @@ import { CategoryDto } from './dto/CategoryDto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import { VideosDto } from './dto/VideoDto';
+import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
 
 @Controller('management')
 export class ManagementController {
@@ -79,10 +80,10 @@ export class ManagementController {
   // orders requests
 
   @Roles('ADMIN')
-  @UseGuards(LocalAuthGuard, RolesGuard)
+  @UseGuards(AuthenticatedGuard)
   @Get('/orders')
   getOrders() {
-    return { msg: 'see all orders' };
+    return this.managementService.getOrders();
   }
 
   @Roles('ADMIN')

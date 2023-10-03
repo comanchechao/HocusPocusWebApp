@@ -11,18 +11,18 @@
       <h3 class="text-mainPurple">نام کالا</h3>
     </div>
 
-    <!-- <LazyProductStatusCard
+    <LazyProductStatusCard
       v-for="product in products"
       :key="product.id"
       :product="product"
-    ></LazyProductStatusCard> -->
+    ></LazyProductStatusCard>
+    <!-- <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
-    <LazyProductStatusCard />
-    <LazyProductStatusCard />
+    <LazyProductStatusCard /> -->
   </div>
 </template>
 
@@ -30,6 +30,11 @@
 import { ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useManagementStore } from "~/stores/productManagement";
+const props = defineProps(["products"]);
+
+onMounted(() => {
+  props.products;
+});
 // register productManagement store
 
 const productManagement = useManagementStore();
@@ -40,7 +45,6 @@ watch(stateChange, (cur, old) => {
   getProducts();
 });
 const loading = ref(false);
-const products = ref();
 
 const getProducts = async () => {
   loading.value = true;
@@ -59,10 +63,6 @@ const getProducts = async () => {
       loading.value = false;
     });
 };
-
-onMounted(() => {
-  getProducts();
-});
 </script>
 
 <style></style>

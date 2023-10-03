@@ -83,6 +83,14 @@ export class ManagementService {
     return { msg: 'محصول حذف شد' };
   }
 
+  // order functions
+
+  async getOrders() {
+    const orders = await this.prismaService.orders.findMany({});
+
+    return { orders: orders };
+  }
+
   // category services
 
   async getCategories() {

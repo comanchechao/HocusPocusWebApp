@@ -10,7 +10,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 import { LocalAuthGuard } from 'src/auth/common/guards/local.guard';
 import { UserInfoDto } from './dto';
-import { AuthenticatedGuards } from 'src/auth/authGuards/authenticated.guards';
+import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
 
 @Controller('user')
 export class UserController {
@@ -26,7 +26,7 @@ export class UserController {
     return this.userServices.getOrders();
   }
 
-  @UseGuards(AuthenticatedGuards)
+  @UseGuards(AuthenticatedGuard)
   @Post('submitinfo')
   submitInfo(
     @Body() dto: UserInfoDto,
@@ -35,7 +35,7 @@ export class UserController {
     return this.userServices.submitInfo(dto, session.passport.user.username);
   }
 
-  @UseGuards(AuthenticatedGuards)
+  @UseGuards(AuthenticatedGuard)
   @Get('/profileinfo')
   getProfile(@Session() session: Record<string, any>) {
     return this.userServices.getProfile(session.passport.user.username);
