@@ -3,15 +3,27 @@
     class="w-screen h-auto overflow-hidden from-mainPurple to-darkPurple bg-gradient-to-t"
   >
     <LazyNavbar />
-    <div class="h-auto w-full lg:px-44 px-6 my-16">
+    <div
+      class="h-auto pt-24 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
+    >
       <img
-        src="../../assets/images/aboutUsBg.webp"
-        class="w-full object-contain"
+        src="../../assets/images/AboutUsH.webp"
+        class="h-dialog object-contain H absolute"
+        alt=""
+      />
+      <img
+        src="../../assets/images/AboutUsHand.webp"
+        class="h-dialog object-contain P Hand absolute"
+        alt=""
+      />
+      <img
+        src="../../assets/images/AboutUsP.webp"
+        class="h-dialog object-contain P absolute"
         alt=""
       />
     </div>
     <div
-      class="h-full w-full md:px-24 px-7 lg:px-44 flex items-center flex-col mb-20"
+      class="h-full w-full md:px-24 px-7 mt-24 lg:px-44 flex items-center flex-col mb-20"
     >
       <h2
         class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-2xl lg:text-4xl flex"
@@ -74,4 +86,30 @@
 </template>
 <script setup>
 import { PhMagicWand, PhBookOpenText } from "@phosphor-icons/vue";
+
+import { gsap } from "gsap";
+onMounted(() => {
+  const TL = gsap.timeline();
+
+  TL.fromTo(
+    ".H",
+    { opacity: 0, duration: 0.6, delay: 0.9 },
+    { opacity: 1, duration: 0.6, delay: 0.9 }
+  );
+
+  TL.from(".P", { opacity: 0, duration: 0.3 });
+
+  TL.fromTo(
+    ".Hand",
+    { rotate: 0, duration: 1, delay: 0.5 },
+    {
+      yoyo: true,
+      rotate: 20,
+      duration: 0.9,
+      delay: 0.5,
+      repeat: -1,
+      transformOrigin: "15% 60%",
+    }
+  );
+});
 </script>
