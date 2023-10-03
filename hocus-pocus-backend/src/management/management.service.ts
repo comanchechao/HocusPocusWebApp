@@ -83,6 +83,14 @@ export class ManagementService {
     return { msg: 'محصول حذف شد' };
   }
 
+  // order functions
+
+  async getOrders() {
+    const orders = await this.prismaService.orders.findMany({});
+
+    return { orders: orders };
+  }
+
   // category services
 
   async getCategories() {
@@ -112,5 +120,16 @@ export class ManagementService {
         trainer: body.trainer,
       },
     });
+  }
+
+  async storeCourseImage(file: any, body: any) {
+    console.log(file.buffer);
+    const image = await this.prismaService.coursesImages.create({
+      data: {
+        course_id: 5,
+      },
+    });
+
+    return { data: image };
   }
 }

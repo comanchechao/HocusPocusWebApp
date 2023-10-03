@@ -10,16 +10,59 @@
       <h3 class="text-mainPurple">محصولات منتخب هفته</h3>
       <h3 class="text-mainPurple">نام کالا</h3>
     </div>
+
+    <LazyProductStatusCard
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
+    ></LazyProductStatusCard>
+    <!-- <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
     <LazyProductStatusCard />
-    <LazyProductStatusCard />
-    <LazyProductStatusCard />
+    <LazyProductStatusCard /> -->
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, watch } from "vue";
+import { storeToRefs } from "pinia";
+import { useManagementStore } from "~/stores/productManagement";
+const props = defineProps(["products"]);
+
+onMounted(() => {
+  props.products;
+});
+// register productManagement store
+
+const productManagement = useManagementStore();
+
+const { stateChange } = storeToRefs(productManagement);
+
+watch(stateChange, (cur, old) => {
+  getProducts();
+});
+const loading = ref(false);
+
+const getProducts = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+</script>
 
 <style></style>

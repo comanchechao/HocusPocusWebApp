@@ -48,18 +48,19 @@
         >
           <div class="flex items-center space-x-3 Stat1">
             <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-              5421
+              {{ ordersCount }}
             </h1>
           </div>
           <h3 class="text-white text-lg">مجموع سفارش ها</h3>
         </div>
       </div>
       <div
-        class="flex items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
+        id="Stat2"
+        class="flex Store items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
-        <LazySoldDialog class="Stat2" />
+        <LazySoldDialog class="Stat2" :products="products" />
         <LazyInStockDialog class="Stat2" />
-        <LazyAvailableDialog class="Stat2" />
+        <LazyAvailableDialog class="Stat2" :products="products" />
       </div>
       <div
         class="md:space-x-6 md:flex-row md:space-y-0 w-full justify-center my-7 lg:space-x-6 lg:flex-row flex-col space-x-0 lg:space-y-0 space-y-4 flex items-center"
@@ -88,7 +89,7 @@
         </h2>
         <LazySortBy />
 
-        <LazyProductStatusManagement />
+        <LazyProductStatusManagement :products="products" />
       </div>
     </div>
   </div>
@@ -97,6 +98,67 @@
 import { PhCaretLeft, PhCoffee } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
+import { ref, watch } from "vue";
+import { storeToRefs } from "pinia";
+import { useManagementStore } from "~/stores/productManagement";
+import { useMainManagement } from "~/stores/managementStore";
+// register productManagement store
+const mainManagement = useMainManagement();
+const productManagement = useManagementStore();
+
+const { stateChange } = storeToRefs(productManagement);
+const { ordersCount } = storeToRefs(mainManagement);
+
+watch(stateChange, (cur, old) => {
+  getProducts();
+});
+const loading = ref(false);
+const products = ref();
+
+const getProducts = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      mainManagement.setProductCount(response.products.length);
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+const orders = ref();
+
+const getOrders = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/management/orders", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.orders);
+      orders.value = response.orders;
+      mainManagement.setOrdersCount(response.orders.length);
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+onMounted(() => {
+  getProducts();
+  getOrders();
+});
 
 onMounted(() => {
   TM.to(".LoadingDiv", {

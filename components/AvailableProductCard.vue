@@ -3,6 +3,7 @@
     class="h-auto w-full border-mainRed border-t py-3 place-items-center grid grid-cols-5"
   >
     <button
+      @click="removeProductImage()"
       class="text-red-500 p-3 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
     >
       <PhTrash :size="30" />
@@ -13,13 +14,107 @@
       دوشنبه 24 تیر 1402
     </h3>
     <h3 class="text-darkPurple md:text-sm lg:text-sm text-xs text-center px-2">
-      Joker and the Thief: Blood Red Edition Playing Cards
+      {{ product.title }}
     </h3>
   </div>
 </template>
 
 <script setup>
 import { PhTrash } from "@phosphor-icons/vue";
+const props = defineProps(["product"]);
+onMounted(() => {
+  console.log(props.product);
+});
+
+const removeProductImage = async function () {
+  if (props.product.ProductImages.length) {
+    await $fetch(
+      `http://localhost:3333/management/removeproductimage/${props.product.ProductImages[0].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeProduct();
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+    await $fetch(
+      `http://localhost:3333/management/removeproductimage/${props.product.ProductImages[1].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeProduct();
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+    await $fetch(
+      `http://localhost:3333/management/removeproductimage/${props.product.ProductImages[2].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeProduct();
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+    await $fetch(
+      `http://localhost:3333/management/removeproductimage/${props.product.ProductImages[3].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeProduct();
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  } else {
+    removeProduct();
+  }
+};
+
+const removeProduct = async function () {
+  await $fetch(
+    `http://localhost:3333/management/removeproduct/${props.product.id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  )
+    .then((response, error) => {
+      alert("deleted");
+      productManagement.setStateChange();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
 </script>
 
 <style lang="scss" scoped></style>

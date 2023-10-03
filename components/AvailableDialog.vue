@@ -7,7 +7,17 @@
       <PhStack class="text-mainRed" :size="60" weight="fill" />
       <div class="flex flex-col items-center space-y-3">
         <h3 class="text-mainPurple text-sm">مجموع کالاها در انبار</h3>
-        <h1 class="text-5xl font-bold">1522000</h1>
+        <h1 v-show="productsCount" class="text-5xl font-bold">
+          {{ productsCount }}
+        </h1>
+        <ProgressSpinner
+          v-show="!productsCount"
+          style="width: 50px; height: 50px"
+          strokeWidth="8"
+          fill="var(--surface-ground)"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
       </div>
     </div>
 
@@ -42,10 +52,16 @@
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
           </div>
 
-          <LazyAvailableProductCard /> <LazyAvailableProductCard />
+          <LazyAvailableProductCard
+            v-for="product in products"
+            :key="product.id"
+            :product="product"
+          />
+
+          <!-- <LazyAvailableProductCard /> <LazyAvailableProductCard />
           <LazyAvailableProductCard />
           <LazyAvailableProductCard />
-          <LazyAvailableProductCard /> <LazyAvailableProductCard />
+          <LazyAvailableProductCard /> <LazyAvailableProductCard /> -->
         </div>
       </div>
     </Dialog>
@@ -55,6 +71,16 @@
 <script setup>
 import { ref } from "vue";
 import { PhStack } from "@phosphor-icons/vue";
+import { useMainManagement } from "~/stores/managementStore";
+import { storeToRefs } from "pinia";
+const props = defineProps(["products"]);
+
+// register mainManagement store
+
+const mainManagement = useMainManagement();
+
+const { productsCount } = storeToRefs(mainManagement);
+
 const visible = ref(false);
 </script>
 

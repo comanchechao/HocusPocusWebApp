@@ -20,6 +20,7 @@ import { CategoryDto } from './dto/CategoryDto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import { VideosDto } from './dto/VideoDto';
+import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
 
 @Controller('management')
 export class ManagementController {
@@ -63,8 +64,6 @@ export class ManagementController {
     @Body() body: any,
   ) {
     const { filename, path } = file;
-    console.log(file.buffer.toString('base64'));
-    console.log(file);
     return this.managementService.storeImage(file, body);
   }
 
@@ -81,10 +80,10 @@ export class ManagementController {
   // orders requests
 
   @Roles('ADMIN')
-  @UseGuards(LocalAuthGuard, RolesGuard)
+  @UseGuards(AuthenticatedGuard)
   @Get('/orders')
   getOrders() {
-    return { msg: 'see all orders' };
+    return this.managementService.getOrders();
   }
 
   @Roles('ADMIN')
@@ -115,6 +114,28 @@ export class ManagementController {
     @Body() body: any,
   ) {
     return this.managementService.addVideo(file, body);
+  }
+
+  @Post('courseimageupload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadCourseImage(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: 'jpeg||png||webp',
+        })
+        .addMaxSizeValidator({
+          maxSize: 5000000,
+        })
+        .build({
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        }),
+    )
+    file: Express.Multer.File,
+    @Body() body: any,
+  ) {
+    const { filename, path } = file;
+    return this.managementService.storeCourseImage(file, body);
   }
 
   // category requests
