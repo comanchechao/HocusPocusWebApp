@@ -134,4 +134,8 @@ const visible = ref(false);
 const checked = ref(false);
 </script>
 
-<style scoped></style>
+<style>
+.p-dialog .p-dialog-header {
+  background-color: #150531;
+}
+</style>

@@ -101,6 +101,7 @@
 import { PhMagicWand, PhBookOpenText } from "@phosphor-icons/vue";
 
 import { gsap } from "gsap";
+// const audioAction = new AudioAction("mySound.mp3");
 onMounted(() => {
   const TL = gsap.timeline();
   TL.to(".LoadingDiv", {
@@ -129,6 +130,7 @@ onMounted(() => {
       transformOrigin: "15% 60%",
     }
   );
+  // gsap.add(audioAction, { duration: 1 });
   gsap.fromTo(
     ".H",
     { scale: 0, opacity: 0, duration: 1, delay: 1 },
