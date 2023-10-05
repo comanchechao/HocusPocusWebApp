@@ -62,7 +62,7 @@ model CoursesImages {
   id         Int      @id @default(autoincrement())
   create_at  DateTime @default(now())
   updated_at DateTime @updatedAt
-  buffer     Bytes?
+  buffer     String?
   filename   String?
   course_id  Int
   course     Courses  @relation(fields: [course_id], references: [id])

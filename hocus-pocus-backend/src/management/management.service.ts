@@ -126,6 +126,8 @@ export class ManagementService {
     console.log(file.buffer);
     const image = await this.prismaService.coursesImages.create({
       data: {
+        filename: file.originalname,
+        buffer: file.buffer.toString('base64'),
         course_id: 5,
       },
     });
