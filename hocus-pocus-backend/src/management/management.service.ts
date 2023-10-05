@@ -109,7 +109,7 @@ export class ManagementService {
 
   // video services functions
 
-  async addVideo(file: any, body) {
+  async addVideo(file: any, body: any) {
     console.log(file);
     const video = await this.prismaService.courses.create({
       data: {
@@ -120,6 +120,7 @@ export class ManagementService {
         trainer: body.trainer,
       },
     });
+    return { video };
   }
 
   async storeCourseImage(file: any, body: any) {
@@ -128,10 +129,10 @@ export class ManagementService {
       data: {
         filename: file.originalname,
         buffer: file.buffer.toString('base64'),
-        course_id: 5,
+        course_id: Number(body.courseId),
       },
     });
 
-    return { data: image };
+    return { data: 'عکس اضافه شد' };
   }
 }

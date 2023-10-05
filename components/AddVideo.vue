@@ -258,7 +258,8 @@ const handleCourse = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response);
+      console.log(response.video.id);
+      addedCourseId.value = response.video.id;
       console.log(error);
       let images = [
         eventImageOne.value,
