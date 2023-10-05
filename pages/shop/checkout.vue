@@ -34,7 +34,7 @@
           </div>
           <button
             @click="submitOrder()"
-            class="text-xl px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+            class="lg:text-xl text-md px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
@@ -44,7 +44,7 @@
           class="h-dialog w-full lg:w-1/3 lg:border-l-2 border-mainRed flex flex-col items-end"
         >
           <h3
-            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-2xl"
+            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-lg lg:text-2xl"
           >
             <span> محصولات انتخاب شده </span>
             <PhBasket :size="30" weight="fill" />

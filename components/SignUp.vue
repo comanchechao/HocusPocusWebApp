@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-xl flex items-center space-x-2 px-5 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+      class="lg:text-xl text-lg flex items-center space-x-2 px-2 lg:px-5 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />
@@ -190,7 +190,7 @@ async function loginFunction() {
 @media only screen and (max-width: 480px) {
   .p-dialog {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;
@@ -198,13 +198,13 @@ async function loginFunction() {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(100% - 46px) !important;
+    height: calc(auto - 46px) !important;
   }
 }
 @media only screen and (max-width: 768px) {
   .p-dialog {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;
@@ -212,7 +212,7 @@ async function loginFunction() {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(100% - 46px) !important;
+    height: calc(auto - 46px) !important;
   }
 }
 </style>

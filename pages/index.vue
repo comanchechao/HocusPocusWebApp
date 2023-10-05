@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-screen absolute LoadingDiv bg-darkPurple flex items-center justify-center"
+    class="w-screen h-screen absolute LoadingDiv bg-darkPurple flex items-center justify-center"
   >
     <ProgressSpinner
       class="bg-darkPurple"
@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="Store">
+      <div class="Store opacity-0">
         <h1
           class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-3xl lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
@@ -85,7 +85,7 @@
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -116,7 +116,7 @@
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-md lg:text-2xl rounded-full"
           >
             <PhNotebook
               :size="35"
@@ -152,7 +152,7 @@
         </h2>
         <NuxtLink to="/shop/shop">
           <button
-            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-lg lg:text-2xl rounded-full"
+            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-md lg:text-2xl rounded-full"
           >
             <PhShoppingBag :size="35" weight="fill" class="mr-3" />
             <span>ورود به بخش خرید هوکوس پوکوس </span>
@@ -211,7 +211,7 @@
         class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
       >
         <div
-          class="h-full space-y-4 w-full bg-white col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
+          class="h-full space-y-4 w-full bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
         >
           <h2
             class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
@@ -238,20 +238,20 @@
       </div>
     </div>
     <div class="w-full h-full my-14 flex flex-col">
-      <div
-        class="h-24 w-full bg-mainYellow items-center justify-between lg:px-10 flex"
-      >
+      <div class="h-auto w-full items-center justify-between lg:px-10 flex">
         <button
-          class="lg:px-7 px-2 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-xl rounded-sm"
+          class="lg:px-7 px-2 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-mainYellow bg-darkPurple flex items-center space-x-3 text-mainYellow text-xl rounded-md"
         >
           <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
           <span>دنبال کن </span>
         </button>
-        <h2 class="text-xl font-bold flex items-center mr-3">
-          <span>تازه ترین ها در اینستاگرام </span>
+        <h2
+          class="text-md text-right rounded-md text-mainPink border-4 border-dashed border-mainPink lg:px-7 px-2 py-2 flex items-center mr-3"
+        >
+          <span>اینستاگرام هوکوس پوکوس </span>
         </h2>
       </div>
-      <div class="w-full flex justify-center items-center">
+      <div class="w-full flex justify-center mt-4 items-center">
         <LazyInstagramCarousel />
       </div>
     </div>
@@ -307,8 +307,9 @@ onMounted(() => {
   const TL = gsap.timeline();
   TL.to(".LoadingDiv", {
     display: "none",
+    delay: 0.9,
   });
-  TL.to(".Up", { opacity: 1, duration: 0.7, delay: 0.9 });
+  TL.to(".Up", { opacity: 1, duration: 0.7 });
   TL.fromTo(
     ".Up2",
     { opacity: 0, duration: 0.6 },
@@ -320,6 +321,7 @@ onMounted(() => {
   TL.to(".C", { opacity: 1, duration: 0.3 });
   TL.to(".U", { opacity: 1, duration: 0.3 });
   TL.to(".S", { opacity: 1, duration: 0.3 });
+  TL.to(".Store", { opacity: 1, duration: 0.7, delay: 0.4 });
   window.addEventListener("load", () => {
     TL.play();
   });

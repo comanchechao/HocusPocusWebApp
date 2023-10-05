@@ -42,7 +42,7 @@
           class="h-full lg:h-dialog w-full lg:w-1/3 lg:border-l-2 border-mainYellow flex flex-col items-end"
         >
           <h3
-            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainYellow text-darkPurple text-2xl"
+            class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainYellow text-darkPurple text-lg lg:text-2xl"
           >
             <span> محصولات انتخاب شده </span>
             <PhBasket :size="30" weight="fill" />

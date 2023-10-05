@@ -2,10 +2,10 @@
   <div class="flex justify-center">
     <button
       @click="visible = true"
-      class="text-sm flex active:text-mainRed active:bg-darkPurple items-center px-4 py-2 rounded-full transition duration-300 ease-in-out bg-mainPink hover:bg-darkPurple hover:text-mainPink text-darkPurple"
+      class="text-sm flex active:text-mainRed active:bg-darkPurple items-center p-1 lg:px-4 lg:py-2 rounded-full transition duration-300 ease-in-out bg-mainPink hover:bg-darkPurple hover:text-mainPink text-darkPurple"
     >
-      اطلاعات سفارش
-      <PhInfo class="ml-1" weight="fill" :size="23" />
+      <span class="lg:flex hidden">اطلاعات سفارش</span>
+      <PhInfo class="lg:ml-1" weight="fill" :size="23" />
     </button>
 
     <Dialog

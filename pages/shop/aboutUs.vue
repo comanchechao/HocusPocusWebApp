@@ -17,7 +17,7 @@
       />
     </div>
     <div
-      class="h-auto pt-44 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
+      class="h-auto pt-10 lg:pb-28 lg:pt-44 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
@@ -89,7 +89,7 @@
       <h1 class="text-mainPink text-7xl">راه های</h1>
       <NuxtLink to="/shop/contactUs">
         <div
-          class="px-24 cursor-pointer duration-200 ease-in-out text-mainRed hover:text-darkPurple transition hover:bg-mainYellow py-10 rounded-md border-4 my-9 border-dashed border-mainYellow"
+          class="lg:px-24 px-11 cursor-pointer duration-200 ease-in-out text-mainRed hover:text-darkPurple transition hover:bg-mainYellow py-5 lg:py-10 rounded-md border-4 my-9 border-dashed border-mainYellow"
         >
           <h2 class="text-5xl">تماس با ما</h2>
         </div>
@@ -119,10 +119,10 @@ onMounted(() => {
   });
   gsap.fromTo(
     ".Hand",
-    { rotate: -30, duration: 1, delay: 0.5 },
+    { rotate: -10, duration: 1, delay: 0.5 },
     {
       yoyo: true,
-      rotate: 40,
+      rotate: 30,
       duration: 1,
       ease: "back.out(1.7)",
       delay: 0.5,
@@ -130,6 +130,22 @@ onMounted(() => {
       transformOrigin: "15% 60%",
     }
   );
+  if (window.innerWidth < 768) {
+    // Mobile animation
+    gsap.fromTo(
+      ".Hand",
+      { rotate: -10, duration: 1, delay: 0.5 },
+      {
+        yoyo: true,
+        rotate: 8,
+        duration: 1,
+        ease: "back.out(1.7)",
+        delay: 0.5,
+        repeat: -1,
+        transformOrigin: "10%",
+      }
+    );
+  }
   // gsap.add(audioAction, { duration: 1 });
   gsap.fromTo(
     ".H",

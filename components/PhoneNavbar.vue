@@ -103,29 +103,33 @@
             <PhCube :size="23" />
           </button>
         </NuxtLink>
-        <button
-          :class="{
-            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
-              $route.path === '/learn/learn' ||
-              $route.path.startsWith('/learn/'),
-            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
-              $route.path === '/' || $route.path.startsWith('/shop/'),
-          }"
-        >
-          <span> تماس با ما </span> <PhCallBell :size="23" />
-        </button>
-        <button
-          :class="{
-            'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
-              $route.path === '/learn/learn' ||
-              $route.path.startsWith('/learn/'),
-            'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
-              $route.path === '/' || $route.path.startsWith('/shop/'),
-          }"
-        >
-          <span> درباره ما </span>
-          <PhSpade :size="23" />
-        </button>
+        <NuxtLink class="w-full" to="/shop/contactUs">
+          <button
+            :class="{
+              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+                $route.path === '/learn/learn' ||
+                $route.path.startsWith('/learn/'),
+              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+                $route.path === '/' || $route.path.startsWith('/shop/'),
+            }"
+          >
+            <span> تماس با ما </span> <PhCallBell :size="23" />
+          </button>
+        </NuxtLink>
+        <NuxtLink class="w-full" to="/shop/aboutUs">
+          <button
+            :class="{
+              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+                $route.path === '/learn/learn' ||
+                $route.path.startsWith('/learn/'),
+              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+                $route.path === '/' || $route.path.startsWith('/shop/'),
+            }"
+          >
+            <span> درباره ما </span>
+            <PhSpade :size="23" />
+          </button>
+        </NuxtLink>
       </div>
     </Sidebar>
     <button
