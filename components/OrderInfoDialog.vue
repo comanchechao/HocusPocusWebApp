@@ -129,7 +129,12 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
+const props = defineProps(["orderId"]);
 const visible = ref(false);
+
+onMounted(() => {
+  console.log(props.orderId);
+});
 
 const checked = ref(false);
 </script>

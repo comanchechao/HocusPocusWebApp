@@ -21,6 +21,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import { VideosDto } from './dto/VideoDto';
 import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
+import { orderItemDto } from './dto/orderItemDto';
 
 @Controller('management')
 export class ManagementController {
@@ -79,11 +80,14 @@ export class ManagementController {
 
   // orders requests
 
-  @Roles('ADMIN')
-  @UseGuards(AuthenticatedGuard)
   @Get('/orders')
   getOrders() {
     return this.managementService.getOrders();
+  }
+
+  @Post('/orderitems')
+  getOrderItems(@Body() dto: orderItemDto) {
+    return this.managementService.getOrderItems(dto);
   }
 
   @Roles('ADMIN')

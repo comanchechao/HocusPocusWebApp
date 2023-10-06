@@ -59,7 +59,7 @@
         class="flex Store items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
         <LazySoldDialog class="Stat2" :products="products" />
-        <LazyInStockDialog class="Stat2" />
+        <LazyInStockDialog class="Stat2" :products="products" />
         <LazyAvailableDialog class="Stat2" :products="products" />
       </div>
       <div
@@ -77,7 +77,7 @@
           سفارش ها
         </h2>
         <LazySortBy />
-        <LazyOrderManagement />
+        <LazyOrderManagement :orders="orders" />
       </div>
       <div
         class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"

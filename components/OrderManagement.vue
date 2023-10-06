@@ -10,74 +10,11 @@
       <h3 class="text-mainPurple">وضعیت سفارش</h3>
       <h3 class="text-mainPurple">نام کالا</h3>
     </div>
-    <LazyOrderCard>
+    <LazyOrderCard v-for="order in orders" :key="order.id" :order="order">
       <template #Status>
         <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
         <span>تحویل داده شده</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
-
-        <span>فرستاده شده</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-        <span>تحویل داده شده</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhAirplaneTilt class="text-blue-600" :size="25" weight="fill" />
-
-        <span>فرستاده شده</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
-      </template>
-    </LazyOrderCard>
-    <LazyOrderCard>
-      <template #Status>
-        <PhPackage class="text-mainViolet" :size="25" weight="fill" />
-
-        <span>در حال پردازش</span>
       </template>
     </LazyOrderCard>
   </div>
@@ -86,26 +23,9 @@
 <script setup>
 import { ref } from "vue";
 
-const loading = ref(false);
-const orders = ref();
+const props = defineProps(["orders"]);
 
-const getProducts = async () => {
-  loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/products", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
-    .then(function (response) {
-      console.log(response.products);
-      products.value = response.products;
-      loading.value = false;
-    })
-    .catch(function (error) {
-      console.error(error);
-      loading.value = false;
-    });
-};
+const loading = ref(false);
 
 import { PhCheckCircle, PhAirplaneTilt, PhPackage } from "@phosphor-icons/vue";
 </script>

@@ -5,6 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { CategoryDto } from './dto/CategoryDto';
 import { VideosDto } from './dto/VideoDto';
+import { orderItemDto } from './dto/orderItemDto';
 
 @Injectable()
 export class ManagementService {
@@ -89,6 +90,16 @@ export class ManagementService {
     const orders = await this.prismaService.orders.findMany({});
 
     return { orders: orders };
+  }
+
+  async getOrderItems(dto: orderItemDto) {
+    console.log(dto);
+    const orderItems = await this.prismaService.orderItems.findMany({
+      where: {
+        order_id: Number(dto.orderId),
+      },
+    });
+    return { orderItems: orderItems };
   }
 
   // category services

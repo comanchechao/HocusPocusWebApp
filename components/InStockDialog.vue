@@ -7,7 +7,7 @@
       <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
       <div class="flex flex-col items-center space-y-3">
         <h3 class="text-mainPurple text-md">کالاهای موجود</h3>
-        <h1 class="text-darkPurple text-5xl font-bold">50000</h1>
+        <h1 class="text-darkPurple text-5xl font-bold">{{ productsCount }}</h1>
       </div>
     </div>
 
@@ -42,10 +42,11 @@
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
           </div>
 
-          <LazyAvailableProductCard /> <LazyAvailableProductCard />
-          <LazyAvailableProductCard />
-          <LazyAvailableProductCard />
-          <LazyAvailableProductCard /> <LazyAvailableProductCard />
+          <LazyAvailableProductCard
+            v-for="product in products"
+            :key="product.id"
+            :product="product"
+          />
         </div>
       </div>
     </Dialog>
@@ -55,7 +56,17 @@
 <script setup>
 import { ref } from "vue";
 import { PhChartPieSlice } from "@phosphor-icons/vue";
+import { useMainManagement } from "~/stores/managementStore";
+import { storeToRefs } from "pinia";
+
 const visible = ref(false);
+const props = defineProps(["products"]);
+
+// register mainManagement store
+
+const mainManagement = useMainManagement();
+
+const { productsCount } = storeToRefs(mainManagement);
 </script>
 
 <style scoped></style>
