@@ -19,7 +19,7 @@
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >
-          <LazyOrderInfoDialog />
+          <LazyOrderInfoDialog :order="order" />
           <h2 class="text-md lg:hidden">اطلاعات تکمیلی</h2>
         </div>
         <div
@@ -37,7 +37,7 @@
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >
-          <h2 class="text-sm">Bicycle: Batman Edition Playing Cards</h2>
+          <h2 class="text-sm">{{ order.fullname }}</h2>
           <h2 class="text-md lg:hidden">نام کالا</h2>
         </div>
       </div>
@@ -52,6 +52,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["order"]);
+</script>
 
 <style lang="scss" scoped></style>

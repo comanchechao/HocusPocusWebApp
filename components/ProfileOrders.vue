@@ -44,9 +44,7 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center px-2 space-y-5 overflow-y-scroll items-center"
         >
-          <Order />
-          <Order />
-          <Order />
+          <Order v-for="order in orders" :key="order.id" :order="order" />
         </div>
       </div>
       <div
@@ -63,9 +61,7 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order /> <Order />
-          <Order />
-          <Order />
+          <Order v-for="order in orders" :key="order.id" :order="order" />
         </div>
       </div>
       <div
@@ -82,9 +78,7 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order /> <Order />
-          <Order />
-          <Order />
+          <Order v-for="order in orders" :key="order.id" :order="order" />
         </div>
       </div>
     </div>
@@ -103,6 +97,32 @@ const { $gsap } = useNuxtApp();
 const processDiv = ref(true);
 const sentDiv = ref();
 const recievedDiv = ref();
+
+const loading = ref(false);
+const orders = ref();
+
+const getOrders = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/orders/userorder", {
+    method: "Post",
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.orders);
+      orders.value = response.orders;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+onMounted(() => {
+  getOrders();
+});
 
 function toggleProcess() {
   processDiv.value = true;

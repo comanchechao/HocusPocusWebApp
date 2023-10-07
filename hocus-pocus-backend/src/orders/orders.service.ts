@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { OrdersDto } from './dto/OrdersDto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { OrderItemsDto } from './dto/OrderItemsDto';
+import { UserOrder } from './dto/UserOrder';
 
 @Injectable()
 export class OrdersService {
@@ -18,11 +19,21 @@ export class OrdersService {
         fullname: dto.fullname,
         postal_code: dto.postal_code,
         phone_number: dto.phone_number,
-        user_id: 2,
+        user_id: Number(dto.user_id),
       },
     });
 
     return { order: order };
+  }
+
+  async getUserOrder(dto: UserOrder) {
+    const orders = await this.prismaService.orders.findMany({
+      where: {
+        user_id: 2,
+      },
+    });
+
+    return { orders: orders };
   }
 
   submitDraft() {
