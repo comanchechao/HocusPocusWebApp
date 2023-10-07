@@ -30,8 +30,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md text-right"
               >
-                خیابان عمار - خیابان حج - مجتمع مسکونی ارم - بلوک یک - طبقه چهار
-                - واحد سه
+                {{ order.adderss }}
               </h2>
               <h2 class="text-md">آدرس</h2>
             </div>
@@ -40,7 +39,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                0913442233
+                {{ order.phone_number }}
               </h2>
               <h2 class="text-md">شماره تلفن</h2>
             </div>
@@ -48,7 +47,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                آروین نیک بین
+                {{ order.fullname }}
               </h2>
               <h2 class="text-md">نام خریدار</h2>
             </div>
@@ -56,7 +55,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                ارومیه
+                {{ order.city }}
               </h2>
               <h2 class="text-md">شهر</h2>
             </div>
@@ -64,7 +63,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                آذربایجان غربی
+                {{ order.province }}
               </h2>
               <h2 class="text-md">استان</h2>
             </div>
@@ -89,7 +88,7 @@
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 <span>(تومان)</span>
-                <span> 1,000,512 </span>
+                <span> {{ order.totalPrice }} </span>
               </h2>
               <h2 class="text-md">مجموع قیمت</h2>
             </div>
@@ -129,11 +128,43 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
-const props = defineProps(["orderId"]);
+const props = defineProps(["order"]);
 const visible = ref(false);
 
+const loading = ref(false);
+const orderItems = ref();
+
+watch(orderItems, (cur, old) => {
+  let toArray = cur[0].items.split(" ");
+  console.log(JSON.parse(cur[0].items));
+});
+
+const getOrderItems = async () => {
+  const body = new URLSearchParams({
+    orderId: props.order.id,
+  });
+
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/management/orderitems", {
+    method: "Post",
+    headers: {},
+    credentials: "include",
+    body: body,
+    withCredentials: true,
+  })
+    .then(function (response) {
+      console.log(response.orderItems);
+      orderItems.value = response.orderItems;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
 onMounted(() => {
-  console.log(props.orderId);
+  getOrderItems();
+  console.log(props.order);
 });
 
 const checked = ref(false);

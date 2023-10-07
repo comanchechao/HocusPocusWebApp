@@ -94,12 +94,14 @@ export class ManagementService {
 
   async getOrderItems(dto: orderItemDto) {
     console.log(dto);
-    const orderItems = await this.prismaService.orderItems.findMany({
-      where: {
-        order_id: Number(dto.orderId),
-      },
-    });
-    return { orderItems: orderItems };
+    if (dto) {
+      const orderItems = await this.prismaService.orderItems.findMany({
+        where: {
+          order_id: Number(dto.orderId),
+        },
+      });
+      return { orderItems: orderItems };
+    }
   }
 
   // category services
@@ -119,6 +121,11 @@ export class ManagementService {
   }
 
   // video services functions
+
+  async getAllCourses() {
+    const courses = await this.prismaService.courses.findMany({});
+    return { courses: courses };
+  }
 
   async addVideo(file: any, body: any) {
     console.log(file);

@@ -31,6 +31,8 @@
             <h3 class="text-mainPurple font-bold">نام آموزش</h3>
           </div>
           <div
+            v-for="course in courses"
+            :key="course.id"
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
           >
             <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
@@ -38,52 +40,9 @@
               <InputSwitch v-model="checked"></InputSwitch>
               <h3 class="text-lg text-darkPurple">موجود</h3>
             </div>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
+            <h3 class="text-darkPurple">{{ course.trainer }}</h3>
+            <h3 class="text-mainBrown text-center px-5">{{ course.title }}</h3>
           </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">شنبه 23 تیر</h3>
-            <div class="flex items-center space-x-3">
-              <InputSwitch v-model="checked"></InputSwitch>
-              <h3 class="text-lg text-darkPurple">موجود</h3>
-            </div>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <div class="flex items-center space-x-3">
-              <InputSwitch v-model="checked"></InputSwitch>
-              <h3 class="text-lg text-darkPurple">موجود</h3>
-            </div>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <div class="flex items-center space-x-3">
-              <InputSwitch v-model="checked"></InputSwitch>
-              <h3 class="text-lg text-darkPurple">موجود</h3>
-            </div>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-        </div>
-        <div class="h-full w-full flex flex-col items-center space-y-5">
-          <button
-            label="Show"
-            @click="visible = false"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainViolet hover:border-mainYellow rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainYellow"
-          >
-            <span> تایید تغییرات </span>
-            <PhKeyhole :size="25" />
-          </button>
         </div>
       </div>
     </Dialog>
@@ -92,7 +51,6 @@
 
 <script setup>
 import { ref } from "vue";
-
 import {
   PhCaretLeft,
   PhCoffee,
@@ -103,6 +61,11 @@ import {
 } from "@phosphor-icons/vue";
 const visible = ref(false);
 const checked = ref(false);
+const props = defineProps(["courses"]);
+
+onMounted(() => {
+  console.log(props.courses);
+});
 </script>
 
 <style></style>

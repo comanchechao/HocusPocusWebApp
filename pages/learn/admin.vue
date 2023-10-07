@@ -41,10 +41,12 @@
               <PhVideo class="text-mainYellow" :size="90" weight="fill" />
               <div class="flex flex-col items-center space-y-3">
                 <h3 class="text-mainBrown text-md">آموزش های موجود</h3>
-                <h1 class="text-mainBrown text-5xl font-bold">423</h1>
+                <h1 class="text-mainBrown text-5xl font-bold">
+                  {{ coursesCount }}
+                </h1>
               </div>
             </div>
-            <LazyVideoManagement />
+            <LazyVideoManagement :courses="courses" />
           </div>
         </div>
       </div>
@@ -123,10 +125,42 @@ import {
   PhChartPieSlice,
   PhVideo,
 } from "@phosphor-icons/vue";
+import { storeToRefs } from "pinia";
+import { useMainManagement } from "~/stores/managementStore";
+
+// register managmentstore
+
+const managementStore = useMainManagement();
+
+const { coursesCount } = storeToRefs(managementStore);
+
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const loading = ref(false);
+const courses = ref();
+
+const getCourses = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/management/courses", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.courses);
+      courses.value = response.courses;
+      managementStore.setCoursesCount(response.courses.length);
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getCourses();
   TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
   TM.from(".Stat1", { opacity: 0, duration: 1 });
   TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });

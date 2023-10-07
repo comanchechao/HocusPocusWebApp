@@ -106,6 +106,11 @@ export class ManagementController {
 
   // videos and training section requests
 
+  @Get('/courses')
+  getAll() {
+    return this.managementService.getAllCourses();
+  }
+
   @Post('/addvideo')
   @UseInterceptors(FileInterceptor('file'))
   uploadVideo(
