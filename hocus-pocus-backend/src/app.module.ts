@@ -11,6 +11,7 @@ import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { ManagementModule } from './management/management.module';
 import { VideosModule } from './videos/videos.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { VideosModule } from './videos/videos.module';
     OrdersModule,
     ManagementModule,
     VideosModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

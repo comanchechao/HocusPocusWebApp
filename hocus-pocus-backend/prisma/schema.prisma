@@ -11,10 +11,10 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  createdAt   DateTime  @default(now())
+  id          Int        @id @default(autoincrement())
+  createdAt   DateTime   @default(now())
   email       String
-  username    String    @unique
+  username    String     @unique
   password    String?
   address     String?
   city        String?
@@ -22,8 +22,9 @@ model User {
   postalCode  String?
   fullname    String?
   phonenumber String?
-  role        UserTypes @default(NORMAL)
+  role        UserTypes  @default(NORMAL)
   orders      Orders[]
+  comments    Comments[]
 }
 
 enum UserTypes {
@@ -43,6 +44,7 @@ model Products {
   design        String?
   inStock       Boolean?        @default(true)
   ProductImages ProductImages[]
+  Comments      Comments[]
 }
 
 model Courses {
@@ -114,4 +116,15 @@ model orderItems {
   order_id Int
   items    Json?
   order    Orders @relation(fields: [order_id], references: [id])
+}
+
+model Comments {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  comment    String
+  user_id    Int
+  product_id Int
+  product    Products @relation(fields: [product_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id])
 }
