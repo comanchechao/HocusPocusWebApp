@@ -10,9 +10,7 @@
       class="p-3 text-right flex flex-col items-end space-y-3 justify-center"
     >
       <h3>
-        با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-        ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-        کاربردهای متنوع با هدف بهبود ابزارهای
+        {{ comment.comment }}
       </h3>
       <Rating class="rounded-sm" v-model="value" :cancel="false" />
     </div>
@@ -20,6 +18,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
+const props = defineProps(["comment"]);
 
 const value = ref(null);
 </script>

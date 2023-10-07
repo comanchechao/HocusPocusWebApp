@@ -22,6 +22,7 @@
               >نظر خودتون راجب محصول رو بنویسید
             </label>
             <Textarea
+              v-model="comment"
               class="w-full text-darkPurple"
               autoResize
               rows="10"
@@ -44,7 +45,7 @@
             </div>
 
             <button
-              @click="handleProduct()"
+              @click="submitComment()"
               class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کامنت </span>
@@ -61,8 +62,49 @@
 import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 const visible = ref(false);
-
+const comment = ref("");
 const value = ref(null);
+const loading = ref(false);
+
+const success = ref(false);
+const failed = ref(false);
+
+// assign router
+const router = useRoute();
+
+const submitComment = async () => {
+  const body = new URLSearchParams({
+    comment: comment.value,
+    userId: 2,
+  });
+  loading.value = true;
+  const { data } = await $fetch(
+    `http://localhost:3333/comments/${router.params._id}`,
+    {
+      method: "Post",
+      headers: {},
+      withCredentials: true,
+      body: body,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response.comments);
+      loading.value = false;
+      success.value = true;
+      setTimeout(() => {
+        success.value = false;
+      }, 3000);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+      failed.value = true;
+      setTimeout(() => {
+        failed.value = false;
+      }, 3000);
+    });
+};
 
 // image from events
 </script>
