@@ -17,7 +17,7 @@
       <h2
         class="text-xl flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
       >
-        <span> آموزش تکنیک عبور اجسام از کش پک آموزشی شعبده بازی </span>
+        <span> {{ course.title }} </span>
         <PhMagicWand :size="25" weight="fill" />
       </h2>
       <h3 class="text-sm">
@@ -61,6 +61,7 @@ import {
   PhMagicWand,
   PhMoney,
 } from "@phosphor-icons/vue";
+const props = defineProps(["course"]);
 </script>
 
 <style lang="scss" scoped></style>

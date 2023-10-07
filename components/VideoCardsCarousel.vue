@@ -27,12 +27,16 @@
       :spaceBetween="10"
       class="mySwiper w-full"
     >
-      <swiper-slide><LazyVideoCard /></swiper-slide>
+      <swiper-slide v-for="course in courses" :key="course.id"
+        ><LazyVideoCard :course="course"
+      /></swiper-slide>
+      <!-- <swiper-slide><LazyVideoCard /></swiper-slide>
       <swiper-slide><LazyVideoCard /></swiper-slide
       ><swiper-slide><LazyVideoCard /></swiper-slide>
       <swiper-slide><LazyVideoCard /></swiper-slide>
       <swiper-slide><LazyVideoCard /></swiper-slide
       ><swiper-slide><LazyVideoCard /></swiper-slide>
+    </swiper> -->
     </swiper>
   </div>
 </template>
@@ -47,6 +51,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 
 export default {
+  props: ["courses"],
   components: {
     Swiper,
     SwiperSlide,

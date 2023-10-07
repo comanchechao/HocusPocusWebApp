@@ -66,7 +66,7 @@
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
         </h2>
-        <LazyVideoCardsCarousel class="self-center" />
+        <LazyVideoCardsCarousel :courses="courses" class="self-center" />
       </div>
       <div
         class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPurple"
@@ -259,7 +259,29 @@ import {
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const courses = ref();
+const loading = ref(false);
+
+const getCourses = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.courses);
+      courses.value = response.courses;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getCourses();
   TM.to(".Bread", { opacity: 1, duration: 1, delay: 1 });
   TM.to(".Stat1", { opacity: 1, duration: 1.5 });
 });
