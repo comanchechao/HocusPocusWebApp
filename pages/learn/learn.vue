@@ -259,6 +259,7 @@ const getCourses = async () => {
       console.log(response.courses);
       courses.value = response.courses;
       loading.value = false;
+      getProducts();
       getLatestCourse();
     })
     .catch(function (error) {
@@ -281,11 +282,33 @@ const getLatestCourse = async () => {
       console.log(response.course);
       latestCourse.value = response.course[0];
       loadingTwo.value = false;
+
       getLatestFour();
     })
     .catch(function (error) {
       console.error(error);
       loadingTwo.value = false;
+    });
+};
+
+const loadingProducts = ref(false);
+const products = ref();
+
+const getProducts = async () => {
+  loadingProducts.value = true;
+  const { data } = await $fetch("http://localhost:3333/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loadingProducts.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loadingProducts.value = false;
     });
 };
 

@@ -5,12 +5,13 @@
 </template>
 
 <script setup>
-const props = defineProps(["productId"]);
+const props = defineProps(["courseId"]);
 const image = ref("");
 
 const getArticleImage = async () => {
+  console.log(props.courseId);
   const { data } = await $fetch(
-    `http://localhost:3333/products/image/${props.productId}`,
+    `http://localhost:3333/videos/image/${props.courseId}`,
     {
       headers: {},
       withCredentials: true,
@@ -18,6 +19,7 @@ const getArticleImage = async () => {
     }
   )
     .then(function (response) {
+      console.log(response);
       image.value = response.image;
     })
     .catch(function (error) {

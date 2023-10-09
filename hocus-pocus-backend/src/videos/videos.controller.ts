@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { VideosService } from './videos.service';
 
 @Controller('videos')
@@ -18,5 +18,15 @@ export class VideosController {
   @Get('lastfour')
   getLastFour() {
     return this.videoServices.getFourBeforeOne();
+  }
+
+  @Get(':id')
+  getProductsById(@Param('id') id: string) {
+    return this.videoServices.getCourseById(id);
+  }
+
+  @Get('image/:id')
+  getImageById(@Param('id') id: string) {
+    return this.videoServices.getImageById(id);
   }
 }

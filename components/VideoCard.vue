@@ -1,8 +1,9 @@
 <template>
   <div
+    v-if="course"
     class="lg:w-rem38 w-full h-auto lg:h-rem33 rounded-md shadow-lg transition flex-col items-center"
   >
-    <video
+    <!-- <video
       controls
       class="lg:h-2/4 h-96 w-full bg-gray-900 flex items-center rounded-t-md"
     >
@@ -10,7 +11,8 @@
         type="video/mp4"
         src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
       />
-    </video>
+    </video> -->
+    <LazyVideoCardImage :courseId="course.id"></LazyVideoCardImage>
     <div
       class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
     >
@@ -36,7 +38,7 @@
           <PhMoney :size="34" weight="fill" />
         </h3>
         <div class="flex items-center space-y-4 flex-col">
-          <NuxtLink to="/learn/productDetail">
+          <NuxtLink :to="'/learn/coursedetail/' + course.id">
             <button
               class="w-44 justify-center py-2 shadow-md shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
             >

@@ -7,6 +7,11 @@
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
       >
+        <h2
+          class="text-mainRed flex space-x-3 items-center underline cursor-pointer"
+        >
+          <span> {{ product.title }} </span>
+        </h2>
         <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
           <span> کارت ها </span>
