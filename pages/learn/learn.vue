@@ -139,83 +139,69 @@
         class="w-full h-screen grid grid-cols-4 grid-rows-2 place-items-center px-24 py-9 gap-5"
       >
         <div
+          v-if="latestCourse"
           class="h-full space-y-4 w-full bg-mainPink col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
         >
           <h2
             class="text-mainBrown font-bold text-center text-lg lg:text-3xl flex"
           >
-            <span> مجموعه آموزشی برای شروع </span>
+            <span> {{ latestCourse.title }} </span>
           </h2>
           <h3
             class="text-4xl border-2 border-dashed border-mainBrown rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
           >
             <span class="text-xs text-mainBrown">تومان</span>
-            <span>599,000</span>
+            <span> {{ latestCourse.price }} </span>
             <PhMoney :size="34" weight="fill" />
           </h3>
         </div>
 
         <div
-          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+          v-if="loading"
+          class="w-full h-full flex flex-col items-center space-y-5"
         >
-          <h2
-            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
           >
-            <span> مجموعه آموزشی برای شروع </span>
-          </h2>
-          <h3
-            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
           >
-            <span class="text-xs text-mainBrown">تومان</span>
-            <span>599,000</span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
+          >
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
         </div>
+
         <div
+          v-show="latestFour"
+          v-for="course in latestFour"
+          :key="course.id"
           class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
         >
           <h2
             class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
           >
-            <span> مجموعه آموزشی برای شروع </span>
+            <span> {{ course.title }} </span>
           </h2>
           <h3
             class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
           >
             <span class="text-xs text-mainBrown">تومان</span>
-            <span>599,000</span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
-        </div>
-        <div
-          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
-        >
-          <h2
-            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
-          >
-            <span> مجموعه آموزشی برای شروع </span>
-          </h2>
-          <h3
-            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
-          >
-            <span class="text-xs text-mainBrown">تومان</span>
-            <span>599,000</span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
-        </div>
-        <div
-          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
-        >
-          <h2
-            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
-          >
-            <span> مجموعه آموزشی برای شروع </span>
-          </h2>
-          <h3
-            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
-          >
-            <span class="text-xs text-mainBrown">تومان</span>
-            <span>599,000</span>
+            <span> {{ course.price }}</span>
             <PhMoney :size="34" weight="fill" />
           </h3>
         </div>
@@ -273,6 +259,7 @@ const getCourses = async () => {
       console.log(response.courses);
       courses.value = response.courses;
       loading.value = false;
+      getLatestCourse();
     })
     .catch(function (error) {
       console.error(error);
@@ -280,8 +267,52 @@ const getCourses = async () => {
     });
 };
 
+const latestCourse = ref();
+const loadingTwo = ref(false);
+
+const getLatestCourse = async () => {
+  loadingTwo.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos/latest", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.course);
+      latestCourse.value = response.course[0];
+      loadingTwo.value = false;
+      getLatestFour();
+    })
+    .catch(function (error) {
+      console.error(error);
+      loadingTwo.value = false;
+    });
+};
+
+const latestFour = ref();
+const loadingThree = ref();
+
+const getLatestFour = async () => {
+  loadingThree.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos/lastfour", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.courses);
+      latestFour.value = response.courses;
+      loadingThree.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loadingThree.value = false;
+    });
+};
+
 onMounted(() => {
   getCourses();
+
   TM.to(".Bread", { opacity: 1, duration: 1, delay: 1 });
   TM.to(".Stat1", { opacity: 1, duration: 1.5 });
 });

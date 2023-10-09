@@ -9,4 +9,14 @@ export class VideosController {
   getAll() {
     return this.videoServices.getAllCourses();
   }
+
+  @Get('latest')
+  getLatest() {
+    return this.videoServices.getLatestCourse();
+  }
+
+  @Get('lastfour')
+  getLastFour() {
+    return this.videoServices.getFourBeforeOne();
+  }
 }
