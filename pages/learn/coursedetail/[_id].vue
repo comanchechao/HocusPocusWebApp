@@ -8,6 +8,7 @@
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
       >
         <h2
+          v-if="!loading"
           class="text-mainYellow flex space-x-3 items-center underline cursor-pointer"
         >
           <span> {{ course.title }} </span>
@@ -45,6 +46,7 @@
 
       <div class="h-full w-full flex flex-col my-12 items-end space-y-7">
         <h1
+          v-if="!loading"
           class="text-4xl text-gray-100 flex items-center justify-center space-x-3"
         >
           <span> {{ course.title }} </span>
@@ -59,8 +61,11 @@
               class="flex items-center space-x-3 shadow-lg shadow-mainOrange py-2 px-3 rounded-md"
             >
               <h4 class="text-mainBrown">تومان</h4>
-              <h1 class="lg:text-3xl text-2xl text-mainRed Text font-bold">
-                {{ course.price }}
+              <h1
+                v-if="!loading"
+                class="lg:text-3xl text-2xl text-mainRed Text font-bold"
+              >
+                <span> {{ course.price }}</span>
               </h1>
             </div>
             <button
@@ -116,7 +121,7 @@ import {
   PhUserList,
 } from "@phosphor-icons/vue";
 
-const loading = ref(false);
+const loading = ref(true);
 const course = ref();
 
 const router = useRoute();
