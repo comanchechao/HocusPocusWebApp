@@ -207,14 +207,18 @@ const orderItems = async () => {
   const cart = JSON.stringify(shoppingCart.value);
   const data = new URLSearchParams({});
 
+  shoppingCart.value.forEach((item) => {
+    console.log(item.id);
+    data.append("items", [item.id, item.quantity]);
+  });
+
+  console.log(data);
+
   data.append("order_id", submitedOrdersId.value);
-  data.append("items", cart);
 
   await $fetch("http://localhost:3333/orders/submititems", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
+    headers: {},
     credentials: "include",
     body: data,
     withCredentials: true,
