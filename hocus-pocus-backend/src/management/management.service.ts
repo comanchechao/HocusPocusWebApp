@@ -24,7 +24,7 @@ export class ManagementService {
         brand: dto.brand,
         design: dto.design,
         category: dto.category,
-        description: dto.type,
+        description: dto.description,
       },
     });
     return { product: product };

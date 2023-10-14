@@ -111,6 +111,12 @@ model Orders {
   orderItems            orderItems[]
 }
 
+model Membership {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
 model orderItems {
   id       Int    @id @default(autoincrement())
   order_id Int
