@@ -55,6 +55,7 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
+const props = defineProps(["orderStatus"]);
 const visible = ref(false);
 
 const checked = ref(false);
