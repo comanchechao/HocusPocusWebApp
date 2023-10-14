@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@hypernym/nuxt-gsap": "^2.2.2",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.2",
     "@types/node": "^18",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.5.2",
@@ -24,6 +25,7 @@
     "@sfxcode/nuxt-primevue": "^1.2.0",
     "nuxt-video-player": "^1.0.17",
     "pinia": "^2.1.6",
+    "pinia-plugin-persistedstate": "^3.2.0",
     "plyr": "^3.7.8",
     "primevue": "^3.32.2",
     "swiper": "^10.2.0"
