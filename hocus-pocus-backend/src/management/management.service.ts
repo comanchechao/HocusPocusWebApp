@@ -6,6 +6,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { CategoryDto } from './dto/CategoryDto';
 import { VideosDto } from './dto/VideoDto';
 import { orderItemDto } from './dto/orderItemDto';
+import { OrderStatusDto } from './dto/orderStatus';
 
 @Injectable()
 export class ManagementService {
@@ -102,6 +103,19 @@ export class ManagementService {
       });
       return { orderItems: orderItems };
     }
+  }
+
+  async updateOrderStatus(dto: OrderStatusDto) {
+    const order = await this.prismaService.orders.updateMany({
+      where: {
+        id: Number(dto.orderId),
+      },
+      data: {
+        status: dto.status,
+      },
+    });
+
+    return { order: order };
   }
 
   // category services
