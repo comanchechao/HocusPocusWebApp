@@ -37,6 +37,7 @@ model Products {
   createdAt     DateTime        @default(now())
   title         String
   price         Float
+  specialOffer  Boolean         @default(false)
   description   String?
   brand         String?
   type          String?

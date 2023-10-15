@@ -23,6 +23,7 @@ import { VideosDto } from './dto/VideoDto';
 import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
 import { orderItemDto } from './dto/orderItemDto';
 import { OrderStatusDto } from './dto/orderStatus';
+import { ProductStatusDto } from './dto/productStatus';
 
 @Controller('management')
 export class ManagementController {
@@ -72,6 +73,11 @@ export class ManagementController {
   @Post('/removeproductimage/:id')
   removeProductImage(@Param('id') id: string) {
     return this.managementService.removeProductImage(id);
+  }
+
+  @Post('/updateproductstatus')
+  updateProductStatus(@Body() dto: ProductStatusDto) {
+    return this.managementService.updateProductStatus(dto);
   }
 
   @Post('/removeproduct/:id')

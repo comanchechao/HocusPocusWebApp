@@ -7,6 +7,7 @@ import { CategoryDto } from './dto/CategoryDto';
 import { VideosDto } from './dto/VideoDto';
 import { orderItemDto } from './dto/orderItemDto';
 import { OrderStatusDto } from './dto/orderStatus';
+import { ProductStatusDto } from './dto/productStatus';
 
 @Injectable()
 export class ManagementService {
@@ -64,6 +65,18 @@ export class ManagementService {
     });
 
     return { data: image };
+  }
+
+  async updateProductStatus(dto: ProductStatusDto) {
+    const product = await this.prismaService.products.updateMany({
+      where: {
+        id: Number(dto.productId),
+      },
+      data: {
+        specialOffer: true,
+      },
+    });
+    return { product: product };
   }
 
   async removeProductImage(id: string) {
