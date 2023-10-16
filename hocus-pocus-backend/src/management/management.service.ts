@@ -68,12 +68,12 @@ export class ManagementService {
   }
 
   async updateProductStatus(dto: ProductStatusDto) {
-    const product = await this.prismaService.products.updateMany({
+    const product = await this.prismaService.products.update({
       where: {
         id: Number(dto.productId),
       },
       data: {
-        specialOffer: true,
+        special_offer: true,
       },
     });
     return { product: product };
