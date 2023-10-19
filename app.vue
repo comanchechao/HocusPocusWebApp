@@ -5,17 +5,3 @@
     </div>
   </div>
 </template>
-<script>
-import { gsap } from "gsap";
-export default {
-  name: "MyPage",
-  data() {
-    return {
-      isLoaded: false,
-    };
-  },
-  mounted() {
-    this.isLoaded = true;
-  },
-};
-</script>
