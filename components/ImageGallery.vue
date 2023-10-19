@@ -30,12 +30,33 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhotoService } from "@/services/PhotoService";
+const props = defineProps(["productImages"]);
+
+const getProductImages = async (image) => {
+  const { data } = await $fetch(
+    `http://localhost:3333/products/image/${image.id}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      images.value.push({ itemImageSrc: response.image });
+      console.log(images.value);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
 
 onMounted(() => {
-  PhotoService.getImages().then((data) => (images.value = data));
+  props.productImages.forEach((image) => {
+    getProductImages(image);
+  });
 });
 
-const images = ref();
+const images = ref([]);
 const responsiveOptions = ref([
   {
     breakpoint: "991px",

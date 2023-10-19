@@ -62,22 +62,24 @@
           >
             <h1 class="text-2xl font-bold text-darkPurple">معرفی کالا</h1>
             <h1 class="text-darkPurple text-right text-مل">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-              نیاز شامل حروفچینی دستاوردهای اصل میباشد
+              {{ product.description }}
             </h1>
           </div>
           <button
+            @click="addToCart(product)"
             class="lg:text-lg text-md active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-12 justify-center py-2 transition duration-300 ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> اضافه به سبد خرید </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
           </button>
+          <Message :closable="false" v-show="addSuccess" severity="success">
+            <span class="lg:text-sm text-sm font-bold"
+              >به سبد خرید اضافه شد</span
+            >
+          </Message>
         </div>
         <div class="lg:w-1/2 w-full h-full flex items-center justify-center">
-          <ImageGallery />
+          <ImageGallery :productImages="product.ProductImages" />
         </div>
       </div>
       <div
@@ -104,10 +106,28 @@
 import { PhCaretLeft, PhShoppingBagOpen, PhCards } from "@phosphor-icons/vue";
 
 import { ref } from "vue";
+import { useProductStore } from "~/stores/productStore";
 
 const value = ref(null);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
+
+// register product stroe
+
+const productStore = useProductStore();
+
+// add to card function
+
+const addSuccess = ref(false);
+
+const addToCart = (product) => {
+  productStore.addToShoppingCart(product);
+  addSuccess.value = true;
+
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
+};
 
 const product = ref({});
 const loading = ref(true);

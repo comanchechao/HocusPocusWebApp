@@ -19,6 +19,15 @@
       <div
         class="h-full w-full p-3 space-y-10 flex flex-col items-center justify-center"
       >
+        <span v-show="orderStatus === 'PROCESSING'" class="text-mainRed"
+          >در حال پردازش</span
+        >
+        <span v-show="orderStatus === 'SHIPPING'" class="text-mainRed"
+          >در حال ارسال</span
+        >
+        <span v-show="orderStatus === 'DELIVERED'" class="text-mainRed"
+          >تحویل داده شده</span
+        >
         <h2
           class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
         >
@@ -28,20 +37,20 @@
           class="flex items-center justify-center text-right space-x-7 w-full h-full"
         >
           <div class="flex items-center space-x-3">
-            <InputSwitch v-model="checked"></InputSwitch>
+            <InputSwitch v-model="proccessing"></InputSwitch>
             <h3 class="text-lg text-mainRed">در حال پردازش</h3>
           </div>
           <div class="flex items-center space-x-3">
-            <InputSwitch v-model="checked"></InputSwitch>
+            <InputSwitch v-model="shipping"></InputSwitch>
             <h3 class="text-lg text-mainRed">فرستاده شده</h3>
           </div>
           <div class="flex items-center space-x-3">
-            <InputSwitch v-model="checked"></InputSwitch>
+            <InputSwitch v-model="delivered"></InputSwitch>
             <h3 class="text-lg text-mainRed">تحویل داده شده</h3>
           </div>
         </div>
         <button
-          @click="visible = false"
+          @click="changeStatus()"
           class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
         >
           <span> تایید تغییرات </span>
@@ -55,6 +64,49 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
+const props = defineProps(["orderStatus", "orderId"]);
+
+const proccessing = ref(false);
+const shipping = ref(false);
+const delivered = ref(false);
+
+const loading = ref(false);
+
+const changeStatus = () => {
+  if (proccessing.value) {
+    statusChange("PROCESSING");
+  }
+  if (shipping.value) {
+    statusChange("SHIPPING");
+  }
+  if (delivered.value) {
+    statusChange("DELIVERED");
+  }
+};
+
+const statusChange = async (status) => {
+  const data = new URLSearchParams({});
+
+  data.append("orderId", props.orderId);
+  data.append("status", status);
+
+  await $fetch("http://localhost:3333/management/updateorderstatus", {
+    method: "POST",
+    headers: {},
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const status = ref("");
+
 const visible = ref(false);
 
 const checked = ref(false);

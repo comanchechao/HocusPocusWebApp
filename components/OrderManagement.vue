@@ -12,9 +12,27 @@
     </div>
     <LazyOrderCard v-for="order in orders" :key="order.id" :order="order">
       <template #Status>
-        <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-        <span>تحویل داده شده</span>
+        <span v-show="order.status === 'PROCESSING'">درحال پردازش</span>
+        <PhCheckCircle
+          v-show="order.status === 'PROCESSING'"
+          class="text-red-500"
+          :size="25"
+          weight="fill"
+        />
+        <span v-show="order.status === 'SHIPPING'">در حال ارسال</span>
+        <PhCheckCircle
+          v-show="order.status === 'SHIPPING'"
+          class="text-yellow-500"
+          :size="25"
+          weight="fill"
+        />
+        <span v-show="order.status === 'DELIVERED'">تحویل داده شده</span>
+        <PhCheckCircle
+          v-show="order.status === 'DELIVERED'"
+          class="text-green-500"
+          :size="25"
+          weight="fill"
+        />
       </template>
     </LazyOrderCard>
   </div>

@@ -60,4 +60,7 @@ export const useProductStore = defineStore("productStore", {
       console.log(this.cartTotalPrice);
     },
   },
+  persist: {
+    storage: persistedState.localStorage,
+  },
 });

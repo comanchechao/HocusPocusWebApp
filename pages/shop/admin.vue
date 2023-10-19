@@ -110,6 +110,7 @@ const { stateChange } = storeToRefs(productManagement);
 const { ordersCount } = storeToRefs(mainManagement);
 
 watch(stateChange, (cur, old) => {
+  console.log(stateChange);
   getProducts();
 });
 const loading = ref(false);

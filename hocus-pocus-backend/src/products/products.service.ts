@@ -33,6 +33,7 @@ export class ProductsService {
         type: true,
         design: true,
         category: true,
+        description: true,
         ProductImages: true,
       },
     });

@@ -156,15 +156,17 @@ const getOrderItems = async () => {
     withCredentials: true,
   })
     .then(function (response) {
-      console.log(response.orderItems);
       orderItems.value = response.orderItems;
       loading.value = false;
-      response.orderItems[0].items.forEach((itemId) => {
-        console.log(itemId.split(",")[0]);
-        if (itemId) {
-          getProduct(itemId.split(",")[0]);
-        }
-      });
+      if (Array.isArray(response.orderItems[0].items)) {
+        response.orderItems[0].items.forEach((itemId) => {
+          if (itemId) {
+            getProduct(itemId.split(",")[0]);
+          }
+        });
+      } else {
+        getProduct(response.orderItems[0].items.split(",")[0]);
+      }
     })
     .catch(function (error) {
       console.error(error);
@@ -183,7 +185,6 @@ const getProduct = async (productId) => {
   })
     .then(function (response) {
       products.value.push(response.product);
-      console.log(products.value);
       // if (response.product) {
       //   getProductImage();
       // }

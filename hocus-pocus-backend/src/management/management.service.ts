@@ -6,6 +6,8 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { CategoryDto } from './dto/CategoryDto';
 import { VideosDto } from './dto/VideoDto';
 import { orderItemDto } from './dto/orderItemDto';
+import { OrderStatusDto } from './dto/orderStatus';
+import { ProductStatusDto } from './dto/productStatus';
 
 @Injectable()
 export class ManagementService {
@@ -24,7 +26,7 @@ export class ManagementService {
         brand: dto.brand,
         design: dto.design,
         category: dto.category,
-        description: dto.type,
+        description: dto.description,
       },
     });
     return { product: product };
@@ -65,6 +67,18 @@ export class ManagementService {
     return { data: image };
   }
 
+  async updateProductStatus(dto: ProductStatusDto) {
+    const product = await this.prismaService.products.update({
+      where: {
+        id: Number(dto.productId),
+      },
+      data: {
+        special_offer: true,
+      },
+    });
+    return { product: product };
+  }
+
   async removeProductImage(id: string) {
     const image = await this.prismaService.productImages.delete({
       where: {
@@ -102,6 +116,19 @@ export class ManagementService {
       });
       return { orderItems: orderItems };
     }
+  }
+
+  async updateOrderStatus(dto: OrderStatusDto) {
+    const order = await this.prismaService.orders.updateMany({
+      where: {
+        id: Number(dto.orderId),
+      },
+      data: {
+        status: dto.status,
+      },
+    });
+
+    return { order: order };
   }
 
   // category services

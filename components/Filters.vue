@@ -107,9 +107,16 @@ const brands = ref([
   { name: "بایسیکل", code: "NY" },
   { name: "جوکر", code: "RM" },
   { name: "تلی هو", code: "LDN" },
+  { name: "کوپاگ", code: "NY" },
+  { name: "کارتماندی", code: "RM" },
+  { name: "کِم", code: "LDN" },
+  { name: "پیانتیک", code: "NY" },
+  { name: "بیی", code: "RM" },
+  { name: "رافورد", code: "LDN" },
 ]);
 const categories = ref([
   { name: "کلوس آپ مجیک", code: "NY" },
+  { name: "جادو کودکان", code: "NY" },
   { name: "کارت مجیک", code: "RM" },
   { name: "سکه و پول", code: "LDN" },
   { name: "حرکت اجسام", code: "LDN" },

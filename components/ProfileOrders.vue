@@ -44,7 +44,11 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center px-2 space-y-5 overflow-y-scroll items-center"
         >
-          <Order v-for="order in orders" :key="order.id" :order="order" />
+          <Order
+            v-for="order in processingOrders"
+            :key="order.id"
+            :order="order"
+          />
         </div>
       </div>
       <div
@@ -61,7 +65,11 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order v-for="order in orders" :key="order.id" :order="order" />
+          <Order
+            v-for="order in shippingOrders"
+            :key="order.id"
+            :order="order"
+          />
         </div>
       </div>
       <div
@@ -78,7 +86,11 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order v-for="order in orders" :key="order.id" :order="order" />
+          <Order
+            v-for="order in deliveredOrders"
+            :key="order.id"
+            :order="order"
+          />
         </div>
       </div>
     </div>
@@ -99,6 +111,10 @@ const sentDiv = ref();
 const recievedDiv = ref();
 
 const loading = ref(false);
+
+const processingOrders = ref([]);
+const shippingOrders = ref([]);
+const deliveredOrders = ref([]);
 const orders = ref();
 
 const getOrders = async () => {
@@ -112,6 +128,17 @@ const getOrders = async () => {
     .then(function (response) {
       console.log(response.orders);
       orders.value = response.orders;
+      response.orders.forEach((order) => {
+        if (order.status === "PROCESSING") {
+          processingOrders.value.push(order);
+        }
+        if (order.status === "SHIPPING") {
+          shippingOrders.value.push(order);
+        }
+        if (order.status === "DELIVERED") {
+          deliveredOrders.value.push(order);
+        }
+      });
       loading.value = false;
     })
     .catch(function (error) {
@@ -122,6 +149,10 @@ const getOrders = async () => {
 
 onMounted(() => {
   getOrders();
+  setTimeout(() => {
+    console.log(processingOrders.value);
+    console.log(shippingOrders.value);
+  }, 2000);
 });
 
 function toggleProcess() {
@@ -131,12 +162,12 @@ function toggleProcess() {
 }
 
 function togglesent() {
-  sent.value = true;
+  sentDiv.value = true;
   processDiv.value = false;
   recievedDiv.value = false;
 }
 function toggleRecieved() {
-  sent.value = false;
+  sentDiv.value = false;
   processDiv.value = false;
   recievedDiv.value = true;
 }

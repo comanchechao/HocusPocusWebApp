@@ -8,7 +8,7 @@
       class="text-darkPurple flex lg:flex-row md:flex-row md:space-y-0 md:space-x-2 flex-col items-center lg:space-y-0 space-y-2 text-center lg:space-x-3"
     >
       <slot name="Status"></slot>
-      <LazyChangeStatusDialog />
+      <LazyChangeStatusDialog :orderStatus="order.status" :orderId="order.id" />
     </h3>
     <h3 class="text-darkPurple text-center px-5">
       {{ order.fullname }}

@@ -22,6 +22,8 @@ import { Express } from 'express';
 import { VideosDto } from './dto/VideoDto';
 import { AuthenticatedGuard } from 'src/auth/authGuards/authenticated.guards';
 import { orderItemDto } from './dto/orderItemDto';
+import { OrderStatusDto } from './dto/orderStatus';
+import { ProductStatusDto } from './dto/productStatus';
 
 @Controller('management')
 export class ManagementController {
@@ -73,6 +75,11 @@ export class ManagementController {
     return this.managementService.removeProductImage(id);
   }
 
+  @Post('/updateproductstatus')
+  updateProductStatus(@Body() dto: ProductStatusDto) {
+    return this.managementService.updateProductStatus(dto);
+  }
+
   @Post('/removeproduct/:id')
   removeProduct(@Param('id') id: string) {
     return this.managementService.removeProduct(id);
@@ -90,11 +97,11 @@ export class ManagementController {
     return this.managementService.getOrderItems(dto);
   }
 
-  @Roles('ADMIN')
-  @UseGuards(LocalAuthGuard, RolesGuard)
-  @Post('/updateOrderState')
-  updateOrderState() {
-    return { msg: 'update order state sent or delivered or canceled' };
+  // @Roles('ADMIN')
+  // @UseGuards(LocalAuthGuard, RolesGuard)
+  @Post('/updateorderstatus')
+  updateOrderState(@Body() dto: OrderStatusDto) {
+    return this.managementService.updateOrderStatus(dto);
   }
 
   @Roles('ADMIN')

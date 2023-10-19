@@ -37,6 +37,7 @@ model Products {
   createdAt     DateTime        @default(now())
   title         String
   price         Float
+  special_offer Boolean?        @default(false)
   description   String?
   brand         String?
   type          String?
@@ -98,6 +99,7 @@ model Orders {
   id                    Int          @id @default(autoincrement())
   created_at            DateTime     @default(now())
   updated_at            DateTime     @updatedAt
+  status                String?      @default("PROCESSING")
   totalPrice            String?
   estimatedDeliveryDays String?
   adderss               String?
@@ -109,6 +111,12 @@ model Orders {
   user_id               Int
   user                  User         @relation(fields: [user_id], references: [id])
   orderItems            orderItems[]
+}
+
+model Membership {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model orderItems {

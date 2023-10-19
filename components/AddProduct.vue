@@ -162,7 +162,12 @@ import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
+import { useMainManagement } from "../stores/managementStore";
 const visible = ref(false);
+
+// register main management
+
+const mainManagement = useMainManagement();
 
 // image from events
 
@@ -237,6 +242,7 @@ const handleProduct = async () => {
         eventFileFour.value,
       ];
       success.value = true;
+      managementStore.setStateChange();
       setTimeout(() => {
         success.value = false;
       }, 3000);
@@ -251,25 +257,6 @@ const handleProduct = async () => {
         faild.value = false;
       }, 3000);
     });
-
-  console.log(
-    "type:",
-    type.value,
-    "brand:",
-    brand.value,
-    "design",
-    design.value,
-    "rarirty",
-    rarity.value,
-    "category",
-    category.value,
-    "price",
-    productPrice.value,
-    "title",
-    productTitle.value,
-    "description",
-    productDescription.value
-  );
 };
 
 // handling image upload

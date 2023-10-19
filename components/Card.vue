@@ -9,13 +9,13 @@
       @mouseenter="toggleDiv1"
       @mouseleave="toggleDiv2"
     >
-      <img
+      <!-- <img
         src="../assets/images/Psychonauts2.webp"
         class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
-      />
-      <!-- <ProductImage :productId="props.product.ProductImages[0].id">
-      </ProductImage> -->
+      /> -->
+      <ProductImage :productId="props.product.ProductImages[0].id">
+      </ProductImage>
     </div>
     <div
       class="w-full h-72 mb-3 bg-mainWhite rounded-t-lg"
@@ -23,56 +23,57 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <img
-        src="../assets/images/Psychonauts.webp"
-        class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
-        alt=""
-      />
+      <ProductImage :productId="props.product.ProductImages[1].id">
+      </ProductImage>
+      <!-- <img
+          src="../assets/images/Psychonauts.webp"
+          class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+          alt=""
+        /> -->
     </div>
 
     <div class="w-full h-full flex items-center flex-col px-7 py-5 space-y-4">
-      <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        {{ props.product.title }}
-      </h3> -->
       <h3 class="text-center leading-snug title text-xl text-darkPurple">
-        Seafarers: Commodore Edition Playing Cards
+        {{ props.product.title }}
       </h3>
+      <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
+        Seafarers: Commodore Edition Playing Cards
+      </h3> -->
       <h3
         class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <!-- <span>{{ props.product.price }}</span> -->
-        <span>599,000</span>
+        <span>{{ props.product.price }}</span>
+        <!-- <span>599,000</span> -->
         <PhMoney :size="34" weight="fill" />
       </h3>
 
       <div class="flex space-x-3 items-center w-full h-auto">
-        <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
-        <button
-          class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
-        >
-          <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
-      ></NuxtLink> -->
-        <NuxtLink to="/shop/productDetail" class="w-full">
+        <NuxtLink :to="'/shop/productdetail/' + product.id">
+          <button
+            class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+          >
+            <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
+        ></NuxtLink>
+        <!-- <NuxtLink to="/shop/productDetail" class="w-full">
           <button
             class="px-3 w-full flex items-center justify-center py-2 border-2 border-darkPurple shadow-sm shadow-mainRed space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
           >
             <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
-        ></NuxtLink>
-
+        ></NuxtLink> -->
         <button
           @click="addToCart(props.product)"
           class="justify-center w-20 h-10 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-md"
         >
           <PhShoppingBagOpen :size="30" weight="fill" />
         </button>
+        <NuxtLink :to="'/shop/productdetail/' + product.id">
+          <button>
+            <PhShoppingBagOpen :size="30" weight="fill" />
+          </button>
+        </NuxtLink>
       </div>
-      <Message
-        :closable="false"
-        class="w-full text-right"
-        v-show="addSuccess"
-        severity="success"
-      >
+      <Message :closable="false" v-show="addSuccess" severity="success">
         <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
       </Message>
     </div>
