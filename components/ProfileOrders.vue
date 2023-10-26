@@ -110,6 +110,7 @@ const processDiv = ref(true);
 const sentDiv = ref();
 const recievedDiv = ref();
 
+const userId = ref();
 const loading = ref(false);
 
 const processingOrders = ref([]);
@@ -118,10 +119,15 @@ const deliveredOrders = ref([]);
 const orders = ref();
 
 const getOrders = async () => {
+  getUser();
+  const body = new URLSearchParams({
+    userId: userId.value,
+  });
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/orders/userorder", {
     method: "Post",
     headers: {},
+    body: body
     withCredentials: true,
     credentials: "include",
   })
@@ -144,6 +150,21 @@ const getOrders = async () => {
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+    });
+};
+
+const getUser = async () => {
+  const { data } = await $fetch("http://localhost:3333/auth/isauthenticated", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.userId);
+      userId.value = response.userId;
+    })
+    .catch(function (error) {
+      console.error(error);
     });
 };
 

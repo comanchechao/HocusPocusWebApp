@@ -33,7 +33,7 @@
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
-            @click="submitOrder()"
+            @click="getUser()"
             class="lg:text-xl text-md px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
@@ -157,11 +157,13 @@ const removeItem = (itemId) => {
 
 // handle order submit
 
+const userId = ref();
+
 const submitedOrdersId = ref();
 
-const submitOrder = async () => {
+const submitOrder = async (userId) => {
   const data = new URLSearchParams({
-    user_id: 2,
+    userId: userId,
     totalPrice: cartTotalPrice.value,
     estimatedDeliveryDays: 5,
     city: city.value,
@@ -201,6 +203,22 @@ const submitOrder = async () => {
     email.value,
     address.value
   );
+};
+
+const getUser = async () => {
+  const { data } = await $fetch("http://localhost:3333/auth/isauthenticated", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.userId);
+      userId.value = response.userId;
+      submitOrder(response.userId);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 };
 
 const orderItems = async () => {
