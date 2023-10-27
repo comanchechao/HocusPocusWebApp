@@ -118,16 +118,15 @@ const shippingOrders = ref([]);
 const deliveredOrders = ref([]);
 const orders = ref();
 
-const getOrders = async () => {
-  getUser();
+const getOrders = async (userId: string) => {
   const body = new URLSearchParams({
-    userId: userId.value,
+    userId: userId,
   });
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/orders/userorder", {
     method: "Post",
     headers: {},
-    body: body
+    body: body,
     withCredentials: true,
     credentials: "include",
   })
@@ -162,6 +161,7 @@ const getUser = async () => {
     .then(function (response) {
       console.log(response.userId);
       userId.value = response.userId;
+      getOrders(response.userId);
     })
     .catch(function (error) {
       console.error(error);
@@ -169,7 +169,7 @@ const getUser = async () => {
 };
 
 onMounted(() => {
-  getOrders();
+  getUser();
   setTimeout(() => {
     console.log(processingOrders.value);
     console.log(shippingOrders.value);
