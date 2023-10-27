@@ -45,7 +45,7 @@
             </div>
 
             <button
-              @click="submitComment()"
+              @click="getUser()"
               class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن کامنت </span>
@@ -69,13 +69,16 @@ const loading = ref(false);
 const success = ref(false);
 const failed = ref(false);
 
+const userId = ref();
+
 // assign router
 const router = useRoute();
 
-const submitComment = async () => {
+const submitComment = async (userId, username) => {
   const body = new URLSearchParams({
+    username: username,
     comment: comment.value,
-    userId: 2,
+    userId: userId,
   });
   loading.value = true;
   const { data } = await $fetch(
@@ -103,6 +106,22 @@ const submitComment = async () => {
       setTimeout(() => {
         failed.value = false;
       }, 3000);
+    });
+};
+
+const getUser = async () => {
+  const { data } = await $fetch("http://localhost:3333/auth/isauth", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.userId);
+      userId.value = response.userId;
+      submitComment(response.userId, response.username);
+    })
+    .catch(function (error) {
+      console.error(error);
     });
 };
 

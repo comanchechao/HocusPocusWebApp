@@ -45,6 +45,12 @@ export class AuthController {
     return this.authService.isAuthenticated(session.passport.user.username);
   }
 
+  @UseGuards(AuthenticatedGuard)
+  @Get('/isauth')
+  getUser(@Session() session: Record<string, any>) {
+    return this.authService.getUser(session.passport.user.username);
+  }
+
   // @UseGuards(AtGuard)
   // @Post('logout')
   // logout(@GetCurrentUser('sub') userId: number) {

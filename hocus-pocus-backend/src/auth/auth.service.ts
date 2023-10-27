@@ -48,6 +48,21 @@ export class AuthService {
     };
   }
 
+  async getUser(username: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        username: username,
+      },
+    });
+    if (!user) {
+      throw new NotAcceptableException('نام کاربری پیدا نشد');
+    }
+    return {
+      userId: user.id,
+      username: user.username,
+    };
+  }
+
   // async getTokens(userId: number, email: string): Promise<Tokens> {
   //   const [at, rt] = await Promise.all([
   //     this.jwtService.signAsync(

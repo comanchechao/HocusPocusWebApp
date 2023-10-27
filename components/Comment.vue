@@ -3,7 +3,7 @@
     class="h-full w-full my-6 p-3 flex flex-col items-end bg-gray-100 rounded-md"
   >
     <div class="flex items-center space-x-6">
-      <h2 class="text-xl text-mainBrown">نام کاربر</h2>
+      <h2 class="text-xl text-mainBrown">{{ comment.username }}</h2>
       <div class="h-16 w-16 rounded-full bg-gray-500"></div>
     </div>
     <div
