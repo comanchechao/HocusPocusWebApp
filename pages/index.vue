@@ -211,18 +211,19 @@
         class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
       >
         <div
+          v-show="latestProduct"
           class="h-full space-y-4 w-full bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
         >
           <h2
             class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
           >
-            <span> مجموعه آموزشی برای شروع </span>
+            <span> {{ latestProduct.title }} </span>
           </h2>
           <h3
             class="text-4xl border-2 border-dashed border-darkPurple rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
           >
             <span class="text-xs text-darkPurple">تومان</span>
-            <span>599,000</span>
+            <span>{{ latestProduct.price }}</span>
             <PhMoney :size="34" weight="fill" />
           </h3>
           <button
@@ -232,9 +233,11 @@
           </button>
         </div>
 
-        <LazyIndexPopularMiniCard /> <LazyIndexPopularMiniCard />
-        <LazyIndexPopularMiniCard />
-        <LazyIndexPopularMiniCard />
+        <LazyIndexPopularMiniCard
+          v-for="item in latestFour"
+          :key="item.id"
+          :item="item"
+        />
       </div>
     </div>
     <div class="w-full h-full my-14 flex flex-col">
@@ -317,10 +320,54 @@ const getCourses = async () => {
       console.log(response.courses);
       courses.value = response.courses;
       loading.value = false;
+      getLatestProduct();
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+    });
+};
+
+const loadingTwo = ref(false);
+const latestProduct = ref({});
+
+const getLatestProduct = async () => {
+  loadingTwo.value = true;
+  const { data } = await $fetch("http://localhost:3333/products/latest", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.product);
+      latestProduct.value = response.product[0];
+      loadingTwo.value = false;
+      getLatestFour();
+    })
+    .catch(function (error) {
+      console.error(error);
+      loadingTwo.value = false;
+    });
+};
+
+const latestFour = ref([]);
+const loadingThree = ref();
+
+const getLatestFour = async () => {
+  loadingThree.value = true;
+  const { data } = await $fetch("http://localhost:3333/products/lastfour", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      latestFour.value = response.products;
+      loadingThree.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loadingThree.value = false;
     });
 };
 

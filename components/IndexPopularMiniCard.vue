@@ -3,13 +3,13 @@
     class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
   >
     <h2 class="text-darkPurple font-bold text-center text-md lg:text-xl flex">
-      <span> مجموعه آموزشی برای شروع </span>
+      <span> {{ item.title }} </span>
     </h2>
     <h3
       class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
     >
       <span class="text-xs text-darkPurple">تومان</span>
-      <span>599,000</span>
+      <span>{{ item.price }}</span>
       <PhMoney :size="34" weight="fill" />
     </h3>
     <button
@@ -21,4 +21,5 @@
 </template>
 <script setup>
 import { PhMoney, PhShoppingBagOpen } from "@phosphor-icons/vue";
+const props = defineProps(["item"]);
 </script>
