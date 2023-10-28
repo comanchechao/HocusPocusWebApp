@@ -51,9 +51,11 @@ const getProductImages = async (image) => {
 };
 
 onMounted(() => {
-  props.productImages.forEach((image) => {
-    getProductImages(image);
-  });
+  setTimeout(() => {
+    props.productImages.forEach((image) => {
+      getProductImages(image);
+    });
+  }, 3000);
 });
 
 const images = ref([]);
