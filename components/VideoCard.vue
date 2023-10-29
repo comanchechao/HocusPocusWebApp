@@ -12,7 +12,7 @@
         src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
       />
     </video> -->
-    <LazyVideoCardImage :courseId="course.id"></LazyVideoCardImage>
+    <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>
     <div
       class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
     >
