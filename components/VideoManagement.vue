@@ -30,19 +30,11 @@
             <h3 class="text-mainPurple font-bold">نام آپلود کننده</h3>
             <h3 class="text-mainPurple font-bold">نام آموزش</h3>
           </div>
-          <div
+          <LazyVideoManagementCard
             v-for="course in courses"
             :key="course.id"
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <div class="flex items-center space-x-3">
-              <InputSwitch v-model="checked"></InputSwitch>
-              <h3 class="text-lg text-darkPurple">موجود</h3>
-            </div>
-            <h3 class="text-darkPurple">{{ course.trainer }}</h3>
-            <h3 class="text-mainBrown text-center px-5">{{ course.title }}</h3>
-          </div>
+            :course="course"
+          />
         </div>
       </div>
     </Dialog>
@@ -62,6 +54,77 @@ import {
 const visible = ref(false);
 const checked = ref(false);
 const props = defineProps(["courses"]);
+
+const removeCourseImage = async function (course) {
+  console.log(course);
+  if (course.CourseImages.length) {
+    await $fetch(
+      `http://localhost:3333/management/removecourseimages/${course.CourseImages[0].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeCourse(course);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+    await $fetch(
+      `http://localhost:3333/management/removecourseimages/${course.CourseImages[1].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeCourse(course);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+    await $fetch(
+      `http://localhost:3333/management/removecourseimages/${course.CourseImages[2].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeCourse(course);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  } else {
+    removeCourse(course);
+  }
+};
+
+const removeCourse = async function (course) {
+  await $fetch(`http://localhost:3333/management/removecourse/${course.id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  })
+    .then((response, error) => {
+      alert("deleted");
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
 
 onMounted(() => {
   console.log(props.courses);

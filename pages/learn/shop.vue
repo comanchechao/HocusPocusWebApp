@@ -10,10 +10,12 @@
         <div
           class="h-full my-14 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-14 grid-rows-1 gap-10 justify-items-center"
         >
-          <VideoCard class=" " />
-          <VideoCard class=" " />
-          <VideoCard class=" " />
-          <VideoCard class=" " />
+          <VideoCard
+            v-for="course in courses"
+            :key="course.id"
+            :course="course"
+            class=" "
+          />
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator :rows="10" :totalRecords="120"></Paginator>

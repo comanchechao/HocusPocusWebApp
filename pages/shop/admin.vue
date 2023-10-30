@@ -106,11 +106,11 @@ import { useMainManagement } from "~/stores/managementStore";
 const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
 
-const { stateChange } = storeToRefs(productManagement);
+const { stateChange } = storeToRefs(mainManagement);
 const { ordersCount } = storeToRefs(mainManagement);
 
 watch(stateChange, (cur, old) => {
-  console.log(stateChange);
+  console.log("stateChange", stateChange);
   getProducts();
 });
 const loading = ref(false);
@@ -158,6 +158,7 @@ const getOrders = async () => {
 
 onMounted(() => {
   getProducts();
+  console.log(stateChange);
   getOrders();
 });
 

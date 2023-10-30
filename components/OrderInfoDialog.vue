@@ -106,12 +106,14 @@
               :key="product.id"
               class="flex items-center justify-end space-x-2 w-full col-span-2"
             >
+              <h3>{{ product.quantity }}</h3>
               <h2
                 class="text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                {{ product.title }}
+                {{ product.product.title }}
               </h2>
               <h2 class="text-md">نام کالا</h2>
+
               <div
                 class="h-auto w-full flex items-end justify-end bg-mainWhite p-2"
               >
@@ -161,11 +163,11 @@ const getOrderItems = async () => {
       if (Array.isArray(response.orderItems[0].items)) {
         response.orderItems[0].items.forEach((itemId) => {
           if (itemId) {
-            getProduct(itemId.split(",")[0]);
+            getProduct(itemId.split(",")[0], itemId.split(",")[1]);
           }
         });
       } else {
-        getProduct(response.orderItems[0].items.split(",")[0]);
+        getProduct(response.orderItems[0].items.split(",")[0] ,response.orderItems[0].items.split(",")[1]);
       }
     })
     .catch(function (error) {
@@ -176,7 +178,8 @@ const getOrderItems = async () => {
 
 const products = ref([]);
 
-const getProduct = async (productId) => {
+const getProduct = async (productId, productQuantity) => {
+  console.log("this is product quantity ", productQuantity);
   loading.value = true;
   const { data } = await $fetch(`http://localhost:3333/products/${productId}`, {
     headers: {},
@@ -184,7 +187,11 @@ const getProduct = async (productId) => {
     credentials: "include",
   })
     .then(function (response) {
-      products.value.push(response.product);
+      products.value.push({
+        product: response.product,
+        quantity: productQuantity,
+      });
+      console.log(products.value);
       // if (response.product) {
       //   getProductImage();
       // }
