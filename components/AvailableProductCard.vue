@@ -22,6 +22,12 @@
 <script setup>
 import { PhTrash } from "@phosphor-icons/vue";
 const props = defineProps(["product"]);
+import { useManagementStore } from "~/stores/productManagement";
+import { useMainManagement } from "~/stores/managementStore";
+// register productManagement store
+const mainManagement = useMainManagement();
+const productManagement = useManagementStore();
+
 onMounted(() => {
   console.log(props.product);
 });
@@ -109,7 +115,7 @@ const removeProduct = async function () {
   )
     .then((response, error) => {
       alert("deleted");
-      productManagement.setStateChange();
+      mainManagement.setStateChange();
     })
     .catch((error) => {
       console.log(error.data);
