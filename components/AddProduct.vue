@@ -221,6 +221,7 @@ const handleProduct = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
+      mainManagement.setStateChange();
       console.log(response.product);
       addedProductID.value = response.product.id;
       console.log(error);
@@ -242,7 +243,7 @@ const handleProduct = async () => {
         eventFileFour.value,
       ];
       success.value = true;
-      managementStore.setStateChange();
+
       setTimeout(() => {
         success.value = false;
       }, 3000);
