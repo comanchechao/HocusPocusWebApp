@@ -1,13 +1,21 @@
 <template>
-  <div class="flex justify-center align-center">
-    <img :src="image" class="w-1/2 h-1/2" alt="" />
+  <div class="flex justify-center items-center lg:h-2/4 bg-mainWhite">
+    <ProgressSpinner
+      v-if="loading"
+      style="width: 50px; height: 50px"
+      strokeWidth="8"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
+    <img v-if="!loading" :src="image" class="h-full object-contain" alt="" />
   </div>
 </template>
 
 <script setup>
 const props = defineProps(["courseId"]);
 const image = ref("");
-
+const loading = ref(true);
 const getArticleImage = async () => {
   console.log(props.courseId[0].id, "course image id");
   const { data } = await $fetch(
@@ -21,6 +29,7 @@ const getArticleImage = async () => {
     .then(function (response) {
       console.log(response);
       image.value = response.image;
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);

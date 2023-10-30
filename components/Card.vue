@@ -3,7 +3,7 @@
     class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
-      class="w-full h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
+      class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
       id="div1"
       v-show="showDiv1"
       @mouseenter="toggleDiv1"
@@ -14,16 +14,38 @@
         class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
       /> -->
-      <ProductImage :productId="props.product.ProductImages[0].id">
+      <ProgressSpinner
+        v-if="loading"
+        style="width: 50px; height: 50px"
+        strokeWidth="8"
+        fill="var(--surface-ground)"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+      <ProductImage
+        v-if="!loading"
+        :productId="props.product.ProductImages[0].id"
+      >
       </ProductImage>
     </div>
     <div
-      class="w-full h-72 mb-3 bg-mainWhite rounded-t-lg"
+      class="w-full items-center justify-center flex h-72 mb-3 bg-mainWhite rounded-t-lg"
       id="div2"
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <ProductImage :productId="props.product.ProductImages[1].id">
+      <ProgressSpinner
+        v-if="loading"
+        style="width: 50px; height: 50px"
+        strokeWidth="8"
+        fill="var(--surface-ground)"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+      <ProductImage
+        v-if="!loading"
+        :productId="props.product.ProductImages[1].id"
+      >
       </ProductImage>
       <!-- <img
           src="../assets/images/Psychonauts.webp"
@@ -67,11 +89,6 @@
         >
           <PhShoppingBagOpen :size="30" weight="fill" />
         </button>
-        <NuxtLink :to="'/shop/productdetail/' + product.id">
-          <button>
-            <PhShoppingBagOpen :size="30" weight="fill" />
-          </button>
-        </NuxtLink>
       </div>
       <Message :closable="false" v-show="addSuccess" severity="success">
         <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
@@ -86,7 +103,7 @@ import { ref, watch } from "vue";
 import { PhInfo, PhShoppingBagOpen, PhMoney } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const addSuccess = ref(false);
-
+const loading = ref(true);
 const showDiv1 = ref();
 const showDiv2 = ref(true);
 function toggleDiv1() {

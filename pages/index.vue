@@ -134,7 +134,22 @@
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
         </h2>
-        <LazyVideoCardsCarousel :courses="courses" class="self-center" />
+        <div
+          class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 lg:px-20 px-4 w-full"
+          v-if="loading"
+        >
+          <Skeleton width="35rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
+        <LazyVideoCardsCarousel
+          v-if="!loading"
+          :courses="courses"
+          class="self-center"
+        />
       </div>
       <div
         class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
@@ -166,7 +181,32 @@
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
-        <LazyCardsCarousel :products="products" class="self-center" />
+        <div
+          class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
+          v-if="loading"
+        >
+          <Skeleton width="18rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
+        <LazyCardsCarousel
+          v-if="!loading"
+          :products="products"
+          class="self-center"
+        />
       </div>
     </div>
 
@@ -286,9 +326,8 @@ const products = ref();
 const container = ref(null);
 const image = ref(null);
 
-const loading = ref(false);
+const loading = ref(true);
 const getProducts = async () => {
-  loading.value = true;
   const { data } = await $fetch("http://localhost:3333/products", {
     headers: {},
     withCredentials: true,
