@@ -15,7 +15,7 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div class="w-full h-full flex items-center flex-col pb-24">
+      <div class="w-full h-full flex items-center flex-col p-10">
         <h2 class="neonText text-3xl">آپلود تصاویر</h2>
         <div
           class="w-full h-full grid my-10 lg:grid-cols-4 grid-cols-2 justify-items-center px-7 place-items-center gap-3"

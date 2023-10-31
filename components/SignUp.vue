@@ -194,7 +194,7 @@ async function loginFunction() {
 }
 @media only screen and (max-width: 480px) {
   .p-dialog {
-    width: 100% !important;
+    width: AUTO !important;
     height: auto !important;
     margin: 0 !important;
     top: 0 !important;
@@ -208,7 +208,7 @@ async function loginFunction() {
 }
 @media only screen and (max-width: 768px) {
   .p-dialog {
-    width: 100% !important;
+    width: AUTO !important;
     height: auto !important;
     margin: 0 !important;
     top: 0 !important;

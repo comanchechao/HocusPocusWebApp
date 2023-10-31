@@ -12,29 +12,38 @@
       v-model:visible="visible"
       modal
       :showHeader="true"
-      :style="{ width: '50vw', backgroundColor: '#150531', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#150531', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
-        class="h-full w-full p-3 space-y-10 flex flex-col items-center justify-center"
+        class="h-full w-full p-10 space-y-10 flex flex-col items-center justify-center"
       >
-        <span v-show="orderStatus === 'PROCESSING'" class="text-mainRed"
-          >در حال پردازش</span
-        >
-        <span v-show="orderStatus === 'SHIPPING'" class="text-mainRed"
-          >در حال ارسال</span
-        >
-        <span v-show="orderStatus === 'DELIVERED'" class="text-mainRed"
-          >تحویل داده شده</span
-        >
         <h2
           class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
         >
           تغییر وضعیت سفارش
         </h2>
+        <div class="w-full h-full justify-center flex items-center space-x-3">
+          <span
+            v-show="orderStatus === 'PROCESSING'"
+            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
+            >در حال پردازش</span
+          >
+          <span
+            v-show="orderStatus === 'SHIPPING'"
+            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
+            >در حال ارسال</span
+          >
+          <span
+            v-show="orderStatus === 'DELIVERED'"
+            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
+            >تحویل داده شده</span
+          >
+          <h2 class="text-mainRed">وضعیت سفارش</h2>
+        </div>
         <div
-          class="flex items-center justify-center text-right space-x-7 w-full h-full"
+          class="flex items-center justify-center text-right flex-col space-y-9 lg:space-y-0 lg:space-x-7 w-full h-full"
         >
           <div class="flex items-center space-x-3">
             <InputSwitch v-model="proccessing"></InputSwitch>
@@ -112,4 +121,33 @@ const visible = ref(false);
 const checked = ref(false);
 </script>
 
-<style scoped></style>
+<style>
+@media only screen and (max-width: 480px) {
+  .p-dialog {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(auto- 46px) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .p-dialog {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(auto- 46px) !important;
+  }
+}
+</style>

@@ -18,12 +18,30 @@
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
-        class="h-full w-full flex flex-col space-y-4 items-center justify-around p-3"
+        class="h-full w-full flex flex-col space-y-4 items-center justify-center p-3"
       >
         <div class="flex items-center justify-center w-full h-full p-2">
           <div
             class="w-full h-full grid grid-cols-2 place-items-center gap-3 text-mainWhite"
           >
+            <div
+              v-for="product in products"
+              :key="product.id"
+              class="flex items-center justify-end space-x-2 w-full col-span-2"
+            >
+              <h2
+                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+              >
+                {{ product.quantity }}
+              </h2>
+              <h2 class="text-md">تعداد کالا</h2>
+              <h2
+                class="text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
+              >
+                {{ product.product.title }}
+              </h2>
+              <h2 class="text-md">نام کالا</h2>
+            </div>
             <div
               class="flex items-center justify-end space-x-2 w-full col-span-2"
             >
@@ -85,7 +103,7 @@
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="text-md p-2 border-2 space-x-2 border-dashed border-mainPink rounded-md"
               >
                 <span>(تومان)</span>
                 <span> {{ order.totalPrice }} </span>
@@ -99,30 +117,6 @@
                 {{ products.length }}
               </h2>
               <h2 class="text-md">تعداد کالا</h2>
-            </div>
-
-            <div
-              v-for="product in products"
-              :key="product.id"
-              class="flex items-center justify-end space-x-2 w-full col-span-2"
-            >
-              <h3>{{ product.quantity }}</h3>
-              <h2
-                class="text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
-              >
-                {{ product.product.title }}
-              </h2>
-              <h2 class="text-md">نام کالا</h2>
-
-              <div
-                class="h-auto w-full flex items-end justify-end bg-mainWhite p-2"
-              >
-                <img
-                  src="../assets/images/Psychonauts.webp"
-                  class="object-contain h-36"
-                  alt=""
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -167,7 +161,10 @@ const getOrderItems = async () => {
           }
         });
       } else {
-        getProduct(response.orderItems[0].items.split(",")[0] ,response.orderItems[0].items.split(",")[1]);
+        getProduct(
+          response.orderItems[0].items.split(",")[0],
+          response.orderItems[0].items.split(",")[1]
+        );
       }
     })
     .catch(function (error) {

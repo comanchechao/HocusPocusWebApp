@@ -319,8 +319,8 @@ const uploadImage = async function (image) {
 }
 @media only screen and (max-width: 480px) {
   .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
+    width: auto !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;
@@ -328,13 +328,13 @@ const uploadImage = async function (image) {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(100% - 46px) !important;
+    height: calc(auto - 46px) !important;
   }
 }
 @media only screen and (max-width: 768px) {
   .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
+    width: auto !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;
@@ -342,7 +342,7 @@ const uploadImage = async function (image) {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(100% - 46px) !important;
+    height: calc(AUTO - 46px) !important;
   }
 }
 </style>

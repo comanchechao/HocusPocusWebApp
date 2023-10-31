@@ -47,7 +47,10 @@
           class="flex flex-col items-center rounded-md md:w-80 w-full lg:w-96 shadow-lg border border-mainPink shadow-mainPurple p-6"
         >
           <div class="flex items-center space-x-3 Stat1">
-            <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+            <h1
+              v-if="!loading"
+              class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+            >
               {{ ordersCount }}
             </h1>
           </div>
@@ -72,7 +75,7 @@
         class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <h2
-          class="text-4xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
         >
           سفارش ها
         </h2>
@@ -83,7 +86,7 @@
         class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <h2
-          class="text-4xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
         >
           مدیریت صفحه ی اول
         </h2>
