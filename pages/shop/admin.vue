@@ -118,7 +118,7 @@ const products = ref();
 
 const getProducts = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/products", {
+  const { data } = await $fetch("http://localhost:3333/management/products", {
     headers: {},
     withCredentials: true,
     credentials: "include",
