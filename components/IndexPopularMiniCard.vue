@@ -2,6 +2,8 @@
   <div
     class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
   >
+    <img src="" class="h-full w-full bg-mainPink" alt="" />
+
     <h2 class="text-darkPurple font-bold text-center text-md lg:text-xl flex">
       <span> {{ item.title }} </span>
     </h2>

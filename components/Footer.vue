@@ -92,11 +92,25 @@
         </div>
       </div>
     </div>
-    <!-- <img
-      src="../assets/images/FooterPic.webp"
-      class="w-screen object-contain"
-      alt=""
-    /> -->
+    <div
+      class="w-screen relative h-screen SkullT flex items-center justify-center"
+    >
+      <img
+        src="../assets/images/FooterM.webp"
+        class="w-screen absolute Footer object-contain"
+        alt=""
+      />
+      <img
+        src="../assets/images/FooterF.webp"
+        class="w-screen absolute Smoke object-contain"
+        alt=""
+      />
+      <img
+        src="../assets/images/FooterS.webp"
+        class="w-screen Skull absolute object-contain"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 
@@ -107,6 +121,21 @@ import {
   PhTelegramLogo,
   PhTwitterLogo,
 } from "@phosphor-icons/vue";
+import { gsap } from "gsap";
+onMounted(() => {
+  gsap.fromTo(
+    ".Smoke",
+    { opacity: -1, duration: 0.7, delay: 0.5 },
+    {
+      yoyo: true,
+      opacity: 1,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+      delay: 0.5,
+      repeat: -1,
+    }
+  );
+});
 </script>
 <style scoped>
 .HocusText {

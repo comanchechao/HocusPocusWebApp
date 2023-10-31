@@ -70,10 +70,10 @@
         <PhMoney :size="34" weight="fill" />
       </h3>
 
-      <div class="flex space-x-3 items-center w-full h-auto">
+      <div class="flex space-x-3 items-center w-full justify-center h-auto">
         <NuxtLink :to="'/shop/productdetail/' + product.id">
           <button
-            class="px-8 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+            class="px-3 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
           >
             <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
         ></NuxtLink>
@@ -85,7 +85,7 @@
         ></NuxtLink> -->
         <button
           @click="addToCart(props.product)"
-          class="justify-center w-20 h-10 shadow-md bg-mainRed hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-md"
+          class="justify-center w-10 h-10 shadow-md border-mainPink border-2 hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-md"
         >
           <PhShoppingBagOpen :size="30" weight="fill" />
         </button>

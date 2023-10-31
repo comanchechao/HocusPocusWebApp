@@ -84,16 +84,26 @@
               >اطلاعات ورودی خود را چک کنید</span
             >
           </Message>
-          <div class="flex items-center space-x-4">
-            <LazySignUp />
+          <div
+            class="flex lg:flex-row w-full flex-col px-20 items-center lg:space-y-0 space-y-4 lg:space-x-4"
+          >
             <button
               label="Show"
               @click="formSubmit()"
-              class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+              class="text-xl flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
-              <span> ورود </span>
-              <PhKeyhole :size="25" />
+              <ProgressSpinner
+                v-if="loading"
+                style="width: 30px; height: 30px"
+                strokeWidth="8"
+                fill="var(--surface-ground)"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+              />
+              <span v-if="!loading"> ورود </span>
+              <PhKeyhole v-if="!loading" :size="25" />
             </button>
+            <LazySignUp />
           </div>
         </div>
       </div>
@@ -107,7 +117,7 @@ import { PhKeyhole } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 
 const visible = ref(false);
-
+const loading = ref(false);
 //set up store
 
 const userStore = useUserStore();
@@ -123,6 +133,7 @@ const faildLogin = ref(false);
 const errorMessage = ref("");
 
 async function formSubmit() {
+  loading.value = true;
   const data = new URLSearchParams({
     email: loginEmail.value,
     password: loginPassword.value,
@@ -145,6 +156,7 @@ async function formSubmit() {
     .then(function (response) {
       console.log(response);
       userStore.setLogState();
+      loading.value = false;
       successLogin.value = true;
       setTimeout(() => {
         successLogin.value = false;
@@ -152,6 +164,7 @@ async function formSubmit() {
     })
     .catch(function (error) {
       console.error(error);
+      loading.value = false;
       faildLogin.value = true;
       setTimeout(() => {
         faildLogin.value = false;

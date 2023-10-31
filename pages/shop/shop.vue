@@ -13,13 +13,34 @@
         <div
           class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
+          <Skeleton v-if="loading" width="18rem" height="25rem"></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
           <LazyCard
+            v-if="!loading"
             v-show="!filteredProducts"
             v-for="product in products"
             :key="product"
             :product="product"
           ></LazyCard>
           <LazyCard
+            v-if="!loading"
             v-show="filteredProducts"
             v-for="product in filteredProducts"
             :key="product"
@@ -55,8 +76,8 @@ const TM = $gsap.timeline();
 const products = ref();
 const filteredProducts = ref();
 const filterOp = ref();
-
-// register filter store
+const loading = ref(true);
+// constregister filter store
 
 const filterStore = useFilterStore();
 
@@ -165,8 +186,6 @@ const getProducts = async () => {
       loading.value = false;
     });
 };
-
-const loading = ref(false);
 
 onMounted(() => {
   getProducts();

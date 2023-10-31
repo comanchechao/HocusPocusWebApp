@@ -12,7 +12,7 @@
     />
   </div>
   <div
-    class="w-screen h-auto from-mainPurple to-darkPurple bg-gradient-to-t flex flex-col items-center"
+    class="w-screen h-auto from-Indigo-950 to-darkPurple bg-gradient-to-t flex flex-col items-center"
   >
     <LazyNavbar></LazyNavbar>
 
@@ -94,11 +94,23 @@
         class="h-dialog FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <div
-          class="lg:w-1/2 FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
-        ></div>
+          class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+        >
+          <img
+            src="../assets/images/TeachArt.webp"
+            class="w-96 object-contain"
+            alt=""
+          />
+        </div>
         <div
-          class="lg:w-1/2 CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
-        ></div>
+          class="lg:w-1/2 flex items-center justify-center CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+        >
+          <img
+            src="../assets/images/TeachArt.webp"
+            class="w-96 object-contain"
+            alt=""
+          />
+        </div>
       </div>
       <div
         class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
@@ -228,11 +240,22 @@
       <div
         class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
       >
+        <div
+          class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 px-4 w-full"
+          v-if="loading"
+        >
+          <Skeleton width="18rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
         <div class="SCards">
-          <LazyCardsSwiper :products="products" />
+          <LazyCardsSwiper v-if="!loading" :products="products" />
         </div>
         <div class="lg:flex SCards hidden md:flex">
-          <LazyCardsSwiper :products="products" />
+          <LazyCardsSwiper v-if="!loading" :products="products" />
         </div>
       </div>
 
@@ -254,6 +277,7 @@
           v-show="latestProduct"
           class="h-full space-y-4 w-full bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
         >
+          <img src="" class="h-full w-full bg-mainPink" alt="" />
           <h2
             class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
           >
@@ -280,7 +304,7 @@
         />
       </div>
     </div>
-    <div class="w-full h-full my-14 flex flex-col">
+    <!-- <div class="w-full h-full my-14 flex flex-col">
       <div class="h-auto w-full items-center justify-between lg:px-10 flex">
         <button
           class="lg:px-7 px-2 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-mainYellow bg-darkPurple flex items-center space-x-3 text-mainYellow text-xl rounded-md"
@@ -297,7 +321,7 @@
       <div class="w-full flex justify-center mt-4 items-center">
         <LazyInstagramCarousel />
       </div>
-    </div>
+    </div> -->
     <LazyFooter></LazyFooter>
   </div>
 </template>
