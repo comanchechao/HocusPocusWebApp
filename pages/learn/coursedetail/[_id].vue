@@ -34,14 +34,11 @@
         class="w-full h-dialog rounded-md shadow-lg shadow-mainYellow bg-white"
       >
         <video
+          type="video/mp4"
+          class="w-full h-full"
           controls
-          class="h-full w-full bg-gray-900 flex items-center rounded-t-md"
-        >
-          <!-- <source
-            type="video/mp4"
-            src="../../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
-          /> -->
-        </video>
+          :src="videoFile"
+        ></video>
       </div>
 
       <div class="h-full w-full flex flex-col my-12 items-end space-y-7">
@@ -83,20 +80,7 @@
               توضیحات کالا
             </h2>
             <h3 class="text-sm bg-gray-100 p-3 rounded-md my-3">
-              ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-              نیاز شامل حروفچینی دستاوردهای اصل میباشدورم ایپسوم متن ساختگی با
-              تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-              است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-              لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع
-              با هدف بهبود ابزارهای کاربردی می باشد، نیاز شامل حروفچینی
-              دستاوردهای اصل میباشدورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-              از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-              بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-              فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای
-              کاربردی می باشد، نیاز شامل حروفچینی دستاوردهای اصل میباشد
+              {{ course.description }}
             </h3>
           </div>
         </div>
@@ -123,10 +107,10 @@ import {
 
 const loading = ref(true);
 const course = ref();
+const videoFile = ref();
 
 const router = useRoute();
 const getCourse = async () => {
-  console.log(router);
   loading.value = true;
   const { data } = await $fetch(
     `http://localhost:3333/videos/${router.params._id}`,
@@ -138,7 +122,9 @@ const getCourse = async () => {
   )
     .then(function (response) {
       course.value = response.course;
-      console.log(response.course);
+      const uint8Array = new Uint8Array(response.course.file.data);
+      const blob = new Blob([uint8Array], { type: "video/mp4" });
+      videoFile.value = URL.createObjectURL(blob);
       // if (response.product) {
       //   getProductImage();
       // }
