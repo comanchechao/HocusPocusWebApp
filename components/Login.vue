@@ -85,7 +85,7 @@
             >
           </Message>
           <div
-            class="flex lg:flex-row w-full flex-col px-20 items-center lg:space-y-0 space-y-4 lg:space-x-4"
+            class="flex lg:flex-row w-full flex-col lg:px-20 items-center lg:space-y-0 space-y-4 lg:space-x-4"
           >
             <button
               label="Show"
