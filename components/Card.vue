@@ -14,18 +14,8 @@
         class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
       /> -->
-      <ProgressSpinner
-        v-if="loading"
-        style="width: 50px; height: 50px"
-        strokeWidth="8"
-        fill="var(--surface-ground)"
-        animationDuration=".5s"
-        aria-label="Custom ProgressSpinner"
-      />
-      <ProductImage
-        v-if="!loading"
-        :productId="props.product.ProductImages[0].id"
-      >
+
+      <ProductImage :productId="props.product.ProductImages[0].id">
       </ProductImage>
     </div>
     <div
@@ -34,18 +24,7 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <ProgressSpinner
-        v-if="loading"
-        style="width: 50px; height: 50px"
-        strokeWidth="8"
-        fill="var(--surface-ground)"
-        animationDuration=".5s"
-        aria-label="Custom ProgressSpinner"
-      />
-      <ProductImage
-        v-if="!loading"
-        :productId="props.product.ProductImages[1].id"
-      >
+      <ProductImage :productId="props.product.ProductImages[1].id">
       </ProductImage>
       <!-- <img
           src="../assets/images/Psychonauts.webp"

@@ -194,6 +194,7 @@ import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
+import { useMainManagement } from "~/stores/managementStore";
 const visible = ref(false);
 
 // product refs
@@ -225,6 +226,7 @@ const addedCourseId = ref();
 // regiter management store
 
 const managementStore = useManagementStore();
+const mainManagement = useMainManagement();
 
 const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
 
@@ -260,6 +262,7 @@ const handleCourse = async () => {
     .then((response, error) => {
       console.log(response.video.id);
       addedCourseId.value = response.video.id;
+      mainManagement.setStateChange();
       console.log(error);
       let images = [
         eventImageOne.value,
