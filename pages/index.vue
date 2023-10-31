@@ -277,7 +277,10 @@
           v-show="latestProduct"
           class="h-full space-y-4 w-full bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
         >
-          <img src="" class="h-full w-full bg-mainPink" alt="" />
+          <LazyLastProductImage
+            v-if="!loadingTwo"
+            :productId="latestProduct.ProductImages[0].id"
+          />
           <h2
             class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
           >
@@ -391,7 +394,7 @@ const getCourses = async () => {
     });
 };
 
-const loadingTwo = ref(false);
+const loadingTwo = ref(true);
 const latestProduct = ref({});
 
 const getLatestProduct = async () => {
