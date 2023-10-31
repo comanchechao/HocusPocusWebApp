@@ -22,6 +22,14 @@ import {
   PhPackage,
   PhVideo,
 } from "@phosphor-icons/vue";
+import { useMainManagement } from "~/stores/managementStore";
+
+// resiger mainmanagement store
+
+const mainManagement = useMainManagement();
+
+// values
+
 const visible = ref(false);
 const checked = ref(false);
 const props = defineProps(["course"]);
@@ -94,6 +102,7 @@ const removeCourse = async function () {
   )
     .then((response, error) => {
       alert("deleted");
+      mainManagement.setStateChange();
     })
     .catch((error) => {
       console.log(error.data);

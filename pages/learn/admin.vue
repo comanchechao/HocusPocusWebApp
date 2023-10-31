@@ -132,7 +132,11 @@ import { useMainManagement } from "~/stores/managementStore";
 
 const managementStore = useMainManagement();
 
-const { coursesCount } = storeToRefs(managementStore);
+const { coursesCount, stateChange } = storeToRefs(managementStore);
+
+watch(stateChange, (cur, old) => {
+  getCourses();
+});
 
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();

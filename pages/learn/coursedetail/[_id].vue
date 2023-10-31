@@ -79,7 +79,7 @@
             >
               توضیحات کالا
             </h2>
-            <h3 class="text-sm bg-gray-100 p-3 rounded-md my-3">
+            <h3 v-if="!loading" class="text-sm bg-gray-100 p-3 rounded-md my-3">
               {{ course.description }}
             </h3>
           </div>
