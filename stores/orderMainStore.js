@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 export const useOrderMainStore = defineStore("orderMainStore", {
   state: () => ({
-    stateChange: false,
+    orderStatus: false,
   }),
   actions: {
     setStateChange() {
-      this.stateChange = !this.stateChange;
+      this.orderStatus = !this.orderStatus;
     },
   },
 });

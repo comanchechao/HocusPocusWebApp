@@ -73,7 +73,12 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
+import { useOrderMainStore } from "~/stores/orderMainStore";
 const props = defineProps(["orderStatus", "orderId"]);
+
+// register orderMain store
+
+const ordermainStore = useOrderMainStore();
 
 const proccessing = ref(false);
 const shipping = ref(false);
@@ -108,6 +113,7 @@ const statusChange = async (status) => {
   })
     .then((response, error) => {
       console.log(response);
+      ordermainStore.setStateChange();
     })
     .catch((error) => {
       console.log(error);
