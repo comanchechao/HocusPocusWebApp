@@ -131,7 +131,7 @@ import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
 const props = defineProps(["order"]);
 const visible = ref(false);
 
-const loading = ref(false);
+const loading = ref(true);
 const orderItems = ref();
 
 watch(orderItems, (cur, old) => {
@@ -188,7 +188,8 @@ const getProduct = async (productId, productQuantity) => {
         product: response.product,
         quantity: productQuantity,
       });
-      console.log(products.value);
+      loading.value = false;
+      console.log(products.value, "product consoled");
       // if (response.product) {
       //   getProductImage();
       // }
@@ -200,6 +201,7 @@ const getProduct = async (productId, productQuantity) => {
 };
 onMounted(() => {
   getOrderItems();
+  console.log(props, " this is props");
 });
 
 const checked = ref(false);

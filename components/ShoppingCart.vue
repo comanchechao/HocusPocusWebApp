@@ -17,7 +17,6 @@
               <div class="w-24 h-24 flex items-center justify-center">
                 <LazyProductImage
                   :productId="item.ProductImages[0].id"
-                  src="../assets/images/Psychonauts.webp"
                   class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
                   alt=""
                 />
@@ -119,7 +118,7 @@ const increaseItem = (product) => {
 };
 
 onMounted(() => {
-  console.log(shoppingCart.value);
+  console.log(shoppingCart.value, "this is shopping cart value");
 });
 
 import {
