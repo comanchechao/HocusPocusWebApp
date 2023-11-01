@@ -111,16 +111,23 @@ import { ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useManagementStore } from "~/stores/productManagement";
 import { useMainManagement } from "~/stores/managementStore";
+import { useOrderMainStore } from "~/stores/orderMainStore";
 // register productManagement store
 const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
+const orderMainStore = useOrderMainStore();
 
+const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);
 const { ordersCount } = storeToRefs(mainManagement);
 
 watch(stateChange, (cur, old) => {
   console.log("stateChange", stateChange);
   getProducts();
+});
+
+watch(orderStatus, (cur, old) => {
+  getOrders();
 });
 const loading = ref(false);
 const products = ref();
