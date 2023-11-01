@@ -11,7 +11,7 @@
     />
   </div>
   <div
-    class="w-screen h-auto from-Indigo-950 to-darkPurple bg-gradient-to-t flex flex-col items-center"
+    class="w-screen h-auto from-Indigo-700 to-darkPurple bg-gradient-to-t flex flex-col items-center"
   >
     <LazyNavbar></LazyNavbar>
 
