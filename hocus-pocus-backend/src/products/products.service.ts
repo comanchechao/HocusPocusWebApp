@@ -60,6 +60,7 @@ export class ProductsService {
         design: true,
         category: true,
         description: true,
+        ProductImages: true,
       },
     });
     return { products: products };
