@@ -8,7 +8,6 @@
         class="bg-darkPurple"
         style="width: 80px; height: 80px"
         strokeWidth="8"
-        fill="var(--surface-ground)"
         animationDuration=".5s"
         aria-label="Custom ProgressSpinner"
       />
@@ -53,6 +52,13 @@
             >
               {{ ordersCount }}
             </h1>
+            <ProgressSpinner
+              v-show="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
           </div>
           <h3 class="text-white text-lg">مجموع سفارش ها</h3>
         </div>

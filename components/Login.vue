@@ -96,7 +96,6 @@
                 v-if="loading"
                 style="width: 30px; height: 30px"
                 strokeWidth="8"
-                fill="var(--surface-ground)"
                 animationDuration=".5s"
                 aria-label="Custom ProgressSpinner"
               />

@@ -1,11 +1,10 @@
 <template>
-  <div class="flex justify-center align-center">
+  <div class="flex justify-center items-center">
     <img v-if="!loading" :src="image" class="w-full h-full" alt="" />
     <ProgressSpinner
       v-if="loading"
       style="width: 50px; height: 50px"
       strokeWidth="8"
-      fill="var(--surface-ground)"
       animationDuration=".5s"
       aria-label="Custom ProgressSpinner"
     />

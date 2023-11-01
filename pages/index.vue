@@ -6,7 +6,6 @@
       class="bg-darkPurple"
       style="width: 80px; height: 80px"
       strokeWidth="8"
-      fill="var(--surface-ground)"
       animationDuration=".5s"
       aria-label="Custom ProgressSpinner"
     />
@@ -67,7 +66,7 @@
       </div>
       <div class="Store opacity-0">
         <h1
-          class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-3xl lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <span>آنلاین شاپ و وبسایت آموزشی شعبده بازی </span>
         </h1>
@@ -81,7 +80,7 @@
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain1.webp"
-        class="object-contain h-48 w-full lg:px-0 px-4"
+        class="object-contain md:h-40 h-24 lg:h-48 w-full lg:px-0 px-4"
         alt=""
       />
       <h2
@@ -98,7 +97,7 @@
         >
           <img
             src="../assets/images/TeachArt.webp"
-            class="w-96 object-contain"
+            class="lg:w-96 w-60 object-contain"
             alt=""
           />
         </div>

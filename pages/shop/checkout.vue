@@ -8,16 +8,20 @@
       >
         <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
-          <span class="pb-2 border-b-2 border-mainRed"> تکمیل خرید </span>
+          <span class="rounded-md border-b-2 border-mainRed"> تکمیل خرید </span>
         </h2>
-        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
-          <PhCaretLeft :size="20" weight="fill" />
-          <span> خرید </span>
-        </h2>
-        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
-          <PhCaretLeft :size="20" weight="fill" />
-          <span> خونه </span>
-        </h2>
+        <NuxtLink to="/shop/shop">
+          <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+            <PhCaretLeft :size="20" weight="fill" />
+            <span> خرید </span>
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/">
+          <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+            <PhCaretLeft :size="20" weight="fill" />
+            <span> خونه </span>
+          </h2>
+        </NuxtLink>
       </div>
       <div
         class="w-full h-full bg-white p-6 flex lg:flex-row flex-col-reverse items-center space-x-4 rounded-md"

@@ -14,15 +14,17 @@
         <h2
           class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-2xl lg:text-4xl flex"
         >
-          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <PhGraduationCap
+            class="hidden lg:flex mr-3"
+            :size="35"
+            weight="fill"
+          />
           <span> راه های تماس با ما </span>
         </h2>
         <div
           class="w-full h-full lg:h-48 grid grid-cols-1 lg:grid-cols-2 place-items-end lg:place-items-center gap-5 lg:gap-2 rounded-md lg:shadow-lg shadow-mainPink"
         >
-          <div
-            class="flex lg:flex-row flex-col-reverse text-right items-end space-x-5"
-          >
+          <div class="flex text-right items-end space-x-5">
             <h2 class="flex items-center text-mainWhite text-2xl">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border-2 border-mainPink rounded-sm"
@@ -35,7 +37,11 @@
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >شماره تلفن</span
               >
-              <PhPhoneCall :size="40" class="mx-1" weight="fill" />
+              <PhPhoneCall
+                class="hidden lg:flex mx-1"
+                :size="40"
+                weight="fill"
+              />
             </h2>
           </div>
           <div
@@ -52,7 +58,11 @@
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >ایمیل</span
               >
-              <PhEnvelope :size="40" class="mx-1" weight="fill" />
+              <PhEnvelope
+                class="hidden lg:flex mx-1"
+                :size="40"
+                weight="fill"
+              />
             </h2>
           </div>
           <div
@@ -71,7 +81,11 @@
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >آدرس</span
               >
-              <PhGlobeStand :size="40" class="mx-1" weight="fill" />
+              <PhGlobeStand
+                class="hidden lg:flex mx-1"
+                :size="40"
+                weight="fill"
+              />
             </h2>
           </div>
         </div>

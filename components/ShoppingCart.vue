@@ -12,9 +12,9 @@
             class="w-full flex flex-col items-center space-y-7 h-48"
           >
             <div
-              class="w-full h-24 border-y border-r rounded-md border-mainRed justify-between pr-8 flex items-center"
+              class="w-full h-24 border-y space-x-4 border-r rounded-md border-mainRed justify-between pr-8 flex items-center"
             >
-              <div class="w-24 h-24 p-3 bg-white">
+              <div class="w-24 h-24 flex items-center justify-center">
                 <LazyProductImage
                   :productId="item.ProductImages[0].id"
                   src="../assets/images/Psychonauts.webp"

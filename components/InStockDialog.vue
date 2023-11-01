@@ -7,7 +7,16 @@
       <PhChartPieSlice class="text-mainRed" :size="60" weight="fill" />
       <div class="flex flex-col items-center space-y-3">
         <h3 class="text-mainPurple text-md">کالاهای موجود</h3>
-        <h1 class="text-darkPurple text-5xl font-bold">{{ productsCount }}</h1>
+        <h1 v-show="productsCount" class="text-darkPurple text-5xl font-bold">
+          {{ productsCount }}
+        </h1>
+        <ProgressSpinner
+          v-show="!productsCount"
+          style="width: 50px; height: 50px"
+          strokeWidth="8"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
       </div>
     </div>
 
@@ -26,7 +35,7 @@
         <h2
           class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
         >
-          کالاهای موجود در انبار
+          کالاهای موجود
         </h2>
         <div
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"

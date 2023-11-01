@@ -11,7 +11,6 @@
         class="bg-darkPurple"
         style="width: 80px; height: 80px"
         strokeWidth="8"
-        fill="var(--surface-ground)"
         animationDuration=".5s"
         aria-label="Custom ProgressSpinner"
       />

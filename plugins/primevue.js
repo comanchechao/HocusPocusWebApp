@@ -17,6 +17,8 @@ import Textarea from "primevue/textarea";
 import Skeleton from "primevue/skeleton";
 import ProgressSpinner from "primevue/progressspinner";
 
+import InputMask from "primevue/inputmask";
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
@@ -35,6 +37,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Textarea", Textarea);
   nuxtApp.vueApp.component("Skeleton", Skeleton);
   nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
+  nuxtApp.vueApp.component("InputMask", InputMask);
 
   //other components that you need
 });
