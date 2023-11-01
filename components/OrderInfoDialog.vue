@@ -20,10 +20,7 @@
       <div
         class="h-full w-full flex flex-col space-y-4 items-center justify-center p-3"
       >
-        <div
-          v-if="!loading"
-          class="flex items-center justify-center w-full h-full p-2"
-        >
+        <div class="flex items-center justify-center w-full h-full p-2">
           <div
             class="w-full h-full grid grid-cols-2 place-items-center gap-3 text-mainWhite"
           >
@@ -192,7 +189,7 @@ const getProduct = async (productId, productQuantity) => {
         quantity: productQuantity,
       });
       loading.value = false;
-      console.log(products.value);
+      console.log(products.value, "product consoled");
       // if (response.product) {
       //   getProductImage();
       // }
@@ -204,6 +201,7 @@ const getProduct = async (productId, productQuantity) => {
 };
 onMounted(() => {
   getOrderItems();
+  console.log(props, " this is props");
 });
 
 const checked = ref(false);
