@@ -61,11 +61,7 @@
                 class="w-full h-24 justify-between pr-8 flex items-center border-2 rounded-sm border-mainRed"
               >
                 <div class="w-24 h-full bg-white p-3">
-                  <img
-                    src="../../assets/images/Psychonauts.webp"
-                    class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
-                    alt=""
-                  />
+                  <LazyOrderItemImage :productId="item.ProductImages[0].id" />
                 </div>
                 <h3 class="text-xl text-darkPurple flex flex-col items-center">
                   <span> {{ item.price }} </span>

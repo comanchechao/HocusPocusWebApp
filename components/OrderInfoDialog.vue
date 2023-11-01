@@ -20,7 +20,10 @@
       <div
         class="h-full w-full flex flex-col space-y-4 items-center justify-center p-3"
       >
-        <div class="flex items-center justify-center w-full h-full p-2">
+        <div
+          v-if="!loading"
+          class="flex items-center justify-center w-full h-full p-2"
+        >
           <div
             class="w-full h-full grid grid-cols-2 place-items-center gap-3 text-mainWhite"
           >
@@ -131,7 +134,7 @@ import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
 const props = defineProps(["order"]);
 const visible = ref(false);
 
-const loading = ref(false);
+const loading = ref(true);
 const orderItems = ref();
 
 watch(orderItems, (cur, old) => {
@@ -188,6 +191,7 @@ const getProduct = async (productId, productQuantity) => {
         product: response.product,
         quantity: productQuantity,
       });
+      loading.value = false;
       console.log(products.value);
       // if (response.product) {
       //   getProductImage();
