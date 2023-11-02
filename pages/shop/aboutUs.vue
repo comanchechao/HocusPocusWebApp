@@ -16,7 +16,7 @@
       />
     </div>
     <div
-      class="h-auto pt-24 lg:pb-28 lg:pt-48 w-full relative flex items-center justify-center lg:px-44 px-6 my-16"
+      class="h-auto pt-44 lg:pb-28 lg:pt-48 w-full relative flex items-center justify-center lg:px-44 px-6 my-24"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
