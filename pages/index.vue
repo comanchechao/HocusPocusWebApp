@@ -274,38 +274,53 @@
       >
         <div
           v-show="latestProduct"
-          class="h-full space-y-4 w-full bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
+          class="h-full space-y-1 w-full rounded-md bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
         >
-          <LazyLastProductImage
-            v-if="!loadingTwo"
-            :productId="latestProduct.ProductImages[0].id"
-          />
-          <h2
-            class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
-          >
-            <span> {{ latestProduct.title }} </span>
-          </h2>
-          <h3
-            class="text-4xl border-2 border-dashed border-darkPurple rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
-          >
-            <span class="text-xs text-darkPurple">تومان</span>
-            <span>{{ latestProduct.price }}</span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
-          <button
-            @click="addToCart(latestProduct)"
-            class="w-full justify-center mt-3 py-3 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-lg duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
-          >
-            <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
-          </button>
-          <Message :closable="false" v-show="addSuccess" severity="success">
-            <span class="lg:text-sm text-sm font-bold"
-              >به سبد خرید اضافه شد</span
+          <div class="h-1/2 w-full flex items-center justify-center">
+            <LazyLastProductImage
+              v-if="!loadingTwo"
+              :productId="latestProduct.ProductImages[0].id"
+            />
+          </div>
+          <div class="w-full h-full flex flex-col items-end space-y-4">
+            <Skeleton v-if="loadingTwo" width="17rem" height="2rem"></Skeleton>
+            <Skeleton v-if="loadingTwo" width="10rem" height="4rem"></Skeleton>
+
+            <h2
+              v-if="!loadingTwo"
+              class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
             >
-          </Message>
+              <span> {{ latestProduct.title }} </span>
+            </h2>
+            <h3
+              v-if="!loadingTwo"
+              class="text-4xl border-2 border-dashed border-darkPurple rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
+            >
+              <span class="text-xs text-darkPurple">تومان</span>
+              <span>{{ latestProduct.price }}</span>
+              <PhMoney :size="34" weight="fill" />
+            </h3>
+            <button
+              v-if="!loadingTwo"
+              @click="addToCart(latestProduct)"
+              class="w-full justify-center mt-3 py-3 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-lg duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+            >
+              <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+            </button>
+            <Message :closable="false" v-show="addSuccess" severity="success">
+              <span class="lg:text-sm text-sm font-bold"
+                >به سبد خرید اضافه شد</span
+              >
+            </Message>
+          </div>
         </div>
+        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
+        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
+        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
+        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
 
         <LazyIndexPopularMiniCard
+          v-if="!loadingThree"
           v-for="item in latestFour"
           :key="item.id"
           :item="item"
@@ -434,7 +449,7 @@ const getLatestProduct = async () => {
 };
 
 const latestFour = ref([]);
-const loadingThree = ref();
+const loadingThree = ref(true);
 
 const getLatestFour = async () => {
   loadingThree.value = true;

@@ -19,7 +19,7 @@
       <div
         class="w-full h-full pt-10 pt flex items-center flex-col lg:p-10 space-y-10"
       >
-        <h2 class="neonText text-3xl">اضافه کردن آموزش</h2>
+        <h2 class="text-3xl text-mainYellow">اضافه کردن آموزش</h2>
 
         <div class="w-full flex items-center flex-col space-y-7">
           <div
@@ -55,11 +55,10 @@
               <label class="text-xl text-mainYellow" for="email"
                 >تاریخ آپلود آموزش <span class="text-sm">(به شمسی)</span></label
               >
-              <InputNumber
-                id="email"
+              <InputMask
                 v-model="productPrice"
-                aria-describedby="username-help"
-                class="w-full"
+                placeholder="99/99/9999"
+                slotChar="mm/dd/yyyy"
               />
             </div>
             <div class="flex items-end flex-col space-y-4">
@@ -86,7 +85,7 @@
               cols="90"
             />
           </div>
-          <h2 class="neonText text-3xl">آپلود تصاویر ویدیو</h2>
+          <h2 class="text-mainYellow text-3xl">آپلود تصاویر ویدیو</h2>
           <div
             class="w-full h-full lg:flex items-center grid grid-cols-2 grid-rows-2 justify-items-center px-7 place-items-center gap-3 lg:space-x-0 lg:justify-center lg:flex-wrap"
           >
@@ -145,7 +144,7 @@
           {{ design }}
           {{ brand }}
           {{ rarity }} -->
-          <div class="h-28 w-full flex flex-col items-center justify-center">
+          <div class="h-full w-full flex space-x-6 items-center justify-center">
             <div>
               <Message v-show="success">کالا به انبار اضافه شد</Message>
             </div>
@@ -342,7 +341,7 @@ const uploadImage = async function (image) {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(AUTO - 46px) !important;
+    height: calc(auto - 46px) !important;
   }
 }
 </style>

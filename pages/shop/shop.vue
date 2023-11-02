@@ -11,7 +11,7 @@
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
         <div
-          class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
+          class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
           <Skeleton v-if="loading" width="18rem" height="25rem"></Skeleton>
           <Skeleton
