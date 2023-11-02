@@ -283,6 +283,8 @@
             />
           </div>
           <div class="w-full h-full flex flex-col items-end space-y-4">
+            <Skeleton v-if="loadingTwo" width="39rem" height="40rem"></Skeleton>
+
             <Skeleton v-if="loadingTwo" width="17rem" height="2rem"></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="4rem"></Skeleton>
 
