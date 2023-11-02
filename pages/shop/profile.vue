@@ -10,14 +10,14 @@
           id="div1"
           v-show="showDiv1"
         >
-          <ProfileInformation :isVisible="true" class="h-full w-full" />
+          <LazyProfileInformation :isVisible="true" class="h-full w-full" />
         </div>
         <div
           class="w-full h-full flex items-center py-14"
           id="div2"
           v-show="showDiv2"
         >
-          <ProfileOrders class="h-full w-full" />
+          <LazyProfileOrders class="h-full w-full" />
         </div>
       </div>
       <div

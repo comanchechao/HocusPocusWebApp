@@ -174,6 +174,7 @@ async function formSubmit() {
 <style>
 .p-dialog {
   max-height: 100% !important;
+  max-width: 100% !important;
 }
 .p-message-wrapper {
   align-items: center;
@@ -181,5 +182,33 @@ async function formSubmit() {
 }
 .p-message.p-message-error .p-message-close {
   margin-left: 0;
+}
+@media only screen and (max-width: 480px) {
+  .p-dialog {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(auto - 46px) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .p-dialog {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(auto - 46px) !important;
+  }
 }
 </style>

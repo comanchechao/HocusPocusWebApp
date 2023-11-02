@@ -25,9 +25,10 @@
       placeholder="انتخاب استان"
       class="w-full rounded-lg h-11"
     />
-    <InputNumber
+    <InputMask
       placeholder="شماره تلفن"
       v-model="phoneNumber"
+      mask="9999-999-9999"
       class="w-full rounded-lg h-11"
       aria-describedby="username-help"
     />
@@ -53,9 +54,10 @@
       class="w-full rounded-lg h-11 self"
       aria-describedby="username-help"
     />
-    <InputText
+    <InputMask
       placeholder="کد پستی"
       id="postalCode"
+      mask="9999999999"
       v-model="postalCode"
       class="w-full rounded-lg h-11 self"
       aria-describedby="username-help"

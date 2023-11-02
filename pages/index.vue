@@ -90,7 +90,7 @@
         <span> محصولات هوکوس پوکوس </span>
       </h2>
       <div
-        class="h-dialog FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
+        class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <div
           class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
@@ -106,7 +106,7 @@
         >
           <img
             src="../assets/images/TeachArt.webp"
-            class="w-96 object-contain"
+            class="lg:w-96 w-60 object-contain"
             alt=""
           />
         </div>
@@ -224,7 +224,7 @@
     <div class="h-auto w-full flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain.webp"
-        class="object-contain h-64 w-full lg:px-0 px-4"
+        class="object-contain h-40 lg:h-64 w-full lg:px-0 px-4"
         alt=""
       />
 
@@ -274,19 +274,31 @@
       >
         <div
           v-show="latestProduct"
-          class="h-full space-y-1 w-full rounded-md bg-white lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-end p-5"
+          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center p-5"
         >
-          <div class="h-1/2 w-full flex items-center justify-center">
+          <div class="h-3/4 w-full flex items-end flex-col justify-center">
+            <ProgressSpinner
+              v-if="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
             <LazyLastProductImage
               v-if="!loadingTwo"
               :productId="latestProduct.ProductImages[0].id"
             />
           </div>
-          <div class="w-full h-full flex flex-col items-end space-y-4">
-            <Skeleton v-if="loadingTwo" width="39rem" height="40rem"></Skeleton>
-
-            <Skeleton v-if="loadingTwo" width="17rem" height="2rem"></Skeleton>
-            <Skeleton v-if="loadingTwo" width="10rem" height="4rem"></Skeleton>
+          <div
+            class="w-full h-1/4 flex flex-col items-end justify-center space-y-4"
+          >
+            <Skeleton
+              class="hidden lg:flex"
+              v-if="loadingTwo"
+              width="35rem"
+              height="3rem"
+            ></Skeleton>
+            <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
 
             <h2
               v-if="!loadingTwo"
@@ -316,10 +328,30 @@
             </Message>
           </div>
         </div>
-        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
-        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
-        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
-        <Skeleton v-if="loadingThree" width="20rem" height="20rem"></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
 
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
@@ -397,9 +429,9 @@ const getProducts = async () => {
     .then(function (response) {
       console.log(response.products);
       products.value = response.products;
-      loading.value = false;
       productStore.setProducts(response.products);
       getCourses();
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -418,8 +450,8 @@ const getCourses = async () => {
     .then(function (response) {
       console.log(response.courses);
       courses.value = response.courses;
-      loading.value = false;
       getLatestProduct();
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -439,8 +471,8 @@ const getLatestProduct = async () => {
     .then(function (response) {
       console.log(response.product);
       latestProduct.value = response.product[0];
-      loadingTwo.value = false;
       getLatestFour();
+      loadingTwo.value = false;
     })
     .catch(function (error) {
       console.error(error);

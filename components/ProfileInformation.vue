@@ -17,7 +17,7 @@
       </h2>
     </div>
     <div class="flex w-full items-center h-full" id="Info" v-show="infoDiv">
-      <CustomerInfo isVisible="true" />
+      <LazyCustomerInfo isVisible="true" />
     </div>
     <div class="flex w-full items-center h-full" id="edit" v-show="editDiv">
       <div class="h-full w-full flex items-center justify-center">
