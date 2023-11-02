@@ -221,7 +221,6 @@ const handleProduct = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
-      mainManagement.setStateChange();
       console.log(response.product);
       addedProductID.value = response.product.id;
       console.log(error);
@@ -250,6 +249,7 @@ const handleProduct = async () => {
       images.forEach((image) => {
         uploadImage(image);
       });
+      mainManagement.setStateChange();
     })
     .catch((error) => {
       faild.value = true;

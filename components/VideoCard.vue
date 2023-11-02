@@ -24,9 +24,7 @@
         <PhMagicWand :size="25" weight="fill" />
       </h2>
       <h3 class="text-sm">
-        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-        از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است،
+        {{ course.description }}
       </h3>
       <div
         class="w-full h-auto flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-center lg:justify-around px-3"
@@ -35,7 +33,7 @@
           class="text-4xl border-2 border-dashed border-mainOrange rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainOrange">تومان</span>
-          <span>599,000</span>
+          <span>{{ course.price }}</span>
           <PhMoney :size="34" weight="fill" />
         </h3>
         <div class="flex items-center space-y-4 flex-col">
