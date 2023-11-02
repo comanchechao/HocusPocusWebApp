@@ -403,7 +403,6 @@ const getProducts = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loading.value = false;
     });
 };
 
@@ -424,7 +423,6 @@ const getCourses = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loading.value = false;
     });
 };
 
@@ -446,7 +444,6 @@ const getLatestProduct = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loadingTwo.value = false;
     });
 };
 
@@ -467,7 +464,6 @@ const getLatestFour = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loadingThree.value = false;
     });
 };
 

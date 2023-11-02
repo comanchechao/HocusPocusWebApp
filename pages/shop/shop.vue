@@ -183,7 +183,6 @@ const getProducts = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loading.value = false;
     });
 };
 
