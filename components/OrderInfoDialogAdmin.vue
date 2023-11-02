@@ -116,11 +116,11 @@
               <div
                 class="h-auto w-full flex items-end justify-end bg-mainWhite p-2"
               >
-                <img
+                <!-- <img
                   src="../assets/images/Psychonauts.webp"
                   class="object-contain h-36"
                   alt=""
-                />
+                /> -->
               </div>
             </div>
           </div>
@@ -164,10 +164,7 @@ const getOrderItems = async () => {
         response.orderItems[0].items.forEach((itemId) => {
           console.log(itemId.split(",")[0]);
           if (itemId) {
-            getProduct(
-              itemId.split(",")[0],
-              itemId.split(",")[1],
-            );
+            getProduct(itemId.split(",")[0], itemId.split(",")[1]);
           }
         });
       } else {

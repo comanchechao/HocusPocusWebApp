@@ -43,11 +43,11 @@
       </div>
     </div>
     <div class="lg:h-full h-auto w-24 lg:w-auto bg-white flex items-center">
-      <img
+      <!-- <img
         src="../assets/images/Psychonauts.webp"
         class="object-contain h-36 lg:h-full w-full"
         alt=""
-      />
+      /> -->
     </div>
   </div>
 </template>
