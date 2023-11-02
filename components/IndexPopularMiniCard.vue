@@ -15,13 +15,33 @@
       <PhMoney :size="34" weight="fill" />
     </h3>
     <button
+      @click="addToCart(item)"
       class="w-full justify-center mt-3 py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
     >
       <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
     </button>
+    <Message :closable="false" v-show="addSuccess" severity="success">
+      <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
+    </Message>
   </div>
 </template>
 <script setup>
 import { PhMoney, PhShoppingBagOpen } from "@phosphor-icons/vue";
+import { useProductStore } from "~/stores/productStore";
 const props = defineProps(["item"]);
+
+// assign product store
+
+const productStore = useProductStore();
+
+const addSuccess = ref(false);
+
+const addToCart = (product) => {
+  productStore.addToShoppingCart(product);
+  addSuccess.value = true;
+
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
+};
 </script>

@@ -293,10 +293,16 @@
             <PhMoney :size="34" weight="fill" />
           </h3>
           <button
+            @click="addToCart(latestProduct)"
             class="w-full justify-center mt-3 py-3 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-lg duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
           >
             <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
           </button>
+          <Message :closable="false" v-show="addSuccess" severity="success">
+            <span class="lg:text-sm text-sm font-bold"
+              >به سبد خرید اضافه شد</span
+            >
+          </Message>
         </div>
 
         <LazyIndexPopularMiniCard
@@ -353,6 +359,18 @@ const container = ref(null);
 const image = ref(null);
 
 const loading = ref(true);
+
+const addSuccess = ref(false);
+
+const addToCart = (product) => {
+  productStore.addToShoppingCart(product);
+  addSuccess.value = true;
+
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
+};
+
 const getProducts = async () => {
   const { data } = await $fetch("http://localhost:3333/products", {
     headers: {},
