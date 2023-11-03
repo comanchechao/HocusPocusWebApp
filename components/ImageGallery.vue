@@ -1,13 +1,14 @@
 <template>
   <div class="card md:flex md:justify-content-center">
     <Galleria
-      :thumbnailsPosition="position"
       :value="images"
       :responsiveOptions="responsiveOptions"
       :numVisible="5"
       :circular="true"
       containerStyle="max-width: 640px"
       :showItemNavigators="true"
+      :showThumbnails="false"
+      :showIndicators="true"
     >
       <template #item="slotProps">
         <img
@@ -16,20 +17,12 @@
           style="width: 100%; display: block"
         />
       </template>
-      <template #thumbnail="slotProps">
-        <img
-          :src="slotProps.item.thumbnailImageSrc"
-          :alt="slotProps.item.alt"
-          style="display: block"
-        />
-      </template>
     </Galleria>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhotoService } from "@/services/PhotoService";
 const props = defineProps(["productImages"]);
 
 const getProductImages = async (image) => {

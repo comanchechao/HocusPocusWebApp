@@ -19,40 +19,110 @@
         </h2>
       </div>
       <div
-        class="w-full Product flex lg:flex-row flex-col-reverse items-start mt-9 rounded-md h-full lg:space-x-5"
+        v-if="loading"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-screen lg:space-x-5"
       >
-        <div class="lg:w-1/2 w-full h-full flex flex-col items-start">
+        <div
+          class="lg:w-1/2 w-full h-full flex flex-col items-center justify-center"
+        >
           <div
-            class="w-full h-full rounded-sm flex self-start flex-col items-end justify-center"
+            class="w-full h-full rounded-sm flex self-start flex-col items-end justify-start"
           >
-            <h1
-              class="text-4xl font-bold my-2 bg-white p-3 rounded-md text-darkPurple"
+            <div
+              class="w-full lg:px-0 flex flex-col items-end space-y-2 justify-between"
             >
-              توضیحات کالا
-            </h1>
+              <div
+                class="flex w-full h-full flex-col items-end justify-start space-y-2"
+              >
+                <Skeleton width="10rem" height="3rem"></Skeleton>
 
-            <h1
-              class="text-darkPurple my-2 bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-md"
-            >
-              <span
-                class="text-xl font-bold pb-3 border-b-4 border-darkPurple rounded-xl flex justify-end"
-              >
-                {{ product.description }}
-              </span>
-              <span> {{ product.description }}</span>
-            </h1>
-            <h1
-              class="text-darkPurple my-2 bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-md"
-            >
-              <span
-                class="text-xl font-bold pb-3 border-b-4 border-darkPurple rounded-xl flex justify-end"
-              >
-                {{ product.description }}
-              </span>
-              <span> {{ product.description }} </span>
-            </h1>
+                <div class="flex items-center justify-end w-full space-x-2">
+                  <Skeleton width="17rem" height="4rem"></Skeleton>
+                </div>
+                <Skeleton width="17rem" height="4rem"></Skeleton>
+              </div>
+              <Skeleton width="35rem" height="16rem"></Skeleton>
+              <Skeleton width="10rem" height="4rem"></Skeleton>
+            </div>
           </div>
-          <div class="w-full h-full flex items-center mt-7 justify-around">
+        </div>
+        <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
+          <div
+            class="w-full bg-mainWhite rounded-md h-full flex items-center mb-7 justify-center"
+          >
+            <ProgressSpinner
+              v-if="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="!loading"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-screen lg:space-x-5"
+      >
+        <div
+          class="lg:w-1/2 w-full h-full flex flex-col items-center justify-center"
+        >
+          <div
+            class="w-full h-full rounded-sm flex self-start flex-col items-end justify-start"
+          >
+            <div
+              class="w-full lg:px-0 flex flex-col items-end space-y-2 justify-between"
+            >
+              <div
+                class="flex w-full h-full flex-col items-end justify-start space-y-2"
+              >
+                <div class="w-full flex items-center justify-end space-x-3">
+                  <h3
+                    class="text-xl cursor-pointer hover:bg-mainPink hover:text-mainPurple transition ease-out duration-300 text-mainPink border-2 border-dashed border-mainPurple p-2 rounded-md text-right"
+                  >
+                    <span> {{ product.category }} </span>
+                  </h3>
+                  <h2 class="text-mainPink text-xl">دسته بندی</h2>
+                </div>
+                <div class="flex items-center justify-end w-full space-x-2">
+                  <h1
+                    class="text-7xl font-bold text-mainPink p-2 rounded-md text-right"
+                  >
+                    <span> {{ product.title }} </span>
+                  </h1>
+                </div>
+                <h3
+                  class="text-2xl border-2 border-dashed border-mainPink rounded-md py-1 px-5 text-mainPink flex items-center justify-center space-x-2"
+                >
+                  <span class="text-xs text-mainRed">تومان</span>
+                  <span> {{ product.price }} </span>
+                  <!-- <span>599,000</span> -->
+                  <PhMoney :size="34" weight="fill" />
+                </h3>
+              </div>
+              <h1 class="text-3xl font-bold my-2 p-3 rounded-md text-mainWhite">
+                معرفی کالا
+              </h1>
+              <h1
+                class="text-darkPurple my-2 w-full bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-md"
+              >
+                <span class="text-xl font-bold rounded-xl flex justify-end">
+                  {{ product.description }}
+                </span>
+                <span> {{ product.description }} </span>
+              </h1>
+              <div
+                class="flex items-center space-x-3 justify-center p-3 rounded-md"
+              >
+                <Rating class="rounded-sm" v-model="value" :cancel="false" />
+                <h3
+                  class="font-bold rounded-sm flex items-center space-x-2 text-mainWhite text-lg"
+                >
+                  : امتیاز
+                </h3>
+              </div>
+            </div>
+
             <div class="flex items-center justify-center space-x-3">
               <PhMinus
                 class="text-mainRed cursor-pointer p-2 border-2 border-transparent duration-200 ease-in transition hover:border-mainPink"
@@ -69,10 +139,10 @@
             </div>
             <button
               @click="addToCart(product)"
-              class="text-xl flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+              class="text-sm flex items-center space-x-2 px-7 py-1 mt-4 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه به سبد خرید </span>
-              <PhShoppingBagOpen :size="35" weight="fill" />
+              <PhShoppingBagOpen :size="25" weight="fill" />
             </button>
           </div>
           <Message :closable="false" v-show="addSuccess" severity="success">
@@ -82,44 +152,10 @@
           </Message>
         </div>
         <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
-          <div class="w-full h-full flex items-center mb-7 justify-center">
-            <ImageGallery :productImages="product.ProductImages" />
-          </div>
           <div
-            class="w-full lg:px-0 h-full flex flex-col items-end space-y-2 justify-between"
+            class="w-full rounded-md h-full flex items-center mb-7 justify-center"
           >
-            <div
-              class="flex w-full h-full flex-col items-end justify-start space-y-2"
-            >
-              <h3
-                class="text-sm text-darkPurple p-2 rounded-md bg-white text-right"
-              >
-                <span> {{ product.category }} </span>
-              </h3>
-              <div class="flex items-center justify-center space-x-2">
-                <h1
-                  class="text-2xl text-darkPurple p-2 rounded-md bg-white text-right"
-                >
-                  <span> {{ product.title }} </span>
-                </h1>
-              </div>
-              <h2
-                class="bg-white font-bold rounded-sm flex items-center space-x-2 text-darkPurple p-2 text-3xl"
-              >
-                <span class="text-sm text-mainRed">تومان</span>
-                <span> {{ product.price }} </span>
-              </h2>
-              <div
-                class="flex items-center space-x-3 justify-center p-3 bg-mainWhite rounded-md"
-              >
-                <Rating class="rounded-sm" v-model="value" :cancel="false" />
-                <h3
-                  class="font-bold rounded-sm flex items-center space-x-2 text-darkPurple text-lg"
-                >
-                  : امتیاز
-                </h3>
-              </div>
-            </div>
+            <LazyImageGallery :productImages="product.ProductImages" />
           </div>
         </div>
       </div>
@@ -147,6 +183,7 @@ import {
   PhCards,
   PhPlus,
   PhMinus,
+  PhMoney,
 } from "@phosphor-icons/vue";
 
 import { ref } from "vue";
@@ -196,11 +233,11 @@ const getProduct = async () => {
       // if (response.product) {
       //   getProductImage();
       // }
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
     });
-  loading.value = false;
 };
 
 // const getProductImage = async () => {
