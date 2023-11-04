@@ -14,7 +14,7 @@
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          class="h-rem34 object-contain"
+          class="h-rem35 object-contain"
         />
       </template>
     </Galleria>
