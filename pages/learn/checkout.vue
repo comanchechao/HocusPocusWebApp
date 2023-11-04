@@ -66,6 +66,11 @@
                   <h3 class="text-mainBrown text-md">
                     {{ item.title }}
                   </h3>
+                  <h3 class="text-mainBrown text-center text-md">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Veritatis ipsum consequuntur labore dolores voluptas. Totam
+                    nostrum quisquam pariatur alias ipsum.
+                  </h3>
                 </div>
 
                 <!-- <div
@@ -80,6 +85,7 @@
                   <span class="text-2xl">{{ item.price }} </span>
                 </h3>
                 <button
+                  @click="removeItem(item.id)"
                   class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
                 >
                   <PhTrash :size="30" />
@@ -109,6 +115,17 @@ import { useCourseStore } from "~/stores/coursesStore";
 const courseStore = useCourseStore();
 
 const { shoppingCart } = storeToRefs(courseStore);
+
+const increaseItem = (itemId) => {
+  courseStore.increaseQuantity(itemId);
+};
+const decreaseItem = (itemId) => {
+  courseStore.decreaseQuantity(itemId);
+};
+
+const removeItem = (itemId) => {
+  courseStore.removeProduct(itemId);
+};
 </script>
 
 <style lang="scss" scoped></style>

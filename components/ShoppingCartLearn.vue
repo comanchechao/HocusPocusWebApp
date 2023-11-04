@@ -58,13 +58,7 @@
             </div>
           </div>
         </div>
-        <NuxtLink v-if="$route.path.startsWith('/learn')" to="/learn/checkout">
-          <button
-            class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-darkPurple text-darkPurple"
-          >
-            <span>تکمیل خرید</span>
-          </button>
-        </NuxtLink>
+
         <NuxtLink to="/learn/checkout">
           <button
             class="text-xl bg-mainRed active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
