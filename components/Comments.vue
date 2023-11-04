@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col items-center w-full">
-    <div class="flex items-center justify-around w-full space-x-3">
+    <div
+      class="flex items-center lg:justify-end justify-around w-full space-x-3"
+    >
       <LazyAddComment />
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
     </div>

@@ -155,7 +155,7 @@
         </div>
         <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
           <div
-            class="w-full rounded-md h-full flex items-center mb-7 justify-center"
+            class="w-full rounded-md lg:h-auto h-full flex items-center mb-7 justify-center"
           >
             <LazyImageGallery :productImages="product.ProductImages" />
           </div>
