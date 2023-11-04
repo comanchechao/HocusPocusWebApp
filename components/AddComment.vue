@@ -61,6 +61,12 @@
 <script setup>
 import { ref } from "vue";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
+import { useCommentsStore } from "~/stores/commentsStore";
+
+// register comments store
+
+const commentsStore = useCommentsStore();
+
 const visible = ref(false);
 const comment = ref("");
 const value = ref(null);
@@ -95,6 +101,7 @@ const submitComment = async (userId, username) => {
       console.log(response.comments);
       loading.value = false;
       success.value = true;
+      commentsStore.setStateChange();
       setTimeout(() => {
         success.value = false;
       }, 3000);

@@ -13,12 +13,13 @@
           دیدگاهی برای این محصول ثبت نشده است
         </h2>
       </div>
-      <LazyComment
-        v-if="comments"
-        v-for="comment in comments"
-        :key="comment.id"
-        :comment="comment"
-      />
+      <div class="w-full h-full" v-if="comments">
+        <LazyComment
+          v-for="comment in comments"
+          :key="comment.id"
+          :comment="comment"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -26,7 +27,20 @@
 <script setup>
 // assign router
 
+import { storeToRefs } from "pinia";
+import { useCommentsStore } from "~/stores/commentsStore";
+
 const router = useRoute();
+
+// register CommentsStore
+
+const commentsStore = useCommentsStore();
+
+const { stateChange } = storeToRefs(commentsStore);
+
+watch(stateChange, (cur, old) => {
+  getComments();
+});
 
 const comments = ref();
 const loading = ref(false);
