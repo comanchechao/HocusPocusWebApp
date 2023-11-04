@@ -140,6 +140,7 @@
         </button>
       </NuxtLink>
       <LazyShoppingCart />
+      <LazyShoppingCartLearn />
       <LazyLogin v-show="!isLogged" />
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>

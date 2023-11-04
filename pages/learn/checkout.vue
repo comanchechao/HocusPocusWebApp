@@ -51,19 +51,20 @@
           <div
             class="w-full h-full py-11 flex items-center flex-col px-9 pt-9 space-y-5 lg:overflow-y-scroll"
           >
-            <div class="w-full flex flex-col items-center space-y-7 h-full">
+            <div
+              v-for="item in shoppingCart"
+              :key="item.id"
+              class="w-full flex flex-col items-center space-y-7 h-full"
+            >
               <div
                 class="w-full h-64 justify-center p-5 flex flex-col items-center border-2 rounded-md border-mainYellow"
               >
                 <div
                   class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
                 >
-                  <img
-                    class="w-full h-full object-contain opacity-100"
-                    alt=""
-                  />
+                  <LazyVideoCardImage :courseId="item.CoursesImages" />
                   <h3 class="text-mainBrown text-md">
-                    آموزش تکنیک عبور اجسام از کش پک آموزشی شعبده بازی
+                    {{ item.title }}
                   </h3>
                 </div>
 
@@ -76,75 +77,7 @@
                   class="text-xl text-darkPurple border-2 border-mainOrange border-dashed p-3 rounded-md flex space-x-2 items-center"
                 >
                   <span class="text-mainYellow text-sm">تومان</span>
-                  <span class="text-2xl"> 1,299,000 </span>
-                </h3>
-                <button
-                  class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
-                >
-                  <PhTrash :size="30" />
-                </button>
-              </div>
-            </div>
-            <div class="w-full flex flex-col items-center space-y-7 h-full">
-              <div
-                class="w-full h-64 justify-center p-5 flex flex-col items-center border-2 rounded-md border-mainYellow"
-              >
-                <div
-                  class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
-                >
-                  <img
-                    class="w-full h-full object-contain opacity-100"
-                    alt=""
-                  />
-                  <h3 class="text-mainBrown text-md">
-                    آموزش تکنیک عبور اجسام از کش پک آموزشی شعبده بازی
-                  </h3>
-                </div>
-
-                <!-- <div
-                class="h-full flex flex-col items-center justify-center"
-              ></div> -->
-              </div>
-              <div class="flex items-center space-x-3">
-                <h3
-                  class="text-xl text-darkPurple border-2 border-mainOrange border-dashed p-3 rounded-md flex space-x-2 items-center"
-                >
-                  <span class="text-mainYellow text-sm">تومان</span>
-                  <span class="text-2xl"> 1,299,000 </span>
-                </h3>
-                <button
-                  class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
-                >
-                  <PhTrash :size="30" />
-                </button>
-              </div>
-            </div>
-            <div class="w-full flex flex-col items-center space-y-7 h-full">
-              <div
-                class="w-full h-64 justify-center p-5 flex flex-col items-center border-2 rounded-md border-mainYellow"
-              >
-                <div
-                  class="w-full flex items-center flex-col text-right space-y-6 justify-center h-full bg-white"
-                >
-                  <img
-                    class="w-full h-full object-contain opacity-100"
-                    alt=""
-                  />
-                  <h3 class="text-mainBrown text-md">
-                    آموزش تکنیک عبور اجسام از کش پک آموزشی شعبده بازی
-                  </h3>
-                </div>
-
-                <!-- <div
-                class="h-full flex flex-col items-center justify-center"
-              ></div> -->
-              </div>
-              <div class="flex items-center space-x-3">
-                <h3
-                  class="text-xl text-darkPurple border-2 border-mainOrange border-dashed p-3 rounded-md flex space-x-2 items-center"
-                >
-                  <span class="text-mainYellow text-sm">تومان</span>
-                  <span class="text-2xl"> 1,299,000 </span>
+                  <span class="text-2xl">{{ item.price }} </span>
                 </h3>
                 <button
                   class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
@@ -168,6 +101,14 @@ import {
   PhInfo,
   PhBasket,
 } from "@phosphor-icons/vue";
+import { storeToRefs } from "pinia";
+import { useCourseStore } from "~/stores/coursesStore";
+
+// register courseStore
+
+const courseStore = useCourseStore();
+
+const { shoppingCart } = storeToRefs(courseStore);
 </script>
 
 <style lang="scss" scoped></style>
