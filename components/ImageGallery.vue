@@ -14,7 +14,7 @@
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          style="width: 100%; display: block"
+          class="h-rem34 object-contain"
         />
       </template>
     </Galleria>

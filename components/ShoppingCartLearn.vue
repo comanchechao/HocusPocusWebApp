@@ -1,8 +1,8 @@
 <template>
   <div class="">
-    <Sidebar position="right" v-model:visible="visible">
+    <Sidebar :showCloseIcon="false" position="right" v-model:visible="visible">
       <div
-        class="w-full h-full bg-darkPurple flex items-center justify-center flex-col pb-5"
+        class="w-full h-full bg-mainBrown flex items-center justify-center flex-col pb-5"
       >
         <div class="w-full h-full flex items-center space-y-10 flex-col p-5">
           <div
@@ -61,7 +61,7 @@
 
         <NuxtLink to="/learn/checkout">
           <button
-            class="text-xl bg-mainRed active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+            class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           >
             <span>تکمیل خرید</span>
           </button>

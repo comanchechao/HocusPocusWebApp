@@ -1,12 +1,20 @@
 <template>
   <div class="flex flex-col items-center w-full">
-    <div class="flex items-center justify-end w-full space-x-3">
+    <div class="flex items-center justify-around w-full space-x-3">
       <LazyAddComment />
-      <h1 class="text-mainRed text-3xl">نظرات مشتریان</h1>
+      <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
     </div>
-    <LazySortBy />
     <div class="flex flex-col items-center w-full">
+      <div
+        v-if="comments === null"
+        class="w-full h-96 bg-mainWhite my-10 rounded-md flex items-center justify-center"
+      >
+        <h2 class="text-darkPurple text-3xl">
+          دیدگاهی برای این محصول ثبت نشده است
+        </h2>
+      </div>
       <LazyComment
+        v-if="comments"
         v-for="comment in comments"
         :key="comment.id"
         :comment="comment"

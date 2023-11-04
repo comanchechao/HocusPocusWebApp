@@ -3,7 +3,7 @@
     class="w-full h-rem28 overflow-y-scroll bg-white flex flex-col rounded-md text-xs lg:text-lg"
   >
     <div
-      class="w-full h-20 py-5 grid grid-cols-4 place-items-center border-b border-Indigo-600"
+      class="w-full hidden h-20 py-5 lg:grid grid-cols-4 place-items-center border-b border-Indigo-600"
     >
       <h3 class="text-mainPurple">اطلاعات تکمیلی</h3>
       <h3 class="text-mainPurple">تاریخ سفارش</h3>

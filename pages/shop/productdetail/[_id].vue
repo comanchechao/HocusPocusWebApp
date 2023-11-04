@@ -7,7 +7,9 @@
       >
         <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
-          <span> {{ product.title }} </span>
+          <Skeleton v-if="loading" width="10rem" height="2rem"></Skeleton>
+
+          <span v-if="!loading"> {{ product.title }} </span>
         </h2>
         <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
           <PhCaretLeft :size="20" weight="fill" />
@@ -20,7 +22,7 @@
       </div>
       <div
         v-if="loading"
-        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-screen lg:space-x-5"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-auto lg:h-screen lg:space-x-5"
       >
         <div
           class="lg:w-1/2 w-full h-full flex flex-col items-center justify-center"
@@ -62,7 +64,7 @@
       </div>
       <div
         v-if="!loading"
-        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-screen lg:space-x-5"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-auto lg:h-screen lg:space-x-5"
       >
         <div
           class="lg:w-1/2 w-full h-full flex flex-col items-center justify-center"
@@ -86,7 +88,7 @@
                 </div>
                 <div class="flex items-center justify-end w-full space-x-2">
                   <h1
-                    class="text-7xl font-bold text-mainPink p-2 rounded-md text-right"
+                    class="lg:text-7xl text-4xl font-bold text-mainPink p-2 rounded-md text-right"
                   >
                     <span> {{ product.title }} </span>
                   </h1>

@@ -139,8 +139,20 @@
           <PhCoffee :size="23" />
         </button>
       </NuxtLink>
-      <LazyShoppingCart />
-      <LazyShoppingCartLearn />
+      <LazyShoppingCart
+        :class="{
+          hidden:
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          ' flex': $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+      />
+      <LazyShoppingCartLearn
+        :class="{
+          flex:
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          ' hidden': $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+      />
       <LazyLogin v-show="!isLogged" />
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>

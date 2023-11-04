@@ -28,7 +28,7 @@
       </button>
     </div>
     <div
-      class="h-full w-full shadow-mainPurple shadow-lg rounded-md bg-white flex flex-col items-center"
+      class="h-dialog overflow-y-scroll w-full shadow-mainPurple shadow-lg rounded-md bg-white flex flex-col items-center"
     >
       <div
         id="process"

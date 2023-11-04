@@ -2,7 +2,7 @@
   <div class="h-full w-screen bg-mainBrown">
     <LazyNavbar />
     <div
-      class="w-full h-auto lg:h-screen lg:px-28 px-4 py-6 lg:flex-row flex-col-reverse flex items-center justify-center lg:space-y-0 space-y-6 lg:space-x-9"
+      class="w-full h-full lg:overflow-auto overflow-hidden lg:h-screen lg:px-28 px-4 py-6 lg:flex-row flex-col-reverse flex items-center justify-center lg:space-y-0 space-y-6 lg:space-x-9"
     >
       <div class="h-full w-full flex-col flex items-center justify-center">
         <div
@@ -10,14 +10,14 @@
           id="div1"
           v-show="showDiv1"
         >
-          <ProfileInformation :isVisible="false" />
+          <LazyProfileInformation :isVisible="false" />
         </div>
         <div
           class="w-full h-full flex items-center py-14"
           id="div2"
           v-show="showDiv2"
         >
-          <ProfileOrders class="h-full w-full" />
+          <LazyProfileOrders class="h-full w-full" />
         </div>
       </div>
       <div
