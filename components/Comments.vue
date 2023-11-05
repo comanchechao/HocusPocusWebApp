@@ -3,9 +3,13 @@
     <div
       class="flex items-center lg:justify-end justify-around w-full space-x-3"
     >
-      <LazyAddComment />
+      <LazyAddComment v-show="isLogged" />
+      <LazyLogin v-show="!isLogged" />
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
     </div>
+    <h2 v-show="!isLogged" class="text-mainWhite">
+      برای اضافه کردن نظر وارد حساب کاربری خود بشید
+    </h2>
     <div class="flex flex-col items-center w-full">
       <div
         v-if="comments === null"
@@ -27,10 +31,15 @@
 </template>
 
 <script setup>
-// assign router
-
 import { storeToRefs } from "pinia";
 import { useCommentsStore } from "~/stores/commentsStore";
+import { useUserStore } from "~/stores/user";
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
+
+// assign router
 
 const router = useRoute();
 

@@ -164,7 +164,7 @@
       <div
         class="h-full mt-20 Comment w-full mb-11 flex flex-col space-y-4 py-5 items-end"
       >
-        <Comments />
+        <LazyComments />
       </div>
       <div class="h-full flex flex-col items-end w-screen lg:px-24 px-5">
         <h2
@@ -190,10 +190,16 @@ import {
 
 import { ref } from "vue";
 import { useProductStore } from "~/stores/productStore";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "~/stores/user";
 
 const value = ref(null);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
 
 // register product stroe
 

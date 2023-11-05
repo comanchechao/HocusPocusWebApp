@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 export const useProfileStore = defineStore("profileStore", {
   state: () => ({
+    stateChange: false,
     storeFullname: "",
     storePhoneNumber: "",
     storeAddress: "",
@@ -11,6 +12,9 @@ export const useProfileStore = defineStore("profileStore", {
     submitted: false,
   }),
   actions: {
+    setStateChange() {
+      this.stateChange = !this.stateChange;
+    },
     setSubmit() {
       this.submitted = true;
       console.log("this is log state : ", this.submitted);
@@ -50,7 +54,7 @@ export const useProfileStore = defineStore("profileStore", {
         address: this.storeAddress,
         fullname: this.storeFullname,
         phonenumber: this.storePhoneNumber,
-        postalCode: this.postalCode,
+        postalCode: this.storePostalCode,
         city: this.storeCity,
         region: this.storeRegion,
       });
@@ -63,6 +67,7 @@ export const useProfileStore = defineStore("profileStore", {
         body: data,
         withCredentials: true,
       }).then((response, error) => {
+        this.setStateChange();
         console.log(response);
         console.log(error);
       });
