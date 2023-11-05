@@ -6,9 +6,22 @@
       @click="removeComments(product)"
       class="text-red-500 p-3 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
     >
-      <PhTrash :size="30" />
+      <ProgressSpinner
+        v-if="loading"
+        style="width: 30px; height: 30px"
+        strokeWidth="8"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+      <PhTrash v-if="!loading" :size="30" />
     </button>
-
+    <Message
+      class="w-full text-right absolute top-40"
+      v-show="message"
+      severity="success"
+    >
+      <span class="lg:text-xl text-md">محصول با موفقیت پاک شد</span>
+    </Message>
     <LazyDiscount></LazyDiscount>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs">65</h3>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs text-center">
@@ -21,6 +34,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { PhTrash } from "@phosphor-icons/vue";
 const props = defineProps(["product"]);
 import { useManagementStore } from "~/stores/productManagement";
@@ -28,12 +42,14 @@ import { useMainManagement } from "~/stores/managementStore";
 // register productManagement store
 const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
-
+const loading = ref(false);
+const message = ref(false);
 onMounted(() => {
   console.log(props.product);
 });
 
 const removeComments = async function (product) {
+  loading.value = true;
   if (props.product.Comments.length) {
     await $fetch(
       `http://localhost:3333/management/removecomment/${props.product.Comments[0].id}`,
@@ -45,7 +61,6 @@ const removeComments = async function (product) {
       }
     )
       .then((response, error) => {
-        alert("comment deleted");
         removeProductImage();
       })
       .catch((error) => {
@@ -61,8 +76,12 @@ const removeComments = async function (product) {
       }
     )
       .then((response, error) => {
-        alert("comment deleted");
         removeProductImage();
+        loading.value = false;
+        message.value = true;
+        setTimeout(() => {
+          message.value = false;
+        }, 3000);
       })
       .catch((error) => {
         console.log(error.data);
@@ -116,7 +135,6 @@ const removeProductImage = async function () {
       }
     )
       .then((response, error) => {
-        alert("deleted image");
         removeProduct();
       })
       .catch((error) => {
@@ -132,7 +150,6 @@ const removeProductImage = async function () {
       }
     )
       .then((response, error) => {
-        alert("deleted image");
         removeProduct();
       })
       .catch((error) => {
@@ -148,7 +165,6 @@ const removeProductImage = async function () {
       }
     )
       .then((response, error) => {
-        alert("deleted image");
         removeProduct();
       })
       .catch((error) => {
@@ -164,7 +180,6 @@ const removeProductImage = async function () {
       }
     )
       .then((response, error) => {
-        alert("deleted image");
         removeProduct();
       })
       .catch((error) => {
@@ -186,8 +201,12 @@ const removeProduct = async function () {
     }
   )
     .then((response, error) => {
-      alert("deleted");
       mainManagement.setStateChange();
+      loading.value = false;
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
     })
     .catch((error) => {
       console.log(error.data);

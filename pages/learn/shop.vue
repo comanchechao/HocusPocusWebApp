@@ -17,6 +17,18 @@
             width="35rem"
             height="25rem"
           ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
           <LazyVideoCard
             v-if="!loading"
             v-for="course in courses"

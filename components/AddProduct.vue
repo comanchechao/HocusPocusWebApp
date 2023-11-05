@@ -142,7 +142,9 @@
           {{ rarity }} -->
           <div class="h-28 w-full flex flex-col items-center justify-center">
             <div>
-              <Message v-show="success">کالا به انبار اضافه شد</Message>
+              <Message severity="success" v-show="success"
+                >کالا به انبار اضافه شد</Message
+              >
             </div>
             <div v-if="Array.isArray(errorMessage)">
               <Message

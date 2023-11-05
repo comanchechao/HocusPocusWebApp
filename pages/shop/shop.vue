@@ -35,6 +35,30 @@
             width="18rem"
             height="25rem"
           ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
           <LazyCard
             v-if="!loading"
             v-show="!filteredProducts"
