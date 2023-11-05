@@ -54,7 +54,7 @@ export const useProfileStore = defineStore("profileStore", {
         address: this.storeAddress,
         fullname: this.storeFullname,
         phonenumber: this.storePhoneNumber,
-        postalCode: this.postalCode,
+        postalCode: this.storePostalCode,
         city: this.storeCity,
         region: this.storeRegion,
       });
