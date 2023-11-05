@@ -6,10 +6,11 @@
       class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 lg:p-20 flex items-center"
     >
       <div
-        class="w-full h-full border-mainRed rounded-sm flex flex-col items-end"
+        class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
+        <LazyPhoneFilters class="lg:hidden flex md:flex"></LazyPhoneFilters>
         <div
           class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
