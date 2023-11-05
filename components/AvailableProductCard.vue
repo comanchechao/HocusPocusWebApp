@@ -8,7 +8,8 @@
     >
       <PhTrash :size="30" />
     </button>
-    <h3 class="text-darkPurple md:text-md lg:text-lg text-sm">0123555</h3>
+
+    <LazyDiscount></LazyDiscount>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs">65</h3>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs text-center">
       دوشنبه 24 تیر 1402

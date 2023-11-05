@@ -18,7 +18,7 @@
       class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
     >
       <h2
-        class="text-xl flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
+        class="text-2xl font-bold flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
       >
         <span> {{ course.title }} </span>
         <PhMagicWand :size="25" weight="fill" />

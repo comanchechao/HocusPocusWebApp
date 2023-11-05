@@ -308,7 +308,7 @@
             </h2>
             <h3
               v-if="!loadingTwo"
-              class="text-4xl border-2 border-dashed border-darkPurple rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
+              class="text-2xl border-2 border-dashed border-darkPurple rounded-md py-1 px-8 text-mainBrown flex items-center justify-center space-x-2"
             >
               <span class="text-xs text-darkPurple">تومان</span>
               <span>{{ latestProduct.price }}</span>
@@ -317,7 +317,7 @@
             <button
               v-if="!loadingTwo"
               @click="addToCart(latestProduct)"
-              class="w-full justify-center mt-3 py-3 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-lg duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+              class="w-full justify-center mt-3 py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
             >
               <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
             </button>

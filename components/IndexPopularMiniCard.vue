@@ -1,28 +1,31 @@
 <template>
   <div
-    class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
+    class="h-full w-full bg-mainWhite space-y-2 flex flex-col items-end justify-end p-2"
   >
-    <LazyLastProductImage :productId="item.ProductImages[0].id" />
-
-    <h2 class="text-darkPurple font-bold text-center text-md lg:text-xl flex">
-      <span> {{ item.title }} </span>
-    </h2>
-    <h3
-      class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
-    >
-      <span class="text-xs text-darkPurple">تومان</span>
-      <span>{{ item.price }}</span>
-      <PhMoney :size="34" weight="fill" />
-    </h3>
-    <button
-      @click="addToCart(item)"
-      class="w-full justify-center mt-3 py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
-    >
-      <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
-    </button>
-    <Message :closable="false" v-show="addSuccess" severity="success">
-      <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
-    </Message>
+    <div class="w-full h-3/4 p-4 flex items-center justify-center">
+      <LazyLastProductImage :productId="item.ProductImages[0].id" />
+    </div>
+    <div class="h-1/4 w-full flex items-end justify-end flex-col">
+      <h2 class="text-darkPurple font-bold text-center text-md lg:text-xl flex">
+        <span> {{ item.title }} </span>
+      </h2>
+      <h3
+        class="text-sm border-2 border-dashed border-darkPurple rounded-md px-5 text-mainBrown flex items-center justify-center space-x-2"
+      >
+        <span class="text-xs text-darkPurple">تومان</span>
+        <span>{{ item.price }}</span>
+        <PhMoney :size="20" weight="fill" />
+      </h3>
+      <button
+        @click="addToCart(item)"
+        class="w-full justify-center mt-3 py-1 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-xs duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+      >
+        <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+      </button>
+      <Message :closable="false" v-show="addSuccess" severity="success">
+        <span class="lg:text-sm text-xs font-bold">به سبد خرید اضافه شد</span>
+      </Message>
+    </div>
   </div>
 </template>
 <script setup>

@@ -104,6 +104,7 @@
             </button>
             <LazySignUp />
           </div>
+          <LazyPasswordRecovery></LazyPasswordRecovery>
         </div>
       </div>
     </Dialog>

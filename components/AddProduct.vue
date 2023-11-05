@@ -111,6 +111,15 @@
             </div>
           </div>
           <div class="flex items-end flex-col space-y-4">
+            <label class="text-xl text-mainRed" for="email">تعداد کالا </label>
+            <InputNumber
+              id="email"
+              v-model="productPrice"
+              aria-describedby="username-help"
+              class="w-full"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-4">
             <label class="text-xl text-mainRed" for="description"
               >توضیحات کالا</label
             >
