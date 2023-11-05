@@ -23,7 +23,7 @@
             class="flex lg:flex-row flex-col items-center lg:space-y-0 space-y-7 lg:space-x-10"
           >
             <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainRed" for="email">نام فیلتر</label>
+              <label class="text-sm text-mainRed" for="email">نام فیلتر</label>
               <InputText
                 id="email"
                 v-model="value"
@@ -33,14 +33,14 @@
             </div>
           </div>
           <div
-            class="grid grid-cols-2 lg:grid-cols-4 place-items-stretch gap-4"
+            class="flex items-center justify-end space-x-4 flex-wrap w-screen px-7 lg:px-44"
           >
             <div
               v-for="i in divs"
               :key="i"
               class="flex items-end flex-col space-y-4"
             >
-              <label class="text-xl text-mainRed" for="email">
+              <label class="text-sm text-mainRed" for="email">
                 گزینه ی فیلتر</label
               >
               <InputText

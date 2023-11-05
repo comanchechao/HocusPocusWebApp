@@ -161,14 +161,14 @@ async function formSubmit() {
       setTimeout(() => {
         successLogin.value = false;
       }, 3000);
+      setTimeout(() => {
+        visible.value = false;
+      }, 1000);
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
       faildLogin.value = true;
-      setTimeout(() => {
-        faildLogin.value = false;
-      }, 3000);
     });
 }
 </script>

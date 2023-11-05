@@ -44,7 +44,8 @@
         :class="{
           'lg:text-lg flex active:text-mainYellow active:bg-mainBrown items-center space-x-2 justify-center lg:px-8 px-3 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-md shadow-md shadow-transparent hover:shadow-mainOrange   text-darkPurple':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-          ' ': $route.path === '/' || $route.path.startsWith('/shop/'),
+          'lg:text-lg flex active:text-mainYellow active:bg-mainBrown items-center space-x-2 justify-center lg:px-8 px-3 py-2   Transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainOrange rounded-md shadow-md shadow-transparent hover:shadow-mainOrange   text-darkPurple ':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
         }"
       >
         ویرایش اطلاعات

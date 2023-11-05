@@ -100,6 +100,18 @@
 
         <LazyProductStatusManagement :products="products" />
       </div>
+      <div
+        class="w-full mt-10 lg:mt-10 h-full lg:h-full flex justify-end items-center space-x-6"
+      >
+        <div class="flex items-center space-x-3">
+          <InputSwitch v-model="checked"></InputSwitch>
+        </div>
+        <h2
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+        >
+          پنهان کردن محصولات
+        </h2>
+      </div>
     </div>
   </div>
 </template>
@@ -116,6 +128,7 @@ import { useOrderMainStore } from "~/stores/orderMainStore";
 const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
 const orderMainStore = useOrderMainStore();
+const checked = ref(false);
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);

@@ -154,13 +154,26 @@
         }"
       />
       <LazyLogin v-show="!isLogged" />
+      <button
+        v-show="isLogged"
+        :class="{
+          'hover:border-mainOrange text-mainYellow hover:shadow-mainOrange hover:text-mainOrange':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'hover:border-mainViolet text-mainRed hover:shadow-mainViolet hover:text-mainViolet':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+        class="text-xl flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+      >
+        <span> خروج </span>
+        <PhLockKey weight="fill" :size="25" />
+      </button>
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import {
-  PhHouseSimple,
+  PhLockKey,
   PhCube,
   PhCallBell,
   PhCoffee,
