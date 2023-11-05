@@ -130,7 +130,11 @@ import { useProfileStore } from "../stores/profileStore";
 
 const profileStore = useProfileStore();
 
-const { submitted } = storeToRefs(profileStore);
+const { submitted, stateChange } = storeToRefs(profileStore);
+
+watch(stateChange, (cur, old) => {
+  getProfile();
+});
 
 watch(submitted, (current, old) => {
   profileStore.setSubmit();
