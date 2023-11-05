@@ -207,37 +207,17 @@
         </div>
       </div>
     </div>
-    <div class="w-full h-full bg-mainBrown flex flex-col">
-      <div
-        class="h-24 w-full bg-mainYellow items-center justify-between px-10 flex"
-      >
-        <button
-          class="px-7 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-2xl rounded-sm"
-        >
-          <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
-          <span>دنبال کن </span>
-        </button>
-        <h2 class="text-2xl flex items-center space-x-3">
-          <span>تازه ترین ها در اینستاگرام </span>
-          <PhInstagramLogo :size="35" weight="fill" class="mr-3" />
-        </h2>
-      </div>
-      <div class="w-full flex items-center">
-        <LazyInstagramCarousel />
-      </div>
-    </div>
+
     <LazyFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import {
-  PhMagicWand,
   PhCards,
   PhPackage,
   PhGraduationCap,
   PhMoney,
-  PhInstagramLogo,
   PhShoppingBagOpen,
   PhShoppingBag,
   PhHeartStraight,

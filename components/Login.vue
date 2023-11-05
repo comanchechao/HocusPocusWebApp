@@ -37,7 +37,7 @@
               aria-describedby="username-help"
             />
             <small class="text-sm text-mainViolet" id="username-help"
-              >ایمیل خودتون رو وارد کنید</small
+              >نام کاربری خودتون رو وارد کنید</small
             >
           </div>
           <div class="flex items-end flex-col space-y-2">
