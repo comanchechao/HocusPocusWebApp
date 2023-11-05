@@ -12,7 +12,7 @@
       class="text-xl flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
     >
       <span> ورود </span>
-      <PhLockKey weight="fill" :size="25" />
+      <PhKeyhole weight="fill" :size="25" />
     </button>
 
     <Dialog

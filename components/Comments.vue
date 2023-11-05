@@ -4,12 +4,17 @@
       class="flex items-center lg:justify-end justify-around w-full space-x-3"
     >
       <LazyAddComment v-show="isLogged" />
-      <LazyLogin v-show="!isLogged" />
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
     </div>
-    <h2 v-show="!isLogged" class="text-mainWhite">
-      برای اضافه کردن نظر وارد حساب کاربری خود بشید
-    </h2>
+    <div
+      class="w-auto px-10 h-14 bg-mainBrown border-4 border-dashed border-mainPink my-10 rounded-lg flex items-center justify-center"
+    >
+      <LazyLogin v-show="!isLogged" />
+      <h2 v-show="!isLogged" class="text-mainPink text-xl">
+        برای اضافه کردن نظر وارد حساب کاربری خود بشید
+      </h2>
+    </div>
+
     <div class="flex flex-col items-center w-full">
       <div
         v-if="comments === null"

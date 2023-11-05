@@ -10,7 +10,9 @@
       >
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
-        <LazyPhoneFilters class="lg:hidden flex md:flex"></LazyPhoneFilters>
+        <div class="w-full items-center justify-center lg:hidden flex">
+          <LazyPhoneFilters class=" "></LazyPhoneFilters>
+        </div>
         <div
           class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >

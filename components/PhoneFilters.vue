@@ -2,7 +2,7 @@
   <button
     label="Show"
     @click="visible = true"
-    class="lg:text-xl justify-center text-lg flex items-center space-x-2 w-full py-2 transition duration-150 ease-in-out border-b-2 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+    class="lg:text-xl justify-center text-lg flex items-center space-x-2 w-full transition duration-150 ease-in-out border-b-2 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
   >
     <span> فیلترها </span>
     <PhFadersHorizontal :size="30" weight="fill" />

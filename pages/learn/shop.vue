@@ -10,7 +10,15 @@
         <div
           class="h-full my-14 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-14 grid-rows-1 gap-10 justify-items-center"
         >
-          <VideoCard
+          <Skeleton v-if="loading" width="35rem" height="25rem"></Skeleton>
+          <Skeleton
+            v-if="loading"
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
+          <LazyVideoCard
+            v-if="!loading"
             v-for="course in courses"
             :key="course.id"
             :course="course"

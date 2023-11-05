@@ -89,7 +89,7 @@
         class="h-full w-full flex flex-col items-end my-12 justify-center space-y-7"
       >
         <div class="w-full h-full rounded-md">
-          <Comments />
+          <LazyComments />
         </div>
       </div>
     </div>
