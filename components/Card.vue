@@ -15,7 +15,10 @@
         alt=""
       /> -->
 
-      <ProductImage :productId="props.product.ProductImages[0].id">
+      <ProductImage
+        class="h-72 object-contain"
+        :productId="props.product.ProductImages[0].id"
+      >
       </ProductImage>
     </div>
     <div
@@ -24,7 +27,10 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <ProductImage :productId="props.product.ProductImages[1].id">
+      <ProductImage
+        class="h-72 object-contain"
+        :productId="props.product.ProductImages[1].id"
+      >
       </ProductImage>
       <!-- <img
           src="../assets/images/Psychonauts.webp"

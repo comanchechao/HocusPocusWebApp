@@ -17,16 +17,16 @@
               <div class="w-24 h-24 flex items-center justify-center">
                 <LazyProductImage
                   :productId="item.ProductImages[0].id"
-                  class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
+                  class="w-24 h-24 object-contain opacity-100 backdrop-blur-3xl"
                   alt=""
                 />
               </div>
-              <h3 class="text-lg text-mainYellow flex flex-col items-center">
+              <h3 class="text-sm text-mainYellow flex flex-col items-center">
                 <span> {{ item.title }} </span>
               </h3>
-              <h3 class="text-lg text-mainYellow flex flex-col items-center">
+              <h3 class="text-sm text-mainYellow flex flex-col items-center">
                 <span> {{ item.price }} </span>
-                <span class="text-mainRed text-md">تومان</span>
+                <span class="text-mainRed text-xs">تومان</span>
               </h3>
               <!-- <div
                 class="h-full flex flex-col items-center justify-center"

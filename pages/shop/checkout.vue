@@ -38,7 +38,7 @@
           </div>
           <button
             @click="getUser()"
-            class="lg:text-xl text-md px-10 active:text-darkPurple active:bg-mainRed flex items-center space-x-2 self-center justify-center py-2 transition duration-300 bg-darkPurple ease-in-out border-2 hover:bg-mainRed hover:text-darkPurple border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet text-mainRed"
+            class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
