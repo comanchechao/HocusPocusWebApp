@@ -104,7 +104,7 @@
         class="w-full mt-10 lg:mt-10 h-full lg:h-full flex justify-end items-center space-x-6"
       >
         <div class="flex items-center space-x-3">
-          <InputSwitch v-model="checked"></InputSwitch>
+          <InputSwitch v-model="mode"></InputSwitch>
         </div>
         <h2
           class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
@@ -128,7 +128,13 @@ import { useOrderMainStore } from "~/stores/orderMainStore";
 const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
 const orderMainStore = useOrderMainStore();
-const checked = ref(false);
+const mode = ref(false);
+
+watch(mode, (cur, old) => {
+  if (cur === true) {
+    console.log("put it here", cur, old);
+  }
+});
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);

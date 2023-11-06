@@ -155,6 +155,7 @@
       />
       <LazyLogin v-show="!isLogged" />
       <button
+        @click="logout"
         v-show="isLogged"
         :class="{
           'hover:border-mainOrange text-mainYellow hover:shadow-mainOrange hover:text-mainOrange':
@@ -191,6 +192,23 @@ const userStore = useUserStore();
 
 const { isLogged } = storeToRefs(userStore);
 const Navbar = ref();
+
+async function logout() {
+  await $fetch("http://localhost:3333/auth/logout", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCreadentials: true,
+  })
+    .then(function (response) {
+      console.log(response);
+      userStore.setNotLogged();
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
 onMounted(() => {
   $gsap.to(".Navbar", { opacity: 1, duration: 1 });
   $gsap.to(Navbar.value, {

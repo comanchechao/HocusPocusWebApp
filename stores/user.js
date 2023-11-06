@@ -6,7 +6,9 @@ export const useUserStore = defineStore("userStore", {
   actions: {
     setLogState() {
       this.isLogged = true;
-      console.log("this is log state : ", this.isLogged);
+    },
+    setNotLogged() {
+      this.isLogged = false;
     },
   },
 });

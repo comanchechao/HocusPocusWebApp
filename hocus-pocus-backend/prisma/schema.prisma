@@ -44,6 +44,7 @@ model Products {
   type          String?
   category      String?
   design        String?
+  mode          Boolean         @default(false)
   inStock       Boolean?        @default(true)
   ProductImages ProductImages[]
   Comments      Comments[]
