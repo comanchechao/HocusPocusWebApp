@@ -18,6 +18,7 @@ import { Response } from 'express';
 import { RolesGuard } from './common/guards/roleBased.guard';
 import { Roles } from './common/decorators/Role.decorator';
 import { AuthenticatedGuard } from './authGuards/authenticated.guards';
+import { RecoveryDto } from './dto/RecoveryDto';
 
 @Controller('auth')
 export class AuthController {
@@ -60,6 +61,12 @@ export class AuthController {
   @Get('/getme')
   getMe() {
     return { msg: 'you should see this now' };
+  }
+
+  @Post('reset')
+  reset(@Body() dto: RecoveryDto) {
+    console.log(dto);
+    return this.authService.resetPass(dto);
   }
 
   @Get('/logout')
