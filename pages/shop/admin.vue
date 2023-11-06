@@ -37,7 +37,7 @@
           <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>
             <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-              221,450,88
+              {{ totalSales }}
             </h1>
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
@@ -130,6 +130,8 @@ const productManagement = useManagementStore();
 const orderMainStore = useOrderMainStore();
 const mode = ref(false);
 
+const totalSales = ref(0);
+
 watch(mode, (cur, old) => {
   if (cur === true) {
     console.log("put it here", cur, old);
@@ -180,10 +182,18 @@ const getOrders = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.orders);
+      console.log(response.orders, "watch this");
       orders.value = response.orders;
       mainManagement.setOrdersCount(response.orders.length);
       loading.value = false;
+      const sum = response.orders.reduce(
+        (total: number, obj: any) => total + Number(obj.totalPrice),
+        0
+      );
+
+      totalSales.value = sum;
+
+      console.log(sum, totalSales.value, "is it working mate");
     })
     .catch(function (error) {
       console.error(error);
