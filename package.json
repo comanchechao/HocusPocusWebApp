@@ -23,6 +23,8 @@
     "@pinia/nuxt": "^0.4.11",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
+    "dayjs": "^1.11.10",
+    "jalaliday": "^2.3.0",
     "nuxt-video-player": "^1.0.17",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",

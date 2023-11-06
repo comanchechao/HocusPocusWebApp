@@ -116,6 +116,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+dayjs.extend(jalaliday);
 import { PhCaretLeft, PhCoffee } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
@@ -193,7 +197,14 @@ const getOrders = async () => {
 
       totalSales.value = sum;
 
-      console.log(sum, totalSales.value, "is it working mate");
+      response.orders.forEach((order) => {
+        console.log(
+          dayjs(order.created_at)
+            .calendar("jalali")
+            .locale("en")
+            .format("DD MMMM YYYY")
+        );
+      });
     })
     .catch(function (error) {
       console.error(error);
