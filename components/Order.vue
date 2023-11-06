@@ -25,7 +25,7 @@
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >
-          <h2 class="text-md">دوشنبه 19 تیر 1402</h2>
+          <h2 class="text-md">{{ date }}</h2>
           <h2 class="text-md lg:hidden">تاریخ خرید</h2>
         </div>
         <div
@@ -53,7 +53,20 @@
 </template>
 
 <script setup>
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
 const props = defineProps(["order"]);
+
+onMounted(() => {
+  date.value = dayjs(props.order.created_at)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
 </script>
 
 <style lang="scss" scoped></style>

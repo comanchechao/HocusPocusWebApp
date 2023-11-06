@@ -4,7 +4,7 @@
   >
     <LazyOrderInfoDialog :order="order" />
     <div class="flex items-center justify-end space-x-2">
-      <h3 class="text-darkPurple text-sm font-bold">دوشنبه 25 تیر</h3>
+      <h3 class="text-darkPurple text-sm font-bold">{{ date }}</h3>
 
       <h3 class="text-darkPurple text-sm lg:hidden flex">تاریخ سفارش</h3>
     </div>
@@ -24,11 +24,22 @@
 </template>
 
 <script setup>
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
 const props = defineProps(["order"]);
 
 const orderItems = ref(props.order);
 
 onMounted(() => {
   console.log(props.order.id);
+
+  date.value = dayjs(props.order.created_at)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
 });
 </script>
