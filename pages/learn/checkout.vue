@@ -32,7 +32,7 @@
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
-            @click="submit()"
+            @click="submitOrder()"
             class="lg:text-xl text-md px-3 lg:px-10 active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out bg-mainYellow text-darkPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainYellow hover:bg-mainBrown"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
@@ -133,7 +133,7 @@ const submit = () => {
 
 const courseStore = useCourseStore();
 
-const { shoppingCart } = storeToRefs(courseStore);
+const { shoppingCart, cartTotalPrice } = storeToRefs(courseStore);
 
 const increaseItem = (itemId) => {
   courseStore.increaseQuantity(itemId);
@@ -144,6 +144,85 @@ const decreaseItem = (itemId) => {
 
 const removeItem = (itemId) => {
   courseStore.removeProduct(itemId);
+};
+
+const submitedOrdersId = ref();
+
+const submitOrder = async (userId) => {
+  const data = new URLSearchParams({
+    userId: 1,
+    totalPrice: cartTotalPrice.value,
+    estimatedDeliveryDays: 5,
+    city: city.value,
+    region: region.value,
+    address: address.value,
+    fullname: fullname.value,
+    phone_number: phoneNumber.value,
+    postal_code: postalCode.value,
+  });
+
+  await $fetch("http://localhost:3333/videos/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+      if (response.order) {
+        submitedOrdersId.value = response.order.id;
+        orderItems();
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// const getUser = async () => {
+//   const { data } = await $fetch("http://localhost:3333/auth/isauthenticated", {
+//     headers: {},
+//     withCredentials: true,
+//     credentials: "include",
+//   })
+//     .then(function (response) {
+//       console.log(response.userId);
+//       userId.value = response.userId;
+//       submitOrder(response.userId);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+// };
+
+const orderItems = async () => {
+  const data = new URLSearchParams({});
+
+  shoppingCart.value.forEach((item) => {
+    console.log(item.id);
+    data.append("items", [item.id, item.quantity]);
+  });
+
+  console.log(data);
+
+  data.append("membership_id", submitedOrdersId.value);
+
+  await $fetch("http://localhost:3333/videos/submititems", {
+    method: "POST",
+    headers: {},
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 </script>
 
