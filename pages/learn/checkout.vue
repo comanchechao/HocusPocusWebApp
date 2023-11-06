@@ -29,9 +29,10 @@
             <PhInfo :size="30" weight="fill" />
           </h3>
           <div class="h-full w-full flex items-center">
-            <CustomerInfo :isVisible="false" />
+            <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
+            @click="submit()"
             class="lg:text-xl text-md px-3 lg:px-10 active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out bg-mainYellow text-darkPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainYellow hover:bg-mainBrown"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
@@ -108,7 +109,25 @@ import {
   PhBasket,
 } from "@phosphor-icons/vue";
 import { storeToRefs } from "pinia";
+import { useCheckoutStore } from "~/stores/checkoutStore";
 import { useCourseStore } from "~/stores/coursesStore";
+
+const checkoutStore = useCheckoutStore();
+
+const { phoneNumber, fullname, city, region, postalCode, email, address } =
+  storeToRefs(checkoutStore);
+
+const submit = () => {
+  console.log(
+    phoneNumber.value,
+    fullname.value,
+    city.value,
+    region.value,
+    postalCode.value,
+    email.value,
+    address.value
+  );
+};
 
 // register courseStore
 
