@@ -92,24 +92,30 @@
       <div
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
-        <div
-          class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+        <NuxtLink
+          class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full shadow-lg shadow-mainPurple border-2 bg-mainYellow border-mainPink cursor-pointer"
+          to="learn/learn"
         >
-          <img
-            src="../assets/images/TeachArt.webp"
-            class="lg:w-96 w-60 object-contain"
-            alt=""
-          />
-        </div>
-        <div
+          <div>
+            <img
+              src="../assets/images/TeachM.webp"
+              class="lg:w-rem28 w-60 object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
+        <NuxtLink
           class="lg:w-1/2 flex items-center justify-center CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+          to="shop/shop"
         >
-          <img
-            src="../assets/images/TeachArt.webp"
-            class="lg:w-96 w-60 object-contain"
-            alt=""
-          />
-        </div>
+          <div>
+            <img
+              src="../assets/images/ShopM.webp"
+              class="lg:w-rem28 w-60 object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
       </div>
       <div
         class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
@@ -397,7 +403,22 @@ import {
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { useProductStore } from "../stores/productStore";
-
+useHead({
+  title: "فروشگاه و مجموعه آموزشی شعبده بازی هوکوس پوکوس",
+  meta: [
+    {
+      name: "فروشگاه و مجموعه آموزشی هوکوس پوکوس، قدیم ترین مجموعه آموزشی و فروشگاهی در زمینه ی  شعبده بازی، با هدف پیشرفت روز افزون  هنر و صنعت شعبده بازی در سطح کشور است",
+      content:
+        "فروشگاه و مجموعه آموزشی هوکوس پوکوس، قدیم ترین مجموعه آموزشی و فروشگاهی در زمینه ی  شعبده بازی، با هدف پیشرفت روز افزون  هنر و صنعت شعبده بازی در سطح کشور است",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+  script: [{ innerHTML: "console.log('Hello world')" }],
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  link: [{ rel: "icon", type: "image/png", href: "/favicon.ico" }],
+});
 // assign product store
 
 const productStore = useProductStore();
