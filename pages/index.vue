@@ -92,24 +92,40 @@
       <div
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
-        <div
-          class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
+        <NuxtLink
+          class="lg:w-1/2 flex items-center rounded-md justify-center FCards w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainPink"
+          to="learn/learn"
         >
-          <img
-            src="../assets/images/TeachArt.webp"
-            class="lg:w-96 w-60 object-contain"
-            alt=""
-          />
-        </div>
-        <div
-          class="lg:w-1/2 flex items-center justify-center CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+          <div class="relative w-full h-full flex items-center justify-center">
+            <img
+              src="../assets/images/TeachM.webp"
+              class="lg:w-rem28 w-60 object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/StarsTeach.webp"
+              class="lg:w-rem28 w-60 absolute star2 object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
+        <NuxtLink
+          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
+          to="shop/shop"
         >
-          <img
-            src="../assets/images/TeachArt.webp"
-            class="lg:w-96 w-60 object-contain"
-            alt=""
-          />
-        </div>
+          <div class="relative w-full h-full flex items-center justify-center">
+            <img
+              src="../assets/images/ShopM.webp"
+              class="lg:w-rem28 w-60 absolute object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/StarsShop.webp"
+              class="lg:w-rem28 w-60 absolute star object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
       </div>
       <div
         class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
@@ -397,7 +413,22 @@ import {
 import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { useProductStore } from "../stores/productStore";
-
+useHead({
+  title: "فروشگاه و مجموعه آموزشی شعبده بازی هوکوس پوکوس",
+  meta: [
+    {
+      name: "فروشگاه و مجموعه آموزشی هوکوس پوکوس، قدیم ترین مجموعه آموزشی و فروشگاهی در زمینه ی  شعبده بازی، با هدف پیشرفت روز افزون  هنر و صنعت شعبده بازی در سطح کشور است",
+      content:
+        "فروشگاه و مجموعه آموزشی هوکوس پوکوس، قدیم ترین مجموعه آموزشی و فروشگاهی در زمینه ی  شعبده بازی، با هدف پیشرفت روز افزون  هنر و صنعت شعبده بازی در سطح کشور است",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+  script: [{ innerHTML: "console.log('Hello world')" }],
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  link: [{ rel: "icon", type: "image/png", href: "/favicon.ico" }],
+});
 // assign product store
 
 const productStore = useProductStore();
@@ -522,7 +553,30 @@ onMounted(() => {
     TL.play();
   });
   getProducts();
+  gsap.fromTo(
+    ".star",
+    { opacity: -1, duration: 0.4 },
+    {
+      yoyo: true,
+      opacity: 1,
+      duration: 0.4,
+      ease: "back.out(1.7)",
 
+      repeat: -1,
+    }
+  );
+  gsap.fromTo(
+    ".star2",
+    { opacity: -1, delay: 0.4, duration: 0.4 },
+    {
+      yoyo: true,
+      opacity: 1,
+      duration: 0.4,
+      ease: "back.out(1.7)",
+      delay: 0.4,
+      repeat: -1,
+    }
+  );
   gsap.from(".SCards", {
     opacity: 0,
     x: 80,
