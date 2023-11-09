@@ -93,7 +93,7 @@
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <NuxtLink
-          class="lg:w-1/2 flex items-center rounded-md justify-center FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed border-mainPink"
+          class="lg:w-1/2 flex items-center rounded-md justify-center FCards w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainPink"
           to="learn/learn"
         >
           <div class="relative w-full h-full flex items-center justify-center">
@@ -110,7 +110,7 @@
           </div>
         </NuxtLink>
         <NuxtLink
-          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed border-mainPink"
+          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
           to="shop/shop"
         >
           <div class="relative w-full h-full flex items-center justify-center">
