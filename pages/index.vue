@@ -93,25 +93,35 @@
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <NuxtLink
-          class="lg:w-1/2 flex items-center justify-center FCards w-full h-96 lg:h-full shadow-lg shadow-mainPurple border-2 bg-mainYellow border-mainPink cursor-pointer"
+          class="lg:w-1/2 flex items-center rounded-md justify-center FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed border-mainPink"
           to="learn/learn"
         >
-          <div>
+          <div class="relative w-full h-full flex items-center justify-center">
             <img
               src="../assets/images/TeachM.webp"
               class="lg:w-rem28 w-60 object-contain"
               alt=""
             />
+            <img
+              src="../assets/images/StarsTeach.webp"
+              class="lg:w-rem28 w-60 absolute star2 object-contain"
+              alt=""
+            />
           </div>
         </NuxtLink>
         <NuxtLink
-          class="lg:w-1/2 flex items-center justify-center CardistTrigger FCards w-full h-96 lg:h-full bg-mainPink cursor-pointer"
+          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed border-mainPink"
           to="shop/shop"
         >
-          <div>
+          <div class="relative w-full h-full flex items-center justify-center">
             <img
               src="../assets/images/ShopM.webp"
-              class="lg:w-rem28 w-60 object-contain"
+              class="lg:w-rem28 w-60 absolute object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/StarsShop.webp"
+              class="lg:w-rem28 w-60 absolute star object-contain"
               alt=""
             />
           </div>
@@ -543,7 +553,30 @@ onMounted(() => {
     TL.play();
   });
   getProducts();
+  gsap.fromTo(
+    ".star",
+    { opacity: -1, duration: 0.4 },
+    {
+      yoyo: true,
+      opacity: 1,
+      duration: 0.4,
+      ease: "back.out(1.7)",
 
+      repeat: -1,
+    }
+  );
+  gsap.fromTo(
+    ".star2",
+    { opacity: -1, delay: 0.4, duration: 0.4 },
+    {
+      yoyo: true,
+      opacity: 1,
+      duration: 0.4,
+      ease: "back.out(1.7)",
+      delay: 0.4,
+      repeat: -1,
+    }
+  );
   gsap.from(".SCards", {
     opacity: 0,
     x: 80,
