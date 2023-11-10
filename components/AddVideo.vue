@@ -55,11 +55,11 @@
               <label class="text-xl text-mainYellow" for="email"
                 >تاریخ آپلود آموزش <span class="text-sm">(به شمسی)</span></label
               >
-              <InputMask
+              <!-- <InputMask
                 v-model="productPrice"
                 placeholder="99/99/9999"
                 slotChar="mm/dd/yyyy"
-              />
+              /> -->
             </div>
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainYellow" for="trainer"

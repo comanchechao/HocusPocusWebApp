@@ -59,7 +59,10 @@
         <div
           class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
         >
-          <LazySubscriptionManagement class="lg:mt-0 mt-7" />
+          <LazySubscriptionManagement
+            :memberships="memberships"
+            class="lg:mt-0 mt-7"
+          />
           <h2 class="text-4xl neonText">اشتراک ها</h2>
         </div>
         <div
@@ -73,43 +76,11 @@
             <h3 class="text-mainPurple font-bold">نام خریدار</h3>
             <h3 class="text-mainPurple font-bold">نام اشتراک</h3>
           </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-              <span>خریداری شده</span>
-            </h3>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-              <span>لغو شده</span>
-            </h3>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
-          <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
-          >
-            <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-            <h3 class="text-darkPurple flex items-center space-x-2">
-              <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
-              <span>لغو شده</span>
-            </h3>
-            <h3 class="text-darkPurple">آروین نیک بین</h3>
-            <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
-          </div>
+          <LazySubscribtionItem
+            v-for="membership in memberships"
+            :key="membership"
+            :membership="membership"
+          />
         </div>
       </div>
     </div>
@@ -163,8 +134,45 @@ const getCourses = async () => {
     });
 };
 
+const memberships = ref();
+
+const getMemberships = async () => {
+  loading.value = true;
+  const { data } = await $fetch(
+    "http://localhost:3333/management/memberships",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response.memberships, "watch this");
+      memberships.value = response.memberships;
+      loading.value = false;
+      const sum = response.orders.reduce(
+        (total: number, obj: any) => total + Number(obj.totalPrice),
+        0
+      );
+
+      response.memberships.forEach((order) => {
+        console.log(
+          dayjs(order.created_at)
+            .calendar("jalali")
+            .locale("en")
+            .format("DD MMMM YYYY")
+        );
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
   getCourses();
+  getMemberships();
   TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
   TM.from(".Stat1", { opacity: 0, duration: 1 });
   TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });
