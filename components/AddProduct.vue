@@ -148,8 +148,13 @@
             </div>
             <div>
               <Message severity="success" v-show="imageUploadLoading"
-                >عکس ها درحال بارگذاری لطفا خارج نشوید</Message
-              >
+                >عکس ها درحال بارگذاری لطفا خارج نشوید
+                <ProgressSpinner
+                  style="width: 50px; height: 50px"
+                  strokeWidth="8"
+                  animationDuration=".5s"
+                  aria-label="Custom ProgressSpinner"
+              /></Message>
             </div>
             <div v-if="Array.isArray(errorMessage)">
               <Message
