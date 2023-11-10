@@ -37,11 +37,19 @@
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
           <button
+            v-show="isLogged"
             @click="getUser()"
             class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> تایید و ادامه به درگاه بانکی </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
+          </button>
+          <button
+            v-show="!isLogged"
+            class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+          >
+            <span> برای تکمیل خرید وارد حساب خوب شوید </span>
+            <LazyLogin v-show="!isLogged" />
           </button>
         </div>
         <div
@@ -118,6 +126,13 @@ import {
 import { storeToRefs } from "pinia";
 import { useCheckoutStore } from "../../stores/checkoutStore";
 import { useProductStore } from "../../stores/productStore";
+import { useUserStore } from "~/stores/user";
+
+// register user store
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
 
 // register product store
 
