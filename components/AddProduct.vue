@@ -146,6 +146,11 @@
                 >کالا به انبار اضافه شد</Message
               >
             </div>
+            <div>
+              <Message severity="success" v-show="imageUploadLoading"
+                >عکس ها درحال بارگذاری لطفا خارج نشوید</Message
+              >
+            </div>
             <div v-if="Array.isArray(errorMessage)">
               <Message
                 v-for="error in errorMessage"
@@ -210,6 +215,7 @@ const { type, brand, design, rarity, inStock, category } =
 // handle adding product via submit
 
 const handleProduct = async () => {
+  imageUploadLoading.value = true;
   const data = new URLSearchParams({
     title: productTitle.value,
     price: productPrice.value,
@@ -235,17 +241,7 @@ const handleProduct = async () => {
       console.log(response.product);
       addedProductID.value = response.product.id;
       console.log(error);
-      if (response.product) {
-        addedProductID.value = response.product.id;
-        productTitle.value = "";
-        productPrice.value = "";
-        type.value = "";
-        brand.value = "";
-        design.value = "";
-        category.value = "";
-        rarity.value = "";
-        productDescription.value = "";
-      }
+
       let images = [
         eventFileOne.value,
         eventFileTwo.value,
@@ -273,10 +269,13 @@ const handleProduct = async () => {
 
 // handling image upload
 
+const imageUploadLoading = ref(false);
+
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
 const uploadImage = async function (image) {
+  imageUploadLoading.value = true;
   const formData = new FormData();
 
   formData.append("file", image);
@@ -288,7 +287,10 @@ const uploadImage = async function (image) {
     body: formData,
   })
     .then((response) => {
-      console.log(response);
+      if (response.data) {
+        console.log(response);
+        imageUploadLoading.value = false;
+      }
     })
     .catch((error) => {
       imageUploadError.value = true;
