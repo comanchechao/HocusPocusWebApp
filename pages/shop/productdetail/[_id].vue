@@ -247,6 +247,27 @@ const getProduct = async () => {
       //   getProductImage();
       // }
       loading.value = false;
+      getLatestFour();
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+const loadingThree = ref(false);
+const products = ref();
+
+const getLatestFour = async () => {
+  loadingThree.value = true;
+  const { data } = await $fetch("http://localhost:3333/products/lastfour", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loadingThree.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -278,8 +299,8 @@ onMounted(() => {
   TM.from(".Product", { opacity: 0, duration: 1 });
 
   TM.from(".Comment", { opacity: 0, duration: 1.5, stagger: 0.4 });
+  getProduct();
 });
-getProduct();
 </script>
 
 <style>
