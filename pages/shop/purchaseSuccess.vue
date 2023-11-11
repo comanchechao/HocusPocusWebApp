@@ -2,7 +2,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
     <div
-      class="w-full h-screen lg:px-28 px-4 flex justify-start lg:items-center justify-center"
+      class="w-full h-screen lg:px-28 px-4 flex lg:items-center justify-center"
     >
       <div
         class="h-rem30 w-rem28 bg-white rounded-md flex items-center flex-col justify-around"

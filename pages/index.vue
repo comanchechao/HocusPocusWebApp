@@ -93,35 +93,39 @@
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <NuxtLink
-          class="lg:w-1/2 flex items-center rounded-md justify-center FCards w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainPink"
+          class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainPink"
           to="learn/learn"
         >
-          <div class="relative w-full h-full flex items-center justify-center">
+          <div
+            class="relative w-full h-full flex items-center FCards justify-center"
+          >
             <img
               src="../assets/images/TeachM.webp"
-              class="lg:w-rem28 w-60 object-contain"
+              class="lg:w-rem28 w-72 object-contain"
               alt=""
             />
             <img
               src="../assets/images/StarsTeach.webp"
-              class="lg:w-rem28 w-60 absolute star2 object-contain"
+              class="lg:w-rem28 w-72 absolute star2 object-contain"
               alt=""
             />
           </div>
         </NuxtLink>
         <NuxtLink
-          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger FCards w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
+          class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
           to="shop/shop"
         >
-          <div class="relative w-full h-full flex items-center justify-center">
+          <div
+            class="relative w-full h-full flex items-center justify-center FCards"
+          >
             <img
               src="../assets/images/ShopM.webp"
-              class="lg:w-rem28 w-60 absolute object-contain"
+              class="lg:w-rem28 w-72 absolute object-contain"
               alt=""
             />
             <img
               src="../assets/images/StarsShop.webp"
-              class="lg:w-rem28 w-60 absolute star object-contain"
+              class="lg:w-rem28 w-72 absolute star object-contain"
               alt=""
             />
           </div>
@@ -324,7 +328,7 @@
             </h2>
             <h3
               v-if="!loadingTwo"
-              class="text-2xl border-2 border-dashed border-darkPurple rounded-md py-1 px-8 text-mainBrown flex items-center justify-center space-x-2"
+              class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-8 text-mainBrown flex items-center justify-center space-x-2"
             >
               <span class="text-xs text-darkPurple">تومان</span>
               <span>{{ latestProduct.price }}</span>
@@ -333,7 +337,7 @@
             <button
               v-if="!loadingTwo"
               @click="addToCart(latestProduct)"
-              class="w-full justify-center mt-3 py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+              class="w-full justify-center mt-3 py-1 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
             >
               <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
             </button>

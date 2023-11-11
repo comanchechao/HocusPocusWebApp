@@ -56,7 +56,7 @@
                 >تاریخ آپلود آموزش <span class="text-sm">(به شمسی)</span></label
               >
               <!-- <InputMask
-                v-model="productPrice"
+                v-model="courseDate"
                 placeholder="99/99/9999"
                 slotChar="mm/dd/yyyy"
               /> -->
@@ -158,7 +158,7 @@
             </div>
             <label
               for="videoFile"
-              class="text-xl flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+              class="text-xl cursor-pointer flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-4 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> آپلود ویدیو آموزش </span>
               <PhPlus weight="fill" :size="23" />
@@ -204,7 +204,7 @@ const faild = ref(false);
 const errorMessage = ref("");
 
 // course properties
-
+const courseDate = ref("");
 const courseTitle = ref("");
 const courseDescription = ref("");
 const coursePrice = ref();

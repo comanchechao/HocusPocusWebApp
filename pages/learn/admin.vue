@@ -63,7 +63,7 @@
             :memberships="memberships"
             class="lg:mt-0 mt-7"
           />
-          <h2 class="text-4xl neonText">اشتراک ها</h2>
+          <h2 class="text-4xl text-mainYellow">اشتراک ها</h2>
         </div>
         <div
           class="w-full h-auto border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
@@ -71,10 +71,10 @@
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
           >
-            <h3 class="text-mainPurple font-bold">تاریخ سفارش</h3>
-            <h3 class="text-mainPurple font-bold">وضعیت سفارش</h3>
-            <h3 class="text-mainPurple font-bold">نام خریدار</h3>
-            <h3 class="text-mainPurple font-bold">نام اشتراک</h3>
+            <h3 class="text-mainPurple">تاریخ سفارش</h3>
+            <h3 class="text-mainPurple">وضعیت سفارش</h3>
+            <h3 class="text-mainPurple">نام خریدار</h3>
+            <h3 class="text-mainPurple">نام اشتراک</h3>
           </div>
           <LazySubscribtionItem
             v-for="membership in memberships"

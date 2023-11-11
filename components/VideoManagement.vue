@@ -17,18 +17,18 @@
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div class="w-full h-full flex items-center flex-col py-7">
-        <h2 class="text-2xl neonText">مدیریت آموزش ها</h2>
-        <LazySortBy />
+        <h2 class="text-2xl text-mainYellow">مدیریت آموزش ها</h2>
         <div
           class="w-full h-full bg-white my-4 flex flex-col rounded-md text-xs lg:text-lg"
         >
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
           >
-            <h3 class="text-mainPurple font-bold">تاریخ آپلود</h3>
-            <h3 class="text-mainPurple font-bold">موجودی آموزش</h3>
-            <h3 class="text-mainPurple font-bold">نام آپلود کننده</h3>
-            <h3 class="text-mainPurple font-bold">نام آموزش</h3>
+            <h3 class="text-mainPurple">ویرایش</h3>
+
+            <h3 class="text-mainPurple">تاریخ آپلود</h3>
+            <h3 class="text-mainPurple">موجودی آموزش</h3>
+            <h3 class="text-mainPurple">نام آموزش</h3>
           </div>
           <LazyVideoManagementCard
             v-for="course in courses"

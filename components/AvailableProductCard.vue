@@ -77,11 +77,11 @@ const removeComments = async function (product) {
     )
       .then((response, error) => {
         removeProductImage();
-        loading.value = false;
-        message.value = true;
-        setTimeout(() => {
-          message.value = false;
-        }, 3000);
+        // loading.value = false;
+        // message.value = true;
+        // setTimeout(() => {
+        //   message.value = false;
+        // }, 3000);
       })
       .catch((error) => {
         console.log(error.data);

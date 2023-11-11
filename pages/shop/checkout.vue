@@ -44,13 +44,13 @@
             <span> تایید و ادامه به درگاه بانکی </span>
             <PhShoppingBagOpen :size="35" weight="fill" />
           </button>
-          <button
+          <div
             v-show="!isLogged"
-            class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+            class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
           >
-            <span> برای تکمیل خرید وارد حساب خوب شوید </span>
             <LazyLogin v-show="!isLogged" />
-          </button>
+            <span> برای تکمیل خرید وارد خود شوید </span>
+          </div>
         </div>
         <div
           class="h-dialog w-full lg:w-1/3 lg:border-l-2 border-mainRed flex flex-col items-end"
