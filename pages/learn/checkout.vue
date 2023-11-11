@@ -114,6 +114,13 @@ import {
 import { storeToRefs } from "pinia";
 import { useCheckoutStore } from "~/stores/checkoutStore";
 import { useCourseStore } from "~/stores/coursesStore";
+import { useUserStore } from "~/stores/user";
+
+// register user store
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
 
 const checkoutStore = useCheckoutStore();
 

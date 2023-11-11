@@ -181,6 +181,22 @@
               <span> اضافه کردن آموزش </span>
               <PhPlus weight="fill" :size="23" />
             </button>
+            <Message severity="success" v-show="videoUploadLoading"
+              >فایل ها درحال بارگذاری لطفا خارج نشوید
+              <ProgressSpinner
+                style="width: 50px; height: 50px"
+                strokeWidth="8"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+            /></Message>
+            <Message severity="success" v-show="imageUploadLoading"
+              >عکس ها درحال بارگذاری لطفا خارج نشوید
+              <ProgressSpinner
+                style="width: 50px; height: 50px"
+                strokeWidth="8"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+            /></Message>
           </div>
         </div>
       </div>
@@ -231,7 +247,10 @@ const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
 
 // handle adding product via submit
 
+const videoUploadLoading = ref(false);
+
 const handleCourse = async () => {
+  videoUploadLoading.value = true;
   console.log(eventVideo.value);
   // const data = new URLSearchParams({
   //   title: courseTitle.value,
@@ -268,7 +287,9 @@ const handleCourse = async () => {
         eventImageTwo.value,
         eventImageThree.value,
       ];
-
+      if (response.video) {
+        videoUploadLoading.value = false;
+      }
       images.forEach((image) => {
         uploadImage(image);
       });
@@ -279,6 +300,7 @@ const handleCourse = async () => {
     })
     .catch((error) => {
       faild.value = true;
+      videoUploadLoading.value = false;
       errorMessage.value = error.data.message;
       setTimeout(() => {
         faild.value = false;
@@ -288,10 +310,12 @@ const handleCourse = async () => {
 
 // handling image upload
 
+const imageUploadLoading = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
 const uploadImage = async function (image) {
+  imageUploadLoading.value = true;
   const formData = new FormData();
 
   formData.append("file", image);
@@ -304,6 +328,7 @@ const uploadImage = async function (image) {
   })
     .then((response) => {
       console.log(response);
+      imageUploadLoading.value = false;
     })
     .catch((error) => {
       imageUploadError.value = true;

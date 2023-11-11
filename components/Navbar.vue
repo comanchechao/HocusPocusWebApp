@@ -128,6 +128,7 @@
           <PhCoffee :size="23" />
         </button> </NuxtLink
       ><NuxtLink
+        v-show="isLogged"
         v-if="$route.path.startsWith('/learn')"
         class="hidden lg:flex"
         to="/learn/admin"
