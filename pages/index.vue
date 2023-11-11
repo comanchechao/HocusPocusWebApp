@@ -93,7 +93,7 @@
         class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <NuxtLink
-          class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainPink"
+          class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainYellow"
           to="learn/learn"
         >
           <div
@@ -186,7 +186,7 @@
         class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
       >
         <h2
-          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
+          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center font-bold md:text-3xl text-lg lg:text-3xl flex"
         >
           <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
@@ -328,7 +328,7 @@
             </h2>
             <h3
               v-if="!loadingTwo"
-              class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-8 text-mainBrown flex items-center justify-center space-x-2"
+              class="text-xl border-2 border-dashed border-darkPurple rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
             >
               <span class="text-xs text-darkPurple">تومان</span>
               <span>{{ latestProduct.price }}</span>
