@@ -2,13 +2,6 @@
   <div
     class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
   >
-    <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
-    <div class="flex items-center space-x-3">
-      <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-sm text-darkPurple">موجود</h3>
-    </div>
-    <!-- <h3 class="text-darkPurple">{{ course.trainer }}</h3> -->
-    <h3 class="text-mainBrown text-center px-5">{{ course.title }}</h3>
     <button
       @click="removeCourseImage()"
       class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
@@ -22,6 +15,14 @@
       />
       <PhTrash v-if="!loading" :size="30" />
     </button>
+    <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
+    <div class="flex items-center space-x-3">
+      <InputSwitch v-model="checked"></InputSwitch>
+      <h3 class="text-sm text-darkPurple">موجود</h3>
+    </div>
+    <!-- <h3 class="text-darkPurple">{{ course.trainer }}</h3> -->
+    <h3 class="text-mainBrown text-center px-5">{{ course.title }}</h3>
+
     <Message
       class="w-full text-right absolute top-40"
       v-show="message"

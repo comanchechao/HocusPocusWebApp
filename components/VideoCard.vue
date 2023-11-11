@@ -50,7 +50,12 @@
           >
             <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
           </button>
-          <Message :closable="false" v-show="addSuccess" severity="success">
+          <Message
+            class="absolute"
+            :closable="false"
+            v-show="addSuccess"
+            severity="success"
+          >
             <span class="lg:text-sm text-sm font-bold"
               >به سبد خرید اضافه شد</span
             >
