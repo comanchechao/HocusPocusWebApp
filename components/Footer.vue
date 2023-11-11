@@ -93,7 +93,7 @@
       </div>
     </div>
     <div
-      class="w-screen relative h-44 md:h-96 overflow-hidden lg:h-screen SkullT flex items-end justify-center"
+      class="w-screen relative h-44 md:h-rem26 overflow-hidden lg:h-screen SkullT flex items-end justify-center"
     >
       <img
         src="../assets/images/FooterM.webp"
