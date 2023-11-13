@@ -46,10 +46,13 @@
           class="flex items-end flex-col space-y-2 md:col-span-2 lg:col-span-2"
         >
           <label class="text-xl text-mainRed" for="password">رمز عبور</label>
-          <InputText
+
+          <Password
             id="password"
             v-model="signupPassword"
             aria-describedby="username-help"
+            toggleMask
+            :feedback="false"
           />
           <small class="text-sm text-mainViolet" id="username-help"
             >رمز عبور خودتون رو وارد کنید</small

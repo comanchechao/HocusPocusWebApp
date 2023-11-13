@@ -1,7 +1,7 @@
 <template>
   <div
     ref="Navbar"
-    class="w-screen h-20 flex items-center justify-center lg:px-10 bg-transparent z-50"
+    class="w-screen h-20 flex fixed items-center justify-center lg:px-10 bg-transparent z-50"
   >
     <div
       class="items-center justify-start space-x-2 w-full opacity-0 Navbar hidden lg:flex"

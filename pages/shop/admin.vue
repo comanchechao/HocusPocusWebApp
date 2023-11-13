@@ -72,10 +72,10 @@
         <LazyAvailableDialog class="Stat2" :products="products" />
       </div>
       <div
-        class="md:space-x-6 md:flex-row md:space-y-0 w-full justify-center my-7 lg:space-x-6 lg:flex-row flex-col space-x-0 lg:space-y-0 space-y-4 flex items-center"
+        class="w-full justify-center my-7 flex-col space-x-0 space-y-4 flex items-center"
       >
-        <LazyAddProduct class="Product" />
         <LazyAddFilter class="Product" />
+        <LazyAddProduct class="Product" />
       </div>
       <div
         class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
@@ -85,7 +85,6 @@
         >
           سفارش ها
         </h2>
-        <LazySortBy />
         <LazyOrderManagement :orders="orders" />
       </div>
       <div
@@ -96,7 +95,6 @@
         >
           مدیریت صفحه ی اول
         </h2>
-        <LazySortBy />
 
         <LazyProductStatusManagement :products="products" />
       </div>

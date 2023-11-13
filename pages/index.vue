@@ -10,14 +10,12 @@
       aria-label="Custom ProgressSpinner"
     />
   </div>
-  <div
-    class="w-screen h-auto from-Indigo-700 to-darkPurple bg-gradient-to-t flex flex-col items-center"
-  >
+  <div class="w-screen h-auto flex flex-col items-center">
     <LazyNavbar></LazyNavbar>
 
     <div
       ref="container"
-      class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-5 justify-center"
+      class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-24 justify-center"
     >
       <div
         class="w-full md:h-rem26 h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
@@ -80,7 +78,7 @@
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain1.webp"
-        class="object-contain md:h-40 h-24 lg:h-48 w-full lg:px-0 px-4"
+        class="object-contain md:h-32 h-24 lg:h-32 my-10 w-full lg:px-0 px-4"
         alt=""
       />
       <h2
@@ -244,7 +242,7 @@
     <div class="h-auto w-full flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain.webp"
-        class="object-contain h-40 lg:h-64 w-full lg:px-0 px-4"
+        class="object-contain h-32 lg:h-32 md:32 w-full lg:px-0 px-4"
         alt=""
       />
 
@@ -278,11 +276,11 @@
         </div>
       </div>
 
-      <img
+      <!-- <img
         src="../assets/images/MagicDivider.webp"
         class="w-full px-5 lg:px-36 object-contain"
         alt=""
-      />
+      /> -->
     </div>
     <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
       <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">

@@ -17,6 +17,8 @@ import Textarea from "primevue/textarea";
 import Skeleton from "primevue/skeleton";
 import ProgressSpinner from "primevue/progressspinner";
 
+import Password from "primevue/password";
+
 import InputMask from "primevue/inputmask";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -38,6 +40,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Skeleton", Skeleton);
   nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
   nuxtApp.vueApp.component("InputMask", InputMask);
+  nuxtApp.vueApp.component("Password", Password);
 
   //other components that you need
 });

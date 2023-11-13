@@ -55,10 +55,12 @@
             class="flex items-end flex-col space-y-2 md:col-span-2 justify-self-end lg:col-span-2"
           >
             <label class="text-xl text-mainRed" for="password">رمز عبور</label>
-            <InputText
+            <Password
               id="password"
               v-model="loginPassword"
               aria-describedby="username-help"
+              toggleMask
+              :feedback="false"
             />
             <small class="text-sm text-mainViolet" id="username-help"
               >رمز عبور خودتون رو وارد کنید</small
@@ -71,9 +73,7 @@
             v-show="successLogin"
             severity="success"
           >
-            <span class="lg:text-2xl text-md font-bold"
-              >ورود موفقیت آمیز بود</span
-            >
+            <span class="lg:text-2xl text-md">ورود موفقیت آمیز بود</span>
           </Message>
           <Message
             class="w-full text-right absolute"
@@ -177,9 +177,12 @@ async function formSubmit() {
   max-height: 100% !important;
   max-width: 100% !important;
 }
+.p-message-close.p-link {
+  margin-left: 5px;
+}
 .p-message-wrapper {
   align-items: center;
-  justify-content: center;
+  justify-content: end;
 }
 .p-message.p-message-error .p-message-close {
   margin-left: 0;

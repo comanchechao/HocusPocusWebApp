@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-xl cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
       class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
@@ -39,15 +39,17 @@
         /> -->
     </div>
 
-    <div class="w-full h-full flex items-center flex-col px-7 py-5 space-y-4">
-      <h3 class="text-center leading-snug title text-xl text-darkPurple">
+    <div class="w-full h-full flex items-end flex-col px-7 py-5 space-y-4">
+      <h3
+        class="text-center leading-snug title font-bold text-xl text-darkPurple"
+      >
         {{ props.product.title }}
       </h3>
       <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
         Seafarers: Commodore Edition Playing Cards
       </h3> -->
       <h3
-        class="text-xl border-2 border-dashed border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+        class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
         <span>{{ props.product.price }}</span>
@@ -55,10 +57,13 @@
         <PhMoney :size="34" weight="fill" />
       </h3>
 
-      <div class="flex space-x-3 items-center w-full justify-center h-auto">
-        <NuxtLink :to="'/shop/productdetail/' + product.id">
+      <div class="flex space-x-3 items-end w-full justify-end h-auto">
+        <NuxtLink
+          class="w-full flex items-center justify-center"
+          :to="'/shop/productdetail/' + product.id"
+        >
           <button
-            class="px-3 py-2 border-2 border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
+            class="px-3 py-2 border-2 justify-center w-full border-darkPurple shadow-sm shadow-mainRed flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainRed hover:bg-darkPurple rounded-md"
           >
             <span> جزئیات بیشتر </span> <PhInfo :size="20" /></button
         ></NuxtLink>
@@ -70,7 +75,7 @@
         ></NuxtLink> -->
         <button
           @click="addToCart(props.product)"
-          class="justify-center w-10 h-10 shadow-md border-mainPink border-2 hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown hover:bg-mainYellow rounded-md"
+          class="justify-center w-14 h-10 shadow-md border-mainPink border-2 flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainPink hover:border-darkPurple hover:bg-darkPurple rounded-md"
         >
           <PhShoppingBagOpen :size="30" weight="fill" />
         </button>
@@ -159,9 +164,5 @@ onMounted(() => {
   font-display: swap;
 
   /* unicode-range: U+0020-007F; */
-}
-
-.title {
-  font-family: "Pocus";
 }
 </style>

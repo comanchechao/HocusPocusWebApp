@@ -3,7 +3,7 @@
     <LazyNavbar />
     <div class="flex items-center justify-center h-screen flex-col w-full">
       <div
-        class="flex-col flex items-center Bread opacity-0 justify-center space-y-6"
+        class="flex-col flex items-center Bread NavbarTrigger opacity-0 justify-center space-y-6"
       >
         <h2 class="text-2xl text-mainYellow">آموزش شعبده بازی و تردستی</h2>
         <h1 class="Pocused text-center">Hocus Pocus</h1>
@@ -23,14 +23,44 @@
         <span> محصولات هوکوس پوکوس </span>
       </h2>
       <div
-        class="h-dialog w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
+        class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
-        <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainYellow cursor-pointer"
-        ></div>
-        <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-mainPink cursor-pointer"
-        ></div>
+        <NuxtLink
+          class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainYellow"
+          to="learn/learn"
+        >
+          <div
+            class="relative w-full h-full flex items-center FCards justify-center"
+          >
+            <img
+              src="../../assets/images/TeachM.webp"
+              class="lg:w-rem28 w-72 object-contain"
+              alt=""
+            />
+            <img
+              src="../../assets/images/StarsTeach.webp"
+              class="lg:w-rem28 w-72 absolute star2 object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
+        <NuxtLink
+          class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
+          to="shop/shop"
+        >
+          <div class="relative w-full h-full flex items-center justify-center">
+            <img
+              src="../../assets/images/ShopM.webp"
+              class="lg:w-rem28 w-72 absolute object-contain"
+              alt=""
+            />
+            <img
+              src="../../assets/images/StarsShop.webp"
+              class="lg:w-rem28 w-72 absolute star object-contain"
+              alt=""
+            />
+          </div>
+        </NuxtLink>
       </div>
       <div
         class="w-full lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
@@ -69,16 +99,16 @@
         <LazyVideoCardsCarousel :courses="courses" class="self-center" />
       </div>
       <div
-        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPurple"
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
       >
         <h2
-          class="text-mainPink border-b-8 rounded-2xl border-mainBrown pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
+          class="text-mainBrown border-b-8 rounded-2xl border-mainBrown pb-5 text-center font-bold md:text-3xl text-xl lg:text-3xl flex"
         >
           <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
         </h2>
         <h2
-          class="text-mainPink rounded-lg text-center text-xl lg:text-xl flex"
+          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
@@ -121,12 +151,6 @@
           <LazyCardsSwiper :products="products" />
         </div>
       </div>
-
-      <img
-        src="../../assets/images/MagicDivider.webp"
-        class="w-full px-5 lg:px-36 object-contain"
-        alt=""
-      />
     </div>
     <div
       class="w-full py-5 fh-full bg-mainBrown flex items-center space-y-9 flex-col"
