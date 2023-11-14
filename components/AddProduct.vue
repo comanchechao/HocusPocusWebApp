@@ -429,35 +429,134 @@ const uploadImage = async function (image) {
 </script>
 
 <style>
-.p-dialog .p-dialog-header {
-  background-color: #150531;
+@font-face {
+  font-family: "IranSans";
+  src: url("../assets/fonts/IRYekan.woff");
+  font-style: normal;
+  font-display: swap;
+
+  /* unicode-range: U+0020-007F; */
 }
-@media only screen and (max-width: 480px) {
-  .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
-    margin: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .p-dialog-content {
-    height: calc(100% - 46px) !important;
-  }
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
+  .p-inputswitch-slider {
+  background-color: #9a0649;
 }
-@media only screen and (max-width: 768px) {
-  .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
-    margin: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .p-dialog-content {
-    height: calc(100% - 46px) !important;
-  }
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background-color: #090025;
+}
+.p-multiselect-items-wrapper {
+  border: 0.2rem #090025;
+}
+
+.p-multiselect:not(.p-disabled).p-focus {
+  box-shadow: 0 0 0 0.1rem #090025;
+  border: 0;
+}
+
+.p-icon {
+  color: #090025;
+}
+
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  color: #d9065a;
+}
+.p-multiselect .p-multiselect-label.p-placeholder {
+  color: #090025;
+}
+.p-multiselect {
+  font-family: "IranSans";
+  border: 4px #090025;
+  border-radius: 0rem;
+  background-color: #d9065a;
+  color: #090025;
+  padding: 0px 0px;
+  flex-direction: row-reverse;
+}
+.p-multiselect-label,
+.p-multiselect-item,
+.p-inputtext {
+  font-family: "IranSans";
+
+  color: #090025;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  background-color: #fdf7fa;
+  color: #090025;
+}
+.p-multiselect-panel
+  .p-multiselect-header
+  .p-multiselect-
+  -container
+  .p-inputtext {
+  padding: 0;
+}
+
+.p-multiselect-panel .p-multiselect-header {
+  background-color: #d9065a;
+  color: #090025;
+}
+.p-multiselect-label-container {
+  background-color: #d9065a;
+  border: 0;
+}
+.p-multiselect-token {
+  background-color: #d9065a;
+  color: #090025;
+}
+.p-multiselect-panel .p-multiselect-items {
+  background-color: #ffffff;
+  color: #090025;
+}
+
+.p-checkbox {
+  color: #090025;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #090025;
+}
+
+.p-checkbox .p-checkbox-box {
+  border-radius: 2rem;
+  background-color: #d9065a;
+}
+.p-overlay-open {
+  border: 20;
+  border-color: #090025;
+}
+.p-multiselect-panel
+  .p-multiselect-items
+  .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+  background-color: #090025;
+  color: #d9065a;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.p-multiselect-panel
+  .p-multiselect-items
+  .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+  background: #090025;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  background-color: #090025;
+  border: 20;
+  border-color: #d9065a;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  background-color: #090025;
+  color: #d9065a;
+}
+.p-multiselect-panel
+  .p-multiselect-items
+  .p-multiselect-item.p-highlight.p-focus {
+  background: #090025;
 }
 </style>
