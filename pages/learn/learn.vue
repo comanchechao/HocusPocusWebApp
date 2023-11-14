@@ -357,7 +357,7 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const courses = ref();
-const loading = ref(false);
+const loading = ref(true);
 
 const getCourses = async () => {
   loading.value = true;
@@ -381,7 +381,7 @@ const addSuccess = ref(false);
 const productStore = useProductStore();
 
 const latestCourse = ref();
-const loadingTwo = ref(false);
+const loadingTwo = ref(true);
 const addToCart = (product) => {
   productStore.addToShoppingCart(product);
   addSuccess.value = true;
