@@ -6,10 +6,10 @@
       <InputSwitch v-model="checked"></InputSwitch>
     </div>
     <div class="flex items-center space-x-3">
-      <InputSwitch v-model="checked"></InputSwitch>
+      <InputSwitch v-model="specialOffer"></InputSwitch>
     </div>
     <div class="flex items-center space-x-3">
-      <InputSwitch v-model="checked"></InputSwitch>
+      <InputSwitch v-model="weeksSelection"></InputSwitch>
     </div>
     <h3 class="text-darkPurple text-center px-5">
       {{ product.title }}
@@ -27,6 +27,21 @@ import { useManagementStore } from "~/stores/productManagement";
 const productManagement = useManagementStore();
 
 const checked = ref(false);
+const specialOffer = ref(false);
+const weeksSelection = ref(false);
+
+watch(specialOffer, (cur, old) => {
+  if (cur === true) {
+    weeksSelection.value = false;
+    checked.value = false;
+  }
+});
+watch(weeksSelection, (cur, old) => {
+  if (cur === true) {
+    specialOffer.value = false;
+    checked.value = false;
+  }
+});
 
 const removeProductImage = async function () {
   if (props.product.ProductImages.length) {

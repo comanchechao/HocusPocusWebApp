@@ -117,7 +117,7 @@
           <label class="text-xl text-mainRed" for="email">تعداد کالا </label>
           <InputNumber
             id="email"
-            v-model="productPrice"
+            v-model="productQuantity"
             aria-describedby="username-help"
             class="w-full"
           />
@@ -209,6 +209,7 @@ const errorMessage = ref("");
 const productTitle = ref("");
 const productDescription = ref("");
 const productPrice = ref();
+const productQuantity = ref();
 
 const addedProductID = ref();
 
@@ -232,6 +233,7 @@ const handleProduct = async () => {
     category: category.value,
     rarity: rarity.value,
     inStock: inStock.value,
+    quantity: productQuantity.value,
     description: productDescription.value,
   });
 
