@@ -439,10 +439,10 @@ const uploadImage = async function (image) {
 }
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
   .p-inputswitch-slider {
-  background-color: #9a0649;
+  background-color: #b10449;
 }
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background-color: #090025;
+  background-color: #d9065a;
 }
 .p-multiselect-items-wrapper {
   border: 0.2rem #090025;
