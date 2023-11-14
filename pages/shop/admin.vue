@@ -12,7 +12,9 @@
         aria-label="Custom ProgressSpinner"
       />
     </div>
-    <div class="w-full h-full flex flex-col items-center px-5 lg:px-40 py-16">
+    <div
+      class="w-full pt-28 h-full flex flex-col items-center px-5 lg:px-40 py-16"
+    >
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
           class="text-mainRed underline text-lg flex space-x-3 items-center cursor-pointer"
