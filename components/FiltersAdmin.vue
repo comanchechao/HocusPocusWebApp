@@ -1,52 +1,53 @@
 <template>
   <div
-    class="flex items-center justify-center flex-wrap w-screen lg:w-full h-full lg:h-full border-t-2 border-mainRed"
+    class="flex items-center justify-center space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <MultiSelect
-      v-model="selectedCategory"
-      :options="categories"
-      optionLabel="name"
-      display="chip"
-      filter
-      placeholder="دسته بندی"
-      :showToggleAll="false"
-    ></MultiSelect>
-    <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedRarity"
       :options="rarity"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="کمیابی"
       :showToggleAll="false"
     >
     </MultiSelect>
     <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedDesigns"
       :options="designs"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="طرح ها"
       :showToggleAll="false"
     >
     </MultiSelect>
     <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedBrands"
       :options="brands"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="برندها"
       :showToggleAll="false"
     >
     </MultiSelect>
+
     <MultiSelect
+      :maxSelectedLabels="2"
+      v-model="selectedCategory"
+      :options="categories"
+      optionLabel="name"
+      display="chip"
+      placeholder="دسته بندی"
+      :showToggleAll="false"
+    ></MultiSelect>
+    <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedTypes"
       :options="types"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="نوع"
       :showToggleAll="false"
     >
@@ -54,13 +55,12 @@
   </div>
 </template>
 <script setup>
-import { current } from "tailwindcss/colors";
 import { ref } from "vue";
 import { useManagementStore } from "../stores/productManagement";
 
-// filter values
+//   values
 
-const inStock = ref(true);
+const inStock = ref();
 const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
@@ -170,16 +170,16 @@ const categories = ref([
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
-  color: #150531;
+  color: #240a4e;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #f36b31;
 }
 .p-multiselect {
   font-family: "IranSans";
-  border: #f36b31;
+  border: 4px #f36b31;
   border-radius: 0rem;
-  background-color: #150531;
+  background-color: #240a4e;
   color: #f36b31;
   padding: 0px 0px;
   flex-direction: row-reverse;
@@ -194,30 +194,31 @@ const categories = ref([
   text-transform: uppercase;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
-  background-color: #150531;
+  background-color: #240a4e;
   color: #f36b31;
 }
 .p-multiselect-panel
   .p-multiselect-header
-  .p-multiselect-filter-container
+  .p-multiselect-
+  -container
   .p-inputtext {
   padding: 0;
 }
 
 .p-multiselect-panel .p-multiselect-header {
-  background-color: #150531;
+  background-color: #240a4e;
   color: #f36b31;
 }
 .p-multiselect-label-container {
-  background-color: #150531;
+  background-color: #240a4e;
   border: 0;
 }
 .p-multiselect-token {
-  background-color: #150531;
+  background-color: #240a4e;
   color: #f36b31;
 }
 .p-multiselect-panel .p-multiselect-items {
-  background-color: #150531;
+  background-color: #240a4e;
   color: #f36b31;
 }
 
@@ -231,7 +232,7 @@ const categories = ref([
 
 .p-checkbox .p-checkbox-box {
   border-radius: 2rem;
-  background-color: #150531;
+  background-color: #240a4e;
 }
 .p-overlay-open {
   border: 20;
@@ -241,7 +242,7 @@ const categories = ref([
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
   background-color: #f36b31;
-  color: #150531;
+  color: #240a4e;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
   display: flex;
@@ -251,7 +252,7 @@ const categories = ref([
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
   background: #f36b31;
-  color: #150531;
+  color: #240a4e;
 }
 .p-multiselect-panel
   .p-multiselect-items
@@ -262,12 +263,12 @@ const categories = ref([
 .p-checkbox .p-checkbox-box.p-highlight {
   background-color: #f36b31;
   border: 20;
-  border-color: #150531;
+  border-color: #240a4e;
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
   background-color: #f36b31;
-  color: #150531;
+  color: #240a4e;
 }
 .p-multiselect-panel
   .p-multiselect-items

@@ -36,9 +36,19 @@
         >
           <div class="flex items-center space-x-3 Stat1">
             <h4 class="text-white">تومان</h4>
-            <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+            <h1
+              v-if="!loading"
+              class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+            >
               {{ totalSales }}
             </h1>
+            <ProgressSpinner
+              v-show="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
         </div>

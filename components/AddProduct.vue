@@ -138,7 +138,60 @@
           <InputSwitch v-model="checked"></InputSwitch>
           <h3 class="text-lg text-mainRed">موجودی کالا</h3>
         </div>
-        <LazyFiltersAdmin />
+        <div
+          class="flex items-center justify-center space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+        >
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedRarity"
+            :options="rarity"
+            optionLabel="name"
+            display="chip"
+            placeholder="کمیابی"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedDesigns"
+            :options="designs"
+            optionLabel="name"
+            display="chip"
+            placeholder="طرح ها"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedBrands"
+            :options="brands"
+            optionLabel="name"
+            display="chip"
+            placeholder="برندها"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedCategory"
+            :options="categories"
+            optionLabel="name"
+            display="chip"
+            placeholder="دسته بندی"
+            :showToggleAll="false"
+          ></MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedTypes"
+            :options="types"
+            optionLabel="name"
+            display="chip"
+            placeholder="نوع"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+        </div>
         <!-- {{ type }}
           {{ design }}
           {{ brand }}
@@ -186,8 +239,75 @@ import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
-const visible = ref(false);
+const inStock = ref();
+const selectedTypes = ref();
+const selectedBrands = ref();
+const selectedRarity = ref();
+const selectedDesigns = ref();
+const selectedCategory = ref();
+watch(selectedTypes, (current, old) => {
+  managementStore.setType(current[0].name);
+  console.log(current[0].name);
+});
 
+watch(selectedCategory, (current, old) => {
+  managementStore.setCategory(current[0].name);
+});
+
+watch(inStock, (current, old) => {
+  managementStore.setInStock(current);
+});
+
+watch(selectedBrands, (current, old) => {
+  managementStore.setBrand(current[0].name);
+  console.log(current[0].name);
+});
+
+watch(selectedRarity, (current, old) => {
+  managementStore.setRarity(current[0].name);
+  console.log(current[0].name);
+});
+
+watch(selectedDesigns, (current, old) => {
+  managementStore.setDesign(current[0].name);
+  console.log(current[0].name);
+});
+
+const types = ref([
+  {
+    name: "کارت ها",
+  },
+  { name: "لوازم شعبده بازی" },
+]);
+const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
+const rarity = ref([
+  { name: "کمیاب" },
+  { name: "لیمیتد" },
+  { name: "کمتر از 500" },
+]);
+const brands = ref([
+  { name: "بایسیکل", code: "NY" },
+  { name: "جوکر", code: "RM" },
+  { name: "تلی هو", code: "LDN" },
+  { name: "کوپاگ", code: "NY" },
+  { name: "کارتماندی", code: "RM" },
+  { name: "کِم", code: "LDN" },
+  { name: "پیانتیک", code: "NY" },
+  { name: "بیی", code: "RM" },
+  { name: "رافورد", code: "LDN" },
+]);
+const categories = ref([
+  { name: "کلوس آپ مجیک", code: "NY" },
+  { name: "جادو کودکان", code: "NY" },
+  { name: "کارت مجیک", code: "RM" },
+  { name: "سکه و پول", code: "LDN" },
+  { name: "حرکت اجسام", code: "LDN" },
+  { name: "منتالیسم", code: "LDN" },
+  { name: "جادوی خیابانی", code: "LDN" },
+  { name: "جادوی استند آپ", code: "LDN" },
+  { name: "جادوی اجرا بزرگ", code: "LDN" },
+  { name: "جادوی کافی شاپ", code: "LDN" },
+]);
 // register main management
 
 const mainManagement = useMainManagement();
@@ -217,8 +337,8 @@ const addedProductID = ref();
 
 const managementStore = useManagementStore();
 
-const { type, brand, design, rarity, inStock, category } =
-  storeToRefs(managementStore);
+// const { type, brand, design, rarity, inStock, category } =
+//   storeToRefs(managementStore);
 
 // handle adding product via submit
 
