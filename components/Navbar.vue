@@ -220,7 +220,7 @@ onMounted(() => {
       onEnter: () => {
         Navbar.value.classList.add("fixed");
       },
-      start: "bottom top",
+      start: "top bottom",
       end: "bottom bottom",
       toggleActions: "play none none none none",
     },

@@ -275,12 +275,6 @@
           <LazyCardsSwiper v-if="!loading" :products="products" />
         </div>
       </div>
-
-      <!-- <img
-        src="../assets/images/MagicDivider.webp"
-        class="w-full px-5 lg:px-36 object-contain"
-        alt=""
-      /> -->
     </div>
     <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
       <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
@@ -379,24 +373,7 @@
         />
       </div>
     </div>
-    <!-- <div class="w-full h-full my-14 flex flex-col">
-      <div class="h-auto w-full items-center justify-between lg:px-10 flex">
-        <button
-          class="lg:px-7 px-2 py-2 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-mainYellow bg-darkPurple flex items-center space-x-3 text-mainYellow text-xl rounded-md"
-        >
-          <PhInstagramLogo :size="40" weight="fill" class="mr-3" />
-          <span>دنبال کن </span>
-        </button>
-        <h2
-          class="text-md text-right rounded-md text-mainPink border-4 border-dashed border-mainPink lg:px-7 px-2 py-2 flex items-center mr-3"
-        >
-          <span>اینستاگرام هوکوس پوکوس </span>
-        </h2>
-      </div>
-      <div class="w-full flex justify-center mt-4 items-center">
-        <LazyInstagramCarousel />
-      </div>
-    </div> -->
+
     <LazyFooter></LazyFooter>
   </div>
 </template>

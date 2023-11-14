@@ -96,7 +96,22 @@
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
         </h2>
-        <LazyVideoCardsCarousel :courses="courses" class="self-center" />
+        <div
+          class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 lg:px-20 px-4 w-full"
+          v-if="loading"
+        >
+          <Skeleton width="35rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
+        <LazyVideoCardsCarousel
+          v-if="!loading"
+          :courses="courses"
+          class="self-center"
+        />
       </div>
       <div
         class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
@@ -128,28 +143,62 @@
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
-        <LazyCardsCarousel :products="products" class="self-center" />
+        <div
+          class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
+          v-if="loadingProducts"
+        >
+          <Skeleton width="18rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
+        <LazyCardsCarousel
+          v-if="!loadingProducts"
+          :products="products"
+          class="self-center"
+        />
       </div>
     </div>
 
-    <div class="h-auto w-full bg-mainBrown flex flex-col items-center">
+    <div
+      class="h-auto lg:my-10 SCardsTrigger my-5 w-screen flex items-center justify-center"
+    >
+      <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+        <PhCards weight="fill" class="mr-3" />
+        <span> کارت های منتخب هفته </span>
+      </h2>
+    </div>
+    <div
+      class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
+    >
       <div
-        class="h-auto lg:my-10 my-5 w-screen flex items-center justify-center"
+        class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 px-4 w-full"
+        v-if="loadingProducts"
       >
-        <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
-          <PhCards weight="fill" class="mr-3" />
-          <span> کارت های منتخب هفته </span>
-        </h2>
+        <Skeleton width="18rem" height="25rem"></Skeleton>
+        <Skeleton
+          class="lg:flex hidden"
+          width="18rem"
+          height="25rem"
+        ></Skeleton>
       </div>
-      <div
-        class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
-      >
-        <div class=" ">
-          <LazyCardsSwiper :products="products" />
-        </div>
-        <div class="lg:flex hidden md:flex">
-          <LazyCardsSwiper :products="products" />
-        </div>
+      <div class="SCards">
+        <LazyCardsSwiper v-if="!loadingProducts" :products="products" />
+      </div>
+      <div class="lg:flex SCards hidden md:flex">
+        <LazyCardsSwiper v-if="!loadingProducts" :products="products" />
       </div>
     </div>
     <div
@@ -179,7 +228,62 @@
             <PhMoney :size="34" weight="fill" />
           </h3>
         </div>
+        <div
+          v-show="latestCourse"
+          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center p-5"
+        >
+          <div class="h-3/4 w-full flex items-end flex-col justify-center">
+            <ProgressSpinner
+              v-if="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+            <LazyLastProductImage
+              v-if="!loadingTwo"
+              :productId="latestCourse.ProductImages[0].id"
+            />
+          </div>
+          <div
+            class="w-full h-1/4 flex flex-col items-end justify-center space-y-4"
+          >
+            <Skeleton
+              class="hidden lg:flex"
+              v-if="loadingTwo"
+              width="35rem"
+              height="3rem"
+            ></Skeleton>
+            <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
 
+            <h2
+              v-if="!loadingTwo"
+              class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+            >
+              <span> {{ latestCourse.title }} </span>
+            </h2>
+            <h3
+              v-if="!loadingTwo"
+              class="text-xl border-2 border-dashed border-darkPurple rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
+            >
+              <span class="text-xs text-darkPurple">تومان</span>
+              <span>{{ latestCourse.price }}</span>
+              <PhMoney :size="34" weight="fill" />
+            </h3>
+            <button
+              v-if="!loadingTwo"
+              @click="addToCart(latestCourse)"
+              class="w-full justify-center mt-3 py-1 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
+            >
+              <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+            </button>
+            <Message :closable="false" v-show="addSuccess" severity="success">
+              <span class="lg:text-sm text-sm font-bold"
+                >به سبد خرید اضافه شد</span
+              >
+            </Message>
+          </div>
+        </div>
         <div
           v-if="loading"
           class="w-full h-full flex flex-col items-center space-y-5"
@@ -237,6 +341,8 @@
 </template>
 
 <script setup lang="ts">
+import { useProductStore } from "../../stores/productStore";
+
 import {
   PhCards,
   PhPackage,
@@ -245,6 +351,7 @@ import {
   PhShoppingBagOpen,
   PhShoppingBag,
   PhHeartStraight,
+  PhNotebook,
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
@@ -268,13 +375,21 @@ const getCourses = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loading.value = false;
     });
 };
+const addSuccess = ref(false);
+const productStore = useProductStore();
 
 const latestCourse = ref();
 const loadingTwo = ref(false);
+const addToCart = (product) => {
+  productStore.addToShoppingCart(product);
+  addSuccess.value = true;
 
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
+};
 const getLatestCourse = async () => {
   loadingTwo.value = true;
   const { data } = await $fetch("http://localhost:3333/videos/latest", {
@@ -295,7 +410,7 @@ const getLatestCourse = async () => {
     });
 };
 
-const loadingProducts = ref(false);
+const loadingProducts = ref(true);
 const products = ref();
 
 const getProducts = async () => {
@@ -333,7 +448,6 @@ const getLatestFour = async () => {
     })
     .catch(function (error) {
       console.error(error);
-      loadingThree.value = false;
     });
 };
 

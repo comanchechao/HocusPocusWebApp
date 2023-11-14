@@ -6,7 +6,9 @@
   </head>
   <div class="h-auto w-screen bg-darkPurple">
     <LazyNavbar />
-    <div class="h-auto w-screen flex-col flex items-center px-7 lg:px-32 py-16">
+    <div
+      class="h-auto w-screen flex-col flex items-center pt-28 px-7 lg:px-32 py-16"
+    >
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
       >
@@ -178,7 +180,32 @@
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
-        <LazyCardsCarousel :products="products" class="self-center" />
+        <div
+          class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
+          v-if="loadingThree"
+        >
+          <Skeleton width="18rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+          <Skeleton
+            class="lg:flex hidden"
+            width="18rem"
+            height="25rem"
+          ></Skeleton>
+        </div>
+        <LazyCardsCarousel
+          v-if="!loadingThree"
+          :products="products"
+          class="self-center"
+        />
       </div>
     </div>
   </div>
@@ -254,7 +281,7 @@ const getProduct = async () => {
     });
 };
 
-const loadingThree = ref(false);
+const loadingThree = ref(true);
 const products = ref();
 
 const getLatestFour = async () => {
