@@ -72,11 +72,51 @@ const updateSpecialOffer = async function () {
       console.log(error.data);
     });
 };
+
+const deupdateSpecialOffer = async function () {
+  const data = new URLSearchParams({
+    productId: props.product.id,
+  });
+  await $fetch(`http://localhost:3333/management/deupdateproductstatus`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      alert("updated");
+      productManagement.setStateChange();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
 const updateWeekSelection = async function () {
   const data = new URLSearchParams({
     productId: props.product.id,
   });
   await $fetch(`http://localhost:3333/management/updateweekselection`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      alert("updated");
+      productManagement.setStateChange();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
+
+const deupdateWeekSelection = async function () {
+  const data = new URLSearchParams({
+    productId: props.product.id,
+  });
+  await $fetch(`http://localhost:3333/management/deupdateweekselection`, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",

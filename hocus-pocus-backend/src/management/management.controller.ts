@@ -86,6 +86,16 @@ export class ManagementController {
     return this.managementService.updateWeekSelection(dto);
   }
 
+  @Post('/deupdateproductstatus')
+  deupdateProductStatus(@Body() dto: ProductStatusDto) {
+    return this.managementService.deupdateProductStatus(dto);
+  }
+
+  @Post('/deupdateweekselection')
+  deupdateProductWeekSelection(@Body() dto: ProductStatusDto) {
+    return this.managementService.deupdateWeekSelection(dto);
+  }
+
   @Post('/removeproduct/:id')
   removeProduct(@Param('id') id: string) {
     return this.managementService.removeProduct(id);

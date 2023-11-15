@@ -103,6 +103,18 @@ export class ManagementService {
     return { product: product };
   }
 
+  async deupdateProductStatus(dto: ProductStatusDto) {
+    const product = await this.prismaService.products.update({
+      where: {
+        id: Number(dto.productId),
+      },
+      data: {
+        special_offer: false,
+      },
+    });
+    return { product: product };
+  }
+
   async updateWeekSelection(dto: ProductStatusDto) {
     const product = await this.prismaService.products.update({
       where: {
@@ -110,6 +122,18 @@ export class ManagementService {
       },
       data: {
         weeksSelection: true,
+      },
+    });
+    return { product: product };
+  }
+
+  async deupdateWeekSelection(dto: ProductStatusDto) {
+    const product = await this.prismaService.products.update({
+      where: {
+        id: Number(dto.productId),
+      },
+      data: {
+        weeksSelection: false,
       },
     });
     return { product: product };
