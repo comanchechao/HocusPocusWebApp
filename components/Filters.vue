@@ -1,56 +1,57 @@
 <template>
   <div
-    class="flex md:flex-row lg:flex-row md:space-x-5 md:pr-6 flex-col flex-wrap space-y-4 lg:space-y-0 lg:pt-0 pt-6 items-center justify-center lg:space-x-10 w-screen lg:w-full h-auto lg:h-24 border-t-2 border-mainRed"
+    class="flex items-center justify-center space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
       <h3 class="text-lg text-mainRed">موجودی کالا</h3>
     </div>
     <MultiSelect
-      v-model="selectedCategory"
-      :options="categories"
-      optionLabel="name"
-      display="chip"
-      filter
-      placeholder="کتگوری"
-      :showToggleAll="false"
-    ></MultiSelect>
-    <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedRarity"
       :options="rarity"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="کمیابی"
       :showToggleAll="false"
     >
     </MultiSelect>
     <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedDesigns"
       :options="designs"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="طرح ها"
       :showToggleAll="false"
     >
     </MultiSelect>
     <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedBrands"
       :options="brands"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="برندها"
       :showToggleAll="false"
     >
     </MultiSelect>
+
     <MultiSelect
+      :maxSelectedLabels="2"
+      v-model="selectedCategory"
+      :options="categories"
+      optionLabel="name"
+      display="chip"
+      placeholder="دسته بندی"
+      :showToggleAll="false"
+    ></MultiSelect>
+    <MultiSelect
+      :maxSelectedLabels="2"
       v-model="selectedTypes"
       :options="types"
       optionLabel="name"
       display="chip"
-      filter
       placeholder="نوع"
       :showToggleAll="false"
     >
@@ -139,36 +140,41 @@ const categories = ref([
 }
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
   .p-inputswitch-slider {
-  background-color: #9a0649;
+  background-color: #b10449;
 }
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background-color: #f36b31;
+  background-color: #d9065a;
 }
 .p-multiselect-items-wrapper {
-  border: 0.2rem #f36b31;
+  border: 0.2rem #090025;
 }
 
 .p-multiselect:not(.p-disabled).p-focus {
-  box-shadow: 0 0 0 0.1rem #f36b31;
+  box-shadow: 0 0 0 0.1rem #090025;
   border: 0;
 }
 
 .p-icon {
-  color: #f36b31;
+  color: #090025;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.p-dialog .p-dialog-header {
+  background-color: #150531;
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
-  color: #150531;
+  color: #d9065a;
 }
 .p-multiselect .p-multiselect-label.p-placeholder {
-  color: #f36b31;
+  color: #090025;
 }
 .p-multiselect {
   font-family: "IranSans";
-  border: #f36b31;
+  border: 4px #090025;
   border-radius: 0rem;
-  background-color: #150531;
-  color: #f36b31;
+  background-color: #d9065a;
+  color: #090025;
   padding: 0px 0px;
   flex-direction: row-reverse;
 }
@@ -177,59 +183,60 @@ const categories = ref([
 .p-inputtext {
   font-family: "IranSans";
 
-  color: #f36b31;
+  color: #090025;
   font-size: 1rem;
   text-transform: uppercase;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
-  background-color: #150531;
-  color: #f36b31;
+  background-color: #fdf7fa;
+  color: #090025;
 }
 .p-multiselect-panel
   .p-multiselect-header
-  .p-multiselect-filter-container
+  .p-multiselect-
+  -container
   .p-inputtext {
   padding: 0;
 }
 
 .p-multiselect-panel .p-multiselect-header {
-  background-color: #150531;
-  color: #f36b31;
+  background-color: #d9065a;
+  color: #090025;
 }
 .p-multiselect-label-container {
-  background-color: #150531;
+  background-color: #d9065a;
   border: 0;
 }
 .p-multiselect-token {
-  background-color: #150531;
-  color: #f36b31;
+  background-color: #d9065a;
+  color: #090025;
 }
 .p-multiselect-panel .p-multiselect-items {
-  background-color: #150531;
-  color: #f36b31;
+  background-color: #ffffff;
+  color: #090025;
 }
 
 .p-checkbox {
-  color: #f36b31;
+  color: #090025;
 }
 
 .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
-  border-color: #f36b31;
+  border-color: #090025;
 }
 
 .p-checkbox .p-checkbox-box {
   border-radius: 2rem;
-  background-color: #150531;
+  background-color: #d9065a;
 }
 .p-overlay-open {
   border: 20;
-  border-color: #f36b31;
+  border-color: #090025;
 }
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-  background-color: #f36b31;
-  color: #150531;
+  background-color: #090025;
+  color: #d9065a;
 }
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
   display: flex;
@@ -237,29 +244,25 @@ const categories = ref([
   align-items: center;
 }
 
-.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-  background: #f36b31;
-  color: #150531;
-}
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-  background: #f9eef7;
+  background: #090025;
 }
 
 .p-checkbox .p-checkbox-box.p-highlight {
-  background-color: #f36b31;
+  background-color: #090025;
   border: 20;
-  border-color: #150531;
+  border-color: #d9065a;
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-  background-color: #f36b31;
-  color: #150531;
+  background-color: #090025;
+  color: #d9065a;
 }
 .p-multiselect-panel
   .p-multiselect-items
   .p-multiselect-item.p-highlight.p-focus {
-  background: #f36b31;
+  background: #090025;
 }
 </style>

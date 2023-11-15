@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-auto overflow-hidden from-mainPurple to-darkPurple bg-gradient-to-t"
+    class="w-screen h-auto overflow-hidden from-purple-950 to-darkPurple bg-gradient-to-t"
   >
     <LazyNavbar />
 

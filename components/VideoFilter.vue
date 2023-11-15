@@ -128,10 +128,6 @@ const categories = ref([
   border: 0;
 }
 
-.p-icon {
-  color: #f36b31;
-}
-
 .p-checkbox .p-checkbox-box .p-checkbox-icon {
   color: #150531;
 }

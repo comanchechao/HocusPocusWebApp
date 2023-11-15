@@ -460,7 +460,12 @@ const uploadImage = async function (image) {
 }
 
 .p-icon {
-  color: #090025;
+  color: #ffffff;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.p-dialog .p-dialog-header {
+  background-color: #150531;
 }
 
 .p-checkbox .p-checkbox-box .p-checkbox-icon {

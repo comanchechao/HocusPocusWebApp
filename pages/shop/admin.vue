@@ -243,4 +243,10 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style>
+.p-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #f90d0d;
+}
+</style>
