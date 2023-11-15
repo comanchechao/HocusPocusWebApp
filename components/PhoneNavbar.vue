@@ -25,6 +25,7 @@
           </button>
         </NuxtLink>
         <NuxtLink
+          v-show="isLogged"
           v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
           class="w-full"
           to="/shop/profile"
@@ -37,6 +38,7 @@
           </button>
         </NuxtLink>
         <NuxtLink
+          v-show="isLogged"
           v-if="$route.path.startsWith('/learn')"
           class="w-full"
           to="/learn/profile"
@@ -49,6 +51,7 @@
           </button>
         </NuxtLink>
         <NuxtLink
+          v-show="isLogged"
           v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
           class="w-full"
           to="/shop/admin"
@@ -61,6 +64,7 @@
           </button>
         </NuxtLink>
         <NuxtLink
+          v-show="isLogged"
           v-if="$route.path.startsWith('/learn')"
           class="w-full"
           to="/learn/admin"
@@ -158,6 +162,13 @@ import {
   PhList,
   PhAlien,
 } from "@phosphor-icons/vue";
+
+import { storeToRefs } from "pinia";
+import { useUserStore } from "../stores/user";
+
+const userStore = useUserStore();
+
+const { isLogged } = storeToRefs(userStore);
 const visible = ref(false);
 </script>
 <style>
