@@ -101,6 +101,11 @@ export class ManagementController {
     return this.managementService.removeProduct(id);
   }
 
+  @Post('/setdiscount/:id')
+  setDiscount(@Param('id') id: string, @Body() dto: ProductStatusDto) {
+    return this.managementService.setDiscount(id, dto);
+  }
+
   // orders requests
 
   @Get('/orders')

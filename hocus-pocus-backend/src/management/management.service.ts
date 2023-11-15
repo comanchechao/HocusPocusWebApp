@@ -139,6 +139,18 @@ export class ManagementService {
     return { product: product };
   }
 
+  async setDiscount(id: string, dto: ProductStatusDto) {
+    const product = await this.prismaService.products.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        discount: dto.discount,
+      },
+    });
+    return { product: product };
+  }
+
   async enableMode() {
     const product = await this.prismaService.products.updateMany({
       where: {
