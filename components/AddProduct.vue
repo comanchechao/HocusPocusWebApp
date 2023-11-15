@@ -135,7 +135,7 @@
           />
         </div>
         <div class="flex items-center space-x-3">
-          <InputSwitch v-model="checked"></InputSwitch>
+          <InputSwitch v-model="inStock"></InputSwitch>
           <h3 class="text-lg text-mainRed">موجودی کالا</h3>
         </div>
         <div
@@ -245,33 +245,33 @@ const selectedBrands = ref();
 const selectedRarity = ref();
 const selectedDesigns = ref();
 const selectedCategory = ref();
-watch(selectedTypes, (current, old) => {
-  managementStore.setType(current[0].name);
-  console.log(current[0].name);
-});
+// watch(selectedTypes, (current, old) => {
+//   managementStore.setType(current[0].name);
+//   console.log(selectedTypes.value);
+// });
 
-watch(selectedCategory, (current, old) => {
-  managementStore.setCategory(current[0].name);
-});
+// watch(selectedCategory, (current, old) => {
+//   managementStore.setCategory(current[0].name);
+// });
 
-watch(inStock, (current, old) => {
-  managementStore.setInStock(current);
-});
+// watch(inStock, (current, old) => {
+//   managementStore.setInStock(current);
+// });
 
-watch(selectedBrands, (current, old) => {
-  managementStore.setBrand(current[0].name);
-  console.log(current[0].name);
-});
+// watch(selectedBrands, (current, old) => {
+//   managementStore.setBrand(current[0].name);
+//   console.log(current[0].name);
+// });
 
-watch(selectedRarity, (current, old) => {
-  managementStore.setRarity(current[0].name);
-  console.log(current[0].name);
-});
+// watch(selectedRarity, (current, old) => {
+//   managementStore.setRarity(current[0].name);
+//   console.log(current[0].name);
+// });
 
-watch(selectedDesigns, (current, old) => {
-  managementStore.setDesign(current[0].name);
-  console.log(current[0].name);
-});
+// watch(selectedDesigns, (current, old) => {
+//   managementStore.setDesign(current[0].name);
+//   console.log(current[0].name);
+// });
 
 const types = ref([
   {
@@ -342,15 +342,19 @@ const managementStore = useManagementStore();
 
 // handle adding product via submit
 
+watch(selectedCategory, (cur, old) => {
+  console.log(selectedBrands.value, selectedCategory.value[0].name);
+});
+
 const handleProduct = async () => {
   imageUploadLoading.value = true;
   const data = new URLSearchParams({
     title: productTitle.value,
     price: productPrice.value,
-    type: type.value,
-    brand: brand.value,
-    design: design.value,
-    category: category.value,
+    type: selectedTypes.value[0].name,
+    brand: selectedBrands.value[0].name,
+    design: selectedDesigns.value[0].name,
+    category: selectedCategory.value[0].name,
     rarity: rarity.value,
     inStock: inStock.value,
     quantity: productQuantity.value,
@@ -370,6 +374,8 @@ const handleProduct = async () => {
       console.log(response.product);
       addedProductID.value = response.product.id;
       console.log(error);
+
+      console.log(selectedTypes.value, selectedBrands.value);
 
       let images = [
         eventFileOne.value,

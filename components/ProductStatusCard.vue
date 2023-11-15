@@ -30,6 +30,16 @@ const checked = ref(false);
 const specialOffer = ref(false);
 const weeksSelection = ref(false);
 
+onMounted(() => {
+  console.log(props.product);
+  if (props.product.special_offer) {
+    specialOffer.value = true;
+  }
+  if (props.product.weeksSelection) {
+    weeksSelection.value = true;
+  }
+});
+
 watch(specialOffer, (cur, old) => {
   if (cur === true) {
     weeksSelection.value = false;
@@ -42,6 +52,45 @@ watch(weeksSelection, (cur, old) => {
     checked.value = false;
   }
 });
+
+const updateSpecialOffer = async function () {
+  const data = new URLSearchParams({
+    productId: props.product.id,
+  });
+  await $fetch(`http://localhost:3333/management/updateproductstatus`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      alert("updated");
+      productManagement.setStateChange();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
+const updateWeekSelection = async function () {
+  const data = new URLSearchParams({
+    productId: props.product.id,
+  });
+  await $fetch(`http://localhost:3333/management/updateweekselection`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      alert("updated");
+      productManagement.setStateChange();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
 
 const removeProductImage = async function () {
   if (props.product.ProductImages.length) {
