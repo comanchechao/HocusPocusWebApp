@@ -1,7 +1,13 @@
 <template>
   <div
-    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg relative bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
+    <div
+      class="w-44 h-10 absolute -top-0 rounded-md bg-mainPink space-x-1 flex items-center justify-center"
+    >
+      <h2>درصد تخفیف</h2>
+      <h2 class="font-bold text-2xl">23</h2>
+    </div>
     <div
       class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
       id="div1"
@@ -52,8 +58,8 @@
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span>{{ props.product.price }}</span>
-        <!-- <span>599,000</span> -->
+        <span class="line-through">{{ props.product.price }}</span>
+        <span class="text-mainPink">599,000</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
 
