@@ -21,16 +21,25 @@
         class="h-full w-full p-10 space-y-10 flex flex-col items-center justify-center"
       >
         <h2
-          class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
+          class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-1 text-3xl"
         >
           ایجاد تخفیف
         </h2>
-
+        <div class="flex items-center justify-center space-x-4 h-full w-full">
+          <h2 class="text-mainPink text-2xl font-bold">درصد</h2>
+          <InputMask
+            placeholder="10"
+            v-model="phoneNumber"
+            mask="99"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
+        </div>
         <button
           @click="changeStatus()"
           class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
         >
-          <span> تایید تغییرات </span>
+          <span> تایید تخفیف </span>
           <PhCheckCircle weight="fill" :size="23" />
         </button>
       </div>

@@ -34,7 +34,7 @@
             <PhInfo :size="30" weight="fill" />
           </h3>
           <div class="h-full w-full flex items-center">
-            <LazyCustomerInfoCheckout :isVisible="true" />
+            <LazyCustomerInfoCheckout />
           </div>
           <button
             v-show="isLogged"

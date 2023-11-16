@@ -13,16 +13,16 @@
     <LazyOrderCard v-for="order in orders" :key="order.id" :order="order">
       <template #Status>
         <span v-show="order.status === 'PROCESSING'">درحال پردازش</span>
-        <PhCheckCircle
+        <PhPackage
           v-show="order.status === 'PROCESSING'"
-          class="text-red-500"
+          class="text-mainYellow"
           :size="25"
           weight="fill"
         />
-        <span v-show="order.status === 'SHIPPING'">در حال ارسال</span>
-        <PhCheckCircle
+        <span v-show="order.status === 'SHIPPING'">ارسال شده</span>
+        <PhAirplaneTilt
           v-show="order.status === 'SHIPPING'"
-          class="text-yellow-500"
+          class="text-blue-700"
           :size="25"
           weight="fill"
         />

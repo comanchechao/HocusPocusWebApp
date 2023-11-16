@@ -16,12 +16,12 @@
         @click="togglesent"
         class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-blue-900 active:text-white hover:shadow-blue-700 bg-blue-700 text-white transition ease-in duration-150 hover:bg-white hover:text-blue-700"
       >
-        <span>فرستاده شده</span>
+        <span>ارسال شده</span>
         <PhAirplaneTakeoff weight="fill" :size="30" />
       </button>
       <button
         @click="toggleProcess"
-        class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-Fuchsia-950 active:text-white hover:shadow-mainViolet bg-mainYellow text-white transition ease-in duration-150 hover:bg-white hover:text-mainViolet"
+        class="w-full h-14 text-lg lg:text-xl justify-center flex items-center space-x-2 rounded-md shadow-md shadow-transparent active:bg-Fuchsia-950 active:text-white hover:shadow-mainViolet bg-mainYellow text-darkPurple transition ease-in duration-150 hover:bg-white hover:text-darkPurple"
       >
         <span>در حال پردازش</span>
         <PhPackage weight="fill" :size="30" />

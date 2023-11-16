@@ -27,23 +27,23 @@
         <div class="w-full h-full justify-center flex items-center space-x-3">
           <span
             v-show="orderStatus === 'PROCESSING'"
-            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
+            class="text-mainYellow text-3xl border-4 rounded-md p-2 border-mainYellow"
             >در حال پردازش</span
           >
           <span
             v-show="orderStatus === 'SHIPPING'"
-            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
-            >در حال ارسال</span
+            class="text-blue-600 text-3xl border-4 rounded-md p-2 border-blue-700"
+            >ارسال شده</span
           >
           <span
             v-show="orderStatus === 'DELIVERED'"
-            class="text-mainRed border-4 rounded-md p-2 border-mainPink"
+            class="text-green-500 text-3xl border-4 rounded-md p-2 border-green-500"
             >تحویل داده شده</span
           >
           <h2 class="text-mainRed">وضعیت سفارش</h2>
         </div>
         <div
-          class="flex items-center justify-center text-right flex-col space-y-9 lg:space-y-0 lg:space-x-7 w-full h-full"
+          class="flex items-center justify-center text-right flex-col lg:flex-row space-y-9 lg:space-y-0 lg:space-x-7 w-full h-full"
         >
           <div class="flex items-center space-x-3">
             <InputSwitch v-model="proccessing"></InputSwitch>
@@ -51,7 +51,7 @@
           </div>
           <div class="flex items-center space-x-3">
             <InputSwitch v-model="shipping"></InputSwitch>
-            <h3 class="text-lg text-mainRed">فرستاده شده</h3>
+            <h3 class="text-lg text-mainRed">ارسال شده</h3>
           </div>
           <div class="flex items-center space-x-3">
             <InputSwitch v-model="delivered"></InputSwitch>
