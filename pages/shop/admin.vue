@@ -13,7 +13,7 @@
       />
     </div>
     <div
-      class="w-full pt-28 h-full flex flex-col items-center px-5 lg:px-40 py-16"
+      class="w-full pt-28 h-full flex flex-col items-center px-14 lg:px-40 py-16"
     >
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
@@ -55,7 +55,7 @@
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
         </div>
         <div
-          class="flex flex-col items-center rounded-md md:w-80 w-full lg:w-96 shadow-lg border border-mainPink shadow-mainPurple p-6"
+          class="flex flex-col items-center rounded-md md:w-full w-full lg:w-96 shadow-lg border border-mainPink shadow-mainPurple p-6"
         >
           <div class="flex items-center space-x-3 Stat1">
             <h1
@@ -86,7 +86,6 @@
       <div
         class="w-full justify-center my-7 flex-col space-x-0 space-y-4 flex items-center"
       >
-        <LazyAddFilter class="Product" />
         <LazyAddProduct class="Product" />
       </div>
       <div

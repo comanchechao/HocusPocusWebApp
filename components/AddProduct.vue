@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col w-full border-2 p-5 border-dashed border-mainPink rounded-md items-end my-28 justify-end"
+    class="flex flex-col w-full border-2 p-5 border-dashed border-mainPink rounded-md items-end lg:my-14 justify-end"
   >
     <!-- <button
       @click="visible = true"
@@ -139,7 +139,7 @@
           <h3 class="text-lg text-mainRed">موجودی کالا</h3>
         </div>
         <div
-          class="flex items-center justify-center space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+          class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 place-items-center justify-items-center gap-7 lg:px-28 lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
         >
           <MultiSelect
             :maxSelectedLabels="2"
@@ -187,6 +187,7 @@
             :options="types"
             optionLabel="name"
             display="chip"
+            class="col-span-2"
             placeholder="نوع"
             :showToggleAll="false"
           >
@@ -203,14 +204,19 @@
             >
           </div>
           <div>
-            <Message severity="success" v-show="imageUploadLoading"
-              >عکس ها درحال بارگذاری لطفا خارج نشوید
+            <Message
+              class="space-x-4 flex items-center justify-center"
+              severity="info"
+              v-show="imageUploadLoading"
+            >
+              <span class="text-right mx-3"> درحال بارگذاری عکس ها</span>
               <ProgressSpinner
-                style="width: 50px; height: 50px"
+                style="width: 20px; height: 20px"
                 strokeWidth="8"
                 animationDuration=".5s"
                 aria-label="Custom ProgressSpinner"
-            /></Message>
+              />
+            </Message>
           </div>
           <div v-if="Array.isArray(errorMessage)">
             <Message
@@ -231,15 +237,51 @@
       </div>
     </div>
   </div>
+  <div
+    class="flex flex-col w-full border-2 p-5 border-dashed border-mainPink rounded-md items-end my-24 justify-end"
+  >
+    <h2
+      class="lg:text-4xl text-xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+    >
+      ویرایش فیلترها
+    </h2>
+    <div
+      class="w-full h-full flex lg:flex-row flex-col-reverse lg:space-x-5 items-center justify-center lg:justify-end py-12"
+    >
+      <button
+        @click="visible = true"
+        class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+      >
+        <span> اضافه کردن فیلتر </span>
+        <PhSortAscending weight="fill" :size="23" />
+      </button>
+      <InputText
+        placeholder="فیلتر جدید"
+        id="fullname"
+        v-model="fullname"
+        class="rounded-lg h-11 lg:my-0 my-7"
+        aria-describedby="username-help"
+      />
+      <Dropdown
+        v-model="selectedFilters"
+        :options="filters"
+        optionLabel="name"
+        placeholder="فیلترها"
+        class="bg-mainBlue"
+      />
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { PhPlus, PhUpload } from "@phosphor-icons/vue";
+import { PhPlus, PhUpload, PhSortAscending } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
 const inStock = ref();
+const selectedFilters = ref();
+
 const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
@@ -272,7 +314,12 @@ const selectedCategory = ref();
 //   managementStore.setDesign(current[0].name);
 //   console.log(current[0].name);
 // });
-
+const filters = ref([
+  { name: "نوع" },
+  { name: "برند" },
+  { name: "دسته  بندی" },
+  { name: "کمیابی" },
+]);
 const types = ref([
   {
     name: "کارت ها",
@@ -443,6 +490,19 @@ const uploadImage = async function (image) {
 
   /* unicode-range: U+0020-007F; */
 }
+.p-inputtext {
+  text-align: end;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-family: "IranSans";
+  background-color: #fbf8ff;
+  border-radius: 0.3rem;
+}
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: #090025;
+}
 .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
   .p-inputswitch-slider {
   background-color: #b10449;
@@ -460,7 +520,7 @@ const uploadImage = async function (image) {
 }
 
 .p-icon {
-  color: #ffffff;
+  color: #d9065a;
   width: 1.4rem;
   height: 1.4rem;
 }
@@ -475,6 +535,15 @@ const uploadImage = async function (image) {
   color: #090025;
 }
 .p-multiselect {
+  font-family: "IranSans";
+  border: 4px #090025;
+  border-radius: 0rem;
+  background-color: #d9065a;
+  color: #090025;
+  padding: 0px 0px;
+  flex-direction: row-reverse;
+}
+.p-dropdown {
   font-family: "IranSans";
   border: 4px #090025;
   border-radius: 0rem;
@@ -569,5 +638,8 @@ const uploadImage = async function (image) {
   .p-multiselect-items
   .p-multiselect-item.p-highlight.p-focus {
   background: #090025;
+}
+.p-message .p-message-text {
+  text-align: right;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-auto rounded-lg relative bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
       class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
