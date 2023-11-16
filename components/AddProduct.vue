@@ -187,7 +187,7 @@
             :options="types"
             optionLabel="name"
             display="chip"
-            class="col-span-2"
+            class="col-span-2 lg:col-span-1"
             placeholder="نوع"
             :showToggleAll="false"
           >
