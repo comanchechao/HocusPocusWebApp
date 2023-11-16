@@ -107,6 +107,9 @@ const types = ref([
   {
     name: "کارت ها",
   },
+  {
+    name: "کتاب",
+  },
   { name: "لوازم شعبده بازی" },
 ]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
@@ -129,6 +132,7 @@ const brands = ref([
 const categories = ref([
   { name: "کلوس آپ مجیک", code: "NY" },
   { name: "جادو کودکان", code: "NY" },
+  { name: "شعبده بازی با پول", code: "NY" },
   { name: "کارت مجیک", code: "RM" },
   { name: "سکه و پول", code: "LDN" },
   { name: "حرکت اجسام", code: "LDN" },
