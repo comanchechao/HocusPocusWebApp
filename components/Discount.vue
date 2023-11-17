@@ -42,6 +42,24 @@
           <span> تایید تخفیف </span>
           <PhCheckCircle weight="fill" :size="23" />
         </button>
+        <div>
+          <Message severity="success" v-show="discountSuccess"
+            >تخفیف ثبت شد</Message
+          >
+        </div>
+        <Message
+          class="space-x-4 flex items-center justify-center"
+          severity="info"
+          v-show="loading"
+        >
+          <span class="text-right mx-3"> درحال ثبت</span>
+          <ProgressSpinner
+            style="width: 20px; height: 20px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+        </Message>
       </div>
     </Dialog>
   </div>
@@ -54,12 +72,15 @@ const props = defineProps(["productId"]);
 const visible = ref(false);
 const discount = ref();
 
-const loading = ref(true);
+const loading = ref(false);
 const orderItems = ref();
 
 watch(orderItems, (cur, old) => {
   let toArray = cur[0].items.split(" ");
 });
+
+const discountSuccess = ref(false);
+const discountFailed = ref(false);
 
 const setDiscount = async () => {
   const body = new URLSearchParams({
@@ -81,8 +102,19 @@ const setDiscount = async () => {
   )
     .then(function (response) {
       console.log(response);
+      if (response) {
+        discountSuccess.value = true;
+      }
+      setTimeout(() => {
+        discountSuccess.value = false;
+      }, 3000);
+      loading.value = false;
     })
     .catch(function (error) {
+      discountFailed.value = true;
+      setTimeout(() => {
+        discount.value = false;
+      }, 3000);
       console.error(error);
       loading.value = false;
     });
