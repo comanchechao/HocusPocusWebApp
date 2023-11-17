@@ -1,7 +1,9 @@
 <template>
   <div class="h-full w-screen bg-mainBrown">
     <LazyNavbar />
-    <div class="w-full h-full flex flex-col items-center px-5 lg:px-40 py-16">
+    <div
+      class="w-full h-full flex flex-col items-center px-5 lg:px-40 py-16 pt-28"
+    >
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
           class="text-mainYellow underline text-lg flex space-x-3 items-center cursor-pointer"
@@ -41,9 +43,16 @@
               <PhVideo class="text-mainYellow" :size="90" weight="fill" />
               <div class="flex flex-col items-center space-y-3">
                 <h3 class="text-mainBrown text-md">آموزش های موجود</h3>
-                <h1 class="text-mainBrown text-5xl font-bold">
+                <h1 v-if="!loading" class="text-mainBrown text-5xl font-bold">
                   {{ coursesCount }}
                 </h1>
+                <ProgressSpinner
+                  v-if="loading"
+                  style="width: 50px; height: 50px"
+                  strokeWidth="8"
+                  animationDuration=".5s"
+                  aria-label="Custom ProgressSpinner"
+                />
               </div>
             </div>
             <LazyVideoManagement :courses="courses" />
