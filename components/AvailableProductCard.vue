@@ -22,7 +22,7 @@
     >
       <span class="lg:text-xl text-md">محصول با موفقیت پاک شد</span>
     </Message>
-    <LazyDiscount></LazyDiscount>
+    <LazyDiscount :productId="product.id"></LazyDiscount>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs">65</h3>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs text-center">
       دوشنبه 24 تیر 1402
