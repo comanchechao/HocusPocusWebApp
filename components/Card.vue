@@ -58,7 +58,7 @@
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span class="text-mainPink">599,000</span>
+        <span class="text-mainPink">{{ offPrice }}</span>
         <span class="line-through">{{ props.product.price }}</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
@@ -156,8 +156,19 @@ const addToCart = (product: any) => {
   }, 3000);
 };
 
+const offPrice = ref();
+
+function calculateDiscountedPrice(price: number, discountPercentage: number) {
+  let discountedPrice = price - price * (discountPercentage / 100);
+  offPrice.value = discountedPrice;
+}
+
 onMounted(() => {
   console.log();
+  calculateDiscountedPrice(
+    Number(props.product.price),
+    Number(props.product.discount)
+  );
 });
 </script>
 
