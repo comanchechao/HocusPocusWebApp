@@ -28,6 +28,8 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
+          <PhCheckCircle weight="fill" :size="66" />
+
           <input
             @change="
               (event) => {
@@ -44,6 +46,8 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
+          <PhCheckCircle weight="fill" :size="66" />
+
           <input
             @change="
               (event) => {
@@ -60,6 +64,8 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
+          <PhCheckCircle weight="fill" :size="66" />
+
           <input
             @change="
               (event) => {
@@ -76,6 +82,8 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
+          <PhCheckCircle weight="fill" :size="66" />
+
           <input
             @change="
               (event) => {
@@ -275,7 +283,12 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPlus, PhUpload, PhSortAscending } from "@phosphor-icons/vue";
+import {
+  PhPlus,
+  PhUpload,
+  PhSortAscending,
+  PhCheckCircle,
+} from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
@@ -397,7 +410,6 @@ watch(selectedCategory, (cur, old) => {
 });
 
 const handleProduct = async () => {
-  imageUploadLoading.value = true;
   const data = new URLSearchParams({
     title: productTitle.value,
     price: productPrice.value,

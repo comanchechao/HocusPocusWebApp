@@ -2,7 +2,7 @@
   <div class="h-full w-screen bg-mainBrown">
     <LazyNavbar />
     <div
-      class="h-auto w-screen bg-mainBrown flex-col flex items-center px-7 lg:px-32 py-16"
+      class="h-auto w-screen bg-mainBrown flex-col flex items-center px-7 pt-28 lg:px-32 py-16"
     >
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end space-x-2 lg:space-x-4"
@@ -88,7 +88,7 @@
             </button>
           </div>
           <div
-            class="h-auto rounded-md w-full text-right flex-col items-end flex justify-around"
+            class="h-auto bg-mainWhite rounded-md w-full text-right flex-col items-end flex justify-around"
           >
             <Skeleton
               class="my-5"
