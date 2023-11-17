@@ -42,14 +42,24 @@ onMounted(() => {
 
 watch(specialOffer, (cur, old) => {
   if (cur === true) {
-    weeksSelection.value = false;
     checked.value = false;
+    if (!props.product.special_offer) {
+      updateSpecialOffer();
+    }
+  }
+  if (cur === false) {
+    deupdateSpecialOffer();
   }
 });
 watch(weeksSelection, (cur, old) => {
   if (cur === true) {
-    specialOffer.value = false;
     checked.value = false;
+    if (!props.product.weeksSelection) {
+      updateWeekSelection();
+    }
+  }
+  if (cur === false) {
+    deupdateWeekSelection();
   }
 });
 
@@ -85,7 +95,7 @@ const deupdateSpecialOffer = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("updated");
+      alert("deupdated");
       productManagement.setStateChange();
     })
     .catch((error) => {
@@ -124,7 +134,7 @@ const deupdateWeekSelection = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("updated");
+      alert("deupdated");
       productManagement.setStateChange();
     })
     .catch((error) => {

@@ -324,6 +324,9 @@ const types = ref([
   {
     name: "کارت ها",
   },
+  {
+    name: "کتاب",
+  },
   { name: "لوازم شعبده بازی" },
 ]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
@@ -436,6 +439,7 @@ const handleProduct = async () => {
         success.value = false;
       }, 3000);
       images.forEach((image) => {
+        imageUploadLoading.value = true;
         uploadImage(image);
       });
       mainManagement.setStateChange();
@@ -457,7 +461,6 @@ const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
 const uploadImage = async function (image) {
-  imageUploadLoading.value = true;
   const formData = new FormData();
 
   formData.append("file", image);
@@ -477,6 +480,7 @@ const uploadImage = async function (image) {
     .catch((error) => {
       imageUploadError.value = true;
       uploadErrorMessage.value = error.data.message;
+      imageUploadLoading.value = false;
     });
 };
 </script>

@@ -90,6 +90,27 @@ const proccessing = ref(false);
 const shipping = ref(false);
 const delivered = ref(false);
 
+watch(proccessing, (cur, old) => {
+  if (cur === true) {
+    shipping.value = false;
+    delivered.value = false;
+  }
+});
+
+watch(shipping, (cur, old) => {
+  if (cur === true) {
+    proccessing.value = false;
+    delivered.value = false;
+  }
+});
+
+watch(delivered, (cur, old) => {
+  if (cur === true) {
+    proccessing.value = false;
+    shipping.value = false;
+  }
+});
+
 const loading = ref(false);
 
 const changeStatus = () => {
