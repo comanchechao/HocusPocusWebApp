@@ -40,11 +40,17 @@
     </div>
 
     <div class="w-full h-full flex items-end flex-col px-7 py-5 space-y-4">
-      <h3
-        class="text-center leading-snug title font-bold text-xl text-darkPurple"
-      >
-        {{ props.product.title }}
-      </h3>
+      <div class="w-full justify-between flex items-center">
+        <h2 class="flex items-center space-x-1">
+          <PhStar class="text-mainPink" size="20" weight="fill"></PhStar>
+          <span class="">3/5</span>
+        </h2>
+        <h3
+          class="text-center leading-snug title font-bold text-xl text-darkPurple"
+        >
+          {{ props.product.title }}
+        </h3>
+      </div>
       <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
         Seafarers: Commodore Edition Playing Cards
       </h3> -->
@@ -90,7 +96,12 @@
 import { useProductStore } from "../stores/productStore";
 
 import { ref, watch } from "vue";
-import { PhInfo, PhShoppingBagOpen, PhMoney } from "@phosphor-icons/vue";
+import {
+  PhInfo,
+  PhShoppingBagOpen,
+  PhMoney,
+  PhStar,
+} from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const addSuccess = ref(false);
 const loading = ref(true);

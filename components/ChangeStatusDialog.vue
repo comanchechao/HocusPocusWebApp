@@ -25,21 +25,27 @@
           تغییر وضعیت سفارش
         </h2>
         <div class="w-full h-full justify-center flex items-center space-x-3">
-          <span
-            v-show="orderStatus === 'PROCESSING'"
-            class="text-mainYellow text-3xl border-4 rounded-md p-2 border-mainYellow"
-            >در حال پردازش</span
-          >
-          <span
-            v-show="orderStatus === 'SHIPPING'"
-            class="text-blue-600 text-3xl border-4 rounded-md p-2 border-blue-700"
-            >ارسال شده</span
-          >
-          <span
-            v-show="orderStatus === 'DELIVERED'"
-            class="text-green-500 text-3xl border-4 rounded-md p-2 border-green-500"
-            >تحویل داده شده</span
-          >
+          <Transition>
+            <span
+              v-show="orderStatus === 'PROCESSING'"
+              class="text-mainYellow text-3xl border-4 rounded-md p-2 border-mainYellow"
+              >در حال پردازش</span
+            >
+          </Transition>
+          <Transition>
+            <span
+              v-show="orderStatus === 'SHIPPING'"
+              class="text-blue-600 text-3xl border-4 rounded-md p-2 border-blue-700"
+              >ارسال شده</span
+            >
+          </Transition>
+          <Transition>
+            <span
+              v-show="orderStatus === 'DELIVERED'"
+              class="text-green-500 text-3xl border-4 rounded-md p-2 border-green-500"
+              >تحویل داده شده</span
+            >
+          </Transition>
           <h2 class="text-mainRed">وضعیت سفارش</h2>
         </div>
         <div
