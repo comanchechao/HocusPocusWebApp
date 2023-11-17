@@ -77,7 +77,7 @@
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
-            <PhFacebookLogo :size="50" />
+            <PhWhatsappLogo :size="50" />
           </button>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
@@ -87,7 +87,7 @@
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
-            <PhTwitterLogo :size="50" />
+            <PhMapPin :size="50" />
           </button>
         </div>
       </div>
@@ -116,10 +116,10 @@
 
 <script setup>
 import {
-  PhFacebookLogo,
+  PhWhatsappLogo,
   PhInstagramLogo,
   PhTelegramLogo,
-  PhTwitterLogo,
+  PhMapPin,
 } from "@phosphor-icons/vue";
 import { gsap } from "gsap";
 onMounted(() => {

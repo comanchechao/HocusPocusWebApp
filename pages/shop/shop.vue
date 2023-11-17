@@ -1,18 +1,26 @@
 <template>
   <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
     <LazyNavbar></LazyNavbar>
-
     <div
-      class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 lg:p-20 flex items-center"
+      class="LoadingDiv h-screen w-screen flex items-center justify-center bg-darkPurple"
+    >
+      <ProgressSpinner
+        class="bg-darkPurple"
+        style="width: 80px; height: 80px"
+        strokeWidth="8"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+    </div>
+    <div
+      class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-16 lg:p-20 flex items-center"
     >
       <div
         class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
-        <LazyFilters class="lg:flex Filter md:flex hidden"></LazyFilters>
-        <div class="w-full items-center justify-center lg:hidden flex">
-          <LazyPhoneFilters class=" "></LazyPhoneFilters>
-        </div>
+        <LazyFilters class="Filter"></LazyFilters>
+
         <div
           class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-7 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
@@ -214,7 +222,6 @@ const getProducts = async () => {
 };
 
 onMounted(() => {
-  getProducts();
   TM.to(window, {
     scrollTo: {
       top: 0,
@@ -222,11 +229,15 @@ onMounted(() => {
     duration: 0.01,
     ease: "easeInOutQuart",
   });
+  TM.to(".LoadingDiv", {
+    display: "none",
+  });
   TM.from(".Sort", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Filter", { opacity: 0, duration: 1 });
 
   TM.from(".LazyCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
   TM.to(".Paginator", { opacity: 1, duration: 1 });
+  getProducts();
 });
 </script>
 <script></script>
