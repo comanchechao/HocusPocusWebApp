@@ -58,8 +58,11 @@
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span class="text-mainPink">{{ offPrice }}</span>
-        <span class="line-through">{{ props.product.price }}</span>
+        <span v-if="offPrice" class="text-mainPink">{{ offPrice }}</span>
+        <span
+          :class="{ 'line-through': offPrice, 'no-underline': !offPrice }"
+          >{{ props.product.price }}</span
+        >
         <PhMoney :size="34" weight="fill" />
       </h3>
 

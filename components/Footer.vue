@@ -69,11 +69,13 @@
           </div>
         </div>
         <div class="flex items-center justify-center space-x-5">
-          <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
-          >
-            <PhInstagramLogo :size="50" />
-          </button>
+          <a href="https://www.instagram.com/hocus_pocus.official/?hl=en">
+            <button
+              class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
+            >
+              <PhInstagramLogo :size="50" />
+            </button>
+          </a>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
