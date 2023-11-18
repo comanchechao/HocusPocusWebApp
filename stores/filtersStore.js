@@ -15,7 +15,10 @@ export const useFilterStore = defineStore("filterStore", {
       console.log(this.types);
     },
     setDiscount() {
-      this.discount = true;
+      this.discount = !this.discount;
+    },
+    unSetDiscount() {
+      this.discount = false;
     },
     setDesign(design) {
       this.designs = design;

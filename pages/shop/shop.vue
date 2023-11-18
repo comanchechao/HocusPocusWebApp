@@ -205,10 +205,14 @@ watch(sortBy, (cur, old) => {
 });
 
 watch(discount, (cur, old) => {
-  filteredProducts.value = products.value.filter(
-    (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
-  );
-  console.log(filteredProducts.value);
+  if (cur === true) {
+    filteredProducts.value = products.value.filter(
+      (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
+    );
+  }
+  if (cur === false) {
+    filteredProducts.value = products.value;
+  }
 });
 
 // register product store
