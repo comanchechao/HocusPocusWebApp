@@ -486,13 +486,14 @@ const uploadImage = async function (image) {
     .then((response) => {
       if (response.data) {
         console.log(response);
-        imageUploadLoading.value = false;
+        setTimeout(() => {
+          imageUploadLoading.value = false;
+        }, 3000);
       }
     })
     .catch((error) => {
       imageUploadError.value = true;
       uploadErrorMessage.value = error.data.message;
-      imageUploadLoading.value = false;
     });
 };
 </script>

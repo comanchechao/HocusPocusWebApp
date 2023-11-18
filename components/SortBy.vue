@@ -34,6 +34,7 @@
         <span> پرفروش ترین </span> <PhCoins :size="20" weight="fill" />
       </button>
       <button
+        @click="discountFunction"
         :class="{
           'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
@@ -83,5 +84,8 @@ const filterStore = useFilterStore();
 
 const sortFunction = (sort) => {
   filterStore.setSortBy(sort);
+};
+const discountFunction = () => {
+  filterStore.setDiscount();
 };
 </script>

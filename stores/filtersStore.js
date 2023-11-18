@@ -7,11 +7,15 @@ export const useFilterStore = defineStore("filterStore", {
     category: [],
     rarity: [],
     sortBy: "",
+    discount: false,
   }),
   actions: {
     setTypes(category) {
       this.types = category;
       console.log(this.types);
+    },
+    setDiscount() {
+      this.discount = true;
     },
     setDesign(design) {
       this.designs = design;

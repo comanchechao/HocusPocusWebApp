@@ -116,7 +116,8 @@ const loading = ref(true);
 
 const filterStore = useFilterStore();
 
-const { brands, types, designs, category, sortBy } = storeToRefs(filterStore);
+const { brands, types, designs, category, sortBy, discount } =
+  storeToRefs(filterStore);
 
 watch([types, category, brands, designs], (cur, old) => {
   if (types.value.length === 0) {
@@ -201,6 +202,13 @@ watch(sortBy, (cur, old) => {
       (a: any, b: any) => Number(b.price) - Number(a.price)
     );
   }
+});
+
+watch(discount, (cur, old) => {
+  filteredProducts.value = products.value.filter(
+    (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
+  );
+  console.log(filteredProducts.value);
 });
 
 // register product store
