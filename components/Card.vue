@@ -55,6 +55,15 @@
         Seafarers: Commodore Edition Playing Cards
       </h3> -->
       <h3
+        v-show="!isOff"
+        class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
+      >
+        <span class="text-xs text-mainRed">تومان</span>
+        <span>{{ props.product.price }}</span>
+        <PhMoney :size="34" weight="fill" />
+      </h3>
+      <h3
+        v-show="isOff"
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
@@ -160,10 +169,15 @@ const addToCart = (product: any) => {
 };
 
 const offPrice = ref();
+const isOff = ref(false);
 
 function calculateDiscountedPrice(price: number, discountPercentage: number) {
   let discountedPrice = price - price * (discountPercentage / 100);
   offPrice.value = discountedPrice;
+  if (props.product.price !== offPrice.value) {
+    isOff.value = true;
+    console.log(isOff.value);
+  }
 }
 
 onMounted(() => {
