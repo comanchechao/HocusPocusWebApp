@@ -48,7 +48,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md text-right"
               >
-                {{ order.adderss }}
+                {{ membership.adderss }}
               </h2>
               <h2 class="text-md">آدرس</h2>
             </div>
@@ -57,7 +57,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                {{ order.phone_number }}
+                {{ membership.phone_number }}
               </h2>
               <h2 class="text-md">شماره تلفن</h2>
             </div>
@@ -65,7 +65,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                {{ order.fullname }}
+                {{ membership.fullname }}
               </h2>
               <h2 class="text-md">نام خریدار</h2>
             </div>
@@ -73,7 +73,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                {{ order.city }}
+                {{ membership.city }}
               </h2>
               <h2 class="text-md">شهر</h2>
             </div>
@@ -81,7 +81,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                {{ order.province }}
+                {{ membership.province }}
               </h2>
               <h2 class="text-md">استان</h2>
             </div>
@@ -106,7 +106,7 @@
                 class="text-md p-2 border-2 space-x-2 border-dashed border-mainPink rounded-md"
               >
                 <span>(تومان)</span>
-                <span> {{ order.totalPrice }} </span>
+                <span> {{ membership.totalPrice }} </span>
               </h2>
               <h2 class="text-md">مجموع قیمت</h2>
             </div>
@@ -128,7 +128,7 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
-const props = defineProps(["order"]);
+const props = defineProps(["membership"]);
 const visible = ref(false);
 
 const loading = ref(true);
@@ -140,30 +140,33 @@ watch(orderItems, (cur, old) => {
 
 const getOrderItems = async () => {
   const body = new URLSearchParams({
-    orderId: props.order.id,
+    membership_id: props.membership.id,
   });
 
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/orderitems", {
-    method: "Post",
-    headers: {},
-    credentials: "include",
-    body: body,
-    withCredentials: true,
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/management/membershipitems",
+    {
+      method: "Post",
+      headers: {},
+      credentials: "include",
+      body: body,
+      withCredentials: true,
+    }
+  )
     .then(function (response) {
-      orderItems.value = response.orderItems;
+      orderItems.value = response.membershipItems;
       loading.value = false;
-      if (Array.isArray(response.orderItems[0].items)) {
-        response.orderItems[0].items.forEach((itemId) => {
+      if (Array.isArray(response.membershipItems[0].items)) {
+        response.membershipItems[0].items.forEach((itemId) => {
           if (itemId) {
             getProduct(itemId.split(",")[0], itemId.split(",")[1]);
           }
         });
       } else {
         getProduct(
-          response.orderItems[0].items.split(",")[0],
-          response.orderItems[0].items.split(",")[1]
+          response.membershipItems[0].items.split(",")[0],
+          response.membershipItems[0].items.split(",")[1]
         );
       }
     })
@@ -175,17 +178,17 @@ const getOrderItems = async () => {
 
 const products = ref([]);
 
-const getProduct = async (productId, productQuantity) => {
+const getProduct = async (videoId, productQuantity) => {
   console.log("this is product quantity ", productQuantity);
   loading.value = true;
-  const { data } = await $fetch(`http://localhost:3333/products/${productId}`, {
+  const { data } = await $fetch(`http://localhost:3333/videos/${videoId}`, {
     headers: {},
     withCredentials: true,
     credentials: "include",
   })
     .then(function (response) {
       products.value.push({
-        product: response.product,
+        product: response.course,
         quantity: productQuantity,
       });
       loading.value = false;

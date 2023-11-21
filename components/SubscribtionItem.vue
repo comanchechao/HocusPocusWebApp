@@ -2,7 +2,7 @@
   <div
     class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
   >
-    <LazyVideoOrderInfo></LazyVideoOrderInfo>
+    <LazyVideoOrderInfo :membership="membership"></LazyVideoOrderInfo>
     <h3 class="text-darkPurple flex items-center space-x-2">
       <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
