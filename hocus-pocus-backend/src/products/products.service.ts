@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { PaginationDto } from './dto/PaginationDto';
 
 @Injectable()
 export class ProductsService {
@@ -22,6 +23,32 @@ export class ProductsService {
         ProductImages: true,
       },
     });
+    return { products: products };
+  }
+
+  async getPagination(dto: PaginationDto) {
+    const products = await this.prismaService.products.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+      take: Number(dto.take),
+      skip: Number(dto.skip),
+      select: {
+        createdAt: true,
+        id: true,
+        title: true,
+        price: true,
+        brand: true,
+        type: true,
+        design: true,
+        discount: true,
+        quantity: true,
+        category: true,
+        description: true,
+        ProductImages: true,
+      },
+    });
+
     return { products: products };
   }
 

@@ -90,8 +90,9 @@
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator
+            v-model:first="page"
             class="Paginator opacity-0"
-            :rows="10"
+            :rows="1"
             :totalRecords="120"
           ></Paginator>
         </div>
@@ -112,6 +113,39 @@ const products = ref();
 const filteredProducts = ref();
 const filterOp = ref();
 const loading = ref(true);
+
+// pagination
+
+const page = ref(1);
+
+watch(page, (cur, old) => {
+  getPagination();
+  console.log(page.value);
+});
+
+const getPagination = async () => {
+  const body = new URLSearchParams({
+    take: String(page.value * 4),
+    skip: String(page.value * 2),
+  });
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products/products", {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    method: "POST",
+    withCredentials: true,
+    credentials: "include",
+    body: body,
+  })
+    .then(function (response) {
+      console.log(response.products);
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
 // constregister filter store
 
 const filterStore = useFilterStore();
@@ -234,6 +268,7 @@ const getProducts = async () => {
 };
 
 onMounted(() => {
+  getPagination();
   TM.to(window, {
     scrollTo: {
       top: 0,
@@ -249,7 +284,6 @@ onMounted(() => {
 
   TM.from(".LazyCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
   TM.to(".Paginator", { opacity: 1, duration: 1 });
-  getProducts();
 });
 </script>
 <script></script>
