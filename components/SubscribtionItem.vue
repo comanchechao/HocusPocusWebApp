@@ -25,8 +25,6 @@ const date = ref();
 dayjs.extend(jalaliday);
 
 onMounted(() => {
-  console.log(props.membership);
-
   date.value = dayjs(props.membership.created_at)
     .calendar("jalali")
     .locale("en")

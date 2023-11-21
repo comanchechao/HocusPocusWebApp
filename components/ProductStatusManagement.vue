@@ -54,7 +54,6 @@ const getProducts = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.products);
       products.value = response.products;
       loading.value = false;
     })

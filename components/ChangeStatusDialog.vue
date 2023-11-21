@@ -139,7 +139,6 @@ const statusChange = async (status) => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response);
       ordermainStore.setStateChange();
     })
     .catch((error) => {

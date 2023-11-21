@@ -203,7 +203,6 @@ async function logout() {
     withCreadentials: true,
   })
     .then(function (response) {
-      console.log(response);
       userStore.setNotLogged();
     })
     .catch(function (error) {

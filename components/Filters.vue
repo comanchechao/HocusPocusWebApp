@@ -73,22 +73,18 @@ const selectedCategory = ref();
 const filterStore = useFilterStore();
 
 watch(selectedTypes, (cur, old) => {
-  console.log(selectedTypes.value);
   filterStore.setTypes(selectedTypes.value);
 });
 
 watch(selectedBrands, (cur, old) => {
-  console.log(selectedBrands.value);
   filterStore.setBrand(selectedBrands.value);
 });
 
 watch(selectedDesigns, (cur, old) => {
-  console.log(selectedDesigns.value);
   filterStore.setDesign(selectedDesigns.value);
 });
 
 watch(selectedCategory, (cur, old) => {
-  console.log(selectedCategory.value);
   filterStore.setCategory(selectedCategory.value);
 });
 

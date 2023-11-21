@@ -145,18 +145,13 @@ const mode = ref(false);
 
 const totalSales = ref(0);
 
-watch(mode, (cur, old) => {
-  if (cur === true) {
-    console.log("put it here", cur, old);
-  }
-});
+watch(mode, (cur, old) => {});
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);
 const { ordersCount } = storeToRefs(mainManagement);
 
 watch(stateChange, (cur, old) => {
-  console.log("stateChange", stateChange);
   getProducts();
 });
 
@@ -174,7 +169,6 @@ const getProducts = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.products);
       products.value = response.products;
       mainManagement.setProductCount(response.products.length);
       loading.value = false;
@@ -195,7 +189,6 @@ const getOrders = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.orders, "watch this");
       orders.value = response.orders;
       mainManagement.setOrdersCount(response.orders.length);
       loading.value = false;
@@ -205,15 +198,6 @@ const getOrders = async () => {
       );
 
       totalSales.value = sum;
-
-      response.orders.forEach((order) => {
-        console.log(
-          dayjs(order.created_at)
-            .calendar("jalali")
-            .locale("en")
-            .format("DD MMMM YYYY")
-        );
-      });
     })
     .catch(function (error) {
       console.error(error);
@@ -223,7 +207,6 @@ const getOrders = async () => {
 
 onMounted(() => {
   getProducts();
-  console.log(stateChange);
   getOrders();
 });
 

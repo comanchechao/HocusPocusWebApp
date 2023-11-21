@@ -61,7 +61,6 @@ const checked = ref(false);
 const props = defineProps(["courses"]);
 
 const removeCourseImage = async function (course) {
-  console.log(course);
   if (course.CourseImages.length) {
     await $fetch(
       `http://localhost:3333/management/removecourseimages/${course.CourseImages[0].id}`,
@@ -131,10 +130,6 @@ const removeCourse = async function (course) {
       console.log(error.data);
     });
 };
-
-onMounted(() => {
-  console.log(props.courses);
-});
 </script>
 
 <style></style>

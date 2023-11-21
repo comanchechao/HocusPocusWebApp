@@ -49,7 +49,6 @@ const managementStore = useManagementStore();
 
 watch(selectedTypes, (current, old) => {
   managementStore.setType(current[0].name);
-  console.log(current[0].name);
 });
 
 watch(inStock, (current, old) => {
@@ -58,17 +57,14 @@ watch(inStock, (current, old) => {
 
 watch(selectedBrands, (current, old) => {
   managementStore.setBrand(current[0].name);
-  console.log(current[0].name);
 });
 
 watch(selectedRarity, (current, old) => {
   managementStore.setRarity(current[0].name);
-  console.log(current[0].name);
 });
 
 watch(selectedDesigns, (current, old) => {
   managementStore.setDesign(current[0].name);
-  console.log(current[0].name);
 });
 
 // types

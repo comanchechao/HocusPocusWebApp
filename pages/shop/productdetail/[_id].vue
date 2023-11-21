@@ -258,7 +258,6 @@ const image = ref();
 
 const router = useRoute();
 const getProduct = async () => {
-  console.log(router);
   loading.value = true;
   const { data } = await $fetch(
     `http://localhost:3333/products/${router.params._id}`,
@@ -292,7 +291,6 @@ const getLatestFour = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.products);
       products.value = response.products;
       loadingThree.value = false;
     })

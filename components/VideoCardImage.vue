@@ -16,7 +16,6 @@ const props = defineProps(["courseId"]);
 const image = ref("");
 const loading = ref(true);
 const getArticleImage = async () => {
-  console.log(props.courseId[0].id, "course image id");
   const { data } = await $fetch(
     `http://localhost:3333/videos/image/${props.courseId[0].id}`,
     {
@@ -26,7 +25,6 @@ const getArticleImage = async () => {
     }
   )
     .then(function (response) {
-      console.log(response);
       image.value = response.image;
       loading.value = false;
     })

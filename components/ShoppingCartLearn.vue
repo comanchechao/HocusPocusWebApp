@@ -110,10 +110,6 @@ const increaseItem = (product) => {
   courseStore.increaseQuantity(product);
 };
 
-onMounted(() => {
-  console.log(shoppingCart.value, "this is shopping cart value");
-});
-
 import {
   PhShoppingBagOpen,
   PhMinusSquare,

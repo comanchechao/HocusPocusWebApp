@@ -101,7 +101,6 @@ const setDiscount = async () => {
     }
   )
     .then(function (response) {
-      console.log(response);
       if (response) {
         discountSuccess.value = true;
       }

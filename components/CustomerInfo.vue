@@ -101,37 +101,30 @@ const regions = ref([
 // handle information submit
 
 watch(fullname, (current, old) => {
-  console.log(current);
   profileStore.setFullname(current);
 });
 
 watch(phoneNumber, (current, old) => {
-  console.log(current);
   profileStore.setPhoneNumber(current);
 });
 
 watch(address, (current, old) => {
-  console.log(current);
   profileStore.setAddress(current);
 });
 
 watch(email, (current, old) => {
-  console.log(current);
   profileStore.setEmail(current);
 });
 
 watch(selectedCity, (current, old) => {
-  console.log(current.name);
   profileStore.setCity(current.name);
 });
 
 watch(selectedRegion, (current, old) => {
-  console.log(current.name);
   profileStore.setRegion(current.name);
 });
 
 watch(postalCode, (current, old) => {
-  console.log(current);
   profileStore.setPostalCode(current);
 });
 </script>

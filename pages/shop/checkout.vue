@@ -147,18 +147,6 @@ const checkoutStore = useCheckoutStore();
 const { phoneNumber, fullname, city, region, postalCode, email, address } =
   storeToRefs(checkoutStore);
 
-watch(phoneNumber, (cur, old) => {
-  console.log(
-    phoneNumber.value,
-    fullname.value,
-    city.value,
-    region.value,
-    postalCode.value,
-    email.value,
-    address.value
-  );
-});
-
 const increaseItem = (itemId) => {
   productStore.increaseQuantity(itemId);
 };
@@ -199,7 +187,6 @@ const submitOrder = async (userId) => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response);
       if (response.order) {
         submitedOrdersId.value = response.order.id;
         orderItems();
@@ -208,16 +195,6 @@ const submitOrder = async (userId) => {
     .catch((error) => {
       console.log(error);
     });
-
-  console.log(
-    phoneNumber.value,
-    fullname.value,
-    city.value,
-    region.value,
-    postalCode.value,
-    email.value,
-    address.value
-  );
 };
 
 const getUser = async () => {
@@ -227,7 +204,6 @@ const getUser = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.userId);
       userId.value = response.userId;
       submitOrder(response.userId);
     })
@@ -241,11 +217,8 @@ const orderItems = async () => {
   const data = new URLSearchParams({});
 
   shoppingCart.value.forEach((item) => {
-    console.log(item.id);
     data.append("items", [item.id, item.quantity]);
   });
-
-  console.log(data);
 
   data.append("order_id", submitedOrdersId.value);
 
@@ -256,21 +229,9 @@ const orderItems = async () => {
     body: data,
     withCredentials: true,
   })
-    .then((response, error) => {
-      console.log(response);
-    })
+    .then((response, error) => {})
     .catch((error) => {
       console.log(error);
     });
-
-  console.log(
-    phoneNumber.value,
-    fullname.value,
-    city.value,
-    region.value,
-    postalCode.value,
-    email.value,
-    address.value
-  );
 };
 </script>

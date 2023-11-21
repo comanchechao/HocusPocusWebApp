@@ -132,7 +132,6 @@ const getCourses = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.courses);
       courses.value = response.courses;
       managementStore.setCoursesCount(response.courses.length);
       loading.value = false;
@@ -156,22 +155,12 @@ const getMemberships = async () => {
     }
   )
     .then(function (response) {
-      console.log(response.memberships, "watch this");
       memberships.value = response.memberships;
       loading.value = false;
       const sum = response.orders.reduce(
         (total: number, obj: any) => total + Number(obj.totalPrice),
         0
       );
-
-      response.memberships.forEach((order) => {
-        console.log(
-          dayjs(order.created_at)
-            .calendar("jalali")
-            .locale("en")
-            .format("DD MMMM YYYY")
-        );
-      });
     })
     .catch(function (error) {
       console.error(error);

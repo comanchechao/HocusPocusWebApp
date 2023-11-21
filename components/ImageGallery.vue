@@ -36,7 +36,6 @@ const getProductImages = async (image) => {
   )
     .then(function (response) {
       images.value.push({ itemImageSrc: response.image });
-      console.log(images.value);
     })
     .catch(function (error) {
       console.error(error);

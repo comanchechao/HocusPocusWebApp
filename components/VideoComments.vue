@@ -34,7 +34,6 @@ const getComments = async () => {
     }
   )
     .then(function (response) {
-      console.log(response.comments);
       comments.value = response.comments;
       loading.value = false;
     })

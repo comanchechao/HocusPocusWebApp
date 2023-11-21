@@ -433,11 +433,7 @@ const handleProduct = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response.product);
       addedProductID.value = response.product.id;
-      console.log(error);
-
-      console.log(selectedTypes.value, selectedBrands.value);
 
       let images = [
         eventFileOne.value,
@@ -477,7 +473,6 @@ const uploadImage = async function (image) {
 
   formData.append("file", image);
   formData.append("productId", addedProductID.value);
-  console.log(image);
   await $fetch("http://localhost:3333/management/upload", {
     method: "POST",
 
@@ -485,7 +480,6 @@ const uploadImage = async function (image) {
   })
     .then((response) => {
       if (response.data) {
-        console.log(response);
         setTimeout(() => {
           imageUploadLoading.value = false;
         }, 3000);

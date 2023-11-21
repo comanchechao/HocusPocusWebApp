@@ -158,8 +158,6 @@ const getProfile = async () => {
     withCredentials: true,
   }).then((response, error) => {
     data.value = response.data;
-    console.log(response);
-    console.log(error);
   });
 };
 </script>

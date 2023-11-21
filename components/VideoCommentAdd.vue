@@ -92,7 +92,6 @@ const submitComment = async (userId, username) => {
     }
   )
     .then(function (response) {
-      console.log(response.comments);
       loading.value = false;
       success.value = true;
       setTimeout(() => {
@@ -116,7 +115,6 @@ const getUser = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.userId);
       userId.value = response.userId;
       submitComment(response.userId, response.username);
     })

@@ -181,7 +181,6 @@ const submitOrder = async (userId) => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response);
       if (response.order) {
         submitedOrdersId.value = response.order.id;
         orderItems();
@@ -212,11 +211,8 @@ const orderItems = async () => {
   const data = new URLSearchParams({});
 
   shoppingCart.value.forEach((item) => {
-    console.log(item.id);
     data.append("items", [item.id, item.quantity]);
   });
-
-  console.log(data);
 
   data.append("membership_id", submitedOrdersId.value);
 

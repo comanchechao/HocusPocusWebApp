@@ -60,7 +60,6 @@ const getCourses = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.courses);
       courses.value = response.courses;
       loading.value = false;
     })

@@ -241,7 +241,6 @@ const videoUploadLoading = ref(false);
 
 const handleCourse = async () => {
   videoUploadLoading.value = true;
-  console.log(eventVideo.value);
   // const data = new URLSearchParams({
   //   title: courseTitle.value,
   //   price: coursePrice.value,
@@ -268,10 +267,8 @@ const handleCourse = async () => {
     withCredentials: true,
   })
     .then((response, error) => {
-      console.log(response.video.id);
       addedCourseId.value = response.video.id;
       mainManagement.setStateChange();
-      console.log(error);
       let images = [
         eventImageOne.value,
         eventImageTwo.value,
@@ -310,14 +307,12 @@ const uploadImage = async function (image) {
 
   formData.append("file", image);
   formData.append("courseId", addedCourseId.value);
-  console.log(image);
   await $fetch("http://localhost:3333/management/courseimageupload", {
     method: "POST",
 
     body: formData,
   })
     .then((response) => {
-      console.log(response);
       imageUploadLoading.value = false;
     })
     .catch((error) => {

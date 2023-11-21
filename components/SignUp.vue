@@ -178,7 +178,6 @@ async function loginFunction() {
     { withCredentials: true }
   )
     .then(function (response) {
-      console.log(response);
       userStore.setLogState();
       succussLogin.value = true;
       setTimeout(() => {

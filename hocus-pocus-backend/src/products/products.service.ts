@@ -10,6 +10,7 @@ export class ProductsService {
       orderBy: {
         createdAt: 'desc',
       },
+      take: 8,
       select: {
         id: true,
         title: true,
@@ -20,7 +21,9 @@ export class ProductsService {
         discount: true,
         quantity: true,
         design: true,
-        ProductImages: true,
+        ProductImages: {
+          take: 2,
+        },
       },
     });
     return { products: products };
@@ -45,7 +48,7 @@ export class ProductsService {
         quantity: true,
         category: true,
         description: true,
-        ProductImages: true,
+        ProductImages: { take: 2 },
       },
     });
 
@@ -70,7 +73,7 @@ export class ProductsService {
         quantity: true,
         category: true,
         description: true,
-        ProductImages: true,
+        ProductImages: { take: 1 },
       },
     });
 
@@ -94,7 +97,7 @@ export class ProductsService {
         design: true,
         category: true,
         description: true,
-        ProductImages: true,
+        ProductImages: { take: 2 },
       },
     });
     return { products: products };

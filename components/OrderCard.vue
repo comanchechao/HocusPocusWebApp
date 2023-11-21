@@ -35,8 +35,6 @@ const props = defineProps(["order"]);
 const orderItems = ref(props.order);
 
 onMounted(() => {
-  console.log(props.order.id);
-
   date.value = dayjs(props.order.created_at)
     .calendar("jalali")
     .locale("en")

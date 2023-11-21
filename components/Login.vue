@@ -154,7 +154,6 @@ async function formSubmit() {
     { withCredentials: true }
   )
     .then(function (response) {
-      console.log(response);
       userStore.setLogState();
       loading.value = false;
       successLogin.value = true;

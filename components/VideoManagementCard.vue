@@ -59,7 +59,6 @@ const props = defineProps(["course"]);
 const loading = ref(false);
 const removeCourseImage = async function () {
   loading.value = true;
-  console.log(props.course.CoursesImages);
   if (props.course.CoursesImages.length) {
     await $fetch(
       `http://localhost:3333/management/removecourseimage/${props.course.CoursesImages[0].id}`,

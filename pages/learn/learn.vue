@@ -367,7 +367,6 @@ const getCourses = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.courses);
       courses.value = response.courses;
       loading.value = false;
       getProducts();
@@ -398,7 +397,6 @@ const getLatestCourse = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.course);
       latestCourse.value = response.course[0];
       loadingTwo.value = false;
 
@@ -421,7 +419,6 @@ const getProducts = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.products);
       products.value = response.products;
       loadingProducts.value = false;
     })
@@ -442,7 +439,6 @@ const getLatestFour = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.courses);
       latestFour.value = response.courses;
       loadingThree.value = false;
     })

@@ -46,9 +46,6 @@ const mainManagement = useMainManagement();
 const productManagement = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
-onMounted(() => {
-  console.log(props.product);
-});
 
 const removeComments = async function (product) {
   loading.value = true;

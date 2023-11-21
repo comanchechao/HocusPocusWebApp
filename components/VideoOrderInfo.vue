@@ -179,7 +179,6 @@ const getOrderItems = async () => {
 const products = ref([]);
 
 const getProduct = async (videoId, productQuantity) => {
-  console.log("this is product quantity ", productQuantity);
   loading.value = true;
   const { data } = await $fetch(`http://localhost:3333/videos/${videoId}`, {
     headers: {},
@@ -192,7 +191,6 @@ const getProduct = async (videoId, productQuantity) => {
         quantity: productQuantity,
       });
       loading.value = false;
-      console.log(products.value, "product consoled");
       // if (response.product) {
       //   getProductImage();
       // }
@@ -204,7 +202,6 @@ const getProduct = async (videoId, productQuantity) => {
 };
 onMounted(() => {
   getOrderItems();
-  console.log(props, " this is props");
 });
 
 const checked = ref(false);

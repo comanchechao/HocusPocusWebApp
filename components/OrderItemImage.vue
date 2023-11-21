@@ -18,7 +18,6 @@ const image = ref("");
 const loading = ref(true);
 
 const getArticleImage = async () => {
-  console.log("this shoould be product image id ", props.productId);
   const { data } = await $fetch(
     `http://localhost:3333/products/image/${props.productId}`,
     {

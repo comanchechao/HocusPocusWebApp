@@ -131,7 +131,6 @@ const getOrders = async (userId: string) => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.orders);
       orders.value = response.orders;
       response.orders.forEach((order) => {
         if (order.status === "PROCESSING") {
@@ -159,7 +158,6 @@ const getUser = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.userId);
       userId.value = response.userId;
       getOrders(response.userId);
     })
@@ -170,10 +168,6 @@ const getUser = async () => {
 
 onMounted(() => {
   getUser();
-  setTimeout(() => {
-    console.log(processingOrders.value);
-    console.log(shippingOrders.value);
-  }, 2000);
 });
 
 function toggleProcess() {

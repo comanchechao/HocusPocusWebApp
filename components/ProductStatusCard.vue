@@ -31,7 +31,6 @@ const specialOffer = ref(false);
 const weeksSelection = ref(false);
 
 onMounted(() => {
-  console.log(props.product);
   if (props.product.special_offer) {
     specialOffer.value = true;
   }

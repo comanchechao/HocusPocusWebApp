@@ -176,12 +176,10 @@ function calculateDiscountedPrice(price: number, discountPercentage: number) {
   offPrice.value = discountedPrice;
   if (props.product.price !== offPrice.value) {
     isOff.value = true;
-    console.log(isOff.value);
   }
 }
 
 onMounted(() => {
-  console.log();
   calculateDiscountedPrice(
     Number(props.product.price),
     Number(props.product.discount)
