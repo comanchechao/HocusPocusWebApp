@@ -15,12 +15,9 @@ export class ProductsService {
         id: true,
         title: true,
         price: true,
-        brand: true,
-        type: true,
         category: true,
         discount: true,
         quantity: true,
-        design: true,
         ProductImages: {
           take: 2,
         },

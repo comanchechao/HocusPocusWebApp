@@ -3,7 +3,7 @@
     class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
   >
     <button
-      @click="removeCourseImage()"
+      @click="removeComments()"
       class="text-red-500 px-5 py-2 rounded-sm bg-white cursor-pointer transition ease-in hover:bg-red-500 hover:text-darkPurple"
     >
       <ProgressSpinner
@@ -57,6 +57,87 @@ const visible = ref(false);
 const checked = ref(false);
 const props = defineProps(["course"]);
 const loading = ref(false);
+
+const removeComments = async function (product) {
+  loading.value = true;
+  console.log(props.course);
+  if (props.course.VideoComments.length) {
+    await $fetch(
+      `http://localhost:3333/management/removevideocomment/${props.course.VideoComments[0].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        removeCourseImage();
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+      });
+    await $fetch(
+      `http://localhost:3333/management/removevideocomment/${props.course.VideoComments[1].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        removeCourseImage();
+        // loading.value = false;
+        // message.value = true;
+        // setTimeout(() => {
+        //   message.value = false;
+        // }, 3000);
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+      });
+    await $fetch(
+      `http://localhost:3333/management/removevideocomment/${props.course.VideoComments[2].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("comment deleted");
+        removeCourseImage();
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+      });
+    await $fetch(
+      `http://localhost:3333/management/removevideocomment/${props.course.VideoComments[3].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("comment deleted");
+        removeCourseImage();
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+      });
+  } else {
+    removeCourseImage();
+  }
+};
+
 const removeCourseImage = async function () {
   loading.value = true;
   if (props.course.CoursesImages.length) {
@@ -74,6 +155,7 @@ const removeCourseImage = async function () {
       })
       .catch((error) => {
         console.log(error.data);
+        loading.value = false;
       });
     await $fetch(
       `http://localhost:3333/management/removecourseimage/${props.course.CoursesImages[1].id}`,
@@ -89,6 +171,7 @@ const removeCourseImage = async function () {
       })
       .catch((error) => {
         console.log(error.data);
+        loading.value = false;
       });
     await $fetch(
       `http://localhost:3333/management/removecourseimage/${props.course.CoursesImages[2].id}`,
@@ -104,6 +187,7 @@ const removeCourseImage = async function () {
       })
       .catch((error) => {
         console.log(error.data);
+        loading.value = false;
       });
   } else {
     removeCourse();
@@ -130,6 +214,7 @@ const removeCourse = async function () {
     })
     .catch((error) => {
       console.log(error.data);
+      loading.value = false;
     });
 };
 
