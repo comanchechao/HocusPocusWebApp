@@ -2,6 +2,12 @@
   <div
     class="flex lg:flex-row flex-col items-end justify-center space-y-7 lg:space-y-0 lg:px-0 px-16 lg:items-center lg:justify-end space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
+    <h3
+      class="text-md cursor-pointer px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
+    >
+      پاک کردن فیلتر ها
+    </h3>
+
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
       <h3 class="text-lg text-mainRed">موجودی کالا</h3>
