@@ -145,7 +145,7 @@
         </h2>
         <div
           class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
-          v-if="loadingProducts"
+          v-show="loadingProducts"
         >
           <Skeleton width="18rem" height="25rem"></Skeleton>
           <Skeleton
@@ -165,7 +165,7 @@
           ></Skeleton>
         </div>
         <LazyCardsCarousel
-          v-if="!loadingProducts"
+          v-show="!loadingProducts"
           :products="products"
           class="self-center"
         />
@@ -242,7 +242,7 @@
             />
             <LazyLastProductImage
               v-if="!loadingTwo"
-              :productId="latestCourse.ProductImages[0].id"
+              :productId="latestCourse.CoursesImages[0].id"
             />
           </div>
           <div
@@ -255,7 +255,9 @@
               height="3rem"
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
-
+            <LazyLastProductImage
+              :productId="latestCourse.CoursesImages[0].id"
+            />
             <h2
               v-if="!loadingTwo"
               class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
