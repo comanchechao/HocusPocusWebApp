@@ -14,10 +14,18 @@
     <h3 class="text-darkPurple text-center px-5">
       {{ product.title }}
     </h3>
+    <Message
+      class="w-96 text-right absolute"
+      v-show="message"
+      severity="success"
+    >
+      <span class="lg:text-xl text-md">تغییرات موفقیت آمیز بود</span>
+    </Message>
   </div>
 </template>
 <script setup>
 import { PhTrash } from "@phosphor-icons/vue";
+import Message from "primevue/message";
 const props = defineProps(["product"]);
 import { ref } from "vue";
 import { useManagementStore } from "~/stores/productManagement";
@@ -25,7 +33,7 @@ import { useManagementStore } from "~/stores/productManagement";
 // register productmanagement store
 
 const productManagement = useManagementStore();
-
+const message = ref(false);
 const checked = ref(false);
 const specialOffer = ref(false);
 const weeksSelection = ref(false);
@@ -74,7 +82,10 @@ const updateSpecialOffer = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("updated");
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
       productManagement.setStateChange();
     })
     .catch((error) => {
@@ -94,7 +105,10 @@ const deupdateSpecialOffer = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("deupdated");
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
       productManagement.setStateChange();
     })
     .catch((error) => {
@@ -113,7 +127,10 @@ const updateWeekSelection = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("updated");
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
       productManagement.setStateChange();
     })
     .catch((error) => {
@@ -133,7 +150,10 @@ const deupdateWeekSelection = async function () {
     body: data,
   })
     .then((response, error) => {
-      alert("deupdated");
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
       productManagement.setStateChange();
     })
     .catch((error) => {
@@ -153,7 +173,10 @@ const removeProductImage = async function () {
       }
     )
       .then((response, error) => {
-        alert("deleted image");
+        message.value = true;
+        setTimeout(() => {
+          message.value = false;
+        }, 3000);
         removeProduct();
       })
       .catch((error) => {
@@ -223,7 +246,10 @@ const removeProduct = async function () {
     }
   )
     .then((response, error) => {
-      alert("deleted");
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
       productManagement.setStateChange();
     })
     .catch((error) => {
