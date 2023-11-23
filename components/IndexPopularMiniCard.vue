@@ -1,11 +1,11 @@
 <template>
   <div
-    class="h-full w-full bg-mainWhite space-y-2 flex flex-col items-end justify-end p-2"
+    class="h-full w-full bg-mainWhite space-y-2 flex flex-col items-end justify-between"
   >
-    <div class="w-full h-3/4 p-4 flex items-center justify-center">
+    <div class="w-full h-3/4 flex pb-7 items-center justify-start">
       <LazyLastProductImage :productId="item.ProductImages[0].id" />
     </div>
-    <div class="h-1/4 w-full flex items-end justify-end flex-col">
+    <div class="h-1/4 w-full p-2 flex items-end justify-end flex-col">
       <h2 class="text-darkPurple font-bold text-center text-md lg:text-xl flex">
         <span> {{ item.title }} </span>
       </h2>
