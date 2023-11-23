@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>مجموعه آموزشی شعبده بازی هوکوس پوکوس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="w-screen h-full bg-mainBrown">
     <LazyNavbar />
     <div class="flex items-center justify-center h-screen flex-col w-full">

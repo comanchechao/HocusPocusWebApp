@@ -7,10 +7,11 @@
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
     </div>
     <div
+      v-show="!isLogged"
       class="w-auto px-10 h-auto lg:h-14 bg-transparent border-4 text-right py-2 lg:flex-row flex-col border-dashed border-mainPink my-10 rounded-lg flex items-center justify-center"
     >
       <LazyLogin v-show="!isLogged" />
-      <h2 v-show="!isLogged" class="text-mainPink text-sm lg:text-xl">
+      <h2 class="text-mainPink text-sm lg:text-xl">
         برای اضافه کردن نظر وارد حساب کاربری خود بشید
       </h2>
     </div>

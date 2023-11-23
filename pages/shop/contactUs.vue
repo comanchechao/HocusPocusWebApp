@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>تماس با ما هوکوس پوکوس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
     <LazyNavbar />
     <div

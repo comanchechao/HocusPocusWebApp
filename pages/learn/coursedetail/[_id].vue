@@ -1,4 +1,11 @@
 <template>
+  <head>
+    <title>
+      آموزش شعبده بازی | {{ course.price }} | {{ course.title }} | هوکوس پوکوس
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-screen bg-mainBrown">
     <LazyNavbar />
     <div

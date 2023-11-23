@@ -41,7 +41,9 @@
           </div>
           <div class="w-full flex flex-col items-center justify-center">
             <div>
-              <Message v-show="success">نظرتون اضافه شد</Message>
+              <Message severity="success" v-show="success"
+                >نظرتون اضافه شد</Message
+              >
             </div>
 
             <button

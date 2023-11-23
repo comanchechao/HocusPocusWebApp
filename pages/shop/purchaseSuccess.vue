@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>خرید موفقیت آمیز بود</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
     <div

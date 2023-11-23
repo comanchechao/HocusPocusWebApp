@@ -1,7 +1,12 @@
 <template>
+  <head>
+    <title>تکمیل خرید - هوکوس پوکوس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-full bg-mainBrown">
     <LazyNavbar />
-    <div class="lg:h-full h-auto w-screen p-8 lg:px-20">
+    <div class="lg:h-full h-auto w-screen p-8 pt-20 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
