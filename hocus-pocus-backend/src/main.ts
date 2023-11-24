@@ -8,6 +8,7 @@ import { default as Redis } from 'ioredis';
 import * as connectRedis from 'connect-redis';
 import * as cookieParser from 'cookie-parser';
 import { createClient } from 'redis';
+import * as compression from 'compression';
 
 // const redisClient = createClient();
 
@@ -24,6 +25,7 @@ async function bootstrap() {
     preflightContinue: false,
     credentials: true,
   });
+  app.use(compression());
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
   app.use(
