@@ -261,6 +261,7 @@
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
             <LazyLastProductImage
+            v-if="!loadingTwo"
               :productId="latestCourse.CoursesImages[0].id"
             />
             <h2

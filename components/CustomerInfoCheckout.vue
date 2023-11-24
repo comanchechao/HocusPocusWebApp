@@ -20,7 +20,7 @@
     <Dropdown
       v-if="isVisible"
       v-model="selectedRegion"
-      :options="regions"
+      :options="provinces"
       optionLabel="name"
       placeholder="انتخاب استان"
       class="w-full rounded-lg h-11"
@@ -76,6 +76,8 @@ import { ref, watch } from "vue";
 import { useProfileStore } from "../stores/profileStore";
 import { useCheckoutStore } from "../stores/checkoutStore";
 import { storeToRefs } from "pinia";
+import provinces from "../locations/provinces.json";
+import iranCities from "../locations/cities.json";
 
 // register profile store
 
@@ -128,12 +130,17 @@ watch(postalCode, (cur, old) => {
 
 // values
 
-const cities = ref([
-  { name: "تهران", code: "NY" },
-  { name: "تبریز", code: "RM" },
-  { name: "ارومیه", code: "LDN" },
-  { name: "شیراز", code: "IST" },
-]);
+const cities = ref([]);
+watch(selectedRegion, (cur, old) => {
+  console.log(cur);
+  cities.value = [];
+  iranCities.forEach((element) => {
+    if (cur.id === element.province_id) {
+      cities.value.push(element);
+    }
+  });
+});
+
 const regions = ref([
   { name: "آذربایجان غربی", code: "NY" },
   { name: "آذربایجان شرقی", code: "RM" },
