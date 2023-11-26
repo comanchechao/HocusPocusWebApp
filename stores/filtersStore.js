@@ -10,6 +10,13 @@ export const useFilterStore = defineStore("filterStore", {
     discount: false,
   }),
   actions: {
+    clearFilters() {
+      this.types = [];
+      this.designs = [];
+      this.brands = [];
+      this.category = [];
+      this.rarity = [];
+    },
     setTypes(category) {
       this.types = category;
       console.log(this.types);

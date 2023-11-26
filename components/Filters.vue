@@ -3,6 +3,7 @@
     class="flex lg:flex-row flex-col items-end justify-center space-y-7 lg:space-y-0 lg:px-0 px-16 lg:items-center lg:justify-end space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <h3
+      @click="clearFilters()"
       class="text-md cursor-pointer px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
     >
       پاک کردن فیلتر ها
@@ -78,6 +79,8 @@ const selectedCategory = ref();
 
 const filterStore = useFilterStore();
 
+// filter watchers
+
 watch(selectedTypes, (cur, old) => {
   filterStore.setTypes(selectedTypes.value);
 });
@@ -93,6 +96,10 @@ watch(selectedDesigns, (cur, old) => {
 watch(selectedCategory, (cur, old) => {
   filterStore.setCategory(selectedCategory.value);
 });
+
+const clearFilters = () => {
+  filterStore.clearFilters();
+};
 
 const types = ref([
   {

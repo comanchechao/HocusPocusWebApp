@@ -135,20 +135,6 @@
               </div>
             </div>
 
-            <div class="flex items-center justify-center space-x-3">
-              <PhMinus
-                class="text-mainRed cursor-pointer p-2 border-2 border-transparent duration-200 ease-in transition hover:border-mainPink"
-                :size="55"
-                weight="fill"
-              />
-              <h3 class="text-3xl font-bold text-mainRed font-SultanFont">6</h3>
-              <PhPlus
-                class="text-mainRed cursor-pointer p-2 border-2 border-transparent duration-200 ease-in transition hover:border-mainPink"
-                :size="55"
-                weight="fill"
-              />
-              <h3 class="text-xl text-mainRed">تعداد</h3>
-            </div>
             <button
               @click="addToCart(product)"
               class="text-sm flex items-center space-x-2 px-7 py-1 mt-4 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"

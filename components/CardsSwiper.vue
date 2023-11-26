@@ -5,7 +5,7 @@
     :modules="modules"
     class="mySwiper h-full"
   >
-    <swiper-slide v-for="product in products" :key="product"
+    <swiper-slide v-for="product in products.slice(0, 4)" :key="product"
       ><LazyCard :product="product"
     /></swiper-slide>
     <!-- <swiper-slide><LazyCard /></swiper-slide>
