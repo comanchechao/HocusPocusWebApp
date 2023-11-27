@@ -116,7 +116,7 @@
         </button>
       </NuxtLink>
       <NuxtLink
-        v-show="isLogged"
+        v-show="isManager"
         v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
         class="hidden lg:flex"
         to="/shop/admin"
@@ -128,7 +128,7 @@
           <PhCoffee :size="23" />
         </button> </NuxtLink
       ><NuxtLink
-        v-show="isLogged"
+        v-show="isManager"
         v-if="$route.path.startsWith('/learn')"
         class="hidden lg:flex"
         to="/learn/admin"
@@ -191,7 +191,7 @@ const { $gsap } = useNuxtApp();
 
 const userStore = useUserStore();
 
-const { isLogged } = storeToRefs(userStore);
+const { isLogged, isManager } = storeToRefs(userStore);
 const Navbar = ref();
 
 async function logout() {

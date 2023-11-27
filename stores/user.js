@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 export const useUserStore = defineStore("userStore", {
   state: () => ({
     isLogged: false,
+    isManager: false,
   }),
   actions: {
     setLogState() {
@@ -9,6 +10,10 @@ export const useUserStore = defineStore("userStore", {
     },
     setNotLogged() {
       this.isLogged = false;
+      this.isManager = false;
+    },
+    setManager() {
+      this.isManager = true;
     },
   },
 });

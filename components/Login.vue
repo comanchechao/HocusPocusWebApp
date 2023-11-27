@@ -157,6 +157,7 @@ async function formSubmit() {
       userStore.setLogState();
       loading.value = false;
       successLogin.value = true;
+      testFunction();
       setTimeout(() => {
         successLogin.value = false;
       }, 3000);
@@ -169,6 +170,22 @@ async function formSubmit() {
       loading.value = false;
       faildLogin.value = true;
     });
+}
+
+async function testFunction() {
+  await $fetch("http://localhost:3333/auth/ischeck", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then(function (response) {
+    console.log(response);
+    if (response.check) {
+      userStore.setManager();
+    }
+  });
 }
 </script>
 <style>
