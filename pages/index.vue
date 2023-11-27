@@ -367,7 +367,7 @@
 
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
-          v-for="item in latestFour"
+          v-for="item in products.slice(1, 5)"
           :key="item.id"
           :item="item"
         />
