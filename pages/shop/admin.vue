@@ -200,6 +200,7 @@ const enablemode = async () => {
   })
     .then((response, error) => {
       console.log("enable");
+      mainManagement.setStateChange();
     })
     .catch((error) => {
       console.log(error);
@@ -215,6 +216,7 @@ const deablemode = async () => {
   })
     .then((response, error) => {
       console.log("deablemd");
+      mainManagement.setStateChange();
     })
     .catch((error) => {
       console.log(error);
