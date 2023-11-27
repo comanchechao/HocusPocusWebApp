@@ -184,6 +184,43 @@ const getProducts = async () => {
     });
 };
 
+watch(mode, (cur, old) => {
+  if (cur === true) {
+    enablemode();
+  } else {
+    deablemode();
+  }
+});
+const enablemode = async () => {
+  await $fetch("http://localhost:3333/management/enablemode", {
+    method: "POST",
+    headers: {},
+    credentials: "include",
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log("enable");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const deablemode = async () => {
+  await $fetch("http://localhost:3333/management/deablemode", {
+    method: "POST",
+    headers: {},
+    credentials: "include",
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log("deablemd");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const orders = ref();
 
 const getOrders = async () => {

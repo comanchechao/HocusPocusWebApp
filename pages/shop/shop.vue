@@ -124,31 +124,31 @@ const loading = ref(true);
 const page = ref(1);
 
 watch(page, (cur, old) => {
-  getPagination();
+  getProducts();
   console.log(page.value);
 });
 
-const getPagination = async () => {
-  const body = new URLSearchParams({
-    take: String(page.value * 4),
-    skip: String(page.value * 2),
-  });
-  loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/products/products", {
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    method: "POST",
-    withCredentials: true,
-    credentials: "include",
-    body: body,
-  })
-    .then(function (response) {
-      products.value = response.products;
-      loading.value = false;
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-};
+// const getPagination = async () => {
+//   const body = new URLSearchParams({
+//     take: String(page.value * 4),
+//     skip: String(page.value * 2),
+//   });
+//   loading.value = true;
+//   const { data } = await $fetch("http://localhost:3333/products/products", {
+//     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//     method: "POST",
+//     withCredentials: true,
+//     credentials: "include",
+//     body: body,
+//   })
+//     .then(function (response) {
+//       products.value = response.products;
+//       loading.value = false;
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+// };
 
 // constregister filter store
 
@@ -271,7 +271,7 @@ const getProducts = async () => {
 };
 
 onMounted(() => {
-  getPagination();
+  getProducts();
   TM.to(window, {
     scrollTo: {
       top: 0,
