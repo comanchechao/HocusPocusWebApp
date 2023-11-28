@@ -1,28 +1,23 @@
 <template>
   <div
     v-if="course"
-    class="lg:w-rem38 w-full h-auto lg:h-rem33 rounded-md shadow-lg bg-mainPurple transition flex-col items-center"
+    class="lg:w-rem38 w-full h-auto lg:h-rem28 rounded-md shadow-lg bg-mainPurple transition flex-col items-center"
   >
-    <!-- <video
-      controls
-      class="lg:h-2/4 h-96 w-full bg-gray-900 flex items-center rounded-t-md"
-    >
-      <source
-        type="video/mp4"
-        src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
-      />
-    </video> -->
+    <NuxtLink :to="'/learn/coursedetail/' + course.id">
+      <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>
+    </NuxtLink>
 
-    <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>
     <div
-      class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-end flex-col p-4"
+      class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-center flex-col p-4"
     >
-      <h2
-        class="text-2xl font-bold flex items-center justify-center space-x-3 text-mainBrown border-b-4 border-b-mainYellow rounded-md pb-2"
-      >
-        <span> {{ course.title }} </span>
-        <PhMagicWand :size="25" weight="fill" />
-      </h2>
+      <NuxtLink :to="'/learn/coursedetail/' + course.id">
+        <h2
+          class="text-3xl cursor-pointer flex items-center transition px-5 ease-in duration-300 justify-center space-x-3 text-mainBrown border-b-8 hover:border-mainPink border-b-transparent rounded-md"
+        >
+          <span> {{ course.title }} </span>
+        </h2>
+      </NuxtLink>
+
       <h3 class="text-sm">
         {{ course.description }}
       </h3>
@@ -44,7 +39,7 @@
               <span> جزئیات بیشتر </span> <PhInfo :size="20" />
             </button>
           </NuxtLink>
-          <button
+          <!-- <button
             @click="addToCart(props.course)"
             class="w-44 justify-center py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
           >
@@ -59,7 +54,7 @@
             <span class="lg:text-sm text-sm font-bold"
               >به سبد خرید اضافه شد</span
             >
-          </Message>
+          </Message> -->
         </div>
       </div>
     </div>

@@ -14,12 +14,13 @@
         class="w-full object-fill opacity-100 backdrop-blur-3xl"
         alt=""
       /> -->
-
-      <ProductImage
-        class="h-72 object-contain"
-        :productId="props.product.ProductImages[0].id"
-      >
-      </ProductImage>
+      <NuxtLink :to="'/shop/productdetail/' + product.id">
+        <ProductImage
+          class="h-72 object-contain"
+          :productId="props.product.ProductImages[0].id"
+        >
+        </ProductImage>
+      </NuxtLink>
     </div>
     <div
       class="w-full items-center justify-center flex h-72 mb-3 bg-mainWhite rounded-t-lg"
@@ -27,11 +28,14 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <ProductImage
-        class="h-72 object-contain"
-        :productId="props.product.ProductImages[1].id"
-      >
-      </ProductImage>
+      <NuxtLink :to="'/shop/productdetail/' + product.id">
+        <ProductImage
+          class="h-72 object-contain"
+          :productId="props.product.ProductImages[1].id"
+        >
+        </ProductImage>
+      </NuxtLink>
+
       <!-- <img
           src="../assets/images/Psychonauts.webp"
           class="w-full h-full object-contain opacity-100 backdrop-blur-3xl"
@@ -45,11 +49,11 @@
           <PhStar class="text-mainPink" size="20" weight="fill"></PhStar>
           <span class="">3/5</span>
         </h2>
-        <h3
-          class="text-center leading-snug title font-bold text-xl text-darkPurple"
-        >
-          {{ props.product.title }}
-        </h3>
+        <NuxtLink :to="'/shop/productdetail/' + product.id">
+          <h3 class="text-center leading-snug title text-xl text-darkPurple">
+            {{ props.product.title }}
+          </h3>
+        </NuxtLink>
       </div>
       <!-- <h3 class="text-center leading-snug title text-xl text-darkPurple">
         Seafarers: Commodore Edition Playing Cards

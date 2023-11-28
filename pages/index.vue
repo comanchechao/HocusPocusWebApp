@@ -158,7 +158,7 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-3xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
@@ -167,7 +167,17 @@
           class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 lg:px-20 px-4 w-full"
           v-if="loading"
         >
-          <Skeleton width="35rem" height="25rem"></Skeleton>
+          <Skeleton
+            class="flex lg:hidden md:hidden"
+            width="17rem"
+            height="25rem"
+          ></Skeleton>
+
+          <Skeleton
+            class="lg:flex hidden"
+            width="35rem"
+            height="25rem"
+          ></Skeleton>
           <Skeleton
             class="lg:flex hidden"
             width="35rem"
@@ -286,23 +296,26 @@
       >
         <div
           v-show="latestProduct"
-          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center p-5"
+          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
         >
-          <div class="h-3/4 w-full flex items-end flex-col justify-center">
+          <div class="h-3/4 w-full flex items-start justify-center">
             <ProgressSpinner
+              class="self-center"
               v-if="loading"
               style="width: 50px; height: 50px"
               strokeWidth="8"
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <LazyLastProductImage
-              v-if="!loadingTwo"
-              :productId="latestProduct.ProductImages[0].id"
-            />
+            <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
+              <LazyLastProductImage
+                v-if="!loadingTwo"
+                :productId="latestProduct.ProductImages[0].id"
+              />
+            </NuxtLink>
           </div>
           <div
-            class="w-full h-1/4 flex flex-col items-end justify-center space-y-4"
+            class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
           >
             <Skeleton
               class="hidden lg:flex"
@@ -311,13 +324,15 @@
               height="3rem"
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
+            <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
+              <h2
+                v-if="!loadingTwo"
+                class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+              >
+                <span> {{ latestProduct.title }} </span>
+              </h2>
+            </NuxtLink>
 
-            <h2
-              v-if="!loadingTwo"
-              class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
-            >
-              <span> {{ latestProduct.title }} </span>
-            </h2>
             <h3
               v-if="!loadingTwo"
               class="text-xl border-2 border-dashed border-darkPurple rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
