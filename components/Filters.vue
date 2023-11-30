@@ -1,17 +1,17 @@
 <template>
   <div
-    class="flex lg:flex-row flex-col items-end justify-center space-y-7 lg:space-y-0 lg:px-0 px-16 lg:items-center lg:justify-end space-x-6 flex-wrap w-screen lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+    class="lg:flex grid grid-flow-row-dense grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-end lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <h3
       @click="clearFilters()"
-      class="text-md cursor-pointer px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
+      class="lg:text-md cursor-pointer px-2 text-sm lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
     >
       پاک کردن فیلتر ها
     </h3>
 
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-lg text-mainRed">موجودی کالا</h3>
+      <h3 class="text-lg text-center text-mainRed">موجودی کالا</h3>
     </div>
     <MultiSelect
       :maxSelectedLabels="2"
