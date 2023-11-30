@@ -212,52 +212,37 @@
         />
       </div>
     </div>
-    <div
-      class="w-full py-5 fh-full bg-mainBrown flex items-center space-y-9 flex-col"
-    >
+
+    <div class="w-full my-16 h-full flex items-center space-y-9 flex-col">
       <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
         <PhHeartStraight weight="fill" class="mr-3" />
         <span> محصولات پرطرفدار </span>
       </h2>
       <div
-        class="w-full h-screen grid grid-cols-4 grid-rows-2 place-items-center px-24 py-9 gap-5"
+        class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
       >
         <div
           v-if="latestCourse"
-          class="h-full space-y-4 w-full bg-mainPink col-span-2 row-span-2 flex flex-col items-end justify-end p-5"
+          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
         >
-          <h2
-            class="text-mainBrown font-bold text-center text-lg lg:text-3xl flex"
-          >
-            <span> {{ latestCourse.title }} </span>
-          </h2>
-          <h3
-            class="text-4xl border-2 border-dashed border-mainBrown rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
-          >
-            <span class="text-xs text-mainBrown">تومان</span>
-            <span> {{ latestCourse.price }} </span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
-        </div>
-        <div
-          v-show="latestCourse"
-          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center p-5"
-        >
-          <div class="h-3/4 w-full flex items-end flex-col justify-center">
+          <div class="h-3/4 w-full flex items-start justify-center">
             <ProgressSpinner
+              class="self-center"
               v-if="loading"
               style="width: 50px; height: 50px"
               strokeWidth="8"
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <LazyLastProductImage
-              v-if="!loadingTwo"
-              :productId="latestCourse.CoursesImages[0].id"
-            />
+            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
+              <LazyLastProductImage
+                v-if="!loadingTwo"
+                :productId="latestCourse.ProductImages[0].id"
+              />
+            </NuxtLink>
           </div>
           <div
-            class="w-full h-1/4 flex flex-col items-end justify-center space-y-4"
+            class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
           >
             <Skeleton
               class="hidden lg:flex"
@@ -266,16 +251,15 @@
               height="3rem"
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
-            <LazyLastProductImage
-              v-if="!loadingTwo"
-              :productId="latestCourse.CoursesImages[0].id"
-            />
-            <h2
-              v-if="!loadingTwo"
-              class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
-            >
-              <span> {{ latestCourse.title }} </span>
-            </h2>
+            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
+              <h2
+                v-if="!loadingTwo"
+                class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+              >
+                <span> {{ latestCourse.title }} </span>
+              </h2>
+            </NuxtLink>
+
             <h3
               v-if="!loadingTwo"
               class="text-xl border-2 border-dashed border-darkPurple rounded-md px-8 text-mainBrown flex items-center justify-center space-x-2"
@@ -298,58 +282,39 @@
             </Message>
           </div>
         </div>
-        <div
-          v-if="loading"
-          class="w-full h-full flex flex-col items-center space-y-5"
-        >
-          <div
-            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
-          >
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-          </div>
-          <div
-            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
-          >
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-          </div>
-          <div
-            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
-          >
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-            <Skeleton height="3rem" class="mb-2"></Skeleton>
-          </div>
-        </div>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
 
-        <div
-          v-show="latestFour"
-          v-for="course in latestFour"
-          :key="course.id"
-          class="h-full w-full bg-mainYellow space-y-4 flex flex-col items-end justify-end p-5"
-        >
-          <h2
-            class="text-mainBrown font-bold text-center text-md lg:text-xl flex"
-          >
-            <span> {{ course.title }} </span>
-          </h2>
-          <h3
-            class="text-xl border-2 border-dashed border-mainBrown rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
-          >
-            <span class="text-xs text-mainBrown">تومان</span>
-            <span> {{ course.price }}</span>
-            <PhMoney :size="34" weight="fill" />
-          </h3>
-        </div>
+        <!-- <LazyIndexPopularMiniCard
+          v-if="!loadingThree"
+          v-for="item in products.slice(1, 5)"
+          :key="item.id"
+          :item="item"
+        /> -->
       </div>
     </div>
-
     <LazyFooter />
   </div>
 </template>

@@ -14,7 +14,7 @@
     >
       اضافه کردن کالا
     </h2>
-    <div class="w-full h-full flex items-end flex-col p-10">
+    <div class="w-full h-full flex items-end flex-col pt-8 lg:p-10">
       <h2
         class="lg:text-2xl text-xl text-mainPink border-b-8 border-mainPurple rounded-xl pb-1"
       >

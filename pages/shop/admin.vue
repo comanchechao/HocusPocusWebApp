@@ -18,7 +18,7 @@
       />
     </div>
     <div
-      class="w-full pt-28 h-full flex flex-col items-center px-14 lg:px-40 py-16"
+      class="w-full pt-28 h-full flex flex-col items-center px-7 lg:px-40 py-16"
     >
       <div class="flex Bread items-center w-full justify-end space-x-4">
         <h2
@@ -36,7 +36,7 @@
         </h2>
       </div>
       <div
-        class="flex lg:items-center lg:flex-row flex-col lg:space-y-0 space-y-8 px-7 lg:space-x-8 justify-center items-center Stat1 lg:justify-center w-full my-9"
+        class="flex lg:items-center lg:flex-row flex-col lg:space-y-0 space-y-8 lg:space-x-8 justify-center items-center Stat1 lg:justify-center w-full my-9"
       >
         <div
           class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
