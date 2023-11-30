@@ -121,34 +121,33 @@ const loading = ref(true);
 
 // pagination
 
-const page = ref(1);
+const page = ref(0);
 
 watch(page, (cur, old) => {
-  getProducts();
+  if (page.value !== 0) {
+    getPagination();
+  }
   console.log(page.value);
 });
 
-// const getPagination = async () => {
-//   const body = new URLSearchParams({
-//     take: String(page.value * 4),
-//     skip: String(page.value * 2),
-//   });
-//   loading.value = true;
-//   const { data } = await $fetch("http://localhost:3333/products/products", {
-//     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-//     method: "POST",
-//     withCredentials: true,
-//     credentials: "include",
-//     body: body,
-//   })
-//     .then(function (response) {
-//       products.value = response.products;
-//       loading.value = false;
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-// };
+const getPagination = async () => {
+  loading.value = true;
+  const { data } = await $fetch(
+    `http://localhost:3333/products/products/${page.value}`,
+    {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
 
 // constregister filter store
 

@@ -170,8 +170,8 @@
           ></Skeleton>
         </div>
         <LazyCardsCarousel
-          v-show="!loadingProducts"
-          :products="products"
+          v-if="!loadingProducts"
+          :products="products.slice(0, 6)"
           class="self-center"
         />
       </div>
@@ -200,10 +200,16 @@
         ></Skeleton>
       </div>
       <div class="SCards">
-        <LazyCardsSwiper v-if="!loadingProducts" :products="products" />
+        <LazyCardsSwiper
+          v-if="!loadingProducts"
+          :products="products.slice(1, 5)"
+        />
       </div>
       <div class="lg:flex SCards hidden md:flex">
-        <LazyCardsSwiper v-if="!loadingProducts" :products="products" />
+        <LazyCardsSwiper
+          v-if="!loadingProducts"
+          :products="products.slice(1, 5)"
+        />
       </div>
     </div>
     <div
@@ -261,7 +267,7 @@
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
             <LazyLastProductImage
-            v-if="!loadingTwo"
+              v-if="!loadingTwo"
               :productId="latestCourse.CoursesImages[0].id"
             />
             <h2
