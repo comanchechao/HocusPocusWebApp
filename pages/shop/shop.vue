@@ -126,6 +126,8 @@ const page = ref(0);
 watch(page, (cur, old) => {
   if (page.value !== 0) {
     getPagination();
+  } else {
+    getProducts();
   }
   console.log(page.value);
 });
