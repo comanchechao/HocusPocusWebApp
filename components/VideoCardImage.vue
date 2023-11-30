@@ -1,5 +1,7 @@
 <template>
-  <div class="flex justify-center items-center lg:h-2/4 bg-mainWhite">
+  <div
+    class="flex justify-center items-start lg:h-2/4 h-72 bg-mainWhite rounded-t-md"
+  >
     <ProgressSpinner
       v-if="loading"
       style="width: 50px; height: 50px"
@@ -7,7 +9,7 @@
       animationDuration=".5s"
       aria-label="Custom ProgressSpinner"
     />
-    <img v-if="!loading" :src="image" class="h-full object-contain" alt="" />
+    <img v-if="!loading" :src="image" class="h-full object-cover" alt="" />
   </div>
 </template>
 
