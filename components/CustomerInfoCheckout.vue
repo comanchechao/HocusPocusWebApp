@@ -9,7 +9,6 @@
     class=""
   >
     <Dropdown
-      v-if="isVisible"
       v-model="selectedCity"
       :options="cities"
       optionLabel="name"
@@ -18,7 +17,6 @@
       class="w-full rounded-lg h-11"
     />
     <Dropdown
-      v-if="isVisible"
       v-model="selectedRegion"
       :options="provinces"
       optionLabel="name"
@@ -40,7 +38,6 @@
       aria-describedby="username-help"
     />
     <InputText
-      v-if="isVisible"
       placeholder="آدرس کامل"
       id="address"
       v-model="address"
