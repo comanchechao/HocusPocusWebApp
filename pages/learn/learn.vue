@@ -222,7 +222,7 @@
         class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
       >
         <div
-          v-if="latestCourse"
+          v-show="latestCourse"
           class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
         >
           <div class="h-3/4 w-full flex items-start justify-center">
@@ -234,12 +234,12 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
+            <!-- <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
               <LazyLastProductImage
                 v-if="!loadingTwo"
-                :productId="latestCourse.ProductImages[0].id"
+                :productId="latestCourse.CoursesImages[0].id"
               />
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
           <div
             class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
@@ -251,14 +251,12 @@
               height="3rem"
             ></Skeleton>
             <Skeleton v-if="loadingTwo" width="10rem" height="3rem"></Skeleton>
-            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
-              <h2
-                v-if="!loadingTwo"
-                class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
-              >
-                <span> {{ latestCourse.title }} </span>
-              </h2>
-            </NuxtLink>
+            <h2
+              v-if="!loadingTwo"
+              class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+            >
+              <span> {{ latestCourse.title }} </span>
+            </h2>
 
             <h3
               v-if="!loadingTwo"
@@ -307,12 +305,12 @@
           height="20rem"
         ></Skeleton>
 
-        <!-- <LazyIndexPopularMiniCard
+        <LazyIndexPopularMiniCard
           v-if="!loadingThree"
           v-for="item in products.slice(1, 5)"
           :key="item.id"
           :item="item"
-        /> -->
+        />
       </div>
     </div>
     <LazyFooter />
@@ -337,6 +335,7 @@ const TM = $gsap.timeline();
 
 const courses = ref();
 const loading = ref(true);
+const loadingThree = ref(true);
 
 const getCourses = async () => {
   loading.value = true;
@@ -349,7 +348,9 @@ const getCourses = async () => {
       courses.value = response.courses;
       loading.value = false;
       getProducts();
+      loadingTwo.value = false;
       getLatestCourse();
+      loadingThree.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -378,8 +379,7 @@ const getLatestCourse = async () => {
     .then(function (response) {
       latestCourse.value = response.course[0];
       loadingTwo.value = false;
-
-      getLatestFour();
+      loadingThree.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -400,6 +400,9 @@ const getProducts = async () => {
     .then(function (response) {
       products.value = response.products;
       loadingProducts.value = false;
+      loadingTwo.value = false;
+      loadingThree.value = false;
+      console.log("ghis is loading three value ", loadingThree.value);
     })
     .catch(function (error) {
       console.error(error);
@@ -408,7 +411,6 @@ const getProducts = async () => {
 };
 
 const latestFour = ref();
-const loadingThree = ref();
 
 const getLatestFour = async () => {
   loadingThree.value = true;
