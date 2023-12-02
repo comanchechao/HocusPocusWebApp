@@ -16,6 +16,8 @@ export const useFilterStore = defineStore("filterStore", {
       this.brands = [];
       this.category = [];
       this.rarity = [];
+      this.sortBy = "";
+      this.discount = false;
     },
     setTypes(category) {
       this.types = category;

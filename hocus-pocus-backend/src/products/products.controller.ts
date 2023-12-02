@@ -26,6 +26,11 @@ export class ProductsController {
     return this.productService.getFourBeforeOne();
   }
 
+  @Get('discounts')
+  getDiscounted() {
+    return this.productService.getDiscounted();
+  }
+
   @Get(':id')
   getProductsById(@Param('id') id: string) {
     return this.productService.getProductById(id);
