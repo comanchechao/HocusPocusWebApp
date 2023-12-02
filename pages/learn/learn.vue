@@ -305,9 +305,9 @@
           height="20rem"
         ></Skeleton>
 
-        <LazyIndexPopularMiniCard
+        <LazyIndexPopularMiniCardLearn
           v-if="!loadingThree"
-          v-for="item in products.slice(1, 5)"
+          v-for="item in courses.slice(0, 3)"
           :key="item.id"
           :item="item"
         />

@@ -258,7 +258,7 @@ watch(discount, (cur, old) => {
 const getProducts = async () => {
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/products", {
-    headers: {},
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     withCredentials: true,
     credentials: "include",
   })
