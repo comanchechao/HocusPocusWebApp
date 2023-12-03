@@ -337,6 +337,7 @@ const types = ref([
   {
     name: "کارت ها",
   },
+  { name: "اکسسوری" },
   {
     name: "کتاب",
   },
@@ -349,6 +350,7 @@ const rarity = ref([
   { name: "کمتر از 500" },
 ]);
 const brands = ref([
+  { name: "متفرقه", code: "NY" },
   { name: "بایسیکل", code: "NY" },
   { name: "جوکر", code: "RM" },
   { name: "تلی هو", code: "LDN" },
