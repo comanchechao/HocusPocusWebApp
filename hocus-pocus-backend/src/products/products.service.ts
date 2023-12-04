@@ -117,6 +117,7 @@ export class ProductsService {
         design: true,
         category: true,
         description: true,
+        ProductImages: { take: 2 },
       },
     });
     return { products: products };

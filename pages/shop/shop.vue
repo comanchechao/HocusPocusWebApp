@@ -304,7 +304,8 @@ const getDiscounts = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      products.value = response.products;
+      filteredProducts.value = response.products;
+      console.log(response.products);
       loading.value = false;
     })
     .catch(function (error) {
