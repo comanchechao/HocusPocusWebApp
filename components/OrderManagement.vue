@@ -5,12 +5,17 @@
     <div
       class="w-full hidden h-20 py-5 lg:grid grid-cols-4 place-items-center border-b border-Indigo-600"
     >
-      <h3 class="text-mainPurple">اطلاعات تکمیلی</h3>
-      <h3 class="text-mainPurple">تاریخ سفارش</h3>
-      <h3 class="text-mainPurple">وضعیت سفارش</h3>
-      <h3 class="text-mainPurple">نام کالا</h3>
+      <h3 class="text-mainPurple text-md">اطلاعات تکمیلی</h3>
+      <h3 class="text-mainPurple text-md">تاریخ سفارش</h3>
+      <h3 class="text-mainPurple text-md">وضعیت سفارش</h3>
+      <h3 class="text-mainPurple text-md">نام کالا</h3>
     </div>
-    <LazyOrderCard v-for="order in orders" :key="order.id" :order="order">
+    <LazyOrderCard
+      class="text-sm"
+      v-for="order in orders"
+      :key="order.id"
+      :order="order"
+    >
       <template #Status>
         <span v-show="order.status === 'PROCESSING'">درحال پردازش</span>
         <PhPackage

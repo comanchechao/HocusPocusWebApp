@@ -443,11 +443,7 @@ const handleProduct = async () => {
         eventFileThree.value,
         eventFileFour.value,
       ];
-      success.value = true;
 
-      setTimeout(() => {
-        success.value = false;
-      }, 3000);
       images.forEach((image) => {
         imageUploadLoading.value = true;
         uploadImage(image);
@@ -484,6 +480,11 @@ const uploadImage = async function (image) {
       if (response.data) {
         setTimeout(() => {
           imageUploadLoading.value = false;
+        }, 3000);
+        success.value = true;
+
+        setTimeout(() => {
+          success.value = false;
         }, 3000);
       }
     })

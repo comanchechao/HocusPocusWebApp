@@ -7,7 +7,6 @@
       v-model="selectedRarity"
       :options="rarity"
       optionLabel="name"
-      display="chip"
       placeholder="کمیابی"
       :showToggleAll="false"
     >
@@ -17,7 +16,6 @@
       v-model="selectedDesigns"
       :options="designs"
       optionLabel="name"
-      display="chip"
       placeholder="طرح ها"
       :showToggleAll="false"
     >
@@ -27,7 +25,6 @@
       v-model="selectedBrands"
       :options="brands"
       optionLabel="name"
-      display="chip"
       placeholder="برندها"
       :showToggleAll="false"
     >
@@ -38,7 +35,6 @@
       v-model="selectedCategory"
       :options="categories"
       optionLabel="name"
-      display="chip"
       placeholder="دسته بندی"
       :showToggleAll="false"
     ></MultiSelect>
@@ -47,7 +43,6 @@
       v-model="selectedTypes"
       :options="types"
       optionLabel="name"
-      display="chip"
       placeholder="نوع"
       :showToggleAll="false"
     >

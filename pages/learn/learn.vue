@@ -307,7 +307,7 @@
 
         <LazyIndexPopularMiniCardLearn
           v-if="!loadingThree"
-          v-for="item in courses.slice(0, 3)"
+          v-for="item in courses.slice(0, 4)"
           :key="item.id"
           :item="item"
         />
