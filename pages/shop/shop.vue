@@ -124,11 +124,28 @@ const route = useRoute();
 
 // pagination\
 const page = ref(Number(route.query.page) - 1);
+const currentPage = ref(route.query.page);
 
 watch(page, (cur, old) => {
   router.push({ path: "/shop/shop", query: { page: page.value + 1 } });
   console.log(Number(route.query.page), " this should be page ");
 });
+
+watch(currentPage, (cur, old) => {
+  getPagination();
+  console.log("show me this", cur);
+});
+
+// watch(
+//   () => route.query.page,
+//   async (currentPage) => {
+//     console.log("watch" + currentPage);
+//     page.value = Number(route.query.page) + 1;
+//   },
+//   {
+//     immediate: true,
+//   }
+// );
 
 watch(page, (cur, old) => {
   getPagination();

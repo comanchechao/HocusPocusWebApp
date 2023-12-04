@@ -111,7 +111,7 @@
         </NuxtLink>
         <NuxtLink
           class="lg:w-1/2 flex items-center rounded-md justify-center CardistTrigger w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
-          to="shop/shop"
+          to="/shop/shop?page=1"
         >
           <div
             class="relative w-full h-full flex items-center justify-center FCards"
@@ -204,7 +204,7 @@
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
-        <NuxtLink to="/shop/shop">
+        <NuxtLink to="/shop/shop?page=1">
           <button
             class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-md lg:text-2xl rounded-full"
           >
