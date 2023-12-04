@@ -24,7 +24,7 @@
       >
         <span> بیشترین امتیاز </span> <PhStar :size="20" weight="fill" />
       </button>
-      <button
+      <!-- <button
         :class="{
           'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange  border-mainYellow active:text-mainBrown active:bg-mainYellow hover:border-mainOrange text-sm flex items-center space-x-2 px-4 py-2   transition duration-150 ease-in-out border-2  rounded-sm shadow-md shadow-transparent':
             $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
@@ -32,7 +32,7 @@
         class="lg:text-sm text-xs flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed active:text-darkPurple active:bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
       >
         <span> پرفروش ترین </span> <PhCoins :size="20" weight="fill" />
-      </button>
+      </button> -->
       <button
         @click="discountFunction"
         :class="{

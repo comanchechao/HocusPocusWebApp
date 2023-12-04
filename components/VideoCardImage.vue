@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center items-start lg:h-2/4 h-72 bg-mainWhite rounded-t-md"
+    class="flex justify-center items-center lg:h-2/4 h-72 bg-mainWhite rounded-t-md"
   >
     <ProgressSpinner
       v-if="loading"

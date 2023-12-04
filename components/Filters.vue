@@ -11,7 +11,7 @@
 
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-lg text-center text-mainRed">موجودی کالا</h3>
+      <h3 class="lg:text-lg text-sm text-center text-mainRed">موجودی کالا</h3>
     </div>
     <MultiSelect
       :maxSelectedLabels="2"
@@ -54,6 +54,7 @@
       v-model="selectedTypes"
       :options="types"
       optionLabel="name"
+      class="lg:col-span-1 col-span-2"
       placeholder="نوع"
       :showToggleAll="false"
     >

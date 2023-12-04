@@ -1,6 +1,7 @@
 <template>
   <div class="h-full w-screen px-5 lg:px-14">
     <swiper
+      :navigation="true"
       :breakpoints="{
         '640': {
           slidesPerView: 1,

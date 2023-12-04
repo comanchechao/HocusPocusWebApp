@@ -109,7 +109,6 @@
 </template>
 
 <script setup lang="ts">
-import { useProductStore } from "../../stores/productStore";
 import { useFilterStore } from "../../stores/filtersStore";
 import { storeToRefs } from "pinia";
 const { $gsap } = useNuxtApp();
@@ -127,6 +126,13 @@ const page = ref(Number(route.query.page) - 1);
 const currentPage = ref(route.query.page);
 
 watch(page, (cur, old) => {
+  $gsap.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   router.push({ path: "/shop/shop", query: { page: page.value + 1 } });
   console.log(Number(route.query.page), " this should be page ");
 });
@@ -268,14 +274,6 @@ watch(sortBy, (cur, old) => {
 });
 
 watch(discount, (cur, old) => {
-  // if (cur === true) {
-  //   filteredProducts.value = products.value.filter(
-  //     (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
-  //   );
-  // }
-  // if (cur === false) {
-  //   filteredProducts.value = products.value;
-  // }
   getDiscounts();
 });
 

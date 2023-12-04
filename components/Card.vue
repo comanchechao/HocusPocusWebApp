@@ -50,7 +50,7 @@
           <span class="">3/5</span>
         </h2>
         <NuxtLink :to="'/shop/productdetail/' + product.id">
-          <h3 class="text-center leading-snug title text-xl text-darkPurple">
+          <h3 class="text-center leading-snug title text-md text-darkPurple">
             {{ props.product.title }}
           </h3>
         </NuxtLink>
