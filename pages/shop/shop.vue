@@ -164,6 +164,7 @@ const getPagination = async () => {
     }
   )
     .then(function (response) {
+      filterStore.clearFilters();
       products.value = response.products;
       loading.value = false;
     })
@@ -267,20 +268,37 @@ watch(sortBy, (cur, old) => {
 });
 
 watch(discount, (cur, old) => {
-  if (cur === true) {
-    filteredProducts.value = products.value.filter(
-      (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
-    );
-  }
-  if (cur === false) {
-    filteredProducts.value = products.value;
-  }
+  // if (cur === true) {
+  //   filteredProducts.value = products.value.filter(
+  //     (obj: any) => obj.hasOwnProperty("discount") && obj.discount !== null
+  //   );
+  // }
+  // if (cur === false) {
+  //   filteredProducts.value = products.value;
+  // }
+  getDiscounts();
 });
 
 // register product store
 const getProducts = async () => {
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/products", {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      products.value = response.products;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+const getDiscounts = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/products/discounts", {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     withCredentials: true,
     credentials: "include",
