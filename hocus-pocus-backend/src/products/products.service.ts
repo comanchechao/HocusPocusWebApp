@@ -122,6 +122,26 @@ export class ProductsService {
     return { products: products };
   }
 
+  async getFilter(page: string, filter: string) {
+    console.log(page, filter);
+    // const products = await this.prismaService.products.findMany({
+    //   where: { discount: { not: null } },
+    //   select: {
+    //     createdAt: true,
+    //     id: true,
+    //     title: true,
+    //     price: true,
+    //     discount: true,
+    //     brand: true,
+    //     type: true,
+    //     design: true,
+    //     category: true,
+    //     description: true,
+    //   },
+    // });
+    // return { products: products };
+  }
+
   async getProductById(id: string) {
     const product = await this.prismaService.products.findUnique({
       where: {

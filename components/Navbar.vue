@@ -54,7 +54,7 @@
           <span> خرید </span> <PhStorefront :size="23" />
         </button>
       </NuxtLink>
-      <NuxtLink to="/shop/shop">
+      <NuxtLink to="/shop/shop?page=1">
         <button
           :class="{
             hidden:

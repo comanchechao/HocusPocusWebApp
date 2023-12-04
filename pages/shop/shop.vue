@@ -119,16 +119,20 @@ const filteredProducts = ref();
 const filterOp = ref();
 const loading = ref(true);
 
-// pagination
+const router = useRouter();
+const route = useRoute();
 
-const page = ref(0);
+// pagination\
+const page = ref(Number(route.query.page) - 1);
 
 watch(page, (cur, old) => {
-  if (page.value !== 0) {
-    getPagination();
-  } else {
-    getProducts();
-  }
+  router.push({ path: "/shop/shop", query: { page: page.value + 1 } });
+  console.log(Number(route.query.page), " this should be page ");
+});
+
+watch(page, (cur, old) => {
+  getPagination();
+
   console.log(page.value);
 });
 
@@ -150,6 +154,8 @@ const getPagination = async () => {
       console.error(error);
     });
 };
+
+// change page param
 
 // constregister filter store
 
@@ -272,7 +278,7 @@ const getProducts = async () => {
 };
 
 onMounted(() => {
-  getProducts();
+  getPagination();
   TM.to(window, {
     scrollTo: {
       top: 0,
