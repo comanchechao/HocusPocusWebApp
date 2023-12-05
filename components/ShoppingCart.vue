@@ -65,7 +65,7 @@
             class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
           >
             <span class="text-sm text-mainYellow">تومان</span>
-            <span>23300</span>
+            <span>{{ cartTotalPrice }}</span>
           </h2>
           <h2 class="text-mainRed text-sm">مجموع خرید</h2>
         </div>
@@ -114,7 +114,7 @@ import { useProductStore } from "../stores/productStore";
 // register product store
 
 const productStore = useProductStore();
-const { shoppingCart } = storeToRefs(productStore);
+const { shoppingCart, cartTotalPrice } = storeToRefs(productStore);
 
 const removeFromCart = (product) => {
   productStore.removeProduct(product);

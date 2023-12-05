@@ -31,6 +31,7 @@ export const useProductStore = defineStore("productStore", {
           break;
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     increaseQuantity(productId) {
       for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -41,6 +42,7 @@ export const useProductStore = defineStore("productStore", {
           }
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     decreaseQuantity(productId) {
       for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -51,13 +53,13 @@ export const useProductStore = defineStore("productStore", {
           }
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     sumArrayOfObjectsPrice() {
       this.cartTotalPrice = this.shoppingCart.reduce(
-        (total, obj) => total + obj.price,
+        (total, obj) => total + obj.price * obj.quantity,
         0
       );
-      console.log(this.cartTotalPrice);
     },
   },
   persist: {
