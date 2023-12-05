@@ -4,7 +4,7 @@
   >
     <div class="w-full h-3/4 flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
-        <LazyLastProductImage :productId="item.CoursesImages[0].id" />
+        <LazyIndexLearnImage :imageId="item.CoursesImages[0].id" />
       </NuxtLink>
     </div>
     <div class="h-1/4 w-full p-2 flex items-end justify-end flex-col">
