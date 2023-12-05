@@ -205,10 +205,29 @@ async function isAuth() {
   })
     .then(function (response) {
       userStore.setLogState();
+      if (response) {
+        testFunction();
+      }
     })
     .catch(function (error) {
       console.error(error);
     });
+}
+
+async function testFunction() {
+  await $fetch("http://localhost:3333/auth/ischeck", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then(function (response) {
+    console.log(response);
+    if (response.check) {
+      userStore.setManager();
+    }
+  });
 }
 
 async function logout() {
