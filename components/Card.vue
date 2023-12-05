@@ -47,7 +47,11 @@
       <div class="w-full justify-between flex items-center">
         <h2 class="flex items-center space-x-1">
           <PhStar class="text-mainPink" size="20" weight="fill"></PhStar>
-          <span class="">3/5</span>
+          <span class="">{{
+            Math.floor(
+              Math.random() * (Math.floor(6) - Math.ceil(3)) + Math.ceil(3)
+            )
+          }}</span>
         </h2>
         <NuxtLink :to="'/shop/productdetail/' + product.id">
           <h3 class="text-center leading-snug title text-md text-darkPurple">
