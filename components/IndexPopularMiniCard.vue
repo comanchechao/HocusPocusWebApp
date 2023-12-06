@@ -1,10 +1,13 @@
 <template>
   <div
-    class="h-full w-full bg-mainWhite space-y-2 flex flex-col items-end justify-between"
+    class="h-full w-full bg-mainWhite space-y-2 flex flex-col rounded-md items-end justify-between"
   >
     <div class="w-full h-3/4 flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
-        <LazyLastProductImage :productId="item.ProductImages[0].id" />
+        <LazyLastProductImage
+          class="h-52 object-cover"
+          :productId="item.ProductImages[0].id"
+        />
       </NuxtLink>
     </div>
     <div class="h-1/4 w-full p-2 flex items-end justify-end flex-col">
@@ -18,7 +21,7 @@
         </h3>
 
         <NuxtLink :to="'/shop/productdetail/' + item.id">
-          <h2 class="text-darkPurple text-center text-md lg:text-xl flex">
+          <h2 class="text-darkPurple text-center text-md lg:text-sm flex">
             <span> {{ item.title }} </span>
           </h2>
         </NuxtLink>

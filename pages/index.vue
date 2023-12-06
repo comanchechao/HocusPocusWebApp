@@ -66,7 +66,7 @@
         <h1
           class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
-          <span>آنلاین شاپ و وبسایت آموزشی شعبده بازی </span>
+          <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
         </h1>
       </div>
       <!-- <img
@@ -257,15 +257,15 @@
       />
 
       <div
-        class="h-auto lg:my-10 SCardsTrigger my-5 w-screen flex items-center justify-center"
+        class="h-auto lg:my-10 hidden SCardsTrigger my-5 w-screen lg:flex md:flex items-center justify-center"
       >
         <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
           <PhCards weight="fill" class="mr-3" />
-          <span> کارت های منتخب هفته </span>
+          <span> محصولات منتخب هفته </span>
         </h2>
       </div>
       <div
-        class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
+        class="w-full hidden h-full lg:px-32 lg:flex md:flex items-center justify-around my-7 lg:my-10"
       >
         <div
           class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 px-4 w-full"
@@ -298,7 +298,7 @@
           v-show="latestProduct"
           class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
         >
-          <div class="h-3/4 w-full flex items-start justify-center">
+          <div class="h-rem28 w-full flex items-center justify-center">
             <ProgressSpinner
               class="self-center"
               v-if="loading"
@@ -309,6 +309,7 @@
             />
             <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
               <LazyLastProductImage
+                class="h-rem28 object-cover"
                 v-if="!loadingTwo"
                 :productId="latestProduct.ProductImages[0].id"
               />

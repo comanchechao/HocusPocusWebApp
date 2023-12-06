@@ -23,7 +23,7 @@
           alt=""
         />
         <h2 class="text-lg text-mainRed">
-          آنلاین شاپ و وبسایت آموزشی شعبده بازیِ
+          وبسایت آموزش و فروش محصولات شعبده بازی
         </h2>
         <div class="w-full flex flex-col h-48 items-center justify-center">
           <div class="flex flex-col items-center justify-center">
@@ -68,28 +68,28 @@
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center space-x-5">
+        <div class="flex items-center justify-center space-x-2">
           <a href="https://www.instagram.com/hocus_pocus.official/?hl=en">
             <button
               class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
             >
-              <PhInstagramLogo :size="50" />
+              <PhInstagramLogo :size="45" weight="fill" />
             </button>
           </a>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
-            <PhWhatsappLogo :size="50" />
+            <PhWhatsappLogo :size="45" weight="fill" />
           </button>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
-            <PhTelegramLogo :size="50" />
+            <PhTelegramLogo :size="45" weight="fill" />
           </button>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
           >
-            <PhMapPin :size="50" />
+            <PhMapPin :size="45" weight="fill" />
           </button>
         </div>
       </div>

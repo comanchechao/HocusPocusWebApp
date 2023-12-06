@@ -4,7 +4,10 @@
   >
     <div class="w-full h-3/4 flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
-        <LazyIndexLearnImage :imageId="item.CoursesImages[0].id" />
+        <LazyIndexLearnImage
+          class="h-52 object-cover"
+          :imageId="item.CoursesImages[0].id"
+        />
       </NuxtLink>
     </div>
     <div class="h-1/4 w-full p-2 flex items-end justify-end flex-col">
@@ -18,7 +21,7 @@
         </h3>
 
         <NuxtLink :to="'/shop/productdetail/' + item.id">
-          <h2 class="text-darkPurple text-center text-md lg:text-xl flex">
+          <h2 class="text-darkPurple text-center text-md lg:text-md flex">
             <span> {{ item.title }} </span>
           </h2>
         </NuxtLink>

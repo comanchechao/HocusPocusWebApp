@@ -126,7 +126,7 @@ watch(stateChange, (cur, old) => {
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
-const loading = ref(false);
+const loading = ref(true);
 const courses = ref();
 
 const getCourses = async () => {

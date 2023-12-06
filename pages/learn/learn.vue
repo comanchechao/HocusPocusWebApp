@@ -178,15 +178,15 @@
     </div>
 
     <div
-      class="h-auto lg:my-10 SCardsTrigger my-5 w-screen flex items-center justify-center"
+      class="h-auto lg:my-10 hidden md:flex lg:flex SCardsTrigger my-5 w-screen items-center justify-center"
     >
       <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
         <PhCards weight="fill" class="mr-3" />
-        <span> کارت های منتخب هفته </span>
+        <span> محصولات منتخب هفته </span>
       </h2>
     </div>
     <div
-      class="w-full h-full lg:px-32 flex items-center justify-around my-7 lg:my-10"
+      class="w-full hidden lg:flex md:flex h-full lg:px-32 items-center justify-around my-7 lg:my-10"
     >
       <div
         class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 px-4 w-full"
@@ -234,12 +234,12 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <!-- <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
+            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
               <LazyLastProductImage
                 v-if="!loadingTwo"
                 :productId="latestCourse.CoursesImages[0].id"
               />
-            </NuxtLink> -->
+            </NuxtLink>
           </div>
           <div
             class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
