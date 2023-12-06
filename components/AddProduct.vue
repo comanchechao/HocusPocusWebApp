@@ -28,7 +28,7 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
-          <PhCheckCircle weight="fill" :size="66" />
+          <PhCheckCircle class="text-green-400" weight="fill" :size="66" />
 
           <input
             @change="
@@ -46,7 +46,7 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
-          <PhCheckCircle weight="fill" :size="66" />
+          <PhCheckCircle class="text-green-400" weight="fill" :size="66" />
 
           <input
             @change="
@@ -64,7 +64,7 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
-          <PhCheckCircle weight="fill" :size="66" />
+          <PhCheckCircle class="text-green-400" weight="fill" :size="66" />
 
           <input
             @change="
@@ -82,7 +82,7 @@
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
           <PhUpload weight="fill" :size="66" />
-          <PhCheckCircle weight="fill" :size="66" />
+          <PhCheckCircle class="text-green-400" weight="fill" :size="66" />
 
           <input
             @change="
