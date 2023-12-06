@@ -47,7 +47,7 @@
       <div class="w-full justify-between flex items-center">
         <h2 class="flex items-center space-x-1">
           <PhStar class="text-mainPink" size="20" weight="fill"></PhStar>
-          <span class="">3/5</span>
+          <span class="">{{ rating }}</span>
         </h2>
         <NuxtLink :to="'/shop/productdetail/' + product.id">
           <h3
@@ -185,7 +185,11 @@ function calculateDiscountedPrice(price: number, discountPercentage: number) {
   }
 }
 
+const rating = ref(0);
 onMounted(() => {
+  rating.value = Math.floor(
+    Math.random() * (Math.floor(6) - Math.ceil(3)) + Math.ceil(3)
+  );
   calculateDiscountedPrice(
     Number(props.product.price),
     Number(props.product.discount)

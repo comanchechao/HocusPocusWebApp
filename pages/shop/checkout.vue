@@ -120,7 +120,7 @@
               class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
             >
               <span class="text-sm text-darkPurple">تومان</span>
-              <span>23300</span>
+              <span>{{ cartTotalPrice }}</span>
             </h2>
             <h2 class="text-darkPurple text-sm">مجموع خرید</h2>
           </div>

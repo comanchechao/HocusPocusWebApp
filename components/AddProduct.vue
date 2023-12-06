@@ -335,12 +335,12 @@ const filters = ref([
 ]);
 const types = ref([
   {
+    name: "کتاب",
+  },
+  {
     name: "کارت ها",
   },
   { name: "اکسسوری" },
-  {
-    name: "کتاب",
-  },
   { name: "لوازم شعبده بازی" },
 ]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
@@ -350,7 +350,8 @@ const rarity = ref([
   { name: "کمتر از 500" },
 ]);
 const brands = ref([
-  { name: "متفرقه", code: "NY" },
+  { name: "دیگر", code: "NY" },
+  { name: "کینگ مجیک", code: "NY" },
   { name: "بایسیکل", code: "NY" },
   { name: "جوکر", code: "RM" },
   { name: "تلی هو", code: "LDN" },
@@ -362,8 +363,9 @@ const brands = ref([
   { name: "رافورد", code: "LDN" },
 ]);
 const categories = ref([
-  { name: "کلوس آپ مجیک", code: "NY" },
+  { name: "کلوز آپ مجیک", code: "NY" },
   { name: "جادو کودکان", code: "NY" },
+  { name: "شعبده بازی با پول", code: "NY" },
   { name: "کارت مجیک", code: "RM" },
   { name: "سکه و پول", code: "LDN" },
   { name: "حرکت اجسام", code: "LDN" },

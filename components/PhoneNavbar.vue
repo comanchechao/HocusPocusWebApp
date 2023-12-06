@@ -80,7 +80,7 @@
         <NuxtLink
           v-if="$route.path === '/' || $route.path.startsWith('/shop/')"
           class="w-full"
-          to="/shop/shop"
+          to="/shop/shop?page=1"
         >
           <button
             class="text-xl border-dashed active:text-darkPurple active:bg-mainViolet flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"

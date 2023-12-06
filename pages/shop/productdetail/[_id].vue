@@ -214,7 +214,9 @@ import { useProductStore } from "~/stores/productStore";
 import { storeToRefs } from "pinia";
 import { useUserStore } from "~/stores/user";
 
-const value = ref(null);
+const value = ref(
+  Math.floor(Math.random() * (Math.floor(6) - Math.ceil(3)) + Math.ceil(3))
+);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
