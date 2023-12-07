@@ -36,14 +36,20 @@
           <div class="h-full w-full flex items-center">
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
-          <button
-            v-show="isLogged"
-            @click="submitOrder()"
-            class="lg:text-xl text-md px-3 lg:px-10 active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out bg-mainYellow text-darkPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainYellow hover:bg-mainBrown"
+          <NuxtLink
+            class="w-full flex items-center justify-center"
+            to="/shop/purchaseSuccess"
           >
-            <span> تایید و ادامه به درگاه بانکی </span>
-            <PhShoppingBagOpen :size="35" weight="fill" />
-          </button>
+            <button
+              v-show="isLogged"
+              @click="submitOrder()"
+              class="lg:text-xl text-md px-3 lg:px-10 active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out bg-mainYellow text-darkPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainYellow hover:bg-mainBrown"
+            >
+              <span> تایید و ادامه به درگاه بانکی </span>
+              <PhShoppingBagOpen :size="35" weight="fill" />
+            </button>
+          </NuxtLink>
+
           <div
             v-show="!isLogged"
             class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
@@ -101,6 +107,17 @@
                 </button>
               </div>
             </div>
+          </div>
+          <div
+            class="h-24 w-full rounded-md flex items-center justify-center space-x-2"
+          >
+            <h2
+              class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
+            >
+              <span class="text-sm text-darkPurple">تومان</span>
+              <span>{{ cartTotalPrice }}</span>
+            </h2>
+            <h2 class="text-darkPurple text-sm">مجموع خرید</h2>
           </div>
         </div>
       </div>

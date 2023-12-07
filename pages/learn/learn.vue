@@ -234,12 +234,12 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
+            <!-- <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
               <LazyLastProductImage
                 v-if="!loadingTwo"
                 :productId="latestCourse.CoursesImages[0].id"
               />
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
           <div
             class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"

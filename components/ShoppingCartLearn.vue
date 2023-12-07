@@ -58,7 +58,17 @@
             </div>
           </div>
         </div>
-
+        <div
+          class="h-24 w-full rounded-md flex items-center justify-center space-x-2"
+        >
+          <h2
+            class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
+          >
+            <span class="text-sm text-mainYellow">تومان</span>
+            <span>{{ cartTotalPrice }}</span>
+          </h2>
+          <h2 class="text-mainRed text-sm">مجموع خرید</h2>
+        </div>
         <NuxtLink to="/learn/checkout">
           <button
             class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
