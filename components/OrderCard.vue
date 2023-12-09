@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full lg:h-20 py-5 lg:p-0 p-10 grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
+    class="w-full h-full lg:h-20 py-5 p-10 grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
   >
     <LazyOrderInfoDialog :order="order" />
     <div class="flex items-center justify-end space-x-2">

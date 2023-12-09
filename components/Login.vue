@@ -231,4 +231,10 @@ async function testFunction() {
     height: calc(auto - 46px) !important;
   }
 }
+
+.p-inputtext,
+.p-component,
+.p-filled {
+  text-transform: lowercase;
+}
 </style>

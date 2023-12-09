@@ -27,7 +27,7 @@
           for="imageone"
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
-          <PhUpload weight="fill" :size="66" />
+          <PhUpload v-show="!eventFileOne" weight="fill" :size="66" />
           <PhCheckCircle
             v-show="eventFileOne"
             class="text-green-400"
@@ -50,7 +50,7 @@
           for="imagetwo"
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
-          <PhUpload weight="fill" :size="66" />
+          <PhUpload v-show="!eventFileTwo" weight="fill" :size="66" />
           <PhCheckCircle
             v-show="eventFileTwo"
             class="text-green-400"
@@ -73,7 +73,7 @@
           for="imagethree"
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
-          <PhUpload weight="fill" :size="66" />
+          <PhUpload v-show="!eventFileThree" weight="fill" :size="66" />
           <PhCheckCircle
             v-show="eventFileThree"
             class="text-green-400"
@@ -96,7 +96,7 @@
           for="imagefour"
           class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
-          <PhUpload weight="fill" :size="66" />
+          <PhUpload v-show="!eventFileFour" weight="fill" :size="66" />
           <PhCheckCircle
             v-show="eventFileFour"
             class="text-green-400"
@@ -500,9 +500,7 @@ const uploadImage = async function (image) {
   })
     .then((response) => {
       if (response.data) {
-        setTimeout(() => {
-          imageUploadLoading.value = false;
-        }, 3000);
+        imageUploadLoading.value = false;
         success.value = true;
 
         setTimeout(() => {
