@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lg:flex grid grid-flow-row-dense grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-end lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+    class="lg:flex grid grid-flow-row-dense md:grid-flow-row md:grid-cols-4 grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-end lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <h3
       @click="clearFilters()"
@@ -54,7 +54,7 @@
       v-model="selectedTypes"
       :options="types"
       optionLabel="name"
-      class="lg:col-span-1 col-span-2"
+      class="lg:col-span-1 md:col-span-1 col-span-2"
       placeholder="نوع"
       :showToggleAll="false"
     >

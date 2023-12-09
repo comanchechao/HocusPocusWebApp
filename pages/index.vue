@@ -88,7 +88,7 @@
         <span> محصولات هوکوس پوکوس </span>
       </h2>
       <div
-        class="lg:h-dialog h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
+        class="lg:h-dialog md:h-full h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
       >
         <NuxtLink
           class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainYellow"
@@ -99,12 +99,12 @@
           >
             <img
               src="../assets/images/TeachM.webp"
-              class="lg:w-rem28 w-72 object-contain"
+              class="lg:w-rem28 md:w-rem28 w-72 object-contain"
               alt=""
             />
             <img
               src="../assets/images/StarsTeach.webp"
-              class="lg:w-rem28 w-72 absolute star2 object-contain"
+              class="lg:w-rem28 md:w-rem28 w-72 absolute star2 object-contain"
               alt=""
             />
           </div>
@@ -118,12 +118,12 @@
           >
             <img
               src="../assets/images/ShopM.webp"
-              class="lg:w-rem28 w-72 absolute object-contain"
+              class="lg:w-rem28 md:w-rem28 w-72 absolute object-contain"
               alt=""
             />
             <img
               src="../assets/images/StarsShop.webp"
-              class="lg:w-rem28 w-72 absolute star object-contain"
+              class="lg:w-rem28 md:w-rem28 w-72 absolute star object-contain"
               alt=""
             />
           </div>
