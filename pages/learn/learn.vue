@@ -208,7 +208,7 @@
       <div class="lg:flex SCards hidden md:flex">
         <LazyCardsSwiper
           v-if="!loadingProducts"
-          :products="products.slice(1, 5)"
+          :products="products.slice(5, 9)"
         />
       </div>
     </div>
@@ -234,12 +234,14 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <!-- <NuxtLink :to="'/shop/productdetail/' + latestCourse.id">
-              <LazyLastProductImage
-                v-if="!loadingTwo"
+            <NuxtLink
+              v-if="!loadingTwo"
+              :to="'/learn/coursedetail/' + latestCourse.id"
+            >
+              <LazyLastCourseImage
                 :productId="latestCourse.CoursesImages[0].id"
               />
-            </NuxtLink> -->
+            </NuxtLink>
           </div>
           <div
             class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"

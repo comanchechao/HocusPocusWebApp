@@ -19,7 +19,7 @@
       </NuxtLink>
 
       <h3 class="text-sm">
-        {{ course.description }}
+        {{ course.description.substring(0, 150) }}
       </h3>
       <div
         class="w-full h-auto flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-center lg:justify-around px-3"
