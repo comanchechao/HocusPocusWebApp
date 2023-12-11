@@ -29,6 +29,14 @@
         <div
           class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
+          <div class="flex absolute w-full justify-center items-center">
+            <h2
+              class="text-white self-center w-full font-bold text-center"
+              v-show="empty && !loading"
+            >
+              محصولی برای نمایش وجود ندارد
+            </h2>
+          </div>
           <Skeleton v-if="loading" width="18rem" height="25rem"></Skeleton>
           <Skeleton
             v-if="loading"
@@ -86,6 +94,7 @@
             :key="product"
             :product="product"
           ></LazyCard>
+
           <!-- <LazyCard></LazyCard>
           <LazyCard></LazyCard>
           <LazyCard></LazyCard>
@@ -159,6 +168,8 @@ watch(page, (cur, old) => {
   console.log(page.value);
 });
 
+const empty = ref(false);
+
 const getPagination = async () => {
   loading.value = true;
   const { data } = await $fetch(
@@ -173,6 +184,11 @@ const getPagination = async () => {
       filterStore.clearFilters();
       products.value = response.products;
       loading.value = false;
+      if (!products.value.length) {
+        empty.value = true;
+      } else {
+        empty.value = false;
+      }
     })
     .catch(function (error) {
       console.error(error);
