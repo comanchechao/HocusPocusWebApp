@@ -279,10 +279,10 @@
           ></Skeleton>
         </div>
         <div class="SCards">
-          <LazyCardsSwiper v-if="!loading" :products="products" />
+          <LazyCardsSwiper v-if="!loading" :products="products.slice(0, 4)" />
         </div>
         <div class="lg:flex SCards hidden md:flex">
-          <LazyCardsSwiper v-if="!loading" :products="products" />
+          <LazyCardsSwiper v-if="!loading" :products="products.slice(4, 8)" />
         </div>
       </div>
     </div>
