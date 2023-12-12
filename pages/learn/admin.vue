@@ -117,10 +117,14 @@ import { useMainManagement } from "~/stores/managementStore";
 
 const managementStore = useMainManagement();
 
-const { coursesCount, stateChange } = storeToRefs(managementStore);
+const { coursesCount, stateChange, membershipStat } =
+  storeToRefs(managementStore);
 
 watch(stateChange, (cur, old) => {
   getCourses();
+});
+watch(membershipStat, (cur, old) => {
+  getMemberships();
 });
 
 const { $gsap } = useNuxtApp();
@@ -140,10 +144,12 @@ const getCourses = async () => {
       courses.value = response.courses;
       managementStore.setCoursesCount(response.courses.length);
       loading.value = false;
+      getMemberships();
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+      getMemberships();
     });
 };
 
@@ -175,7 +181,6 @@ const getMemberships = async () => {
 
 onMounted(() => {
   getCourses();
-  getMemberships();
   TM.from(".Bread", { opacity: 0, duration: 1, delay: 0.5 });
   TM.from(".Stat1", { opacity: 0, duration: 1 });
   TM.from(".Stat2", { opacity: 0, duration: 1, stagger: 0.3 });

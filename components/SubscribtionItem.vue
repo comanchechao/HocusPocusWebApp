@@ -6,8 +6,32 @@
     <h3 class="text-darkPurple flex items-center space-x-2">
       <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
 
-      <span>تحویل داده شده</span>
-      <LazyChangeStatusDialog />
+      <span v-show="membership.status === 'PROCESSING'">درحال پردازش</span>
+      <PhPackage
+        v-show="membership.status === 'PROCESSING'"
+        class="text-mainYellow"
+        :size="25"
+        weight="fill"
+      />
+      <span v-show="membership.status === 'SHIPPING'">ارسال شده</span>
+      <PhAirplaneTilt
+        v-show="membership.status === 'SHIPPING'"
+        class="text-blue-700"
+        :size="25"
+        weight="fill"
+      />
+      <span v-show="membership.status === 'DELIVERED'">تحویل داده شده</span>
+      <PhCheckCircle
+        v-show="membership.status === 'DELIVERED'"
+        class="text-green-500"
+        :size="25"
+        weight="fill"
+      />
+
+      <LazyChangeStatusMembership
+        :status="membership.status"
+        :membershipId="membership.id"
+      />
     </h3>
     <h3 class="text-darkPurple">{{ membership.fullname }}</h3>
     <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>

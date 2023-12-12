@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 export const useMainManagement = defineStore("mainManagement", {
   state: () => ({
+    membershipStat: false,
     stateChange: false,
     mode: false,
     productsCount: null,
@@ -10,6 +11,9 @@ export const useMainManagement = defineStore("mainManagement", {
   actions: {
     setStateChange() {
       this.stateChange = !this.stateChange;
+    },
+    setMembershipChange() {
+      this.membershipStat = !this.membershipStat;
     },
     setMode() {
       this.mode = true;

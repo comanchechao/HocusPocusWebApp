@@ -53,15 +53,6 @@
 <script setup>
 import { ref } from "vue";
 
-import {
-  PhCaretLeft,
-  PhCoffee,
-  PhCheckCircle,
-  PhAirplaneTilt,
-  PhPackage,
-  PhVideo,
-} from "@phosphor-icons/vue";
-
 const props = defineProps(["memberships"]);
 const visible = ref(false);
 </script>
