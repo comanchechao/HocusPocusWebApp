@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>
+    <title v-if="course">
       آموزش شعبده بازی | {{ course.price }} | {{ course.title }} | هوکوس پوکوس
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
