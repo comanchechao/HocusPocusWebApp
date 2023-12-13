@@ -17,8 +17,6 @@ export class ManagementService {
   // product services
 
   async addProduct(dto: ManagementDto) {
-    console.log('functnio is running');
-
     const product = await this.prismaService.products.create({
       data: {
         title: dto.title,
@@ -208,7 +206,6 @@ export class ManagementService {
   }
 
   async getOrderItems(dto: orderItemDto) {
-    console.log(dto);
     if (dto) {
       const orderItems = await this.prismaService.orderItems.findMany({
         where: {
@@ -241,7 +238,6 @@ export class ManagementService {
   }
 
   async getMembershipItems(dto: MembershipItemDto) {
-    console.log(dto);
     if (dto) {
       const membershipItems = await this.prismaService.membershipItem.findMany({
         where: {
@@ -301,7 +297,6 @@ export class ManagementService {
   }
 
   async addVideo(file: any, body: any) {
-    console.log(file);
     const video = await this.prismaService.courses.create({
       data: {
         title: body.title,
@@ -315,7 +310,6 @@ export class ManagementService {
   }
 
   async storeCourseImage(file: any, body: any) {
-    console.log(file.buffer);
     const image = await this.prismaService.coursesImages.create({
       data: {
         filename: file.originalname,
