@@ -38,7 +38,7 @@
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >
           <h2 class="text-sm">{{ order.fullname }}</h2>
-          <h2 class="text-md lg:hidden">نام کالا</h2>
+          <h2 class="text-md lg:hidden">نام خریدار</h2>
         </div>
       </div>
     </div>

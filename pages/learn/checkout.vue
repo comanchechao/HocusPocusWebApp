@@ -42,7 +42,7 @@
           >
             <button
               v-show="isLogged"
-              @click="submitOrder()"
+              @click="getUser()"
               class="lg:text-xl text-md px-3 lg:px-10 active:text-darkPurple active:bg-mainYellow flex items-center space-x-2 self-center justify-center py-2 transition duration-300 ease-in-out bg-mainYellow text-darkPurple rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainYellow hover:bg-mainBrown"
             >
               <span> تایید و ادامه به درگاه بانکی </span>
@@ -178,11 +178,32 @@ const removeItem = (itemId) => {
   courseStore.removeProduct(itemId);
 };
 
+// user info
+
+const userId = ref();
+
+const getUser = async () => {
+  const { data } = await $fetch("http://localhost:3333/auth/isauth", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      userId.value = response.userId;
+      if (response.userId) {
+        submitOrder();
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
 const submitedOrdersId = ref();
 
-const submitOrder = async (userId) => {
+const submitOrder = async () => {
   const data = new URLSearchParams({
-    userId: 1,
+    userId: userId.value,
     totalPrice: cartTotalPrice.value,
     estimatedDeliveryDays: 5,
     city: city.value,
@@ -252,6 +273,10 @@ const orderItems = async () => {
       console.log(error);
     });
 };
+
+onMounted(() => {
+  getUser();
+});
 </script>
 
 <style lang="scss" scoped></style>

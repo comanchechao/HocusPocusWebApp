@@ -8,7 +8,7 @@
       <h3 class="text-mainPurple text-md">اطلاعات تکمیلی</h3>
       <h3 class="text-mainPurple text-md">تاریخ سفارش</h3>
       <h3 class="text-mainPurple text-md">وضعیت سفارش</h3>
-      <h3 class="text-mainPurple text-md">نام کالا</h3>
+      <h3 class="text-mainPurple text-md">نام خریدار</h3>
     </div>
     <LazyOrderCard
       class="text-sm"
