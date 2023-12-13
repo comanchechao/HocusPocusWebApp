@@ -27,7 +27,7 @@
             <h3 class="text-mainPurple">تاریخ سفارش</h3>
             <h3 class="text-mainPurple">وضعیت سفارش</h3>
             <h3 class="text-mainPurple">نام خریدار</h3>
-            <h3 class="text-mainPurple">نام اشتراک</h3>
+            <h3 class="text-mainPurple">نام کاربر</h3>
           </div>
           <LazySubscribtionItem
             v-for="membership in memberships"

@@ -49,6 +49,7 @@
         />
         <video
           v-if="!loading"
+          v-show="videoFile"
           type="video/mp4"
           class="w-full h-full"
           controls
@@ -88,6 +89,14 @@
             <Skeleton v-if="loading" width="10rem" height="2rem"></Skeleton>
 
             <button
+              @click="
+                addToCart(
+                  course.id,
+                  course.title,
+                  course.price,
+                  course.CoursesImages
+                )
+              "
               v-if="!loading"
               class="px-8 py-2 shadow-md shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-mainBrown text-mainYellow hover:text-mainBrown hover:bg-mainYellow rounded-md"
             >
@@ -148,10 +157,11 @@ import {
   PhShoppingBagOpen,
   PhUserList,
 } from "@phosphor-icons/vue";
+import { useCourseStore } from "~/stores/coursesStore";
 
 const loading = ref(true);
 const course = ref();
-const videoFile = ref();
+const videoFile = ref(null);
 
 const router = useRoute();
 const getCourse = async () => {
@@ -179,6 +189,22 @@ const getCourse = async () => {
       loading.value = false;
     });
   loading.value = false;
+};
+
+// register course store
+
+const courseStore = useCourseStore();
+
+const addSuccess = ref(false);
+
+const addToCart = (id, title, price, CoursesImages) => {
+  let course = { id, title, price, CoursesImages };
+  courseStore.addToShoppingCart(course);
+  addSuccess.value = true;
+
+  setTimeout(() => {
+    addSuccess.value = false;
+  }, 3000);
 };
 
 onMounted(() => {

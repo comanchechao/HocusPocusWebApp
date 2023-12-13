@@ -34,7 +34,7 @@
       />
     </h3>
     <h3 class="text-darkPurple">{{ membership.fullname }}</h3>
-    <h3 class="text-mainBrown text-center px-5">آموزش بر زدن ورق</h3>
+    <h3 class="text-mainBrown text-center px-5">{{ username }}</h3>
   </div>
 </template>
 
@@ -44,11 +44,33 @@ const props = defineProps(["membership"]);
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
 
+const username = ref();
+
+const getusername = async () => {
+  const data = new URLSearchParams({
+    userId: props.membership.user_id,
+  });
+
+  await $fetch("http://localhost:3333/user/username", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      username.value = response.username.username;
+    })
+    .catch((error) => {});
+};
 const date = ref();
 
 dayjs.extend(jalaliday);
 
 onMounted(() => {
+  getusername();
   date.value = dayjs(props.membership.created_at)
     .calendar("jalali")
     .locale("en")

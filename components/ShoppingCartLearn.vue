@@ -106,7 +106,7 @@ import { useCourseStore } from "~/stores/coursesStore";
 const courseStore = useCourseStore();
 
 const productStore = useProductStore();
-const { shoppingCart } = storeToRefs(courseStore);
+const { shoppingCart, cartTotalPrice } = storeToRefs(courseStore);
 
 const removeFromCart = (product) => {
   courseStore.removeProduct(product);

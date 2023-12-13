@@ -31,6 +31,7 @@ export const useCourseStore = defineStore("courseStore", {
           break;
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     increaseQuantity(courseId) {
       for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -41,6 +42,7 @@ export const useCourseStore = defineStore("courseStore", {
           }
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     decreaseQuantity(courseId) {
       for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -51,10 +53,11 @@ export const useCourseStore = defineStore("courseStore", {
           }
         }
       }
+      this.sumArrayOfObjectsPrice();
     },
     sumArrayOfObjectsPrice() {
       this.cartTotalPrice = this.shoppingCart.reduce(
-        (total, obj) => total + obj.price,
+        (total, obj) => total + obj.price * obj.quantity,
         0
       );
       console.log(this.cartTotalPrice);
