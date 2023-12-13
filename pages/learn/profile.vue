@@ -22,7 +22,7 @@
           id="div2"
           v-show="showDiv2"
         >
-          <LazyProfileOrders class="h-full w-full" />
+          <LazyProfileMemberships class="h-full w-full" />
         </div>
       </div>
       <div
