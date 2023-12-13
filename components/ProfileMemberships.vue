@@ -44,10 +44,10 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center px-2 space-y-5 overflow-y-scroll items-center"
         >
-          <Order
+          <LazyMembershipProfile
             v-for="order in processingOrders"
             :key="order.id"
-            :order="order"
+            :membership="order"
           />
         </div>
       </div>
@@ -65,10 +65,10 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order
+          <LazyMembershipProfile
             v-for="order in shippingOrders"
             :key="order.id"
-            :order="order"
+            :membership="order"
           />
         </div>
       </div>
@@ -86,10 +86,10 @@
         <div
           class="h-full pt-6 w-full flex flex-col justify-center space-y-5 overflow-y-scroll items-center"
         >
-          <Order
+          <LazyMembershipProfile
             v-for="order in deliveredOrders"
             :key="order.id"
-            :order="order"
+            :membership="order"
           />
         </div>
       </div>
