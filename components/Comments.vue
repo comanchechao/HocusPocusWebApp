@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-col items-center w-full">
     <div
-      class="flex items-center lg:justify-end justify-around w-full space-x-3"
+      class="flex items-end flex-col lg:justify-end justify-around w-full space-x-3"
     >
-      <LazyAddComment v-show="isLogged" />
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
+
+      <LazyAddComment v-show="isLogged" />
     </div>
     <div
       v-show="!isLogged"
@@ -18,7 +19,7 @@
 
     <div class="flex flex-col items-center w-full">
       <div
-        v-if="comments === null"
+        v-if="comments.value === null"
         class="w-full h-96 bg-mainWhite my-10 rounded-md flex items-center justify-center"
       >
         <h2 class="text-darkPurple text-3xl">

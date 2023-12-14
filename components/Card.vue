@@ -99,13 +99,13 @@
         ></NuxtLink> -->
         <button
           @click="addToCart(props.product)"
-          class="justify-center w-14 h-10 shadow-md border-mainPink border-2 flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-darkPurple hover:text-mainPink hover:border-darkPurple hover:bg-darkPurple rounded-md"
+          class="justify-center w-14 h-10 shadow-md text-darkPurple bg-mainPink border-2 flex items-center space-x-2 transition text-sm duration-200 ease-in-out hover:text-mainPink hover:border-darkPurple hover:bg-darkPurple rounded-md"
         >
           <PhShoppingBagOpen :size="30" weight="fill" />
         </button>
       </div>
       <Message :closable="false" v-show="addSuccess" severity="success">
-        <span class="lg:text-sm text-sm font-bold">به سبد خرید اضافه شد</span>
+        <span class="lg:text-sm text-sm">به سبد خرید اضافه شد</span>
       </Message>
     </div>
   </div>

@@ -116,11 +116,8 @@
                 معرفی کالا
               </h1>
               <h1
-                class="text-darkPurple my-2 w-full bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-md"
+                class="text-darkPurple my-2 w-full bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-sm"
               >
-                <span class="text-xl font-bold rounded-xl flex justify-end">
-                  {{ product.description }}
-                </span>
                 <span> {{ product.description }} </span>
               </h1>
               <div
