@@ -249,16 +249,15 @@ export class ManagementService {
   }
 
   async updateMembershipStatus(dto: OrderStatusDto) {
-    const membership = await this.prismaService.membership.updateMany({
-      where: {
-        id: Number(dto.membershipId),
-      },
-      data: {
-        status: dto.status,
-      },
-    });
-
-    return { membership: membership };
+    // const membership = await this.prismaService.membership.updateMany({
+    //   where: {
+    //     id: Number(dto.membershipId),
+    //   },
+    //   data: {
+    //     status: dto.status,
+    //   },
+    // });
+    // return { membership: membership };
   }
 
   // category services
