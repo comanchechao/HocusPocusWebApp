@@ -100,7 +100,8 @@
               v-if="!loading"
               class="px-8 py-2 shadow-md shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out bg-mainBrown text-mainYellow hover:text-mainBrown hover:bg-mainYellow rounded-md"
             >
-              <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
+              <span> تکمیل خرید و ادامه به درگاه </span>
+              <PhShoppingBagOpen :size="20" />
             </button>
           </div>
           <div

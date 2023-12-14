@@ -8,7 +8,7 @@
     </NuxtLink>
 
     <div
-      class="lg:h-2/4 h-auto space-y-6 text-right w-full bg-white rounded-b-md flex items-center flex-col p-4"
+      class="lg:h-2/4 h-auto space-y-2 text-right w-full bg bg-white rounded-b-md flex items-center flex-col p-4"
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2
@@ -39,6 +39,13 @@
               <span> جزئیات بیشتر </span> <PhInfo :size="20" />
             </button>
           </NuxtLink>
+          <button
+            dir="rtl"
+            class="w-44 justify-center shadow-transparent py-2 shadow-md flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown bg-mainYellow hover:bg-mainYellow rounded-full"
+          >
+            <PhInfo class="ml-2" :size="20" />
+            <span> بزودی... </span>
+          </button>
           <!-- <button
             @click="addToCart(props.course)"
             class="w-44 justify-center py-2 shadow-md bg-mainYellow shadow-mainYellow hover:shadow-mainOrange flex items-center space-x-2 transition text-sm duration-200 ease-in-out text-mainBrown hover:text-mainBrown border-2 border-mainBrown hover:bg-mainYellow rounded-md"
