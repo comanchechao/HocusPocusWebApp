@@ -12,20 +12,20 @@
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2
-          class="text-3xl cursor-pointer flex items-center transition px-5 ease-in duration-300 justify-center space-x-3 text-mainBrown border-b-8 hover:border-mainPink border-b-transparent rounded-md"
+          class="lg:text-3xl md:text-2xl text-lg cursor-pointer flex items-center transition px-5 ease-in duration-300 justify-center space-x-3 text-mainBrown border-b-8 hover:border-mainPink border-b-transparent rounded-md"
         >
           <span> {{ course.title }} </span>
         </h2>
       </NuxtLink>
 
-      <h3 class="text-sm">
+      <h3 class="text-xs">
         {{ course.description.substring(0, 150) }}
       </h3>
       <div
         class="w-full h-auto flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-center lg:justify-around px-3"
       >
         <h3
-          class="text-4xl border-2 border-dashed border-mainOrange rounded-md py-2 px-8 text-mainBrown flex items-center justify-center space-x-2"
+          class="lg:text-4xl text-xl border-2 border-dashed border-mainOrange rounded-md py-2 px-2 lg:px-8 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainOrange">تومان</span>
           <span>{{ course.price }}</span>

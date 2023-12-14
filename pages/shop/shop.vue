@@ -18,7 +18,7 @@
       />
     </div>
     <div
-      class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-16 lg:p-20 flex items-center"
+      class="h-full NavbarTrigger w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-28 lg:p-20 flex items-center"
     >
       <div
         class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end"

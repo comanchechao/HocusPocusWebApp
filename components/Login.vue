@@ -27,35 +27,55 @@
         <div
           class="grid lg:grid-cols-2 place-items-center gap-3 md:grid-cols-2 grid-cols-1"
         >
-          <div class="flex items-end flex-col space-y-2">
-            <label class="text-xl text-mainRed" for="username"
-              >نام کاربری</label
-            >
-            <InputText
+          <label
+            class="form-control w-full flex items-end space-y-2 flex-col max-w-xs"
+          >
+            <div class="label">
+              <span class="text-xl text-mainRed">نام کاربری</span>
+            </div>
+            <input
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
+              type="text"
+              class="input input-xl p-1 rounded-md input-bordered w-full max-w-xs"
             />
-            <small class="text-sm text-mainViolet" id="username-help"
-              >نام کاربری خودتون رو وارد کنید</small
-            >
-          </div>
-          <div class="flex items-end flex-col space-y-2">
-            <label class="text-xl text-mainRed" for="email">ایمیل</label>
-            <InputText
+            <div class="label">
+              <small class="text-sm text-mainViolet" id="username-help"
+                >نام کاربری خودتون رو وارد کنید</small
+              >
+            </div>
+          </label>
+          <label
+            class="form-control w-full flex items-end space-y-2 flex-col max-w-xs"
+          >
+            <div class="label">
+              <span class="text-xl text-mainRed">ایمیل</span>
+            </div>
+            <input
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
+              type="text"
+              class="input input-xl p-1 rounded-md input-bordered w-full max-w-xs"
             />
-            <small class="text-sm text-mainViolet" id="username-help"
-              >ایمیل خودتون رو وارد کنید</small
-            >
-          </div>
+            <div class="label">
+              <small class="text-sm text-mainViolet" id="username-help"
+                >ایمیل خودتون رو وارد کنید</small
+              >
+            </div>
+          </label>
+
           <div
             class="flex items-end flex-col space-y-2 md:col-span-2 justify-self-end lg:col-span-2"
           >
             <label class="text-xl text-mainRed" for="password">رمز عبور</label>
             <Password
+              style="
+                 {
+                  padding: 2px;
+                }
+              "
               id="password"
               v-model="loginPassword"
               aria-describedby="username-help"
@@ -235,6 +255,7 @@ async function testFunction() {
 .p-inputtext,
 .p-component,
 .p-filled {
+  padding: 2;
   text-transform: lowercase;
 }
 </style>
