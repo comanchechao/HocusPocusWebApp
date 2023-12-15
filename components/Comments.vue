@@ -19,7 +19,7 @@
 
     <div class="flex flex-col items-center w-full">
       <div
-        v-if="comments.value === null"
+        v-if="comments === null"
         class="w-full h-96 bg-mainWhite my-10 rounded-md flex items-center justify-center"
       >
         <h2 class="text-darkPurple text-3xl">
