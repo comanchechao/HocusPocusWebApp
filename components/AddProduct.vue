@@ -276,8 +276,15 @@
     <div
       class="w-full h-full flex lg:flex-row flex-col-reverse lg:space-x-5 items-center justify-center lg:justify-end py-12"
     >
+      <div
+        class="flex bg-white space-x-2 divide-x-2 divide-red-400 p-5 justify-center items-center"
+      >
+        <p v-for="item in filterItems" :key="item.name">
+          {{ item.name }}
+        </p>
+      </div>
       <button
-        @click="visible = true"
+        @click="addFilter()"
         class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
       >
         <span> اضافه کردن فیلتر </span>
@@ -286,13 +293,14 @@
       <InputText
         placeholder="فیلتر جدید"
         id="fullname"
-        v-model="fullname"
+        v-model="newFilter"
         class="rounded-lg h-11 lg:my-0 my-7"
         aria-describedby="username-help"
       />
+
       <Dropdown
         v-model="selectedFilters"
-        :options="filters"
+        :options="allFilters"
         optionLabel="name"
         placeholder="فیلترها"
         class="bg-mainBlue"
@@ -312,14 +320,97 @@ import {
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
+
+// filter refs
+
+const allFilters = ref([]);
+const newFilter = ref();
+const allFilterItems = ref([]);
+
+// products refs
 const inStock = ref();
 const selectedFilters = ref();
+const filterItems = ref();
 
 const selectedTypes = ref();
 const selectedBrands = ref();
 const selectedRarity = ref();
 const selectedDesigns = ref();
 const selectedCategory = ref();
+
+watch(selectedFilters, (cur, old) => {
+  console.log(cur.id);
+  if (cur.name === "نوع") {
+    filterItems.value = [];
+    allFilterItems.value.forEach((item) => {
+      if (item.filter_id === cur.id) {
+        filterItems.value.push(item);
+      }
+    });
+  }
+  if (cur.name === "برند") {
+    filterItems.value = [];
+    allFilterItems.value.forEach((item) => {
+      if (item.filter_id === cur.id) {
+        filterItems.value.push(item);
+      }
+    });
+  }
+  if (cur.name === "دسته بندی") {
+    filterItems.value = [];
+    allFilterItems.value.forEach((item) => {
+      if (item.filter_id === cur.id) {
+        filterItems.value.push(item);
+      }
+    });
+  }
+  if (cur.name === "کمیت") {
+    filterItems.value = [];
+    allFilterItems.value.forEach((item) => {
+      if (item.filter_id === cur.id) {
+        filterItems.value.push(item);
+      }
+    });
+  }
+});
+
+watch(allFilterItems, (cur, old) => {
+  console.log(cur.id);
+  if (selectedFilters) {
+    if (selectedFilters.value.name === "نوع") {
+      filterItems.value = [];
+      allFilterItems.value.forEach((item) => {
+        if (item.filter_id === selectedFilters.value.id) {
+          filterItems.value.push(item);
+        }
+      });
+    }
+    if (selectedFilters.value.name === "برند") {
+      filterItems.value = [];
+      allFilterItems.value.forEach((item) => {
+        if (item.filter_id === selectedFilters.value.id) {
+          filterItems.value.push(item);
+        }
+      });
+    }
+    if (selectedFilters.value.name === "دسته بندی") {
+      filterItems.value = [];
+      allFilterItems.value.forEach((item) => {
+        if (item.filter_id === selectedFilters.value.id) {
+          filterItems.value.push(item);
+        }
+      });
+    }
+    if (selectedFilters.value.name === "کمیت") {
+      filterItems.value = [];
+      allFilterItems.value.forEach((item) => {
+        if (item.filter_id === selectedFilters.value.id) {
+          filterItems.value.push(item);
+        }
+      });
+    }
+  }
+});
 // watch(selectedTypes, (current, old) => {
 //   managementStore.setType(current[0].name);
 //   console.log(selectedTypes.value);
@@ -513,6 +604,91 @@ const uploadImage = async function (image) {
       uploadErrorMessage.value = error.data.message;
     });
 };
+
+// handling filter addition
+
+const getFilters = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      allFilters.value = response.filters;
+      getFilterItems();
+    })
+    .catch(function (error) {});
+};
+
+const getFilterItems = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      allFilterItems.value = response.filters;
+    })
+    .catch(function (error) {});
+};
+
+const addFilter = async (userId, username) => {
+  console.log(selectedFilters.value.id);
+  const body = new URLSearchParams({
+    filterId: selectedFilters.value.id,
+    name: newFilter.value,
+  });
+  const { data } = await $fetch("http://localhost:3333/filters/newfilter", {
+    method: "POST",
+    headers: {},
+    withCredentials: true,
+    body: body,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(selectedFilters.value.name);
+      getFilterItems();
+      if (selectedFilters.value.name === "نوع") {
+        filterItems.value = [];
+        allFilterItems.value.forEach((item) => {
+          if (item.filter_id === selectedFilters.value.id) {
+            filterItems.value.push(item);
+          }
+        });
+      }
+      if (selectedFilters.value.name === "برند") {
+        filterItems.value = [];
+        allFilterItems.value.forEach((item) => {
+          if (item.filter_id === selectedFilters.value.id) {
+            filterItems.value.push(item);
+          }
+        });
+      }
+      if (selectedFilters.value.name === "دسته بندی") {
+        filterItems.value = [];
+        allFilterItems.value.forEach((item) => {
+          if (item.filter_id === selectedFilters.value.id) {
+            filterItems.value.push(item);
+          }
+        });
+      }
+      if (selectedFilters.value.name === "کمیت") {
+        filterItems.value = [];
+        allFilterItems.value.forEach((item) => {
+          if (item.filter_id === selectedFilters.value.id) {
+            filterItems.value.push(item);
+          }
+        });
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+onMounted(() => {
+  getFilters();
+});
 </script>
 
 <style>
