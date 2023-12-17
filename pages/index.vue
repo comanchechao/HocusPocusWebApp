@@ -18,45 +18,45 @@
       class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-24 justify-center"
     >
       <div
-        class="w-full md:h-rem26 h-72 px-3 lg:h-screen flex flex-col items-center justify-center"
+        class="w-full md:h-rem26 h-72 lg:h-screen flex flex-col items-center justify-center"
       >
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusUp1.webp"
-              class="object-contain absolute Up opacity-0 lg:w-full w-96 md:w-rem38"
+              class="object-contain absolute Up opacity-0 lg:w-full w-rem21 md:w-rem38"
               alt=""
             />
             <img
               src="../assets/images/HocusUp2.webp"
-              class="object-contain absolute Up2 opacity-0 lg:w-full w-96 md:w-rem38"
+              class="object-contain absolute Up2 opacity-0 lg:w-full w-rem21 md:w-rem38"
               alt=""
             />
           </div>
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusDownP.webp"
-              class="object-contain lg:w-full z-10 w-96 md:w-rem38 absolute P opacity-0"
+              class="object-contain lg:w-full z-10 w-rem21 md:w-rem38 absolute P opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownO.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute O opacity-0"
+              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute O opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownC.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute C opacity-0"
+              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute C opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownU.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute U opacity-0"
+              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute U opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownS.webp"
-              class="object-contain lg:w-full w-96 md:w-rem38 absolute S opacity-0"
+              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute S opacity-0"
               alt=""
             />
           </div>
@@ -78,11 +78,11 @@
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain1.webp"
-        class="object-contain md:h-32 h-24 lg:h-32 my-10 w-full lg:px-0 px-4"
+        class="object-contain md:h-32 h-14 lg:h-32 my-10 w-full lg:px-0 px-4"
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
+        class="text-mainRed font-bold border-b-8 rounded-md border-mainYellow pb-1 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -133,7 +133,7 @@
         class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
       >
         <h2
-          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center text-3xl lg:text-3xl flex"
+          class="text-darkPurple border-b-8 rounded-md border-darkPurple pb-1 text-center text-3xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> شعبده باز تازه کارید؟ </span>
@@ -156,9 +156,11 @@
           </button>
         </NuxtLink>
       </div>
-      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
+      <div
+        class="h-full w-full flex flex-col items-center lg:items-end px-7 lg:px-28 my-9"
+      >
         <h2
-          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
@@ -191,12 +193,12 @@
         />
       </div>
       <div
-        class="w-full h-rem22 flex flex-col items-center justify-center space-y-3 px-6 lg:px-0 bg-mainPink"
+        class="w-full h-rem22 flex flex-col items-center justify-center space-y-7 px-6 lg:px-0 bg-mainPink"
       >
         <h2
-          class="text-darkPurple border-b-8 rounded-2xl border-darkPurple pb-5 text-center font-bold md:text-3xl text-lg lg:text-3xl flex"
+          class="text-darkPurple border-b-8 rounded-md border-darkPurple pb-1 text-center md:text-3xl text-lg lg:text-3xl flex"
         >
-          <PhShoppingBagOpen :size="37" weight="fill" class="mr-3" />
+          <PhShoppingBagOpen :size="30" weight="fill" class="mr-3" />
           <span> دنبال محصولات شعبده بازی میگردید؟ </span>
         </h2>
         <h2
@@ -206,16 +208,17 @@
         </h2>
         <NuxtLink to="/shop/shop?page=1">
           <button
-            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainPink text-md lg:text-2xl rounded-full"
+            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-1 text-mainPink text-sm lg:text-2xl rounded-full"
           >
-            <PhShoppingBag :size="35" weight="fill" class="mr-3" />
             <span>ورود به بخش خرید هوکوس پوکوس </span>
           </button>
         </NuxtLink>
       </div>
-      <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
+      <div
+        class="h-full w-full flex flex-col items-center lg:items-end px-5 lg:px-28"
+      >
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
           <PhCards :size="35" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
@@ -252,7 +255,7 @@
     <div class="h-auto w-full flex flex-col items-center">
       <img
         src="../assets/images/PumpkinMain.webp"
-        class="object-contain h-32 lg:h-32 md:32 w-full lg:px-0 px-4"
+        class="object-contain h-14 mt-6 lg:h-32 md:32 w-full lg:px-0 px-4"
         alt=""
       />
 

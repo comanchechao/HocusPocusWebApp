@@ -4,9 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  <div
-    class="w-screen h-auto overflow-hidden from-purple-950 to-darkPurple bg-gradient-to-t"
-  >
+  <div class="w-screen h-auto overflow-hidden bg-darkPurple">
     <LazyNavbar />
 
     <div
@@ -21,47 +19,46 @@
       />
     </div>
     <div
-      class="h-auto pt-44 lg:pb-28 lg:pt-48 w-full relative flex items-center justify-center lg:px-44 px-6 my-24"
+      class="lg:h-dialog h-auto pt-44 lg:pb-28 lg:pt-48 w-full relative flex mt-24 items-end lg:items-center justify-center lg:px-44 px-10 lg:my-24"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
-        class="h-dialog object-contain H absolute"
+        class="lg:h-dialog md:h-dialog object-contain H absolute"
         alt=""
       />
       <img
         src="../../assets/images/AboutUsHand.webp"
-        class="h-dialog object-contain P Hand absolute"
+        class="lg:h-dialog md:h-dialog object-contain P Hand absolute"
         alt=""
       />
       <img
         src="../../assets/images/AboutUsP.webp"
-        class="h-dialog object-contain P absolute"
+        class="lg:h-dialog md:h-dialog object-contain P absolute"
         alt=""
       />
     </div>
     <div
-      class="h-full w-full md:px-24 px-7 mt-24 lg:px-44 flex items-center flex-col mb-20"
+      class="h-full w-full md:px-24 px-7 lg:mt-24 lg:px-44 flex items-center flex-col mb-20"
     >
       <h2
-        class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-2xl lg:text-4xl flex"
+        class="text-mainRed lg:self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-xl lg:text-4xl flex"
       >
-        <PhMagicWand :size="45" weight="fill" class="mr-3" />
+        <PhMagicWand :size="30" weight="fill" class="mr-3" />
         <span> ما رو بیشتر بشناسید </span>
       </h2>
 
       <h2
-        class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-2 my-14 text-center text-xl lg:text-2xl flex"
+        class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-lg lg:text-2xl flex"
       >
-        <PhBookOpenText :size="35" weight="fill" class="mr-3" />
+        <PhBookOpenText :size="30" weight="fill" class="mr-3" />
         <span> تاریخچه</span>
       </h2>
 
       <div class="w-full h-dialog bg-white rounded-md"></div>
 
       <h2
-        class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-2 my-14 text-center text-lg lg:text-2xl flex"
+        class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-lg lg:text-2xl flex"
       >
-        <PhBookOpenText :size="35" weight="fill" class="mr-3" />
         <span>
           پرسنل فروشگاه محصولات شعبده بازی و وبسایت آموزشی هوکوس پوکوس</span
         >

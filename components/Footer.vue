@@ -22,7 +22,7 @@
           class="w-full h-44 object-contain"
           alt=""
         />
-        <h2 class="text-lg text-mainRed">
+        <h2 class="text-lg text-mainRed lg:px-0 px-14">
           وبسایت آموزش و فروش محصولات شعبده بازی
         </h2>
         <div class="w-full flex flex-col h-48 items-center justify-center">
@@ -30,39 +30,39 @@
             <div class="flex items-center absolute justify-center w-full">
               <img
                 src="../assets/images/HocusUp1.webp"
-                class="object-contain absolute Up w-96"
+                class="object-contain absolute Up w-rem21"
                 alt=""
               />
               <img
                 src="../assets/images/HocusUp2.webp"
-                class="object-contain absolute Up2 w-96"
+                class="object-contain absolute Up2 w-rem21"
                 alt=""
               />
             </div>
             <div class="flex items-center absolute justify-center w-full">
               <img
                 src="../assets/images/HocusDownP.webp"
-                class="object-contain w-96 absolute P"
+                class="object-contain w-rem21 absolute P"
                 alt=""
               />
               <img
                 src="../assets/images/HocusDownO.webp"
-                class="object-contain w-96 absolute O"
+                class="object-contain w-rem21 absolute O"
                 alt=""
               />
               <img
                 src="../assets/images/HocusDownC.webp"
-                class="object-contain w-96 absolute C"
+                class="object-contain w-rem21 absolute C"
                 alt=""
               />
               <img
                 src="../assets/images/HocusDownU.webp"
-                class="object-contain w-96 absolute U"
+                class="object-contain w-rem21 absolute U"
                 alt=""
               />
               <img
                 src="../assets/images/HocusDownS.webp"
-                class="object-contain w-96 absolute S"
+                class="object-contain w-rem21 absolute S"
                 alt=""
               />
             </div>
@@ -71,23 +71,23 @@
         <div class="flex items-center justify-center space-x-2">
           <a href="https://www.instagram.com/hocus_pocus.official/?hl=en">
             <button
-              class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
+              class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
             >
               <PhInstagramLogo :size="45" weight="fill" />
             </button>
           </a>
           <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
+            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
             <PhWhatsappLogo :size="45" weight="fill" />
           </button>
           <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
+            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
             <PhTelegramLogo :size="45" weight="fill" />
           </button>
           <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPurple rounded-md"
+            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
             <PhMapPin :size="45" weight="fill" />
           </button>

@@ -41,6 +41,7 @@ module.exports = {
         rem50: "99rem",
       },
       width: {
+        rem21: "21rem",
         rem28: "28rem",
         rem38: "38rem",
         carousel: "50rem",

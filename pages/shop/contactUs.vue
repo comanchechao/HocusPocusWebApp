@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
+  <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
     <div
       class="h-full lg:pt-24 flex-col w-full pb-36 lg:px-24 justify-start flex items-center"
@@ -17,7 +17,7 @@
 
       <div class="flex flex-col lg:px-24 px-7 w-full h-full items-center">
         <h2
-          class="text-mainRed self-end border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-2xl lg:text-4xl flex"
+          class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-2xl lg:text-4xl flex"
         >
           <PhGraduationCap
             class="hidden lg:flex mr-3"
@@ -95,31 +95,31 @@
           </div>
         </div>
         <h2
-          class="text-mainYellow border-b-8 rounded-2xl border-mainPink pb-5 my-14 text-center text-2xl lg:text-4xl flex"
+          class="text-mainYellow border-b-8 rounded-md border-mainPink pb-1 mb-7 mt-10 text-center text-2xl lg:text-4xl flex"
         >
           <PhUsersThree :size="35" weight="fill" class="mr-3" />
           <span> و یا در شبکه های اجتماعی </span>
         </h2>
-        <div class="flex items-center justify-center space-x-5">
+        <div class="flex items-center justify-center space-x-2">
           <button
             class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
           >
-            <PhInstagramLogo weight="fill" :size="60" />
+            <PhInstagramLogo weight="fill" :size="40" />
           </button>
           <button
             class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
           >
-            <PhFacebookLogo weight="fill" :size="60" />
+            <PhFacebookLogo weight="fill" :size="40" />
           </button>
           <button
             class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
           >
-            <PhTelegramLogo weight="fill" :size="60" />
+            <PhTelegramLogo weight="fill" :size="40" />
           </button>
           <button
             class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
           >
-            <PhTwitterLogo weight="fill" :size="60" />
+            <PhTwitterLogo weight="fill" :size="40" />
           </button>
         </div>
       </div>
