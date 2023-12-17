@@ -167,10 +167,11 @@
           <h3 class="text-lg text-mainRed">موجودی کالا</h3>
         </div>
         <div
+          v-if="!filterLoading"
           class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 place-items-center justify-items-center gap-7 lg:px-28 lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
         >
           <MultiSelect
-            :maxSelectedLabels="2"
+            :maxSelectedLabels="1"
             v-model="selectedRarity"
             :options="rarity"
             optionLabel="name"
@@ -326,6 +327,7 @@ import { useMainManagement } from "../stores/managementStore";
 const allFilters = ref([]);
 const newFilter = ref();
 const allFilterItems = ref([]);
+const filterLoading = ref(true);
 
 // products refs
 const inStock = ref();
@@ -444,16 +446,7 @@ const filters = ref([
   { name: "دسته  بندی" },
   { name: "کمیابی" },
 ]);
-const types = ref([
-  {
-    name: "کتاب",
-  },
-  {
-    name: "کارت ها",
-  },
-  { name: "اکسسوری" },
-  { name: "لوازم شعبده بازی" },
-]);
+const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
 const rarity = ref([
   { name: "کمیاب" },
@@ -627,7 +620,26 @@ const getFilterItems = async () => {
     credentials: "include",
   })
     .then(function (response) {
+      types.value = [];
+      brands.value = [];
+      categories.value = [];
       allFilterItems.value = response.filters;
+      response.filters.forEach((item) => {
+        if (item.filter_id === 1) {
+          types.value.push(item);
+          console.log(types.value);
+        }
+        if (item.filter_id === 2) {
+          categories.value.push(item);
+        }
+        if (item.filter_id === 4) {
+          brands.value.push(item);
+        }
+        if (item.filter_id === 3) {
+          rarity.value.push(item);
+        }
+      });
+      filterLoading.value = false;
     })
     .catch(function (error) {});
 };
