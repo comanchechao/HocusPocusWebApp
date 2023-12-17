@@ -167,7 +167,6 @@
           <h3 class="text-lg text-mainRed">موجودی کالا</h3>
         </div>
         <div
-          v-if="!filterLoading"
           class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 place-items-center justify-items-center gap-7 lg:px-28 lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
         >
           <MultiSelect
@@ -448,37 +447,9 @@ const filters = ref([
 ]);
 const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
-const rarity = ref([
-  { name: "کمیاب" },
-  { name: "لیمیتد" },
-  { name: "کمتر از 500" },
-]);
-const brands = ref([
-  { name: "دیگر", code: "NY" },
-  { name: "کینگ مجیک", code: "NY" },
-  { name: "بایسیکل", code: "NY" },
-  { name: "جوکر", code: "RM" },
-  { name: "تلی هو", code: "LDN" },
-  { name: "کوپاگ", code: "NY" },
-  { name: "کارتماندی", code: "RM" },
-  { name: "کِم", code: "LDN" },
-  { name: "پیانتیک", code: "NY" },
-  { name: "بیی", code: "RM" },
-  { name: "رافورد", code: "LDN" },
-]);
-const categories = ref([
-  { name: "کلوز آپ مجیک", code: "NY" },
-  { name: "جادو کودکان", code: "NY" },
-  { name: "شعبده بازی با پول", code: "NY" },
-  { name: "کارت مجیک", code: "RM" },
-  { name: "سکه و پول", code: "LDN" },
-  { name: "حرکت اجسام", code: "LDN" },
-  { name: "منتالیسم", code: "LDN" },
-  { name: "جادوی خیابانی", code: "LDN" },
-  { name: "جادوی استند آپ", code: "LDN" },
-  { name: "جادوی اجرا بزرگ", code: "LDN" },
-  { name: "جادوی کافی شاپ", code: "LDN" },
-]);
+const rarity = ref([]);
+const brands = ref([]);
+const categories = ref([]);
 // register main management
 
 const mainManagement = useMainManagement();
@@ -625,10 +596,6 @@ const getFilterItems = async () => {
       categories.value = [];
       allFilterItems.value = response.filters;
       response.filters.forEach((item) => {
-        if (item.filter_id === 1) {
-          types.value.push(item);
-          console.log(types.value);
-        }
         if (item.filter_id === 2) {
           categories.value.push(item);
         }
@@ -637,6 +604,10 @@ const getFilterItems = async () => {
         }
         if (item.filter_id === 3) {
           rarity.value.push(item);
+        }
+        if (item.filter_id === 1) {
+          types.value.push(item);
+          console.log(types.value);
         }
       });
       filterLoading.value = false;
