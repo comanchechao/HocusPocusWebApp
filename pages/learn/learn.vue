@@ -10,7 +10,6 @@
       <div
         class="flex-col flex items-center Bread NavbarTrigger opacity-0 justify-center space-y-6"
       >
-        <h2 class="text-2xl text-mainYellow">آموزش شعبده بازی و تردستی</h2>
         <h1 class="Pocused text-center">Hocus Pocus</h1>
       </div>
       <img
@@ -18,11 +17,14 @@
         class="h-40 my-3 object-contain lg:px-0 px-3 Stat1 opacity-0"
         alt=""
       />
+      <h2 class="text-2xl text-mainYellow">
+        <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
+      </h2>
     </div>
 
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-2xl border-mainYellow pb-5 my-3 md:my-7 lg:my-14 text-center text-3xl lg:text-5xl flex"
+        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -68,22 +70,22 @@
         </NuxtLink>
       </div>
       <div
-        class="w-full lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
+        class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
       >
         <h2
-          class="text-mainBrown border-b-8 rounded-2xl border-mainBrown pb-5 text-center text-3xl lg:text-3xl flex"
+          class="text-darkPurple border-b-8 rounded-md border-darkPurple pb-1 text-center text-3xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> شعبده باز تازه کارید؟ </span>
         </h2>
         <h2
-          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
+          class="text-darkPurple rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-lg lg:text-2xl rounded-full"
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-md lg:text-2xl rounded-full"
           >
             <PhNotebook
               :size="35"
@@ -96,9 +98,9 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainYellow pb-5 my-14 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
-          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <PhGraduationCap :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
         </h2>
         <div
@@ -143,9 +145,9 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
         <h2
-          class="text-mainRed border-b-8 rounded-2xl border-mainPink pb-5 my-7 text-center text-3xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
-          <PhCards :size="35" weight="fill" class="mr-3" />
+          <PhCards :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
         <div
@@ -225,7 +227,7 @@
           v-show="latestCourse"
           class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
         >
-          <div class="h-3/4 w-full flex items-start justify-center">
+          <div class="h-rem28 w-full flex items-start justify-center">
             <ProgressSpinner
               class="self-center"
               v-if="loading"
@@ -239,6 +241,7 @@
               :to="'/learn/coursedetail/' + latestCourse.id"
             >
               <LazyLastCourseImage
+                class="h-rem28 object-cover"
                 :productId="latestCourse.CoursesImages[0].id"
               />
             </NuxtLink>

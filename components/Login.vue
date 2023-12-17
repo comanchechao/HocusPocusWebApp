@@ -25,10 +25,11 @@
       <div class="w-full h-full justify-center flex items-center p-8 flex-col">
         <!-- <h2 class="text-6xl neonText">ورود</h2> -->
         <div
+          dir="rtl"
           class="grid lg:grid-cols-2 place-items-center gap-3 md:grid-cols-2 grid-cols-1"
         >
           <label
-            class="form-control w-full flex items-end space-y-2 flex-col max-w-xs"
+            class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
             <div class="label">
               <span class="text-xl text-mainRed">نام کاربری</span>
@@ -38,7 +39,7 @@
               v-model="loginUsername"
               aria-describedby="username-help"
               type="text"
-              class="input input-xl p-1 rounded-md input-bordered w-full max-w-xs"
+              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
               <small class="text-sm text-mainViolet" id="username-help"
@@ -47,7 +48,7 @@
             </div>
           </label>
           <label
-            class="form-control w-full flex items-end space-y-2 flex-col max-w-xs"
+            class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
             <div class="label">
               <span class="text-xl text-mainRed">ایمیل</span>
@@ -57,7 +58,7 @@
               v-model="loginEmail"
               aria-describedby="username-help"
               type="text"
-              class="input input-xl p-1 rounded-md input-bordered w-full max-w-xs"
+              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
               <small class="text-sm text-mainViolet" id="username-help"
@@ -65,27 +66,25 @@
               >
             </div>
           </label>
-
-          <div
-            class="flex items-end flex-col space-y-2 md:col-span-2 justify-self-end lg:col-span-2"
+          <label
+            class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
-            <label class="text-xl text-mainRed" for="password">رمز عبور</label>
-            <Password
-              style="
-                 {
-                  padding: 2px;
-                }
-              "
+            <div class="label">
+              <span class="text-xl text-mainRed">رمز عبور</span>
+            </div>
+            <input
               id="password"
               v-model="loginPassword"
               aria-describedby="username-help"
-              toggleMask
-              :feedback="false"
+              type="text"
+              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
-            <small class="text-sm text-mainViolet" id="username-help"
-              >رمز عبور خودتون رو وارد کنید</small
-            >
-          </div>
+            <div class="label">
+              <small class="text-sm text-mainViolet" id="username-help"
+                >رمز عبور خودتون رو وارد کنید</small
+              >
+            </div>
+          </label>
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <Message
@@ -183,7 +182,7 @@ async function formSubmit() {
       }, 3000);
       setTimeout(() => {
         visible.value = false;
-      }, 1000);
+      }, 2000);
     })
     .catch(function (error) {
       console.error(error);

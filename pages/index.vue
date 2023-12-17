@@ -82,7 +82,7 @@
         alt=""
       />
       <h2
-        class="text-mainRed font-bold border-b-8 rounded-md border-mainYellow pb-1 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
+        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -386,7 +386,7 @@
 
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
-          v-for="item in products.slice(1, 5)"
+          v-for="item in products.slice(0, 4)"
           :key="item.id"
           :item="item"
         />
