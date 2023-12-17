@@ -162,7 +162,7 @@
         <h2
           class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
-          <PhGraduationCap :size="35" weight="fill" class="mr-3" />
+          <PhGraduationCap :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
         </h2>
         <div
@@ -220,7 +220,7 @@
         <h2
           class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
         >
-          <PhCards :size="35" weight="fill" class="mr-3" />
+          <PhCards :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
         </h2>
         <div
