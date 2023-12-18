@@ -68,7 +68,9 @@ const getComments = async () => {
   const { data } = await $fetch(
     `http://localhost:3333/comments/${router.params._id}`,
     {
-      headers: {},
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       withCredentials: true,
       credentials: "include",
     }

@@ -68,7 +68,7 @@ const submitComment = async (userId, username) => {
   const { data } = await $fetch(
     `http://localhost:3333/comments/${router.params._id}`,
     {
-      method: "Post",
+      method: "POST",
       headers: {},
       withCredentials: true,
       body: body,

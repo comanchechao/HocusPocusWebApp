@@ -133,7 +133,9 @@ const statusChange = async (status) => {
 
   await $fetch("http://localhost:3333/management/updatemembershipstat", {
     method: "POST",
-    headers: {},
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     credentials: "include",
     body: data,
     withCredentials: true,

@@ -550,8 +550,12 @@ const uploadImage = async function (image) {
   formData.append("productId", addedProductID.value);
   await $fetch("http://localhost:3333/management/upload", {
     method: "POST",
-
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     body: formData,
+    withCredentials: true,
+    credentials: "include",
   })
     .then((response) => {
       if (response.data) {
@@ -573,7 +577,9 @@ const uploadImage = async function (image) {
 
 const getFilters = async () => {
   const { data } = await $fetch("http://localhost:3333/filters", {
-    headers: {},
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     withCredentials: true,
     credentials: "include",
   })
@@ -586,7 +592,9 @@ const getFilters = async () => {
 
 const getFilterItems = async () => {
   const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
-    headers: {},
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     withCredentials: true,
     credentials: "include",
   })
@@ -623,7 +631,9 @@ const addFilter = async (userId, username) => {
   });
   const { data } = await $fetch("http://localhost:3333/filters/newfilter", {
     method: "POST",
-    headers: {},
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     withCredentials: true,
     body: body,
     credentials: "include",
