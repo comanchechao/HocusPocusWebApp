@@ -114,7 +114,7 @@
 
         <LazyProductStatusManagement :products="products" />
       </div>
-      <div
+      <!-- <div
         class="w-full mt-10 lg:mt-10 h-full lg:h-full flex justify-end items-center space-x-6"
       >
         <div class="flex items-center space-x-3">
@@ -125,7 +125,7 @@
         >
           پنهان کردن محصولات
         </h2>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -149,8 +149,6 @@ const orderMainStore = useOrderMainStore();
 const mode = ref(false);
 
 const totalSales = ref(0);
-
-watch(mode, (cur, old) => {});
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);
@@ -184,13 +182,13 @@ const getProducts = async () => {
     });
 };
 
-watch(mode, (cur, old) => {
-  if (cur === true) {
-    enablemode();
-  } else {
-    deablemode();
-  }
-});
+// watch(mode, (cur, old) => {
+//   if (cur === true) {
+//     enablemode();
+//   } else {
+//     deablemode();
+//   }
+// });
 const enablemode = async () => {
   await $fetch("http://localhost:3333/management/enablemode", {
     method: "POST",
