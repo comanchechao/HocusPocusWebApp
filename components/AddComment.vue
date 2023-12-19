@@ -1,37 +1,33 @@
 <template>
-  <div class="flex justify-center my-9">
-    <div class="w-full h-full flex items-center flex-col">
-      <div class="w-full flex items-center flex-col space-y-7">
-        <div class="flex items-end flex-col space-y-4">
-          <label class="text-md text-mainRed" for="description"
-            >نظر خودتون راجب محصول رو بنویسید
-          </label>
-          <Textarea
-            dir="rtl"
-            v-model="comment"
-            class="w-textArea text-darkPurple text-sm"
-            autoResize
-            rows="5"
-            cols="90"
-          />
-        </div>
+  <div
+    class="w-96 lg:w-full flex items-center flex-col my-9 justify-center lg:items-end space-y-7"
+  >
+    <div class="flex items-end flex-col space-y-4">
+      <label class="text-md text-mainRed" for="description"
+        >نظر خودتون راجب محصول رو بنویسید
+      </label>
+      <Textarea
+        dir="rtl"
+        v-model="comment"
+        class="lg:w-textArea w-72 text-darkPurple text-sm"
+        autoResize
+        rows="5"
+        cols="90"
+      />
+    </div>
 
-        <Rating class="rounded-sm" v-model="value" :cancel="false" />
-        <div class="w-full flex flex-col items-center justify-center">
-          <div>
-            <Message severity="success" v-show="success"
-              >نظرتون اضافه شد</Message
-            >
-          </div>
-          <button
-            @click="getUser()"
-            class="text-md flex active:text-mainBrown active:bg-mainYellow items-center space-x-2 px-4 py-1 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainYellow"
-          >
-            <span> اضافه کردن نظر </span>
-            <PhPlus weight="fill" :size="23" />
-          </button>
-        </div>
+    <Rating class="rounded-sm" v-model="value" :cancel="false" />
+    <div class="w-full flex flex-col items-center justify-center">
+      <div>
+        <Message severity="success" v-show="success">نظرتون اضافه شد</Message>
       </div>
+      <button
+        @click="getUser()"
+        class="text-md flex active:text-mainBrown active:bg-mainYellow items-center space-x-2 px-4 py-1 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainViolet rounded-md shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainYellow"
+      >
+        <span> اضافه کردن نظر </span>
+        <PhPlus weight="fill" :size="23" />
+      </button>
     </div>
   </div>
 </template>
