@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
 
-    <div class="lg:h-full pt-24 h-auto w-full p-8 lg:px-20">
+    <div class="lg:h-screen pt-24 h-auto w-full p-8 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
@@ -212,8 +212,6 @@ const submitOrder = async (userId) => {
     postal_code: postalCode.value,
   });
 
-  console.log(phoneNumber.value, fullname.value, city.value, address.value);
-
   if (phoneNumber.value === "") {
     errorMessages.value.push("لطفا شماره تلفن خود را وارد کنید");
   }
@@ -233,7 +231,6 @@ const submitOrder = async (userId) => {
     errorMessages.value.push("سبد کالا شما خالی میباشد");
   }
 
-  console.log(errorMessages.value);
   if (
     phoneNumber.value !== "" &&
     fullname.value !== "" &&
@@ -257,9 +254,7 @@ const submitOrder = async (userId) => {
           orderItems();
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   } else {
     errorMessage.value = true;
     setTimeout(() => {
@@ -285,7 +280,6 @@ const getUser = async () => {
       submitOrder(response.userId);
     })
     .catch(function (error) {
-      console.error(error);
       userStore.setNotLogged();
       authError.value = true;
       setTimeout(() => {

@@ -21,14 +21,18 @@
 
           <span v-if="!loading"> {{ product.title }} </span>
         </h2>
-        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
-          <PhCaretLeft :size="20" weight="fill" />
-          <span> خرید </span>
-        </h2>
-        <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
-          <PhCaretLeft :size="20" weight="fill" />
-          <span> خونه </span>
-        </h2>
+        <NuxtLink to="/shop/shop?page=1">
+          <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+            <PhCaretLeft :size="20" weight="fill" />
+            <span> خرید </span>
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/">
+          <h2 class="text-mainRed flex space-x-3 items-center cursor-pointer">
+            <PhCaretLeft :size="20" weight="fill" />
+            <span> خونه </span>
+          </h2>
+        </NuxtLink>
       </div>
       <div
         v-if="loading"
