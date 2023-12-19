@@ -34,7 +34,7 @@
       >
         <NuxtLink
           class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 transition ease-linear duration-200 hover:bg-mainYellow border-dashed border-mainYellow"
-          to="learn/learn"
+          to="/learn/shop"
         >
           <div
             class="relative w-full h-full flex items-center FCards justify-center"
@@ -53,7 +53,7 @@
         </NuxtLink>
         <NuxtLink
           class="lg:w-1/2 flex items-center rounded-md justify-center w-full h-96 lg:h-full cursor-pointer border-4 border-dashed transition ease-linear duration-200 hover:bg-mainPink border-mainPink"
-          to="shop/shop"
+          to="/shop/shop?page=1"
         >
           <div class="relative w-full h-full flex items-center justify-center">
             <img
