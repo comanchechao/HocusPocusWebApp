@@ -60,6 +60,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useCommentsStore } from "~/stores/commentsStore";
+import { useUserStore } from "~/stores/user";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 const visible = ref(false);
 const comment = ref("");

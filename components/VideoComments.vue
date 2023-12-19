@@ -21,6 +21,9 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useCommentsStore } from "~/stores/commentsStore";
+import { useUserStore } from "~/stores/user";
 // register comments store
 
 const commentsStore = useCommentsStore();
