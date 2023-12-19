@@ -59,6 +59,7 @@ module.exports = {
       sm: { min: "768px", max: "991px" },
       md: { min: "768px", max: "1199px" },
       lg: { min: "1200px" },
+      xl: { min: "1280px" },
     },
     colors: {
       // Build your palette here
