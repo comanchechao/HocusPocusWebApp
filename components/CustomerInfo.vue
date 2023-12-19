@@ -181,9 +181,7 @@ export default {
   background: #f36b31;
   color: #150531;
 }
-.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
-  padding: 0;
-}
+
 input::placeholder,
 textarea::placeholder {
   background-color: #fbf8ff;

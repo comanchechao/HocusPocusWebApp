@@ -191,13 +191,6 @@ const categories = ref([
   background-color: #fdf7fa;
   color: #090025;
 }
-.p-multiselect-panel
-  .p-multiselect-header
-  .p-multiselect-
-  -container
-  .p-inputtext {
-  padding: 0;
-}
 
 .p-multiselect-panel .p-multiselect-header {
   background-color: #d9065a;

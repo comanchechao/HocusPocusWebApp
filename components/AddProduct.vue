@@ -694,6 +694,7 @@ onMounted(() => {
   /* unicode-range: U+0020-007F; */
 }
 .p-inputtext {
+  padding: 9px;
   text-align: end;
   justify-content: flex-start;
   align-items: center;
@@ -767,13 +768,6 @@ onMounted(() => {
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
   background-color: #fdf7fa;
   color: #090025;
-}
-.p-multiselect-panel
-  .p-multiselect-header
-  .p-multiselect-
-  -container
-  .p-inputtext {
-  padding: 0;
 }
 
 .p-multiselect-panel .p-multiselect-header {
