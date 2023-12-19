@@ -37,7 +37,6 @@ export class ManagementController {
     return this.managementService.getProducts();
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/addproduct')
@@ -52,7 +51,6 @@ export class ManagementController {
     return { msg: 'here we will update some things' };
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('upload')
@@ -77,7 +75,6 @@ export class ManagementController {
     return this.managementService.storeImage(file, body);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/removeproductimage/:id')
@@ -85,7 +82,6 @@ export class ManagementController {
     return this.managementService.removeProductImage(id);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/updateproductstatus')
@@ -93,7 +89,6 @@ export class ManagementController {
     return this.managementService.updateProductStatus(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/updateweekselection')
@@ -101,7 +96,6 @@ export class ManagementController {
     return this.managementService.updateWeekSelection(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/deupdateproductstatus')
@@ -109,7 +103,6 @@ export class ManagementController {
     return this.managementService.deupdateProductStatus(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/deupdateweekselection')
@@ -117,7 +110,6 @@ export class ManagementController {
     return this.managementService.deupdateWeekSelection(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/removeproduct/:id')
@@ -125,7 +117,6 @@ export class ManagementController {
     return this.managementService.removeProduct(id);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/setdiscount/:id')
@@ -133,7 +124,6 @@ export class ManagementController {
     return this.managementService.setDiscount(id, dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/enablemode')
@@ -141,7 +131,6 @@ export class ManagementController {
     return this.managementService.enableMode();
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/deablemode')
@@ -156,7 +145,6 @@ export class ManagementController {
     return this.managementService.getOrders();
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/orderitems')
@@ -164,7 +152,6 @@ export class ManagementController {
     return this.managementService.getOrderItems(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   // @Roles('ADMIN')
@@ -174,7 +161,6 @@ export class ManagementController {
     return this.managementService.updateOrderStatus(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Roles('ADMIN')
@@ -186,7 +172,6 @@ export class ManagementController {
 
   // membership requests
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Get('/memberships')
@@ -194,7 +179,6 @@ export class ManagementController {
     return this.managementService.getMemberships();
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/membershipitems')
@@ -202,7 +186,6 @@ export class ManagementController {
     return this.managementService.getMembershipItems(dto);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/updatemembershipstat')
@@ -212,7 +195,6 @@ export class ManagementController {
 
   // videos and training section requests
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Get('/courses')
@@ -220,7 +202,6 @@ export class ManagementController {
     return this.managementService.getAllCourses();
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/addvideo')
@@ -237,7 +218,6 @@ export class ManagementController {
     return this.managementService.addVideo(file, body);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('courseimageupload')
@@ -262,7 +242,6 @@ export class ManagementController {
     return this.managementService.storeCourseImage(file, body);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/removecourseimage/:id')
@@ -270,7 +249,6 @@ export class ManagementController {
     return this.managementService.removeCourseImage(id);
   }
 
-  @Post('ischeck')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('/removecourse/:id')

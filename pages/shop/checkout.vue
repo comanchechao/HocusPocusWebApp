@@ -41,10 +41,7 @@
           <div class="h-full w-full flex items-center">
             <LazyCustomerInfoCheckout />
           </div>
-          <NuxtLink
-            class="w-full flex items-center justify-center"
-            to="/shop/purchaseSuccess"
-          >
+          <NuxtLink class="w-full flex items-center justify-center">
             <button
               v-show="isLogged"
               @click="getUser()"
@@ -54,6 +51,12 @@
               <PhShoppingBagOpen :size="35" weight="fill" />
             </button>
           </NuxtLink>
+          <Message severity="error" v-show="errorMessage"
+            >لطفا اطلاعات خود را بررسی کنید</Message
+          >
+          <Message severity="error" v-show="authError"
+            >لطفا وارد حساب کاربری خود شوید</Message
+          >
           <div
             v-show="!isLogged"
             class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
@@ -184,7 +187,7 @@ const removeItem = (itemId) => {
 const userId = ref();
 
 const submitedOrdersId = ref();
-
+const errorMessage = ref(false);
 const submitOrder = async (userId) => {
   const data = new URLSearchParams({
     userId: userId,
@@ -198,25 +201,34 @@ const submitOrder = async (userId) => {
     postal_code: postalCode.value,
   });
 
-  await $fetch("http://localhost:3333/orders/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
-    .then((response, error) => {
-      if (response.order) {
-        submitedOrdersId.value = response.order.id;
-        orderItems();
-      }
+  if (phoneNumber.value !== "") {
+    await $fetch("http://localhost:3333/orders/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: data,
+      withCredentials: true,
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response, error) => {
+        if (response.order) {
+          submitedOrdersId.value = response.order.id;
+          orderItems();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } else {
+    errorMessage.value = true;
+    setTimeout(() => {
+      errorMessage.value = false;
+    }, 3000);
+  }
 };
+
+const authError = ref(false);
 
 const getUser = async () => {
   const { data } = await $fetch("http://localhost:3333/auth/isauthenticated", {
@@ -230,6 +242,11 @@ const getUser = async () => {
     })
     .catch(function (error) {
       console.error(error);
+      userStore.setNotLogged();
+      authError.value = true;
+      setTimeout(() => {
+        authError.value = false;
+      }, 3000);
     });
 };
 
