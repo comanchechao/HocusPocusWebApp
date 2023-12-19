@@ -98,7 +98,7 @@
                 </div>
                 <div class="flex items-center justify-end w-full space-x-2">
                   <h1
-                    class="lg:text-7xl text-4xl font-bold text-mainPink p-2 rounded-md text-right"
+                    class="lg:text-4xl text-4xl font-bold text-mainWhite p-2 rounded-md text-right"
                   >
                     <span> {{ product.title }} </span>
                   </h1>
@@ -112,7 +112,7 @@
                   <PhMoney :size="34" weight="fill" />
                 </h3>
               </div>
-              <h1 class="text-3xl font-bold my-2 p-3 rounded-md text-mainWhite">
+              <h1 class="text-2xl font-bold my-2 p-3 rounded-md text-mainWhite">
                 معرفی کالا
               </h1>
               <h1

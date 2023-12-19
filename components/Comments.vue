@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center w-full">
+  <div class="flex flex-col items-center w-screen">
     <div
-      class="flex items-end flex-col lg:justify-end justify-around w-full space-x-3"
+      class="flex items-end flex-col lg:justify-end justify-around w-full lg:space-x-3"
     >
       <h1 class="text-mainRed text-3xl">دیدگاه ها</h1>
 
