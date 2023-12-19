@@ -143,12 +143,17 @@
               <span> اضافه به سبد خرید </span>
               <PhShoppingBagOpen :size="25" weight="fill" />
             </button>
-          </div>
-          <Message :closable="false" v-show="addSuccess" severity="success">
-            <span class="lg:text-sm text-sm font-bold"
-              >به سبد خرید اضافه شد</span
+            <Message
+              class="bg-mainWhite"
+              :closable="false"
+              v-show="addSuccess"
+              severity="success"
             >
-          </Message>
+              <span class="lg:text-sm text-sm font-bold"
+                >به سبد خرید اضافه شد</span
+              >
+            </Message>
+          </div>
         </div>
         <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
           <div

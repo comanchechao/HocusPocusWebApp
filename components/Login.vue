@@ -88,7 +88,7 @@
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <Message
-            class="w-full text-right absolute"
+            class="w-full bg-mainWhite text-right absolute"
             v-show="successLogin"
             severity="success"
           >
