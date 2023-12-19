@@ -1,10 +1,15 @@
 <template>
   <div class="flex flex-col items-center w-full">
     <div class="flex items-center justify-end w-full space-x-3">
-      <LazyVideoCommentAdd />
+      <LazyVideoCommentAdd v-show="isLogged" />
+      <div v-show="!isLogged" class="flex justify-center items-center">
+        <LazyLogin />
+        <div class="flex justify-center items-center text-white font-bold">
+          <p>برای افزودن نظر وارد حساب کاربری خود شوید</p>
+        </div>
+      </div>
       <h1 class="text-mainRed text-3xl">نظرات مشتریان</h1>
     </div>
-    <LazySortBy />
     <div class="flex flex-col items-center w-full">
       <LazyVideoComment
         v-for="comment in comments"
@@ -16,7 +21,23 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useCommentsStore } from "~/stores/commentsStore";
+import { useUserStore } from "~/stores/user";
+// register comments store
+
+const commentsStore = useCommentsStore();
+const { videoState } = storeToRefs(commentsStore);
+
+watch(videoState, (cur, old) => {
+  getComments();
+});
 // assign router
+
+//register user store
+
+const userStore = useUserStore();
+const { isLogged } = storeToRefs(userStore);
 
 const router = useRoute();
 

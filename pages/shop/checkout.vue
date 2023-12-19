@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
 
-    <div class="lg:h-full pt-24 h-auto w-full p-8 lg:px-20">
+    <div class="lg:h-screen pt-24 h-auto w-full p-8 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
@@ -51,12 +51,20 @@
               <PhShoppingBagOpen :size="35" weight="fill" />
             </button>
           </NuxtLink>
-          <Message severity="error" v-show="errorMessage"
-            >لطفا اطلاعات خود را بررسی کنید</Message
+          <Message
+            v-for="error in errorMessages.slice(0, 2)"
+            :key="error"
+            severity="error"
+            >{{ error }}</Message
           >
+
+          <!-- <Message severity="error" v-show="errorMessage"
+            >لطفا اطلاعات خود را بررسی کنید</Message
+          > -->
           <Message severity="error" v-show="authError"
             >لطفا وارد حساب کاربری خود شوید</Message
           >
+
           <div
             v-show="!isLogged"
             class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
@@ -186,9 +194,12 @@ const removeItem = (itemId) => {
 
 const userId = ref();
 
+const errorMessages = ref([]);
+
 const submitedOrdersId = ref();
 const errorMessage = ref(false);
 const submitOrder = async (userId) => {
+  errorMessages.value = [];
   const data = new URLSearchParams({
     userId: userId,
     totalPrice: cartTotalPrice.value,
@@ -201,7 +212,33 @@ const submitOrder = async (userId) => {
     postal_code: postalCode.value,
   });
 
-  if (phoneNumber.value !== "") {
+  if (phoneNumber.value === "") {
+    errorMessages.value.push("لطفا شماره تلفن خود را وارد کنید");
+  }
+  if (fullname.value === "") {
+    errorMessages.value.push("نام خود را وارد کنید");
+  }
+  if (city.value === "") {
+    errorMessages.value.push("شهر محل سکونت خود را انتخاب فرمایید");
+  }
+  if (region.value === "") {
+    errorMessages.value.push("استان محل سکونت خود را انتخاب فرمایید");
+  }
+  if (address.value === "") {
+    errorMessages.value.push("ادرس محل سکونت خود را وارد کنید");
+  }
+  if (cartTotalPrice.value === 0) {
+    errorMessages.value.push("سبد کالا شما خالی میباشد");
+  }
+
+  if (
+    phoneNumber.value !== "" &&
+    fullname.value !== "" &&
+    city.value !== "" &&
+    region.value !== "" &&
+    address.value !== "" &&
+    cartTotalPrice.value !== 0
+  ) {
     await $fetch("http://localhost:3333/orders/submit", {
       method: "POST",
       headers: {
@@ -217,15 +254,17 @@ const submitOrder = async (userId) => {
           orderItems();
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   } else {
     errorMessage.value = true;
     setTimeout(() => {
       errorMessage.value = false;
     }, 3000);
   }
+
+  setTimeout(() => {
+    errorMessages.value = [];
+  }, 4000);
 };
 
 const authError = ref(false);
@@ -241,7 +280,6 @@ const getUser = async () => {
       submitOrder(response.userId);
     })
     .catch(function (error) {
-      console.error(error);
       userStore.setNotLogged();
       authError.value = true;
       setTimeout(() => {
@@ -249,6 +287,9 @@ const getUser = async () => {
       }, 3000);
     });
 };
+
+// assign router
+const router = useRouter();
 
 const orderItems = async () => {
   const cart = JSON.stringify(shoppingCart.value);
@@ -267,7 +308,9 @@ const orderItems = async () => {
     body: data,
     withCredentials: true,
   })
-    .then((response, error) => {})
+    .then((response, error) => {
+      router.push("/shop/purchaseSuccess");
+    })
     .catch((error) => {
       console.log(error);
     });

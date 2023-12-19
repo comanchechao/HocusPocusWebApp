@@ -60,6 +60,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useCommentsStore } from "~/stores/commentsStore";
+import { useUserStore } from "~/stores/user";
 import { PhPlus, PhUpload } from "@phosphor-icons/vue";
 const visible = ref(false);
 const comment = ref("");
@@ -70,7 +73,9 @@ const success = ref(false);
 const failed = ref(false);
 
 const userId = ref();
+// register comments store
 
+const commentStore = useCommentsStore();
 // assign router
 const router = useRoute();
 
@@ -84,7 +89,7 @@ const submitComment = async (userId, username) => {
   const { data } = await $fetch(
     `http://localhost:3333/videocomments/${router.params._id}`,
     {
-      method: "Post",
+      method: "POST",
       headers: {},
       withCredentials: true,
       body: body,
@@ -94,6 +99,7 @@ const submitComment = async (userId, username) => {
     .then(function (response) {
       loading.value = false;
       success.value = true;
+      commentStore.setVideoState();
       setTimeout(() => {
         success.value = false;
       }, 3000);
