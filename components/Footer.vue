@@ -86,21 +86,7 @@
           >
             <PhTelegramLogo :size="45" weight="fill" />
           </button>
-          <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
-          >
-            <a
-              referrerpolicy="origin"
-              target="_blank"
-              href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
-              ><img
-                referrerpolicy="origin"
-                src="https://trustseal.enamad.ir/Content/Images/Star2/81.png?v=5.0.0.3777"
-                alt=""
-                style="cursor: pointer"
-                Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
-            /></a>
-          </button>
+
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
@@ -108,6 +94,22 @@
           </button>
         </div>
       </div>
+    </div>
+    <div
+      class="h-28 w-28 rounded-full flex items-center justify-center bg-white"
+    >
+      <a
+        referrerpolicy="origin"
+        target="_blank"
+        href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+        ><img
+          class="h-24 w-24"
+          referrerpolicy="origin"
+          src="https://trustseal.enamad.ir/Content/Images/Star2/81.png?v=5.0.0.3777"
+          alt=""
+          style="cursor: pointer"
+          Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+      /></a>
     </div>
     <div
       class="w-screen relative h-44 md:h-rem26 overflow-hidden lg:h-screen SkullT flex items-end justify-center"
