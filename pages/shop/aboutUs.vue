@@ -124,8 +124,8 @@ onMounted(() => {
     {
       yoyo: true,
       rotate: 30,
-      duration: 1,
-      ease: "back.out(1.7)",
+      duration: 0.8,
+      ease: "power1.out",
       delay: 0.5,
       repeat: -1,
       transformOrigin: "15% 60%",
@@ -139,8 +139,8 @@ onMounted(() => {
       {
         yoyo: true,
         rotate: 8,
-        duration: 1,
-        ease: "back.out(1.7)",
+        duration: 0.8,
+        ease: "power1.out",
         delay: 0.5,
         repeat: -1,
         transformOrigin: "10%",
@@ -150,13 +150,13 @@ onMounted(() => {
   // gsap.add(audioAction, { duration: 1 });
   gsap.fromTo(
     ".H",
-    { scale: 0, opacity: 0, duration: 1, delay: 1 },
+    { scale: 0.3, opacity: 0, duration: 1, delay: 1 },
     {
       opacity: 1,
       yoyo: true,
       scale: 1,
-      duration: 1,
-      ease: "back.out(1.7)",
+      duration: 0.8,
+      ease: "power1.out",
       delay: 0.5,
       repeat: -1,
       transformOrigin: "55% 60%",
