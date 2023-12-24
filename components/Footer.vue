@@ -89,6 +89,21 @@
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
+            <a
+              referrerpolicy="origin"
+              target="_blank"
+              href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+              ><img
+                referrerpolicy="origin"
+                src="https://trustseal.enamad.ir/Content/Images/Star2/81.png?v=5.0.0.3777"
+                alt=""
+                style="cursor: pointer"
+                Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+            /></a>
+          </button>
+          <button
+            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
+          >
             <PhMapPin :size="45" weight="fill" />
           </button>
         </div>
