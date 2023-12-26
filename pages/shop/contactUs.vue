@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
     <div
-      class="h-full lg:pt-24 flex-col w-full pb-36 lg:px-24 justify-start flex items-center"
+      class="h-full pt-24 flex-col w-full pb-36 lg:px-24 justify-start flex items-center"
     >
       <img
         src="../../assets/images/contactUsBg.webp"
@@ -55,7 +55,7 @@
             <h2 class="flex items-center text-mainWhite text-2xl">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
-                >Arvin.nikbin@gmail.com</span
+                >info@hocuspocusmagicstore.com</span
               >
             </h2>
             <h2 class="flex items-center text-mainWhite text-2xl">
