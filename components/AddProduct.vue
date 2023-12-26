@@ -550,9 +550,7 @@ const uploadImage = async function (image) {
   formData.append("productId", addedProductID.value);
   await $fetch("http://localhost:3333/management/upload", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
+    headers: {},
     body: formData,
     withCredentials: true,
     credentials: "include",
