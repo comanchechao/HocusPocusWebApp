@@ -76,22 +76,25 @@
               <PhInstagramLogo :size="45" weight="fill" />
             </button>
           </a>
-          <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
-          >
-            <PhWhatsappLogo :size="45" weight="fill" />
-          </button>
+          <a href="tel:044-32254265">
+            <button
+              class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
+            >
+              <PhPhoneCall :size="45" weight="fill" />
+            </button>
+          </a>
           <button
             class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
           >
             <PhTelegramLogo :size="45" weight="fill" />
           </button>
-
-          <button
-            class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
-          >
-            <PhMapPin :size="45" weight="fill" />
-          </button>
+          <a href="https://maps.app.goo.gl/7fx1snQoKMvV8kaL8">
+            <button
+              class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
+            >
+              <PhMapPin :size="45" weight="fill" />
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -173,6 +176,7 @@ import {
   PhTelegramLogo,
   PhMapPin,
   PhGavel,
+  PhPhoneCall,
 } from "@phosphor-icons/vue";
 import { gsap } from "gsap";
 onMounted(() => {

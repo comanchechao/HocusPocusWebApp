@@ -101,26 +101,34 @@
           <span> و یا در شبکه های اجتماعی </span>
         </h2>
         <div class="flex items-center justify-center space-x-2">
-          <button
-            class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
-          >
-            <PhInstagramLogo weight="fill" :size="40" />
-          </button>
-          <button
-            class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
-          >
-            <PhFacebookLogo weight="fill" :size="40" />
-          </button>
+          <a href="https://www.instagram.com/hocus_pocus.official/?hl=en">
+            <button
+              class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
+            >
+              <PhInstagramLogo weight="fill" :size="40" />
+            </button>
+          </a>
+
+          <a href="tel:044-32254265">
+            <button
+              class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
+            >
+              <PhPhoneCall weight="fill" :size="40" />
+            </button>
+          </a>
+
           <button
             class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
           >
             <PhTelegramLogo weight="fill" :size="40" />
           </button>
-          <button
-            class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
-          >
-            <PhTwitterLogo weight="fill" :size="40" />
-          </button>
+          <a href="https://maps.app.goo.gl/7fx1snQoKMvV8kaL8">
+            <button
+              class="text-mainPink cursor-pointer transition ease-in-out duration-150 p-2 shadow-lg shadow-transparent hover:shadow-mainPink border-2 border-b-8 border-transparent hover:border-mainPink rounded-md"
+            >
+              <PhMapPin weight="fill" :size="40" />
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -136,5 +144,6 @@ import {
   PhInstagramLogo,
   PhTelegramLogo,
   PhTwitterLogo,
+  PhMapPin,
 } from "@phosphor-icons/vue";
 </script>
