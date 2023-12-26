@@ -5,8 +5,6 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class PrismaService extends PrismaClient {
-  filters: any;
-  filterItems: any;
   constructor(config: ConfigService) {
     super({
       datasources: {
