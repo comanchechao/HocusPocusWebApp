@@ -111,6 +111,39 @@
           Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
       /></a>
     </div>
+    <NuxtLink to="/shop/rules">
+      <button
+        :class="{
+          'text-mainYellow hover:shadow-mainOrange hover:text-mainOrange hover:border-mainOrange':
+            $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
+          'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
+            $route.path === '/' || $route.path.startsWith('/shop/'),
+        }"
+        class="text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+      >
+        <span> قوانین و مقررات </span>
+        <PhGavel :size="23" />
+      </button>
+    </NuxtLink>
+    <div class="flex items-end justify-between flex-col px-6 pt-7">
+      <h2 class="text-mainWhite text-right space-x-1 text-sm">
+        <span>1402</span>
+        <span>-</span>
+        <span>
+          .تمامی حقوق مادی و معنوی متعلق به فروشگاه اینترنتی هوکوس پوکوس میباشد
+        </span>
+      </h2>
+      <h2 class="text-mainWhite space-x-2 py-2">
+        <a
+          href="https://www.instagram.com/acapulcoCrew/?hl=en"
+          class="Chao text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+        >
+          Acapulco Crew🌴
+        </a>
+
+        <span class="text-sm"> طراحی و پیاده سازی </span>
+      </h2>
+    </div>
     <div
       class="w-screen relative h-44 md:h-rem26 overflow-hidden lg:h-screen SkullT flex items-end justify-center"
     >
@@ -139,6 +172,7 @@ import {
   PhInstagramLogo,
   PhTelegramLogo,
   PhMapPin,
+  PhGavel,
 } from "@phosphor-icons/vue";
 import { gsap } from "gsap";
 onMounted(() => {

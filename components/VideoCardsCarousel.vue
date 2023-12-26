@@ -31,13 +31,6 @@
       <swiper-slide v-for="course in courses" :key="course.id"
         ><LazyVideoCard :course="course"
       /></swiper-slide>
-      <!-- <swiper-slide><LazyVideoCard /></swiper-slide>
-      <swiper-slide><LazyVideoCard /></swiper-slide
-      ><swiper-slide><LazyVideoCard /></swiper-slide>
-      <swiper-slide><LazyVideoCard /></swiper-slide>
-      <swiper-slide><LazyVideoCard /></swiper-slide
-      ><swiper-slide><LazyVideoCard /></swiper-slide>
-    </swiper> -->
     </swiper>
   </div>
 </template>
@@ -56,6 +49,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    PhCaretDoubleRight,
   },
   setup() {
     return {
