@@ -33,7 +33,7 @@
             <h2 class="flex items-center text-mainWhite text-2xl">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border-2 border-mainPink rounded-sm"
-                >32124434</span
+                >044-32254265</span
               >
             </h2>
 
@@ -55,7 +55,7 @@
             <h2 class="flex items-center text-mainWhite text-2xl">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
-                >Arvin.nikbin@gmail.com</span
+                >hocuspocusmagicstore@protonmail.com</span
               >
             </h2>
             <h2 class="flex items-center text-mainWhite text-2xl">
