@@ -283,6 +283,11 @@ export class ManagementController {
 
   // dicount system
 
+  @Get('/discounts')
+  getDiscounts() {
+    return this.managementService.getDiscounts();
+  }
+
   @Post('/generatediscount')
   getDiscountCode(@Body() dto: DiscountDto) {
     console.log(dto);

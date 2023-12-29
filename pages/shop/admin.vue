@@ -114,6 +114,17 @@
 
         <LazyProductStatusManagement :products="products" />
       </div>
+      <div
+        class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"
+      >
+        <h2
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+        >
+          دریافت کد تخفیف
+        </h2>
+
+        <LazyGenerateCode />
+      </div>
       <!-- <div
         class="w-full mt-10 lg:mt-10 h-full lg:h-full flex justify-end items-center space-x-6"
       >

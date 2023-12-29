@@ -356,17 +356,28 @@ export class ManagementService {
 
   // discount
 
+  async getDiscounts() {
+    // const discounts = await this.prismaService.discounts.findMany({
+    //   select: {
+    //     id: true,
+    //     valid: true,
+    //     code: true,
+    //     perc: true,
+    //   },
+    // });
+    // return { discounts: discounts };
+  }
+
   async getDiscountCode(dto: DiscountDto) {
     // const dicount = await this.prismaService.discounts.create({
     //   data: {
-    //     code: '234234234',
-    //     perc: '5345345',
+    //     code: dto.code,
+    //     perc: dto.perc,
     //   },
     // });
   }
 
   async validateDiscount(dto: DiscountDto) {
-    // console.log(dto);
     // let check = false;
     // const discount = await this.prismaService.discounts.findUnique({
     //   where: {
@@ -380,7 +391,6 @@ export class ManagementService {
     // if (discount) {
     //   check = true;
     // }
-    // console.log(discount);
-    // return { check: check };
+    // return { check: check, perc: discount.perc };
   }
 }
