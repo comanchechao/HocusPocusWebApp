@@ -45,4 +45,9 @@ export class ProductsController {
   getImageById(@Param('id') id: string) {
     return this.productService.getImageById(id);
   }
+
+  @Post('search')
+  searchProducts(@Param('text') text: string) {
+    return this.productService.searchProducts(text);
+  }
 }

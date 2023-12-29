@@ -173,4 +173,12 @@ export class ProductsService {
     const imageDataURL = `data:image/jpeg;base64,${image.buffer}`;
     return { image: imageDataURL };
   }
+
+  async searchProducts(text: string) {
+    // const products = await this.prismaService.products.findMany({
+    //   where: {
+    //     title: text,
+    //   },
+    // });
+  }
 }
