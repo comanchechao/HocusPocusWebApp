@@ -9,6 +9,7 @@ import { orderItemDto } from './dto/orderItemDto';
 import { OrderStatusDto } from './dto/orderStatus';
 import { ProductStatusDto } from './dto/productStatus';
 import { MembershipItemDto } from './dto/MembershipItemDto';
+import { DiscountDto } from './dto/discountDto';
 
 @Injectable()
 export class ManagementService {
@@ -351,5 +352,35 @@ export class ManagementService {
     const comment = await this.prismaService.videoComments.delete({
       where: { id: Number(id) },
     });
+  }
+
+  // discount
+
+  async getDiscountCode(dto: DiscountDto) {
+    // const dicount = await this.prismaService.discounts.create({
+    //   data: {
+    //     code: '234234234',
+    //     perc: '5345345',
+    //   },
+    // });
+  }
+
+  async validateDiscount(dto: DiscountDto) {
+    // console.log(dto);
+    // let check = false;
+    // const discount = await this.prismaService.discounts.findUnique({
+    //   where: {
+    //     code: dto.code,
+    //   },
+    //   select: {
+    //     valid: true,
+    //     perc: true,
+    //   },
+    // });
+    // if (discount) {
+    //   check = true;
+    // }
+    // console.log(discount);
+    // return { check: check };
   }
 }
