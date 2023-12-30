@@ -15,7 +15,7 @@
             'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
-          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
         >
           <span> درباره ما </span>
           <PhSpade :size="23" />
@@ -30,7 +30,7 @@
             'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
-          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
         >
           <span> تماس با ما </span> <PhCallBell :size="23" />
         </button>
@@ -44,7 +44,7 @@
             'text-mainRed hover:shadow-mainViolet hover:text-mainViolet hover:border-mainViolet':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
-          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
         >
           <span> قوانین و مقررات </span>
           <PhGavel :size="23" />
@@ -52,7 +52,7 @@
       </NuxtLink>
       <NuxtLink to="/learn/learn">
         <button
-          class="text-lg active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+          class="text-lg active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
         >
           <span> آموزش </span>
           <PhCube :size="23" />
@@ -64,7 +64,7 @@
           :class="{
             hidden: $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
-          class="text-lg active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+          class="text-lg active:text-mainBrown active:bg-mainOrange flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
         >
           <span> خرید </span> <PhStorefront :size="23" />
         </button>
@@ -76,7 +76,7 @@
               $route.path === '/learn/learn' ||
               $route.path.startsWith('/learn/'),
           }"
-          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainPink rounded-sm shadow-md shadow-transparent hover:shadow-mainPink hover:text-mainPink text-mainRed"
+          class="text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent hover:border-mainPink rounded-sm shadow-md shadow-transparent hover:shadow-mainPink hover:text-mainPink text-mainRed"
         >
           <span> خرید </span> <PhStorefront :size="23" />
         </button>
@@ -90,7 +90,7 @@
             '    text-darkPurple hover:bg-darkPurple hover:text-mainRed bg-mainRed hover:border-mainPink transition duration-300 ease-in-out':
               $route.path === '/' || $route.path.startsWith('/shop/'),
           }"
-          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 border-2 border-transparent rounded-sm"
+          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-4 py-1 border-2 border-transparent rounded-sm"
         >
           <span> خونه </span>
           <img
@@ -111,7 +111,7 @@
         to="/shop/profile"
       >
         <button
-          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
         >
           <span> پروفایل </span>
           <PhAlien :size="23" />
@@ -124,7 +124,7 @@
         to="/learn/profile"
       >
         <button
-          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
         >
           <span> پروفایل </span>
           <PhAlien :size="23" />
@@ -137,7 +137,7 @@
         to="/shop/admin"
       >
         <button
-          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+          class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
         >
           <span> مدیریت </span>
           <PhCoffee :size="23" />
@@ -149,7 +149,7 @@
         to="/learn/admin"
       >
         <button
-          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+          class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
         >
           <span> مدیریت </span>
           <PhCoffee :size="23" />
@@ -179,7 +179,7 @@
           'hover:border-mainViolet text-mainRed hover:shadow-mainViolet hover:text-mainViolet':
             $route.path === '/' || $route.path.startsWith('/shop/'),
         }"
-        class="text-lg flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-8 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
+        class="text-lg flex active:text-darkPurple active:bg-mainRed items-center space-x-2 px-4 py-1 transition duration-300 ease-in-out border-2 border-transparent rounded-sm shadow-md shadow-transparent"
       >
         <span> خروج </span>
         <PhLockKey weight="fill" :size="25" />

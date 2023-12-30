@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
     <div
-      class="w-full h-full lg:h-screen lg:px-28 px-4 flex flex-col pt-28 items-center lg:items-center space-y-4 justify-center"
+      class="w-full h-full pb-11 lg:h-full lg:px-28 px-4 flex flex-col pt-28 items-center lg:items-center space-y-4 justify-center"
     >
       <h2
         class="text-mainRed border-b-8 rounded-md border-mainPink text-xl lg:text-2xl"
