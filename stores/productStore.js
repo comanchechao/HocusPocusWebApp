@@ -61,6 +61,9 @@ export const useProductStore = defineStore("productStore", {
         0
       );
     },
+    setDiscount(finalPrice) {
+      this.cartTotalPrice = finalPrice;
+    },
   },
   persist: {
     storage: persistedState.localStorage,

@@ -7,6 +7,7 @@ export const useMainManagement = defineStore("mainManagement", {
     productsCount: null,
     coursesCount: null,
     ordersCount: null,
+    discountChange: false,
   }),
   actions: {
     setStateChange() {
@@ -14,6 +15,9 @@ export const useMainManagement = defineStore("mainManagement", {
     },
     setMembershipChange() {
       this.membershipStat = !this.membershipStat;
+    },
+    setDiscountChange() {
+      this.discountChange = !this.discountChange;
     },
     setMode() {
       this.mode = true;

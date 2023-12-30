@@ -61,17 +61,24 @@
     />
     <InputText
       placeholder="کد تخفیف"
-      id="email"
-      v-model="email"
+      id="discount"
+      v-model="discount"
       class="w-full rounded-lg h-11 col-span-2"
       aria-describedby="username-help"
     />
+    <button
+      @click="validateCode"
+      class="bg-darkPurple hover:bg-blue-900 transition text-white p-2 px-5"
+    >
+      ثبت کد تخفیف
+    </button>
   </div>
 </template>
 <script setup>
 import { ref, watch } from "vue";
 import { useProfileStore } from "../stores/profileStore";
 import { useCheckoutStore } from "../stores/checkoutStore";
+import { useProductStore } from "../stores/productStore";
 import { storeToRefs } from "pinia";
 import provinces from "../locations/provinces.json";
 import iranCities from "../locations/cities.json";
@@ -85,6 +92,9 @@ const { storeFullname } = storeToRefs(profileStore);
 // register checkout store
 
 const checkoutStore = useCheckoutStore();
+const productsStore = useProductStore();
+
+const { cartTotalPrice } = storeToRefs(productsStore);
 
 // customer information
 
@@ -95,6 +105,7 @@ const address = ref("");
 const postalCode = ref("");
 const email = ref("");
 const selectedRegion = ref();
+const discount = ref();
 
 // set order information to checkout store to proccess inside checkout page
 
@@ -125,6 +136,10 @@ watch(postalCode, (cur, old) => {
   checkoutStore.setPostalCode(cur);
 });
 
+watch(discount, (cur, old) => {
+  checkoutStore.setDiscountCode(cur);
+});
+
 // values
 
 const cities = ref([]);
@@ -137,6 +152,39 @@ watch(selectedRegion, (cur, old) => {
     }
   });
 });
+
+const loading = ref(false);
+const validateCode = async (status) => {
+  loading.value = true;
+  const data = new URLSearchParams({});
+  data.append("code", discount.value);
+
+  await $fetch("http://localhost:3333/products/validatecode", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response.perc);
+      if (response.valid) {
+        loading.value = false;
+        let discount = cartTotalPrice.value * (Number(response.perc) / 100);
+        let finalPrice = cartTotalPrice.value - discount;
+        console.log(finalPrice);
+        productsStore.setDiscount(finalPrice);
+      } else {
+        console.log("is not valid");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      loading.value = false;
+    });
+};
 
 const regions = ref([
   { name: "آذربایجان غربی", code: "NY" },
