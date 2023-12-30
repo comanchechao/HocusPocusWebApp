@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { PaginationDto } from './dto/PaginationDto';
+import { DiscountDto } from './dto/DiscountDto';
 
 @Controller('products')
 export class ProductsController {
@@ -49,5 +50,11 @@ export class ProductsController {
   @Post('search')
   searchProducts(@Param('text') text: string) {
     return this.productService.searchProducts(text);
+  }
+
+  @Post('/validatecode')
+  validateCode(@Body() dto: DiscountDto) {
+    console.log(dto);
+    return this.productService.validateDiscount(dto);
   }
 }

@@ -8,6 +8,7 @@ export const useCheckoutStore = defineStore("checkoutStore", {
     address: "",
     email: "",
     postalCode: "",
+    discountCode: "",
   }),
   actions: {
     setCity(city) {
@@ -30,6 +31,9 @@ export const useCheckoutStore = defineStore("checkoutStore", {
     },
     setPostalCode(postalCode) {
       this.postalCode = postalCode;
+    },
+    setDiscountCode(discountCode) {
+      this.discountCode = discountCode;
     },
   },
 });
