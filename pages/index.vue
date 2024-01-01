@@ -391,7 +391,7 @@
           :item="item"
         />
       </div>
-      <div>
+      <!-- <div>
         <a
           referrerpolicy="origin"
           target="_blank"
@@ -403,7 +403,7 @@
             style="cursor: pointer"
             Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
         /></a>
-      </div>
+      </div> -->
     </div>
 
     <LazyFooter></LazyFooter>
