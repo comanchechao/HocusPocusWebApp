@@ -29,40 +29,8 @@
           <div class="flex flex-col items-center justify-center">
             <div class="flex items-center absolute justify-center w-full">
               <img
-                src="../assets/images/HocusUp1.webp"
-                class="object-contain absolute Up xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21"
-                alt=""
-              />
-              <img
-                src="../assets/images/HocusUp2.webp"
-                class="object-contain absolute Up2 xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21"
-                alt=""
-              />
-            </div>
-            <div class="flex items-center absolute justify-center w-full">
-              <img
-                src="../assets/images/HocusDownP.webp"
-                class="object-contain xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21 absolute P"
-                alt=""
-              />
-              <img
-                src="../assets/images/HocusDownO.webp"
-                class="object-contain xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21 absolute O"
-                alt=""
-              />
-              <img
-                src="../assets/images/HocusDownC.webp"
-                class="object-contain xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21 absolute C"
-                alt=""
-              />
-              <img
-                src="../assets/images/HocusDownU.webp"
-                class="object-contain xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21 absolute U"
-                alt=""
-              />
-              <img
-                src="../assets/images/HocusDownS.webp"
-                class="object-contain xl:w-rem21 lg:w-rem21 md:w-rem21 w-rem21 absolute S"
+                src="../assets/images/HOCUSPOCUS.webp"
+                class="object-contain absolute Up w-rem21"
                 alt=""
               />
             </div>

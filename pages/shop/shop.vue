@@ -25,6 +25,7 @@
       >
         <LazySortBy class="Sort"></LazySortBy>
         <LazyFilters class="Filter"></LazyFilters>
+        <LazySearchBar class="Search"></LazySearchBar>
 
         <div
           class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
@@ -341,6 +342,7 @@ onMounted(() => {
   });
   TM.from(".Sort", { opacity: 0, duration: 1, delay: 1 });
   TM.from(".Filter", { opacity: 0, duration: 1 });
+  TM.from(".Search", { opacity: 0, duration: 1 });
 
   TM.from(".LazyCard", { opacity: 0, duration: 1.5, stagger: 0.4 });
   TM.to(".Paginator", { opacity: 1, duration: 1 });
