@@ -74,9 +74,8 @@
         target="_blank"
         href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
         ><img
-          class="h-24 w-24"
           referrerpolicy="origin"
-          src="https://trustseal.enamad.ir/Content/Images/Star2/81.png?v=5.0.0.3777"
+          src="https://trustseal.enamad.ir/logo.aspx?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
           alt=""
           style="cursor: pointer"
           Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
