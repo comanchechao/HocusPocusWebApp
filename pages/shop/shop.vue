@@ -24,7 +24,70 @@
         class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
-        <LazyFilters class="Filter"></LazyFilters>
+        <div
+          dir="rtl"
+          class="lg:flex Filter grid grid-flow-row-dense md:grid-flow-row md:grid-cols-4 grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-start lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+        >
+          <h3
+            @click="clearFilters()"
+            class="lg:text-md cursor-pointer px-2 text-xs lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
+          >
+            پاک کردن فیلتر ها
+          </h3>
+
+          <div dir="ltr" class="flex items-center space-x-3">
+            <InputSwitch v-model="checked"></InputSwitch>
+            <h3 class="lg:text-lg text-sm text-center text-mainRed">
+              موجودی کالا
+            </h3>
+          </div>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedRarity"
+            :options="rarity"
+            optionLabel="name"
+            placeholder="کمیابی"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedDesigns"
+            :options="designs"
+            optionLabel="name"
+            placeholder="طرح ها"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedBrands"
+            :options="brands"
+            optionLabel="name"
+            placeholder="برندها"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedCategory"
+            :options="categories"
+            optionLabel="name"
+            placeholder="دسته بندی"
+            :showToggleAll="false"
+          ></MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="2"
+            v-model="selectedTypes"
+            :options="types"
+            optionLabel="name"
+            class="lg:col-span-1 md:col-span-1 col-span-2"
+            placeholder="نوع"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+        </div>
         <LazySearchBar class="Search"></LazySearchBar>
 
         <div
@@ -127,7 +190,12 @@ const products = ref();
 const filteredProducts = ref();
 const filterOp = ref();
 const loading = ref(true);
-
+const checked = ref(false);
+const selectedTypes = ref();
+const selectedBrands = ref();
+const selectedRarity = ref();
+const selectedDesigns = ref();
+const selectedCategory = ref();
 const router = useRouter();
 const route = useRoute();
 
@@ -367,5 +435,13 @@ onMounted(() => {
 .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
   background-color: gray;
   color: white;
+}
+.p-multiselect {
+  font-family: "IranSans";
+  border: 4px #090025;
+  border-radius: 0rem;
+  color: #090025;
+  padding: 0px 0px;
+  flex-direction: row-reverse;
 }
 </style>

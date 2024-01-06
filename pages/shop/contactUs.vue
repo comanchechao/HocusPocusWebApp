@@ -17,7 +17,7 @@
 
       <div class="flex flex-col lg:px-24 px-7 w-full h-full items-center">
         <h2
-          class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-2xl lg:text-4xl flex"
+          class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-lg lg:text-4xl flex"
         >
           <PhGraduationCap
             class="hidden lg:flex mr-3"
@@ -30,14 +30,14 @@
           class="w-full h-full lg:h-48 grid grid-cols-1 lg:grid-cols-2 place-items-end lg:place-items-center gap-5 lg:gap-2 rounded-md lg:shadow-lg shadow-mainPink"
         >
           <div class="flex text-right items-end space-x-5">
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border-2 border-mainPink rounded-sm"
                 >044-32254265</span
               >
             </h2>
 
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >شماره تلفن</span
@@ -52,13 +52,13 @@
           <div
             class="flex lg:flex-row flex-col-reverse text-right items-end space-x-5"
           >
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >hocuspocusmagicstore@protonmail.com</span
               >
             </h2>
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >ایمیل</span
@@ -73,7 +73,7 @@
           <div
             class="flex lg:flex-row flex-col-reverse text-right items-end space-x-5 lg:col-span-2"
           >
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >ارومیه - خیام جنوبی - مرکز خرید امیرکبیر - طبقه ی پایین -
@@ -81,7 +81,7 @@
               >
             </h2>
 
-            <h2 class="flex items-center text-mainWhite text-2xl">
+            <h2 class="flex items-center text-mainWhite lg:text-lg text-sm">
               <span
                 class="px-3 py-2 shadow-sm border-b-8 shadow-darkPurple border border-mainPink rounded-sm"
                 >آدرس</span
@@ -95,7 +95,7 @@
           </div>
         </div>
         <h2
-          class="text-mainYellow border-b-8 rounded-md border-mainPink pb-1 mb-7 mt-10 text-center text-2xl lg:text-4xl flex"
+          class="text-mainYellow border-b-8 rounded-md border-mainPink pb-1 mb-7 mt-10 text-center lg:text-lg text-sm lg:text-4xl flex"
         >
           <PhUsersThree :size="35" weight="fill" class="mr-3" />
           <span> و یا در شبکه های اجتماعی </span>

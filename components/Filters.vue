@@ -4,7 +4,7 @@
   >
     <h3
       @click="clearFilters()"
-      class="lg:text-md cursor-pointer px-2 text-sm lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
+      class="lg:text-md cursor-pointer px-2 text-xs lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
     >
       پاک کردن فیلتر ها
     </h3>
