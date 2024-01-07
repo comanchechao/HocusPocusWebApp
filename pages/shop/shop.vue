@@ -213,6 +213,17 @@
               :product="product"
             ></LazyCard>
           </div>
+          <div
+            v-if="!loading"
+            v-show="filteredProducts && searchOn === false"
+            class="flex"
+          >
+            <LazyCard
+              v-for="product in filteredProducts"
+              :key="product"
+              :product="product"
+            ></LazyCard>
+          </div>
           <div v-show="searchOn === true">
             <LazyCard
               v-show="searchOn"
@@ -365,81 +376,145 @@ const getSearch = async () => {
 
 // constregister filter store
 
+// fitlers
+
+const allFilterItems = ref();
+const allFilters = ref();
+const categories = ref();
+const filterLoading = ref(true);
+
+const types = ref([]);
+const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
+const rarity = ref([]);
+const brands = ref([]);
+
+const getFilters = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      allFilters.value = response.filters;
+      getFilterItems();
+    })
+    .catch(function (error) {});
+};
+
+const getFilterItems = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      types.value = [];
+      brands.value = [];
+      categories.value = [];
+      allFilterItems.value = response.filters;
+      response.filters.forEach((item) => {
+        if (item.filter_id === 2) {
+          categories.value.push(item);
+        }
+        if (item.filter_id === 4) {
+          brands.value.push(item);
+        }
+        if (item.filter_id === 3) {
+          rarity.value.push(item);
+        }
+        if (item.filter_id === 1) {
+          types.value.push(item);
+          console.log(types.value);
+        }
+      });
+      filterLoading.value = false;
+    })
+    .catch(function (error) {});
+};
+
 const filterStore = useFilterStore();
 
-const { brands, types, designs, category, sortBy, discount } =
-  storeToRefs(filterStore);
+const { category, sortBy, discount } = storeToRefs(filterStore);
 
-watch([types, category, brands, designs], (cur, old) => {
-  if (types.value.length === 0) {
-    filteredProducts.value = products.value;
-  }
+watch(
+  [selectedCategory, selectedBrands, selectedDesigns, selectedTypes],
+  (cur, old) => {
+    // if (selectedTypes.value.length === 0) {
+    //   filteredProducts.value = products.value;
+    // }
 
-  if (brands.value.length === 0) {
-    filteredProducts.value = products.value;
-  }
-
-  let filteredArray = [];
-  for (let obj of products.value) {
-    for (let filterObj of types.value) {
-      if (obj.type === filterObj.name) {
-        const existingProduct = filteredArray.find(
-          (item) => item.title === obj.title
-        );
-        if (!existingProduct) {
-          filteredArray.push(obj);
-          filteredProducts.value = filteredArray;
-          break;
+    // if (selectedBrands.value.length === 0) {
+    //   filteredProducts.value = products.value;
+    // }
+    console.log("running ");
+    let filteredArray = [];
+    for (let obj of products.value) {
+      for (let filterObj of types.value) {
+        if (obj.type === filterObj.name) {
+          const existingProduct = filteredArray.find(
+            (item) => item.title === obj.title
+          );
+          if (!existingProduct) {
+            filteredArray.push(obj);
+            filteredProducts.value = filteredArray;
+            break;
+          }
         }
       }
     }
-  }
 
-  for (let obj of products.value) {
-    for (let filterObj of category.value) {
-      if (obj.category === filterObj.name) {
-        const existingProduct = filteredArray.find(
-          (item) => item.title === obj.title
-        );
-        if (!existingProduct) {
-          filteredArray.push(obj);
-          filteredProducts.value = filteredArray;
-          break;
+    for (let obj of products.value) {
+      for (let filterObj of categories.value) {
+        if (obj.category === filterObj.name) {
+          const existingProduct = filteredArray.find(
+            (item) => item.title === obj.title
+          );
+          if (!existingProduct) {
+            filteredArray.push(obj);
+            filteredProducts.value = filteredArray;
+            break;
+          }
         }
       }
     }
-  }
 
-  for (let obj of products.value) {
-    for (let filterObj of designs.value) {
-      if (obj.design === filterObj.name) {
-        const existingProduct = filteredArray.find(
-          (item) => item.title === obj.title
-        );
-        if (!existingProduct) {
-          filteredArray.push(obj);
-          filteredProducts.value = filteredArray;
-          break;
+    for (let obj of products.value) {
+      for (let filterObj of designs.value) {
+        if (obj.design === filterObj.name) {
+          const existingProduct = filteredArray.find(
+            (item) => item.title === obj.title
+          );
+          if (!existingProduct) {
+            filteredArray.push(obj);
+            filteredProducts.value = filteredArray;
+            break;
+          }
         }
       }
     }
-  }
 
-  for (let obj of products.value) {
-    for (let filterObj of brands.value) {
-      if (obj.brand === filterObj.name) {
-        const existingProduct = filteredArray.find(
-          (item) => item.title === obj.title
-        );
-        if (!existingProduct) {
-          filteredArray.push(obj);
-          filteredProducts.value = filteredArray;
-          break;
+    for (let obj of products.value) {
+      for (let filterObj of brands.value) {
+        if (obj.brand === filterObj.name) {
+          const existingProduct = filteredArray.find(
+            (item) => item.title === obj.title
+          );
+          if (!existingProduct) {
+            filteredArray.push(obj);
+            filteredProducts.value = filteredArray;
+            break;
+          }
         }
       }
     }
+
+    console.log(filteredProducts.value, "filtered array");
   }
-});
+);
 
 watch(sortBy, (cur, old) => {
   if (sortBy.value === "lowest") {
@@ -495,6 +570,7 @@ const getDiscounts = async () => {
 
 onMounted(() => {
   getPagination();
+  getFilters();
   TM.to(window, {
     scrollTo: {
       top: 0,
