@@ -465,6 +465,51 @@ watch(selectedTypes, (cur, old) => {
   console.log(allProducts.value);
 });
 
+watch(selectedBrands, (cur, old) => {
+  if (cur.length > 0) {
+    filtersOn.value = true;
+  }
+  const filtered = allProducts.value.filter((product: any) =>
+    selectedBrands.value.some((brand: any) => brand.name === product.brand)
+  );
+  products.value = filtered;
+  console.log(products.value);
+  console.log(allProducts.value);
+});
+
+watch(selectedCategory, (cur, old) => {
+  if (cur.length > 0) {
+    filtersOn.value = true;
+  }
+  const filtered = allProducts.value.filter((product: any) =>
+    selectedCategory.value.some(
+      (category: any) => category.name === product.category
+    )
+  );
+  products.value = filtered;
+  console.log(products.value);
+  console.log(allProducts.value);
+});
+
+watch(selectedDesigns, (cur, old) => {
+  if (cur.length > 0) {
+    filtersOn.value = true;
+  }
+  const filtered = allProducts.value.filter((product: any) =>
+    selectedDesigns.value.some((design: any) => design.name === product.design)
+  );
+  products.value = filtered;
+  console.log(products.value);
+  console.log(allProducts.value);
+});
+
+// clear filters
+
+const clearFilters = function () {
+  searchOn.value = false;
+  products.value = allProducts.value;
+};
+
 // watch(
 //   [selectedCategory, selectedBrands, selectedDesigns, selectedTypes],
 //   (cur, old) => {
