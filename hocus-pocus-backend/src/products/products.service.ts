@@ -190,6 +190,19 @@ export class ProductsService {
           { description: { contains: '*' + body.text + '*' } }, // Wildcard at both ends
         ],
       },
+      select: {
+        createdAt: true,
+        id: true,
+        title: true,
+        price: true,
+        discount: true,
+        brand: true,
+        type: true,
+        design: true,
+        category: true,
+        description: true,
+        ProductImages: { take: 2 },
+      },
     });
 
     return searchResults;
