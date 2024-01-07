@@ -205,7 +205,7 @@
           </div> -->
           <div
             class="w-full h-full flex flex-row bg-red-500"
-            v-show="searchOn === false"
+            v-show="searchOn === false || filtersOn === false"
           >
             <LazyCard
               v-for="product in products"
@@ -213,17 +213,18 @@
               :product="product"
             ></LazyCard>
           </div>
-          <div
+          <!-- <div
             v-if="!loading"
             v-show="filteredProducts && searchOn === false"
             class="flex"
           >
             <LazyCard
+              v-show="filteredProducts.length"
               v-for="product in filteredProducts"
               :key="product"
               :product="product"
             ></LazyCard>
-          </div>
+          </div> -->
           <div v-show="searchOn === true">
             <LazyCard
               v-show="searchOn"
@@ -312,6 +313,7 @@ watch(page, (cur, old) => {
 });
 
 const empty = ref(false);
+const allProducts = ref();
 
 const getPagination = async () => {
   loading.value = true;
@@ -326,6 +328,7 @@ const getPagination = async () => {
     .then(function (response) {
       filterStore.clearFilters();
       products.value = response.products;
+      allProducts.value = response.products;
       loading.value = false;
       if (!products.value.length) {
         empty.value = true;
@@ -382,6 +385,8 @@ const allFilterItems = ref();
 const allFilters = ref();
 const categories = ref();
 const filterLoading = ref(true);
+
+const filtersOn = ref(false);
 
 const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
@@ -440,81 +445,101 @@ const filterStore = useFilterStore();
 
 const { category, sortBy, discount } = storeToRefs(filterStore);
 
-watch(
-  [selectedCategory, selectedBrands, selectedDesigns, selectedTypes],
-  (cur, old) => {
-    // if (selectedTypes.value.length === 0) {
-    //   filteredProducts.value = products.value;
-    // }
+watch(selectedBrands, (cur, old) => {
+  const filteredProducts = products.value.filter((product: any) =>
+    selectedBrands.value.includes(product.brand)
+  );
 
-    // if (selectedBrands.value.length === 0) {
-    //   filteredProducts.value = products.value;
-    // }
-    console.log("running ");
-    let filteredArray = [];
-    for (let obj of products.value) {
-      for (let filterObj of types.value) {
-        if (obj.type === filterObj.name) {
-          const existingProduct = filteredArray.find(
-            (item) => item.title === obj.title
-          );
-          if (!existingProduct) {
-            filteredArray.push(obj);
-            filteredProducts.value = filteredArray;
-            break;
-          }
-        }
-      }
-    }
+  console.log(filteredProducts);
+});
 
-    for (let obj of products.value) {
-      for (let filterObj of categories.value) {
-        if (obj.category === filterObj.name) {
-          const existingProduct = filteredArray.find(
-            (item) => item.title === obj.title
-          );
-          if (!existingProduct) {
-            filteredArray.push(obj);
-            filteredProducts.value = filteredArray;
-            break;
-          }
-        }
-      }
-    }
-
-    for (let obj of products.value) {
-      for (let filterObj of designs.value) {
-        if (obj.design === filterObj.name) {
-          const existingProduct = filteredArray.find(
-            (item) => item.title === obj.title
-          );
-          if (!existingProduct) {
-            filteredArray.push(obj);
-            filteredProducts.value = filteredArray;
-            break;
-          }
-        }
-      }
-    }
-
-    for (let obj of products.value) {
-      for (let filterObj of brands.value) {
-        if (obj.brand === filterObj.name) {
-          const existingProduct = filteredArray.find(
-            (item) => item.title === obj.title
-          );
-          if (!existingProduct) {
-            filteredArray.push(obj);
-            filteredProducts.value = filteredArray;
-            break;
-          }
-        }
-      }
-    }
-
-    console.log(filteredProducts.value, "filtered array");
+watch(selectedTypes, (cur, old) => {
+  if (cur.length > 0) {
+    filtersOn.value = true;
   }
-);
+  const filtered = allProducts.value.filter((product: any) =>
+    selectedTypes.value.some((type: any) => type.name === product.type)
+  );
+  products.value = filtered;
+  console.log(products.value);
+  console.log(allProducts.value);
+});
+
+// watch(
+//   [selectedCategory, selectedBrands, selectedDesigns, selectedTypes],
+//   (cur, old) => {
+//     // if (selectedTypes.value.length === 0) {
+//     //   filteredProducts.value = products.value;
+//     // }
+
+//     // if (selectedBrands.value.length === 0) {
+//     //   filteredProducts.value = products.value;
+//     // }
+//     console.log("running ");
+//     let filteredArray = [];
+//     for (let obj of products.value) {
+//       for (let filterObj of types.value) {
+//         if (obj.type === filterObj.name) {
+//           const existingProduct = filteredArray.find(
+//             (item) => item.title === obj.title
+//           );
+//           if (!existingProduct) {
+//             filteredArray.push(obj);
+//             filteredProducts.value = filteredArray;
+//             break;
+//           }
+//         }
+//       }
+//     }
+
+//     for (let obj of products.value) {
+//       for (let filterObj of categories.value) {
+//         if (obj.category === filterObj.name) {
+//           const existingProduct = filteredArray.find(
+//             (item) => item.title === obj.title
+//           );
+//           if (!existingProduct) {
+//             filteredArray.push(obj);
+//             filteredProducts.value = filteredArray;
+//             break;
+//           }
+//         }
+//       }
+//     }
+
+//     for (let obj of products.value) {
+//       for (let filterObj of designs.value) {
+//         if (obj.design === filterObj.name) {
+//           const existingProduct = filteredArray.find(
+//             (item) => item.title === obj.title
+//           );
+//           if (!existingProduct) {
+//             filteredArray.push(obj);
+//             filteredProducts.value = filteredArray;
+//             break;
+//           }
+//         }
+//       }
+//     }
+
+//     for (let obj of products.value) {
+//       for (let filterObj of brands.value) {
+//         if (obj.brand === filterObj.name) {
+//           const existingProduct = filteredArray.find(
+//             (item) => item.title === obj.title
+//           );
+//           if (!existingProduct) {
+//             filteredArray.push(obj);
+//             filteredProducts.value = filteredArray;
+//             break;
+//           }
+//         }
+//       }
+//     }
+
+//     console.log(filteredProducts.value, "filtered array");
+//   }
+// );
 
 watch(sortBy, (cur, old) => {
   if (sortBy.value === "lowest") {
