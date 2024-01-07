@@ -5,7 +5,7 @@
     <link rel="icon" href="/favicon.ico" />
   </head>
   <div class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t">
-    <LazyNavbar></LazyNavbar>
+    <LazyNavbar class="NavbarTrigger"></LazyNavbar>
     <div
       class="LoadingDiv h-screen w-screen flex items-center justify-center bg-darkPurple"
     >
@@ -18,7 +18,7 @@
       />
     </div>
     <div
-      class="h-full NavbarTrigger w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-28 lg:p-20 flex items-center"
+      class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-28 lg:p-20 flex items-center"
     >
       <div
         class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end"
@@ -89,7 +89,7 @@
           </MultiSelect>
         </div>
         <div>
-          <div>
+          <div class="Search">
             <label
               for="default-search"
               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -134,7 +134,7 @@
         </div>
 
         <div
-          class="h-full my-14 LazyCard w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
+          class="h-full LazyCard w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
           <div class="flex absolute w-full justify-center items-center">
             <h2
@@ -187,59 +187,28 @@
             width="18rem"
             height="25rem"
           ></Skeleton>
-          <!-- <div class="w-full h-full flex flex-row" v-show="searchOn === false">
-            <LazyCard
-              v-if="!loading"
-              v-show="!filteredProducts"
-              v-for="product in products"
-              :key="product"
-              :product="product"
-            ></LazyCard>
-            <LazyCard
-              v-if="!loading"
-              v-show="filteredProducts"
-              v-for="product in filteredProducts"
-              :key="product"
-              :product="product"
-            ></LazyCard>
-          </div> -->
-          <div
-            class="w-full h-full flex flex-row bg-red-500"
-            v-show="searchOn === false || filtersOn === false"
-          >
-            <LazyCard
-              v-for="product in products"
-              :key="product"
-              :product="product"
-            ></LazyCard>
-          </div>
-          <!-- <div
-            v-if="!loading"
-            v-show="filteredProducts && searchOn === false"
-            class="flex"
-          >
-            <LazyCard
-              v-show="filteredProducts.length"
-              v-for="product in filteredProducts"
-              :key="product"
-              :product="product"
-            ></LazyCard>
-          </div> -->
-          <div v-show="searchOn === true">
-            <LazyCard
-              v-show="searchOn"
-              v-for="product in searchProducts"
-              :key="product"
-              :product="product"
-            ></LazyCard>
-          </div>
+        </div>
+        <div
+          class="w-full LazyCard h-full grid lg:grid-cols-4 gap-6 md:grid-cols-2 grid-cols-1"
+          v-show="searchOn === false || filtersOn === false"
+        >
+          <LazyCard
+            v-for="product in products"
+            :key="product"
+            :product="product"
+          ></LazyCard>
+        </div>
 
-          <!-- <LazyCard></LazyCard>
-          <LazyCard></LazyCard>
-          <LazyCard></LazyCard>
-          <LazyCard></LazyCard> <LazyCard></LazyCard> <LazyCard></LazyCard>
-          <LazyCard></LazyCard>
-          <LazyCard></LazyCard> -->
+        <div
+          class="w-full LazyCard h-full grid lg:grid-cols-4 gap-6 md:grid-cols-2 grid-cols-1"
+          v-show="searchOn === true"
+        >
+          <LazyCard
+            v-show="searchOn"
+            v-for="product in searchProducts"
+            :key="product"
+            :product="product"
+          ></LazyCard>
         </div>
         <div class="flex items-center justify-center w-full">
           <Paginator
@@ -686,5 +655,10 @@ onMounted(() => {
   color: #090025;
   padding: 0px 0px;
   flex-direction: row-reverse;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>

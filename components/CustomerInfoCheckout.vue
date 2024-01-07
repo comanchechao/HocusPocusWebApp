@@ -66,12 +66,14 @@
       class="w-full rounded-lg h-11 col-span-2"
       aria-describedby="username-help"
     />
-    <button
-      @click="validateCode"
-      class="bg-darkPurple hover:bg-blue-900 transition text-white p-2 px-5"
-    >
-      ثبت کد تخفیف
-    </button>
+    <div class="w-full flex items-end">
+      <button
+        @click="validateCode"
+        class="bg-darkPurple hover:bg-blue-900 transition text-white p-2 px-5"
+      >
+        ثبت کد تخفیف
+      </button>
+    </div>
   </div>
 </template>
 <script setup>
@@ -222,7 +224,7 @@ export default {
   cursor: pointer;
   display: flex;
   font-family: "IranSans";
-  background-color: #fbf8ff;
+  background-color: #e7e5e5;
   border-radius: 0.3rem;
 }
 .p-dropdown {
@@ -247,11 +249,5 @@ export default {
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
   background: #f36b31;
   color: #150531;
-}
-
-input::placeholder,
-textarea::placeholder {
-  background-color: #fbf8ff;
-  color: #15053190;
 }
 </style>

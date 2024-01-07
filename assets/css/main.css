@@ -34,14 +34,10 @@ body {
   height: 6px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 /* Firefox */
-
+input {
+  padding: 4px !important;
+}
 @media only screen and (max-width: 767px) {
   *::-webkit-scrollbar {
     width: 3px;

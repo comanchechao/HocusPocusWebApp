@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
 
-    <div class="lg:h-full pt-24 h-auto w-full p-8 lg:px-20">
+    <div class="lg:h-full pt-24 h-auto w-full p-6 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
@@ -31,7 +31,7 @@
       <div
         class="w-full h-full bg-white p-6 flex lg:flex-row flex-col-reverse items-center space-x-4 rounded-md"
       >
-        <div class="lg:h-dialog h-full w-full lg:w-2/3 flex flex-col items-end">
+        <div class="lg:h-full h-full w-full lg:w-2/3 flex flex-col items-end">
           <h3
             class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-2xl"
           >
@@ -67,7 +67,7 @@
 
           <div
             v-show="!isLogged"
-            class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
+            class="lg:text-sm px-5 justify-center text-sm flex items-center bg-darkPurple space-x-2 self-center transition duration-150 ease-in-out border-b-8 border-mainYellow rounded-lg shadow-mainOrange shadow-md text-mainRed"
           >
             <LazyLogin v-show="!isLogged" />
             <span> برای تکمیل خرید وارد خود شوید </span>

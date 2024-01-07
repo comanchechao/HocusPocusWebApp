@@ -2,7 +2,7 @@
   <button
     label="Show"
     @click="visible = true"
-    class="lg:text-xl justify-center text-lg flex items-center space-x-2 w-full py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+    class="lg:text-xl justify-center text-lg flex items-center space-x-2 w-full py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg border hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
   >
     <span> ثبت نام </span>
     <PhSignature :size="25" />

@@ -12,7 +12,7 @@
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2
-          class="lg:text-3xl md:text-2xl text-lg cursor-pointer flex items-center transition px-5 ease-in duration-300 justify-center space-x-3 text-mainBrown border-b-8 hover:border-mainPink border-b-transparent rounded-md"
+          class="lg:text-xl md:text-2xl text-lg cursor-pointer flex items-center transition px-5 ease-in duration-300 justify-center space-x-3 text-mainBrown border-b-8 hover:border-mainPink border-b-transparent rounded-md"
         >
           <span> {{ course.title }} </span>
         </h2>

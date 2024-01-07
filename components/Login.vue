@@ -39,7 +39,7 @@
               v-model="loginUsername"
               aria-describedby="username-help"
               type="text"
-              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
+              class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
               <small class="text-sm text-mainViolet" id="username-help"
@@ -58,7 +58,7 @@
               v-model="loginEmail"
               aria-describedby="username-help"
               type="text"
-              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
+              class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
               <small class="text-sm text-mainViolet" id="username-help"
@@ -77,7 +77,7 @@
               v-model="loginPassword"
               aria-describedby="username-help"
               type="text"
-              class="input input-xl p-2 rounded-md input-bordered w-full max-w-xs"
+              class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
               <small class="text-sm text-mainViolet" id="username-help"
@@ -109,7 +109,7 @@
             <button
               label="Show"
               @click="formSubmit()"
-              class="text-xl flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+              class="text-lg flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <ProgressSpinner
                 v-if="loading"

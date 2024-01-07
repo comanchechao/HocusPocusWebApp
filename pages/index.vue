@@ -15,7 +15,7 @@
 
     <div
       ref="container"
-      class="lg:h-full container h-auto NavbarTrigger w-full flex flex-col items-center bg pt-24 justify-center"
+      class="lg:h-full container h-auto w-full flex flex-col items-center bg pt-14 justify-center"
     >
       <div
         class="w-full md:h-rem26 h-72 lg:h-screen flex flex-col items-center justify-center"
@@ -24,39 +24,39 @@
           <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusUp1.webp"
-              class="object-contain absolute Up opacity-0 lg:w-full w-rem21 md:w-rem38"
+              class="object-contain absolute Up opacity-0 lg:w-textArea w-rem21 md:w-rem38"
               alt=""
             />
             <img
               src="../assets/images/HocusUp2.webp"
-              class="object-contain absolute Up2 opacity-0 lg:w-full w-rem21 md:w-rem38"
+              class="object-contain absolute Up2 opacity-0 lg:w-textArea w-rem21 md:w-rem38"
               alt=""
             />
           </div>
-          <div class="flex items-center absolute justify-center w-full">
+          <div class="flex items-center absolute justify-center w-textArea">
             <img
               src="../assets/images/HocusDownP.webp"
-              class="object-contain lg:w-full z-10 w-rem21 md:w-rem38 absolute P opacity-0"
+              class="object-contain lg:w-textArea z-10 w-rem21 md:w-rem38 absolute P opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownO.webp"
-              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute O opacity-0"
+              class="object-contain lg:w-textArea w-rem21 md:w-rem38 absolute O opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownC.webp"
-              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute C opacity-0"
+              class="object-contain lg:w-textArea w-rem21 md:w-rem38 absolute C opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownU.webp"
-              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute U opacity-0"
+              class="object-contain lg:w-textArea w-rem21 md:w-rem38 absolute U opacity-0"
               alt=""
             />
             <img
               src="../assets/images/HocusDownS.webp"
-              class="object-contain lg:w-full w-rem21 md:w-rem38 absolute S opacity-0"
+              class="object-contain lg:w-textArea w-rem21 md:w-rem38 absolute S opacity-0"
               alt=""
             />
           </div>
@@ -64,9 +64,12 @@
       </div>
       <div class="Store opacity-0">
         <h1
-          class="flex space-x-2 lg:px-0 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl font-bold text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
           <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
+          <span class="lg:text-xl text-sm">
+            قدیمی ترین فروشگاه محصولات شعبده بازی در ایران</span
+          >
         </h1>
       </div>
       <!-- <img

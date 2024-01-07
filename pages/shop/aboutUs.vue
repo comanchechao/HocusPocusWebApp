@@ -41,12 +41,35 @@
       class="h-full w-full md:px-24 px-7 lg:mt-24 lg:px-44 flex items-center flex-col mb-20"
     >
       <h2
-        class="text-mainRed lg:self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-xl lg:text-4xl flex"
+        class="text-mainRed border-b-4 rounded-sm border-mainYellow pb-1 my-14 text-center text-xl lg:text-4xl flex"
       >
         <PhMagicWand :size="30" weight="fill" class="mr-3" />
         <span> ما رو بیشتر بشناسید </span>
       </h2>
-
+      <div
+        class="lg:h-full h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-4 items-center justify-center lg:space-x-4 w-screen"
+      >
+        <img
+          src="../../assets/images/AUPic1.webp"
+          class="w-72 object-contain"
+          alt=""
+        />
+        <img
+          src="../../assets/images/AUPic2.webp"
+          class="w-96 object-contain"
+          alt=""
+        />
+        <img
+          src="../../assets/images/AUPic3.webp"
+          class="w-96 object-contain"
+          alt=""
+        />
+        <img
+          src="../../assets/images/AUPic4.webp"
+          class="w-96 object-contain"
+          alt=""
+        />
+      </div>
       <h2
         class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-lg lg:text-2xl flex"
       >
@@ -54,27 +77,76 @@
         <span> تاریخچه</span>
       </h2>
 
-      <div class="w-full h-dialog bg-white rounded-md"></div>
+      <div
+        dir="rtl"
+        class="w-full h-auto p-5 flex-col space-y-6 bg-mainWhite rounded-md flex items-center justify-center text-right text-sm"
+      >
+        <h2
+          class="text-darkPurple self-start border-b-8 rounded-md border-mainYellow pb-1 text-center text-md font-bold lg:text-xl flex"
+        >
+          تاریخچه فروشگاه شعبده بازی هوکوس پوکوس
+        </h2>
+        <h2>
+          فروشگاه شعبده بازی هوکوس پوکوس در سال 1379 توسط آقای امیر فاطمی در شهر
+          ارومیه تاسیس شد. این فروشگاه قدیمی ترین فروشگاه شعبده بازی ایران است و
+          در طول این سال ها به یکی از معتبرترین و شناخته شده ترین فروشگاه های
+          این حوزه تبدیل شده است. فروشگاه هوکوس پوکوس در طول این سال ها نقش مهمی
+          در توسعه و گسترش شعبده بازی در ایران داشته است.
+        </h2>
+        <h2>
+          فروشگاه هوکوس پوکوس در ابتدا با تعداد محدودی وسیله شعبده بازی فعالیت
+          خود را آغاز کرد، اما به مرور زمان و با افزایش علاقه مردم به شعبده
+          بازی، این فروشگاه نیز توسعه یافت و اکنون یکی از بزرگترین فروشگاه های
+          شعبده بازی در ایران است. فروشگاه هوکوس پوکوس طیف گسترده ای از وسایل
+          شعبده بازی را در اختیار مشتریان خود قرار می دهد. این وسایل شامل انواع
+          وسایل ساده و پیشرفته، وسایل تردستی، وسایل ذهنی و وسایل ویژه کودکان
+          است. همچنین، این فروشگاه خدمات آموزشی نیز ارائه می دهد و کلاس های
+          آموزشی شعبده بازی را برای علاقه مندان برگزار می کند.
+        </h2>
+
+        <h2
+          class="text-darkPurple self-start border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-md font-bold lg:text-xl flex"
+        >
+          برخی از دستاوردهای فروشگاه
+        </h2>
+        <div
+          class="self-start flex flex-col items-start justify-center space-y-4"
+        >
+          <h2 class="border-b-4 rounded-sm border-b-mainPink">
+            قدیمی ترین فروشگاه شعبده بازی ایران
+          </h2>
+          <h2 class="border-b-4 rounded-sm border-b-mainPink">
+            یکی از بزرگترین فروشگاه های شعبده بازی در ایران
+          </h2>
+          <h2 class="border-b-4 rounded-sm border-b-mainPink">
+            ارائه طیف گسترده ای از وسایل شعبده بازی
+          </h2>
+          <h2 class="border-b-4 rounded-sm border-b-mainPink">
+            ارائه خدمات آموزشی شعبده بازی پرورش نسل جدیدی از شعبده بازان ایرانی
+          </h2>
+        </div>
+        <h2
+          class="text-darkPurple self-start border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-md font-bold lg:text-xl flex"
+        >
+          آینده فروشگاه
+        </h2>
+        <h2>
+          هوکوس پوکوس در آینده نیز به فعالیت خود ادامه خواهد داد و تلاش خواهد
+          کرد تا همچنان به یکی از معتبرترین و شناخته شده ترین فروشگاه های شعبده
+          بازی در ایران تبدیل بماند. این فروشگاه همچنین قصد دارد تا فعالیت های
+          آموزشی خود را گسترش دهد و به پرورش نسل جدیدی از شعبده بازان ایرانی کمک
+          کند.
+        </h2>
+      </div>
 
       <h2
         class="text-mainRed self-end border-b-8 rounded-md border-mainYellow pb-1 my-14 text-center text-lg lg:text-2xl flex"
       >
-        <span>
-          پرسنل فروشگاه محصولات شعبده بازی و وبسایت آموزشی هوکوس پوکوس</span
-        >
+        <span> پرسنل فروشگاه </span>
       </h2>
       <div
         class="w-full h-auto flex items-center md:flex-row lg:flex-row flex-col lg:space-y-0 md:space-y-0 space-y-9 justify-around"
       >
-        <div class="flex flex-col items-center justify-center space-y-4">
-          <div class="h-44 w-44 rounded-full bg-mainYellow"></div>
-          <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
-            <span> امیر فاطمی</span>
-          </h2>
-          <h2 class="text-mainRed text-center text-sm lg:text-md flex">
-            <span> موسس و بنیانگذار</span>
-          </h2>
-        </div>
         <div class="flex flex-col items-center justify-center space-y-4">
           <div class="h-44 w-44 rounded-full bg-mainYellow"></div>
           <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
@@ -84,15 +156,32 @@
             <span> موسس و بنیانگذار</span>
           </h2>
         </div>
+        <div class="flex flex-col items-center justify-center space-y-4">
+          <div
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+          >
+            <img
+              src="../../assets/images/AboutUsMagus.webp"
+              class="h-full object-contain transform translate-x-3 translate-y-4 rotate-3"
+              alt=""
+            />
+          </div>
+          <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
+            <span> امیر فاطمی</span>
+          </h2>
+          <h2 class="text-mainRed text-center text-sm lg:text-md flex">
+            <span> موسس و بنیانگذار</span>
+          </h2>
+        </div>
       </div>
     </div>
     <div class="flex items-center justify-start w-full flex-col">
-      <h1 class="text-mainPink text-7xl">راه های</h1>
+      <h1 class="text-mainPink text-4xl">راه های</h1>
       <NuxtLink to="/shop/contactUs">
         <div
-          class="lg:px-24 px-11 cursor-pointer duration-200 ease-in-out text-mainRed hover:text-darkPurple transition hover:bg-mainYellow py-5 lg:py-10 rounded-md border-4 my-9 border-dashed border-mainYellow"
+          class="lg:px-16 px-11 cursor-pointer duration-200 ease-in-out text-mainRed hover:text-darkPurple transition hover:bg-mainYellow py-2 lg:py-5 rounded-md border-4 my-9 border-dashed border-mainYellow"
         >
-          <h2 class="text-5xl">تماس با ما</h2>
+          <h2 class="text-3xl">تماس با ما</h2>
         </div>
       </NuxtLink>
     </div>

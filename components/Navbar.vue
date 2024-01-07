@@ -1,7 +1,7 @@
 <template>
   <div
     ref="Navbar"
-    class="w-screen h-20 flex fixed items-center justify-center lg:px-10 bg-transparent z-50"
+    class="w-screen fixed bg-darkPurple h-20 flex items-center justify-center lg:px-10 z-50"
   >
     <div
       class="items-center justify-start space-x-2 w-full opacity-0 Navbar hidden lg:flex"
@@ -264,18 +264,5 @@ async function logout() {
 onMounted(() => {
   isAuth();
   $gsap.to(".Navbar", { opacity: 1, duration: 1 });
-  $gsap.to(Navbar.value, {
-    backgroundColor: "#150531",
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: ".NavbarTrigger",
-      onEnter: () => {
-        Navbar.value.classList.add("fixed");
-      },
-      start: "top bottom",
-      end: "bottom bottom",
-      toggleActions: "play none none none none",
-    },
-  });
 });
 </script>
