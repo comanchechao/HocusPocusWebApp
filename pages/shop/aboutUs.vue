@@ -167,7 +167,15 @@
           </h2>
         </div>
         <div class="flex flex-col items-center justify-center space-y-4">
-          <div class="h-44 w-44 rounded-full bg-mainYellow"></div>
+          <div
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+          >
+            <img
+              src="../../assets/images/Farokh.webp"
+              class="h-full object-contain transform -rotate-3 -translate-x-3 translate-y-4"
+              alt=""
+            />
+          </div>
           <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
             <span> فرخ فاطمی</span>
           </h2>
