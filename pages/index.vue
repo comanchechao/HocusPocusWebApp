@@ -33,7 +33,7 @@
               alt=""
             />
           </div>
-          <div class="flex items-center absolute justify-center w-textArea">
+          <div class="flex items-center absolute justify-center w-full">
             <img
               src="../assets/images/HocusDownP.webp"
               class="object-contain lg:w-textArea z-10 w-rem21 md:w-rem38 absolute P opacity-0"

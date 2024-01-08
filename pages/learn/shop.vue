@@ -14,7 +14,6 @@
         class="w-full h-full border-mainYellow rounded-sm flex flex-col items-end"
       >
         <LazySortBy class="Sort"></LazySortBy>
-        <LazySearchBar class="Search"></LazySearchBar>
         <div
           class="h-full my-14 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-4 lg:px-14 grid-rows-1 gap-10 justify-items-center"
         >

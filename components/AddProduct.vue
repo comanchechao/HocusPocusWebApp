@@ -180,7 +180,7 @@
           >
           </MultiSelect>
           <MultiSelect
-            :maxSelectedLabels="2"
+            :maxSelectedLabels="1"
             v-model="selectedDesigns"
             :options="designs"
             optionLabel="name"
@@ -190,7 +190,7 @@
           >
           </MultiSelect>
           <MultiSelect
-            :maxSelectedLabels="2"
+            :maxSelectedLabels="1"
             v-model="selectedBrands"
             :options="brands"
             optionLabel="name"
@@ -201,7 +201,7 @@
           </MultiSelect>
 
           <MultiSelect
-            :maxSelectedLabels="2"
+            :maxSelectedLabels="1"
             v-model="selectedCategory"
             :options="categories"
             optionLabel="name"
@@ -210,7 +210,7 @@
             :showToggleAll="false"
           ></MultiSelect>
           <MultiSelect
-            :maxSelectedLabels="2"
+            :maxSelectedLabels="1"
             v-model="selectedTypes"
             :options="types"
             optionLabel="name"
@@ -276,13 +276,6 @@
     <div
       class="w-full h-full flex lg:flex-row flex-col-reverse lg:space-x-5 items-center justify-center lg:justify-end py-12"
     >
-      <div
-        class="flex bg-white space-x-2 divide-x-2 divide-red-400 p-5 justify-center items-center"
-      >
-        <p v-for="item in filterItems" :key="item.name">
-          {{ item.name }}
-        </p>
-      </div>
       <button
         @click="addFilter()"
         class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
@@ -290,6 +283,11 @@
         <span> اضافه کردن فیلتر </span>
         <PhSortAscending weight="fill" :size="23" />
       </button>
+      <div>
+        <Message severity="success" v-show="message2"
+          >به فیلترها اضافه شد</Message
+        >
+      </div>
       <InputText
         placeholder="فیلتر جدید"
         id="fullname"
@@ -303,8 +301,16 @@
         :options="allFilters"
         optionLabel="name"
         placeholder="فیلترها"
-        class="bg-mainBlue"
       />
+    </div>
+    <div class="flex space-x-2 justify-center items-center">
+      <p
+        class="p-2 text-sm bg-white rounded-md"
+        v-for="item in filterItems"
+        :key="item.name"
+      >
+        {{ item.name }}
+      </p>
     </div>
   </div>
 </template>
@@ -320,6 +326,8 @@ import {
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
+
+const message2 = ref(false);
 
 // filter refs
 
@@ -439,12 +447,7 @@ watch(allFilterItems, (cur, old) => {
 //   managementStore.setDesign(current[0].name);
 //   console.log(current[0].name);
 // });
-const filters = ref([
-  { name: "نوع" },
-  { name: "برند" },
-  { name: "دسته  بندی" },
-  { name: "کمیابی" },
-]);
+
 const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
 const rarity = ref([]);
@@ -559,10 +562,6 @@ const uploadImage = async function (image) {
       if (response.data) {
         imageUploadLoading.value = false;
         success.value = true;
-
-        setTimeout(() => {
-          success.value = false;
-        }, 3000);
       }
     })
     .catch((error) => {
@@ -637,7 +636,7 @@ const addFilter = async (userId, username) => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(selectedFilters.value.name);
+      message2.value = true;
       getFilterItems();
       if (selectedFilters.value.name === "نوع") {
         filterItems.value = [];
@@ -722,7 +721,6 @@ onMounted(() => {
 }
 
 .p-icon {
-  color: #d9065a;
   width: 1.4rem;
   height: 1.4rem;
 }
@@ -740,8 +738,6 @@ onMounted(() => {
   font-family: "IranSans";
   border: 4px #090025;
   border-radius: 0rem;
-  background-color: #d9065a;
-  color: #090025;
   padding: 0px 0px;
   flex-direction: row-reverse;
 }
@@ -749,7 +745,6 @@ onMounted(() => {
   font-family: "IranSans";
   border: 4px #090025;
   border-radius: 0rem;
-  background-color: #d9065a;
   color: #090025;
   padding: 0px 0px;
   flex-direction: row-reverse;
@@ -773,7 +768,6 @@ onMounted(() => {
   color: #090025;
 }
 .p-multiselect-label-container {
-  background-color: #d9065a;
   border: 0;
 }
 .p-multiselect-token {

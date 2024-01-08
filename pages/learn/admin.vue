@@ -43,9 +43,9 @@
           </div>
           <div class="flex items-center flex-col space-y-10">
             <div
-              class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg shadow-mainYellow flex p-4 items-center justify-around"
+              class="w-72 h-32 bg-white Stat2 rounded-xl shadow-lg flex p-4 items-center justify-around"
             >
-              <PhVideo class="text-mainYellow" :size="90" weight="fill" />
+              <PhVideo class="text-mainPurple" :size="90" weight="fill" />
               <div class="flex flex-col items-center space-y-3">
                 <h3 class="text-mainBrown text-md">آموزش های موجود</h3>
                 <h1 v-if="!loading" class="text-mainBrown text-5xl font-bold">

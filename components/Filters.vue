@@ -163,9 +163,6 @@ const categories = ref([
   background-color: #150531;
 }
 
-.p-checkbox .p-checkbox-box .p-checkbox-icon {
-  color: #d9065a;
-}
 .p-multiselect .p-multiselect-label.p-placeholder {
   color: #090025;
 }
@@ -173,8 +170,6 @@ const categories = ref([
   font-family: "IranSans";
   border: 4px #090025;
   border-radius: 0rem;
-  background-color: #d9065a;
-  color: #090025;
   padding: 0px 0px;
   flex-direction: row-reverse;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center w-screen">
+  <div class="flex flex-col items-center w-full">
     <div
       class="flex items-end flex-col lg:justify-end justify-around w-full lg:space-x-3"
     >
@@ -9,7 +9,7 @@
     </div>
     <div
       v-show="!isLogged"
-      class="w-screen px-10 h-auto lg:h-14 bg-transparent border-4 text-right py-2 lg:flex-row flex-col border-dashed border-mainPink my-10 rounded-lg flex items-center justify-center"
+      class="w-full px-10 h-auto lg:h-14 bg-transparent border-4 text-right py-2 lg:flex-row flex-col border-dashed border-mainPink my-10 rounded-lg flex items-center justify-center"
     >
       <LazyLogin v-show="!isLogged" />
       <h2 class="text-mainPink text-sm lg:text-xl">

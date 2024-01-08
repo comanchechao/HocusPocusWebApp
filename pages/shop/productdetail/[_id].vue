@@ -155,16 +155,30 @@
             </Message>
           </div>
         </div>
-        <div class="flex items-start lg:w-1/2 w-full h-full flex-col">
+        <div
+          v-if="!loading"
+          class="flex items-start lg:w-1/2 w-full h-full flex-col"
+        >
           <div
-            class="w-full rounded-md lg:h-auto h-full flex items-center mb-7 justify-center"
+            class="w-full rounded-md lg:h-auto h-full flex items-start mb-7 justify-center"
           >
-            <LazyImageGallery :productImages="product.ProductImages" />
+            <ProgressSpinner
+              v-if="loading"
+              class="bg-darkPurple"
+              style="width: 40px; height: 40px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+            <LazyImageGallery
+              v-if="!loading"
+              :productImages="product.ProductImages"
+            />
           </div>
         </div>
       </div>
       <div
-        class="h-full mt-20 Comment w-full mb-11 flex flex-col space-y-4 py-5 items-end"
+        class="h-full mt-20 Comment w-screen px-8 lg:px-32 mb-11 flex flex-col space-y-4 py-5 items-end"
       >
         <LazyComments />
       </div>

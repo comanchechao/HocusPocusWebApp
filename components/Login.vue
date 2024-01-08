@@ -22,7 +22,7 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div class="w-full h-full justify-center flex items-center p-8 flex-col">
+      <div class="w-full h-full justify-center flex items-center px-8 flex-col">
         <!-- <h2 class="text-6xl neonText">ورود</h2> -->
         <div
           dir="rtl"
@@ -32,7 +32,7 @@
             class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
             <div class="label">
-              <span class="text-xl text-mainRed">نام کاربری</span>
+              <span class="text-md text-mainYellow">نام کاربری</span>
             </div>
             <input
               id="username"
@@ -42,7 +42,7 @@
               class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
-              <small class="text-sm text-mainViolet" id="username-help"
+              <small class="text-xs text-mainViolet" id="username-help"
                 >نام کاربری خودتون رو وارد کنید</small
               >
             </div>
@@ -51,7 +51,7 @@
             class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
             <div class="label">
-              <span class="text-xl text-mainRed">ایمیل</span>
+              <span class="text-md text-mainYellow">ایمیل</span>
             </div>
             <input
               id="email"
@@ -61,7 +61,7 @@
               class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
-              <small class="text-sm text-mainViolet" id="username-help"
+              <small class="text-xs text-mainViolet" id="username-help"
                 >ایمیل خودتون رو وارد کنید</small
               >
             </div>
@@ -70,7 +70,7 @@
             class="form-control w-full flex items-start space-y-2 flex-col max-w-xs"
           >
             <div class="label">
-              <span class="text-xl text-mainRed">رمز عبور</span>
+              <span class="text-md text-mainYellow">رمز عبور</span>
             </div>
             <input
               id="password"
@@ -80,7 +80,7 @@
               class="input input-xl p-4 rounded-md input-bordered w-full max-w-xs"
             />
             <div class="label">
-              <small class="text-sm text-mainViolet" id="username-help"
+              <small class="text-xs text-mainViolet" id="username-help"
                 >رمز عبور خودتون رو وارد کنید</small
               >
             </div>

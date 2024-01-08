@@ -3,10 +3,10 @@
     class="flex justify-center border-2 border-mainYellow border-dashed rounded-md w-full my-8"
   >
     <div
-      class="w-full h-full pt-10 pt flex items-end flex-col lg:p-10 space-y-10"
+      class="w-full h-full pt-10 pt flex items-end flex-col px-5 lg:p-10 space-y-10"
     >
       <h2
-        class="lg:text-4xl text-xl font-bold text-mainYellow border-b-8 border-mainRed rounded-xl pb-3"
+        class="lg:text-2xl text-xl font-bold text-mainYellow border-b-8 border-mainRed rounded-xl pb-3"
       >
         اضافه کردن آموزش
       </h2>
@@ -16,7 +16,7 @@
           class="flex lg:flex-row flex-col items-center lg:space-y-0 space-y-7 lg:space-x-10"
         >
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainYellow" for="email"
+            <label class="text-md text-mainYellow" for="email"
               >قیمت اشتراک <span class="text-sm">(به تومان)</span></label
             >
             <InputNumber
@@ -27,7 +27,7 @@
             />
           </div>
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainYellow" for="title"
+            <label class="text-md text-mainYellow" for="title"
               >عنوان ویدیو</label
             >
             <InputText
@@ -42,7 +42,7 @@
           class="flex lg:flex-row flex-col items-center lg:space-y-0 space-y-7 lg:space-x-10"
         >
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainYellow" for="trainer"
+            <label class="text-md text-mainYellow" for="trainer"
               >نام مدرس</label
             >
             <InputText
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-2xl text-mainYellow" for="description"
+          <label class="text-md text-mainYellow" for="description"
             >توضیحات ویدیو
           </label>
           <Textarea
@@ -65,7 +65,7 @@
             cols="90"
           />
         </div>
-        <h2 class="text-mainYellow text-3xl">آپلود تصاویر ویدیو</h2>
+        <h2 class="text-mainYellow text-xl">آپلود تصاویر ویدیو</h2>
         <div
           class="w-full h-full lg:flex items-center grid grid-cols-2 grid-rows-2 justify-items-center px-7 place-items-center gap-3 lg:space-x-0 lg:justify-center lg:flex-wrap"
         >
@@ -135,10 +135,10 @@
               >{{ error }}</Message
             >
           </div>
-          <div class="flex flex-col items-center justify-center">
+          <div class="flex space-x-3 items-center justify-center">
             <label
               for="videoFile"
-              class="text-xl cursor-pointer flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+              class="lg:text-md text-sm cursor-pointer flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> آپلود ویدیو آموزش </span>
               <PhPlus weight="fill" :size="23" />
@@ -156,7 +156,7 @@
             <button
               for="videoFile"
               @click="handleCourse()"
-              class="text-xl flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
+              class="lg:text-md text-sm flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> اضافه کردن آموزش </span>
               <PhVideo weight="fill" :size="23" />
@@ -281,9 +281,6 @@ const handleCourse = async () => {
         uploadImage(image);
       });
       success.value = true;
-      setTimeout(() => {
-        success.value = false;
-      }, 3000);
     })
     .catch((error) => {
       faild.value = true;

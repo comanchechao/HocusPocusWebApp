@@ -2,20 +2,20 @@
   <div class="">
     <Sidebar position="right" v-model:visible="visible">
       <div
-        class="h-full w-full bg-darkPurple flex flex-col items-center justify-start space-y-5 px-20"
+        class="h-full w-full bg-darkPurple pt-8 flex flex-col items-center justify-start space-y-5 px-20"
       >
-        <img
+        <!-- <img
           src="../assets/images/MagicianLogo.webp"
-          class="object-contain w-20"
+          class="object-contain w-10 mt-4 self-end"
           alt=""
-        />
+        /> -->
         <NuxtLink class="w-full" to="/">
           <button
             :class="{
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
+              'text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
+              'text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
             class=""
@@ -31,7 +31,7 @@
           to="/shop/profile"
         >
           <button
-            class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+            class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           >
             <span> پروفایل </span>
             <PhAlien weight="fill" :size="23" />
@@ -44,7 +44,7 @@
           to="/learn/profile"
         >
           <button
-            class="text-xl flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+            class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
           >
             <span> پروفایل </span>
             <PhAlien weight="fill" :size="23" />
@@ -57,7 +57,7 @@
           to="/shop/admin"
         >
           <button
-            class="text-xl flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
+            class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-darkPurple text-darkPurple"
           >
             <span> مدیریت </span>
             <PhCoffee weight="fill" :size="23" />
@@ -70,7 +70,7 @@
           to="/learn/admin"
         >
           <button
-            class="text-xl flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
+            class="text-lg flex active:text-mainYellow active:bg-darkPurple items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainBrown text-mainBrown"
           >
             <span> مدیریت </span>
             <PhCoffee weight="fill" :size="23" />
@@ -83,7 +83,7 @@
           to="/shop/shop?page=1"
         >
           <button
-            class="text-xl border-dashed active:text-darkPurple active:bg-mainViolet flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
+            class="text-lg border-dashed active:text-darkPurple active:bg-mainViolet flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainRed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
           >
             <span> خرید </span> <PhStorefront :size="23" />
           </button>
@@ -94,14 +94,14 @@
           to="/learn/shop"
         >
           <button
-            class="text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+            class="text-lg border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
           >
             <span> خرید </span> <PhStorefront :size="23" />
           </button>
         </NuxtLink>
         <NuxtLink class="w-full" to="/learn/learn">
           <button
-            class="text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
+            class="text-lg border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow"
           >
             <span> آموزش </span>
             <PhCube :size="23" />
@@ -110,10 +110,10 @@
         <NuxtLink class="w-full" to="/shop/rules">
           <button
             :class="{
-              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+              'text-lg border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+              'text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
@@ -123,10 +123,10 @@
         <NuxtLink class="w-full" to="/shop/contactUs">
           <button
             :class="{
-              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+              'text-lg border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+              'text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
@@ -136,10 +136,10 @@
         <NuxtLink class="w-full" to="/shop/aboutUs">
           <button
             :class="{
-              'text-xl border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+              'text-lg border-dashed active:text-darkPurple active:bg-mainOrange flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainYellow hover:border-mainOrange rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
                 $route.path === '/learn/learn' ||
                 $route.path.startsWith('/learn/'),
-              'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+              'text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 w-full justify-center py-2   transition duration-150 ease-in-out border-2 border-mainViolet border-dashed hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
                 $route.path === '/' || $route.path.startsWith('/shop/'),
             }"
           >
@@ -151,9 +151,9 @@
     </Sidebar>
     <button
       :class="{
-        'text-xl active:text-mainBrown active:bg-mainYellow flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
+        'text-lg active:text-mainBrown active:bg-mainYellow flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainOrange hover:text-mainOrange text-mainYellow':
           $route.path === '/learn/learn' || $route.path.startsWith('/learn/'),
-        'text-xl active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
+        'text-lg active:text-darkPurple active:bg-mainRed flex items-center space-x-2 px-3 py-2 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainViolet rounded-sm shadow-md shadow-transparent hover:shadow-mainViolet hover:text-mainViolet text-mainRed':
           $route.path === '/' || $route.path.startsWith('/shop/'),
       }"
       @click="visible = true"
@@ -189,6 +189,6 @@ const visible = ref(false);
   padding: 0;
 }
 .p-sidebar .p-sidebar-header {
-  background-color: #150531;
+  background-color: #090025;
 }
 </style>

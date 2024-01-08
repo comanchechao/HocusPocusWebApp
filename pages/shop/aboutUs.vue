@@ -146,17 +146,9 @@
         <span> پرسنل فروشگاه </span>
       </h2>
       <div
+        dir="rtl"
         class="w-full h-auto flex items-center md:flex-row lg:flex-row flex-col lg:space-y-0 md:space-y-0 space-y-9 justify-around"
       >
-        <div class="flex flex-col items-center justify-center space-y-4">
-          <div class="h-44 w-44 rounded-full bg-mainYellow"></div>
-          <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
-            <span> فرخ فاطمی</span>
-          </h2>
-          <h2 class="text-mainRed text-center text-sm lg:text-md flex">
-            <span> موسس و بنیانگذار</span>
-          </h2>
-        </div>
         <div class="flex flex-col items-center justify-center space-y-4">
           <div
             class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
@@ -169,6 +161,15 @@
           </div>
           <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
             <span> امیر فاطمی</span>
+          </h2>
+          <h2 class="text-mainRed text-center text-sm lg:text-md flex">
+            <span> موسس و بنیانگذار</span>
+          </h2>
+        </div>
+        <div class="flex flex-col items-center justify-center space-y-4">
+          <div class="h-44 w-44 rounded-full bg-mainYellow"></div>
+          <h2 class="text-mainRed text-center text-xl lg:text-2xl flex">
+            <span> فرخ فاطمی</span>
           </h2>
           <h2 class="text-mainRed text-center text-sm lg:text-md flex">
             <span> موسس و بنیانگذار</span>
