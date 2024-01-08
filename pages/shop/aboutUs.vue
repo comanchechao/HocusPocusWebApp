@@ -47,7 +47,7 @@
         <span> ما رو بیشتر بشناسید </span>
       </h2>
       <div
-        class="lg:h-full h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-4 items-center justify-center lg:space-x-4 w-screen"
+        class="lg:h-full h-auto md:grid-cols-2 grid-cols-1 grid lg:grid-cols-4 place-items-center gap-5 w-screen"
       >
         <img
           src="../../assets/images/AUPic1.webp"
@@ -67,6 +67,11 @@
         <img
           src="../../assets/images/AUPic4.webp"
           class="w-96 object-contain"
+          alt=""
+        />
+        <img
+          src="../../assets/images/AUPic5.webp"
+          class="w-96 object-contain lg:col-span-4"
           alt=""
         />
       </div>

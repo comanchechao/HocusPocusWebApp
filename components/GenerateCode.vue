@@ -2,12 +2,14 @@
   <div
     class="w-full h-rem28 overflow-y-scroll bg-white flex flex-col rounded-md text-xs lg:text-lg"
   >
-    <div class="flex justify-around bg-darkPurple m-5 text-white p-5">
+    <div
+      class="flex justify-around lg:flex-row md:flex-row flex-col bg-darkPurple rounded-md m-5 text-white p-2 lg:p-5"
+    >
       <div
-        class="flex rounded font-4xl items-center font-bold justify-around space-y-2 flex-col text-darkPurple p-3 w-full"
+        class="flex text-lg items-center justify-around space-y-2 flex-col text-darkPurple p-3 w-full"
       >
         <input
-          class="p-3 w-1/2 text-right"
+          class="p-3 lg:w-1/2 w-full text-right text-sm"
           placeholder="کد تخفیف را تولید کنید"
           type="text"
           v-model="code"
@@ -16,11 +18,11 @@
           placeholder="درصد کد تخفیف"
           v-model="perc"
           mask="99"
-          class="w-1/2 bg-white rounded-lg h-11"
+          class="lg:w-1/2 w-full bg-white rounded-lg text-sm h-11"
           aria-describedby="username-help"
         />
       </div>
-      <div class="flex w-full justify-around p-3">
+      <div class="flex w-full items-center justify-around p-3">
         <button
           @click="submitCode"
           v-show="code"
@@ -29,7 +31,7 @@
           ثبت
         </button>
         <button
-          class="hover:bg-blue-500 bg-blue-800 p2 px-5"
+          class="text-sm flex h-10 items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
           @click="generateRandomNumber"
         >
           دریافت کد

@@ -82,7 +82,7 @@
       </div>
       <div
         id="Stat2"
-        class="flex Store items-center lg:flex-row md:flex-row md:space-y-0 md:space-x-4 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
+        class="flex Store items-center lg:flex-row md:flex-col md:space-y-5 md:space-x-0 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
         <LazySoldDialog class="Stat2" :products="products" />
         <LazyInStockDialog class="Stat2" :products="products" />
@@ -97,7 +97,7 @@
         class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <h2
-          class="lg:text-4xl text-xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl font-bold text-mainRed border-b-8 border-mainYellow rounded-md pb-1"
         >
           سفارش ها
         </h2>
@@ -107,7 +107,7 @@
         class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <h2
-          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-md pb-1"
         >
           مدیریت صفحه ی اول
         </h2>
@@ -118,7 +118,7 @@
         class="w-full mt-10 lg:mt-24 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <h2
-          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-md pb-1"
         >
           دریافت کد تخفیف
         </h2>
@@ -132,7 +132,7 @@
           <InputSwitch v-model="mode"></InputSwitch>
         </div>
         <h2
-          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          class="lg:text-4xl text-xl text-mainRed border-b-8 border-mainYellow rounded-md pb-1"
         >
           پنهان کردن محصولات
         </h2>

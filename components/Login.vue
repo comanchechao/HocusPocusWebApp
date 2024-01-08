@@ -22,7 +22,9 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
-      <div class="w-full h-full justify-center flex items-center px-8 flex-col">
+      <div
+        class="w-full h-full justify-center flex items-center py-3 px-8 flex-col"
+      >
         <!-- <h2 class="text-6xl neonText">ورود</h2> -->
         <div
           dir="rtl"
