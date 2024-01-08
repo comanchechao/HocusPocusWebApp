@@ -190,7 +190,7 @@
         </div>
         <div
           class="w-full LazyCard h-full grid lg:grid-cols-4 gap-6 md:grid-cols-2 grid-cols-1"
-          v-show="searchOn === false || filtersOn === false"
+          v-show="searchOn === false"
         >
           <LazyCard
             v-for="product in products"
@@ -425,13 +425,11 @@ watch(selectedBrands, (cur, old) => {
 watch(selectedTypes, (cur, old) => {
   if (cur.length > 0) {
     filtersOn.value = true;
+    const filtered = allProducts.value.filter((product: any) =>
+      selectedTypes.value.some((type: any) => type.name === product.type)
+    );
+    products.value = filtered;
   }
-  const filtered = allProducts.value.filter((product: any) =>
-    selectedTypes.value.some((type: any) => type.name === product.type)
-  );
-  products.value = filtered;
-  console.log(products.value);
-  console.log(allProducts.value);
 });
 
 watch(selectedBrands, (cur, old) => {
@@ -477,6 +475,7 @@ watch(selectedDesigns, (cur, old) => {
 const clearFilters = function () {
   searchOn.value = false;
   products.value = allProducts.value;
+  selectedTypes.value = [];
 };
 
 // watch(
