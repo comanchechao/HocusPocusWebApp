@@ -17,7 +17,7 @@
         class="h-40 my-3 object-contain lg:px-0 px-3 Stat1 opacity-0"
         alt=""
       />
-      <h2 class="text-2xl text-mainYellow">
+      <h2 class="text-2xl px-6 text-center text-mainYellow">
         <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
       </h2>
     </div>
