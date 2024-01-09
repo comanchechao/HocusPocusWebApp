@@ -156,7 +156,7 @@
       >
         <div class="flex flex-col items-center justify-center space-y-4">
           <div
-            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainRed"
           >
             <img
               src="../../assets/images/AboutUsMagus.webp"
@@ -173,7 +173,7 @@
         </div>
         <div class="flex flex-col items-center justify-center space-y-4">
           <div
-            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainRed"
           >
             <img
               src="../../assets/images/Farokh.webp"
