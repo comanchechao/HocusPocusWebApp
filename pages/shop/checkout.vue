@@ -43,8 +43,7 @@
           </div>
           <NuxtLink class="w-full flex items-center justify-center">
             <button
-              v-show="isLogged"
-              @click="getUser()"
+              @click="togateway()"
               class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
             >
               <span> تایید و ادامه به درگاه بانکی </span>
@@ -159,6 +158,43 @@ import { storeToRefs } from "pinia";
 import { useCheckoutStore } from "../../stores/checkoutStore";
 import { useProductStore } from "../../stores/productStore";
 import { useUserStore } from "~/stores/user";
+const runtimeConfig = useRuntimeConfig();
+
+// checkout function
+
+// const checkoutFunc = async function () {
+//   await $fetch("http://localhost:3333/auth/payment", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/x-www-form-urlencoded",
+//     },
+//     credentials: "include",
+
+//     withCredentials: true,
+//   })
+//     .then(async (response, error) => {
+//       togateway(response.data.authority);
+//     })
+//     .catch((error) => {});
+// };
+
+const togateway = async function (authority) {
+  const data = new URLSearchParams({
+    authority: authority,
+  });
+  await $fetch(`http://localhost:3333/products/redirect`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  })
+    .then(async (response, error) => {
+      console.log(response);
+    })
+    .catch((error) => {});
+};
 
 // register user store
 
@@ -277,7 +313,8 @@ const getUser = async () => {
   })
     .then(function (response) {
       userId.value = response.userId;
-      submitOrder(response.userId);
+      checkoutFunc();
+      // submitOrder(response.userId);
     })
     .catch(function (error) {
       userStore.setNotLogged();
