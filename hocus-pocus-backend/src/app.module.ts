@@ -21,7 +21,6 @@ import { FiltersModule } from './filters/filters.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    CacheModule.register(),
     PassportModule,
     UserModule,
     AuthModule,
@@ -36,12 +35,6 @@ import { FiltersModule } from './filters/filters.module';
     FiltersModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
-    },
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

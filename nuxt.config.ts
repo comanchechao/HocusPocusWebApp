@@ -19,10 +19,16 @@ export default defineNuxtConfig({
   build: {
     transpile: ["primevue"],
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+  runtimeConfig: {
+    public: {
+      VITE_MERCHANT_ID: process.env.VITE_MERCHANT_ID,
     },
   },
 });
