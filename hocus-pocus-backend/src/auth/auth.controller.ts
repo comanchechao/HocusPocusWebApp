@@ -41,7 +41,7 @@ export class AuthController {
   async makePaymentRequest(@Res({ passthrough: true }) res: Response) {
     const data = JSON.stringify({
       merchant_id: process.env.MERCHANT_ID,
-      amount: '20100',
+      amount: '50100',
       callback_url: 'https://hocuspocusmagicstore.com/',
       description: 'Transaction description.',
       metadata: {
@@ -63,8 +63,8 @@ export class AuthController {
     try {
       const response = await axios(config);
       console.log(response.data);
-      const url = `https://www.zarinpal.com/pg/StartPay/${response.data.data.authority}`;
-      res.redirect(url);
+      // const url = `https://www.zarinpal.com/pg/StartPay/${response.data.data.authority}`;
+      res.json(response.data);
     } catch (error) {
       console.log(error);
     }

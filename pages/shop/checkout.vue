@@ -162,6 +162,8 @@ const runtimeConfig = useRuntimeConfig();
 
 // checkout function
 
+const auth = ref();
+
 const checkoutFunc = async function () {
   await $fetch("http://localhost:3333/auth/payment", {
     method: "POST",
@@ -172,9 +174,23 @@ const checkoutFunc = async function () {
 
     withCredentials: true,
   })
-    .then(async (response, error) => {})
+    .then(async (response, error) => {
+      console.log(response.data.authority);
+      auth.value = response.data.authority;
+    })
     .catch((error) => {});
 };
+
+watch(auth, (cur, old) => {
+  openNewTab(`https://www.zarinpal.com/pg/StartPay/${cur}`);
+});
+
+function openNewTab(url) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.click();
+}
 
 const togateway = async function (authority) {
   const data = new URLSearchParams({
