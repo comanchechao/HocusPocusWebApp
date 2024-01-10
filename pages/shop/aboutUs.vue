@@ -19,7 +19,7 @@
       />
     </div>
     <div
-      class="lg:h-dialog h-auto pt-44 lg:pb-28 lg:pt-48 w-full relative flex mt-24 items-end lg:items-center justify-center lg:px-44 px-10 lg:my-24"
+      class="lg:h-dialog md:h-dialog h-auto md:pt-44 pt-44 lg:pb-28 lg:pt-32 w-full relative flex mt-24 items-end lg:items-center justify-center lg:px-44 px-10 lg:my-24"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
@@ -47,7 +47,7 @@
         <span> ما رو بیشتر بشناسید </span>
       </h2>
       <div
-        class="lg:h-full h-auto md:grid-cols-2 grid-cols-1 grid lg:grid-cols-4 place-items-center gap-5 w-screen"
+        class="lg:h-full h-auto md:grid-cols-3 grid-cols-1 grid lg:grid-cols-4 place-items-center gap-5 w-screen"
       >
         <img
           src="../../assets/images/AUPic1.webp"
@@ -156,7 +156,7 @@
       >
         <div class="flex flex-col items-center justify-center space-y-4">
           <div
-            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainRed"
           >
             <img
               src="../../assets/images/AboutUsMagus.webp"
@@ -173,7 +173,7 @@
         </div>
         <div class="flex flex-col items-center justify-center space-y-4">
           <div
-            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainYellow"
+            class="h-44 w-44 p-3 overflow-hidden flex items-center justify-center rounded-full bg-mainRed"
           >
             <img
               src="../../assets/images/Farokh.webp"

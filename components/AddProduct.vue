@@ -303,7 +303,7 @@
         placeholder="فیلترها"
       />
     </div>
-    <div class="flex space-x-2 justify-center items-center">
+    <div class="flex flex-wrap space-y-4 space-x-2 justify-center items-center">
       <p
         class="p-2 text-sm bg-white rounded-md"
         v-for="item in filterItems"

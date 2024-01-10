@@ -15,14 +15,13 @@
       :showHeader="true"
       :style="{ width: '50vw', backgroundColor: '#150531', height: 'auto' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
-        class="h-full w-full flex flex-col space-y-4 items-center justify-center p-3"
+        class="h-full w-full flex flex-col space-y-4 items-center justify-center p-3 bg-mainWhite"
       >
         <div class="flex items-center justify-center w-full h-full p-2">
           <div
-            class="w-full h-full grid grid-cols-2 place-items-center gap-3 text-mainWhite"
+            class="w-full h-full grid grid-cols-2 place-items-center gap-3 text-darkPurple"
           >
             <div
               v-for="product in products"
@@ -30,93 +29,93 @@
               class="flex items-center justify-end space-x-2 w-full col-span-2"
             >
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ product.quantity }}
               </h2>
-              <h2 class="text-md">تعداد کالا</h2>
+              <h2 class="lg:text-md md:text-md text-sm">تعداد کالا</h2>
               <h2
                 class="text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ product.product.title }}
               </h2>
-              <h2 class="text-md">نام کالا</h2>
+              <h2 class="lg:text-md md:text-md text-sm">نام کالا</h2>
             </div>
             <div
               class="flex items-center justify-end space-x-2 w-full col-span-2"
             >
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md text-right"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md text-right"
               >
                 {{ order.adderss }}
               </h2>
-              <h2 class="text-md">آدرس</h2>
+              <h2 class="lg:text-md md:text-md text-sm">آدرس</h2>
             </div>
 
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ order.phone_number }}
               </h2>
-              <h2 class="text-md">شماره تلفن</h2>
+              <h2 class="lg:text-md md:text-md text-sm">شماره تلفن</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ order.fullname }}
               </h2>
-              <h2 class="text-md">نام خریدار</h2>
+              <h2 class="lg:text-md md:text-md text-sm">نام خریدار</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ order.city }}
               </h2>
-              <h2 class="text-md">شهر</h2>
+              <h2 class="lg:text-md md:text-md text-sm">شهر</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ order.province }}
               </h2>
-              <h2 class="text-md">استان</h2>
+              <h2 class="lg:text-md md:text-md text-sm">استان</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 دوشنبه 19 تیر 1402
               </h2>
-              <h2 class="text-md">تاریخ خرید</h2>
+              <h2 class="lg:text-md md:text-md text-sm">تاریخ خرید</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 پرداخت شده
               </h2>
-              <h2 class="text-md">وضعیت سفارش</h2>
+              <h2 class="lg:text-md md:text-md text-sm">وضعیت سفارش</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 space-x-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 space-x-2 border-dashed border-mainPink rounded-md"
               >
                 <span>(تومان)</span>
                 <span> {{ order.totalPrice }} </span>
               </h2>
-              <h2 class="text-md">مجموع قیمت</h2>
+              <h2 class="lg:text-md md:text-md text-sm">مجموع قیمت</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
-                class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 {{ products.length }}
               </h2>
-              <h2 class="text-md">تعداد کالا</h2>
+              <h2 class="lg:text-md md:text-md text-sm">تعداد کالا</h2>
             </div>
           </div>
         </div>
@@ -206,6 +205,6 @@ const checked = ref(false);
 
 <style>
 .p-dialog .p-dialog-header {
-  background-color: #150531;
+  background-color: #f9f9fa;
 }
 </style>
