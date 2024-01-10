@@ -33,11 +33,7 @@ export class ProductsController {
 
   @Get('redirect')
   redirect(@Res() res: Response) {
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-    );
-    res.redirect('https://hocuspocusmagicstore.com');
+    res.redirect('https://hocuspocusmagicstore.com/');
   }
 
   @Get('latest')
