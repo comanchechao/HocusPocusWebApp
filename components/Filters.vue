@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lg:flex grid grid-flow-row-dense md:grid-flow-row md:grid-cols-4 grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-end lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+    class="flex md:grid-flow-row md:grid-cols-4 lg:px-0 px-4 md:place-items-center md:justify-items-center md:gap-5 items-center lg:justify-end space-x-3 flex-wrap lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
   >
     <h3
       @click="clearFilters()"

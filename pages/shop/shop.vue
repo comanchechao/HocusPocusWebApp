@@ -26,20 +26,22 @@
         <LazySortBy class="Sort"></LazySortBy>
         <div
           dir="rtl"
-          class="lg:flex Filter grid grid-flow-row-dense md:grid-flow-row md:grid-cols-4 grid-cols-2 lg:px-0 px-4 place-items-center justify-items-center gap-5 lg:items-center lg:justify-start lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
+          class="flex Filter md:grid-flow-row space-y-5 md:grid-cols-4 lg:px-0 px-4 md:place-items-center md:justify-items-center md:gap-5 items-center lg:justify-start space-x-3 flex-wrap lg:space-x-6 w-full lg:w-full h-full lg:h-full py-5 border-t-2 border-mainRed"
         >
-          <h3
-            @click="clearFilters()"
-            class="lg:text-md cursor-pointer px-2 text-xs lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
-          >
-            پاک کردن فیلتر ها
-          </h3>
-
-          <div dir="ltr" class="flex items-center space-x-3">
-            <InputSwitch v-model="checked"></InputSwitch>
-            <h3 class="lg:text-lg text-sm text-center text-mainRed">
-              موجودی کالا
+          <div class="flex items-center lg:justify-start justify-around w-full">
+            <h3
+              @click="clearFilters()"
+              class="lg:text-md lg:mx-4 cursor-pointer px-2 text-xs lg:px-4 py-1 border-2 border-mainRed rounded-full transition ease-in duration-200 hover:bg-mainRed hover:text-darkPurple text-mainRed"
+            >
+              پاک کردن فیلتر ها
             </h3>
+
+            <div dir="ltr" class="flex items-center space-x-3">
+              <InputSwitch v-model="checked"></InputSwitch>
+              <h3 class="lg:text-lg text-sm text-center text-mainRed">
+                موجودی کالا
+              </h3>
+            </div>
           </div>
           <MultiSelect
             :maxSelectedLabels="1"
