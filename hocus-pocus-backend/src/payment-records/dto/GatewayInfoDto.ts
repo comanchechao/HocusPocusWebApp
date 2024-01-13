@@ -8,4 +8,12 @@ export class GatewayInfoDto {
   description: string;
 
   amount: string;
+
+  userId: string;
+
+  orderId: string;
+
+  authority: string;
+
+  status: string;
 }

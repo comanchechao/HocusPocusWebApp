@@ -169,6 +169,8 @@ const checkoutFunc = async function () {
   const data = new URLSearchParams({
     amount: cartTotalPrice.value,
     phoneNumber: phoneNumber.value,
+    orderId: submitedOrdersId.value,
+    userId: userId.value,
   });
   await $fetch("http://localhost:3333/payment-records/togateway", {
     method: "POST",

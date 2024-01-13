@@ -14,7 +14,7 @@ export class PaymentRecordsService {
         status: dto.status,
         phone_number: dto.phone_number,
         order_id: Number(dto.orderId),
-        authority: Number(dto.authority),
+        authority: dto.authority,
       },
     });
   }
