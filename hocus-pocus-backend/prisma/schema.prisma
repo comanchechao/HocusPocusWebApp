@@ -115,6 +115,7 @@ model Orders {
   fullname              String?
   region                String?
   postal_code           String?
+  payment               Boolean      @default(false)
   user_id               Int
   user                  User         @relation(fields: [user_id], references: [id])
   orderItems            orderItems[]
@@ -204,6 +205,7 @@ model PaymentRecords {
   updated_at   DateTime @updatedAt
   amount       String
   user_id      Int
+  order_id     Int
   status       String
   phone_number String
 }

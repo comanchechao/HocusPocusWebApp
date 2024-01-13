@@ -13,6 +13,7 @@ export class PaymentRecordsService {
         user_id: Number(dto.userId),
         status: dto.status,
         phone_number: dto.phone_number,
+        order_id: Number(dto.orderId),
       },
     });
   }

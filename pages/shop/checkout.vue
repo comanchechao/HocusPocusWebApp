@@ -43,7 +43,8 @@
           </div>
           <NuxtLink class="w-full flex items-center justify-center">
             <button
-              @click="checkoutFunc()"
+              v-show="isLogged"
+              @click="getUser()"
               class="lg:text-lg justify-center text-sm flex items-center bg-darkPurple space-x-2 w-96 self-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-mainViolet hover:text-mainViolet text-mainRed"
             >
               <span> تایید و ادامه به درگاه بانکی </span>
@@ -165,13 +166,17 @@ const runtimeConfig = useRuntimeConfig();
 const auth = ref();
 
 const checkoutFunc = async function () {
-  await $fetch("http://localhost:3333/auth/payment", {
+  const data = new URLSearchParams({
+    amount: cartTotalPrice.value,
+    phoneNumber: phoneNumber.value,
+  });
+  await $fetch("http://localhost:3333/payment-records/togateway", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     credentials: "include",
-
+    body: data,
     withCredentials: true,
   })
     .then(async (response, error) => {
@@ -307,6 +312,7 @@ const submitOrder = async (userId) => {
         if (response.order) {
           submitedOrdersId.value = response.order.id;
           orderItems();
+          checkoutFunc();
         }
       })
       .catch((error) => {});
@@ -332,8 +338,7 @@ const getUser = async () => {
   })
     .then(function (response) {
       userId.value = response.userId;
-      checkoutFunc();
-      // submitOrder(response.userId);
+      submitOrder(response.userId);
     })
     .catch(function (error) {
       userStore.setNotLogged();
@@ -364,9 +369,7 @@ const orderItems = async () => {
     body: data,
     withCredentials: true,
   })
-    .then((response, error) => {
-      router.push("/shop/purchaseSuccess");
-    })
+    .then((response, error) => {})
     .catch((error) => {
       console.log(error);
     });
