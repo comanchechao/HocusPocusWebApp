@@ -6,15 +6,15 @@ import { PaymentRecordsDto } from './dto/PaymentRecordsDto';
 export class PaymentRecordsService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async addRecord(dto: PaymentRecordsDto) {
+  async addRecord(body: any, authCode: string) {
     const record = await this.prismaService.paymentRecords.create({
       data: {
-        amount: dto.amount,
-        user_id: Number(dto.userId),
-        status: dto.status,
-        phone_number: dto.phone_number,
-        order_id: Number(dto.orderId),
-        authority: dto.authority,
+        amount: body.amount,
+        user_id: Number(body.userId),
+        status: 'not paid',
+        phone_number: body.phoneNumber,
+        order_id: Number(body.orderId),
+        authority: authCode,
       },
     });
   }

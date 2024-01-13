@@ -3,7 +3,7 @@
 export class GatewayInfoDto {
   email: string;
 
-  phone_number: string;
+  phoneNumber: string;
 
   description: string;
 

@@ -20,11 +20,18 @@ export class PaymentRecordsController {
       callback_url: 'https://hocuspocusmagicstore.com/',
       description: 'Transaction description.',
       metadata: {
-        mobile: dto.phone_number,
+        mobile: dto.phoneNumber,
         email: dto.email,
       },
     });
 
+    const body = JSON.stringify({
+      email: dto.email,
+      amount: dto.amount,
+      phoneNumber: dto.phoneNumber,
+      userId: dto.userId,
+      orderId: dto.orderId,
+    });
     const config = {
       url: 'https://api.zarinpal.com/pg/v4/payment/request.json',
       method: 'post',
@@ -36,18 +43,21 @@ export class PaymentRecordsController {
     };
 
     try {
+      let authCode = '';
       const response = await axios(config);
       console.log(response.data);
       // const url = `https://www.zarinpal.com/pg/StartPay/${response.data.data.authority}`;
       res.json(response.data);
+      authCode = response.data.data.authority;
+      this.addrecord(body, authCode);
     } catch (error) {
       console.log(error);
     }
   }
 
   @Post('/addrecord')
-  addrecord(@Body() dto: PaymentRecordsDto) {
-    return this.paymentRecordsServices.addRecord(dto);
+  addrecord(body, authCode: string) {
+    return this.paymentRecordsServices.addRecord(body, authCode);
   }
 
   @Post('/updateorder')
