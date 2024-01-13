@@ -5,6 +5,8 @@ export class PaymentRecordsDto {
 
   orderId: string;
 
+  authority: string;
+
   phone_number: string;
 
   description: string;

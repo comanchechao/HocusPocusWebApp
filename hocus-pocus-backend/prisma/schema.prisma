@@ -203,6 +203,7 @@ model PaymentRecords {
   id           Int      @id @default(autoincrement())
   created_at   DateTime @default(now())
   updated_at   DateTime @updatedAt
+  authority    String   @unique
   amount       String
   user_id      Int
   order_id     Int

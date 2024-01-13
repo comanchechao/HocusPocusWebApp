@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 import { PaymentRecordsService } from './payment-records.service';
 import { PaymentRecordsDto } from './dto/PaymentRecordsDto';
 import { Response } from 'express';
@@ -48,6 +48,11 @@ export class PaymentRecordsController {
   @Post('/addrecord')
   addrecord(@Body() dto: PaymentRecordsDto) {
     return this.paymentRecordsServices.addRecord(dto);
+  }
+
+  @Post('/updateorder')
+  updateOrder(@Param('id') id: string) {
+    return this.paymentRecordsServices.updateOrder(id);
   }
 
   @Get('/management/getrecords')

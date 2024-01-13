@@ -14,6 +14,18 @@ export class PaymentRecordsService {
         status: dto.status,
         phone_number: dto.phone_number,
         order_id: Number(dto.orderId),
+        authority: Number(dto.authority),
+      },
+    });
+  }
+
+  async updateOrder(id: string) {
+    const order = await this.prismaService.orders.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        payment: true,
       },
     });
   }
