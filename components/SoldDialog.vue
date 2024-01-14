@@ -39,10 +39,11 @@
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
           </div>
 
-          <LazySoldCard /> <LazySoldCard />
-          <LazySoldCard />
-          <LazySoldCard />
-          <LazySoldCard /> <LazySoldCard />
+          <LazySoldCard
+            v-for="record in records"
+            :key="record.id"
+            :record="record"
+          />
         </div>
       </div>
     </Dialog>
@@ -52,6 +53,7 @@
 <script setup>
 import { ref } from "vue";
 import { PhMoney } from "@phosphor-icons/vue";
+const props = defineProps(["records"]);
 const visible = ref(false);
 </script>
 

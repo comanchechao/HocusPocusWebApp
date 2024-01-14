@@ -10,13 +10,14 @@
       دوشنبه 24 تیر 1402
     </h3>
     <h3 class="text-darkPurple md:text-sm lg:text-sm text-xs text-center px-2">
-      Joker and the Thief: Blood Red Edition Playing Cards
+      {{ record.name }}
     </h3>
   </div>
 </template>
 
 <script setup>
 import { PhTrash } from "@phosphor-icons/vue";
+const props = defineProps(["record"]);
 </script>
 
 <style lang="scss" scoped></style>

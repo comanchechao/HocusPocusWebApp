@@ -384,7 +384,7 @@ watch(selectedFilters, (cur, old) => {
 });
 
 watch(allFilterItems, (cur, old) => {
-  console.log(cur.id);
+  console.log(selectedFilters.value);
   if (selectedFilters) {
     if (selectedFilters.value.name === "نوع") {
       filterItems.value = [];

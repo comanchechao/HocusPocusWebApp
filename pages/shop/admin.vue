@@ -84,7 +84,7 @@
         id="Stat2"
         class="flex Store items-center lg:flex-row md:flex-col md:space-y-5 md:space-x-0 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
-        <LazySoldDialog class="Stat2" :products="products" />
+        <LazySoldDialog class="Stat2" :records="records" />
         <LazyInStockDialog class="Stat2" :products="products" />
         <LazyAvailableDialog class="Stat2" :products="products" />
       </div>
@@ -186,6 +186,25 @@ const getProducts = async () => {
       products.value = response.products;
       mainManagement.setProductCount(response.products.length);
       loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+const records = ref([]);
+
+const getRecords = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/management/getrecords", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      loading.value = false;
+      records.value = response.records;
     })
     .catch(function (error) {
       console.error(error);
