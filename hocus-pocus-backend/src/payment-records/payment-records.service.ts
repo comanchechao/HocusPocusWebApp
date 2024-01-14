@@ -7,6 +7,7 @@ export class PaymentRecordsService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async addRecord(body: any, authCode: string) {
+    console.log(body);
     const record = await this.prismaService.paymentRecords.create({
       data: {
         amount: body.amount,

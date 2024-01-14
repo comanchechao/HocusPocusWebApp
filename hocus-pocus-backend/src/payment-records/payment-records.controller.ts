@@ -25,13 +25,13 @@ export class PaymentRecordsController {
       },
     });
 
-    const body = JSON.stringify({
+    const body = {
       email: dto.email,
       amount: dto.amount,
       phoneNumber: dto.phoneNumber,
       userId: dto.userId,
       orderId: dto.orderId,
-    });
+    };
     const config = {
       url: 'https://api.zarinpal.com/pg/v4/payment/request.json',
       method: 'post',
