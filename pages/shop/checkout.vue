@@ -172,6 +172,7 @@ const checkoutFunc = async function () {
     orderId: submitedOrdersId.value,
     userId: userId.value,
     email: email.value,
+    name: fullname.value,
   });
   await $fetch("http://localhost:3333/payment-records/togateway", {
     method: "POST",

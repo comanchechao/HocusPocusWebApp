@@ -205,9 +205,10 @@ model PaymentRecords {
   created_at   DateTime @default(now())
   updated_at   DateTime @updatedAt
   authority    String   @unique
+  name         String
   amount       String
   user_id      Int
   order_id     Int
-  status       String
+  status       Boolean  @default(false)
   phone_number String
 }

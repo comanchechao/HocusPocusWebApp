@@ -16,4 +16,6 @@ export class GatewayInfoDto {
   authority: string;
 
   status: string;
+
+  name: string;
 }

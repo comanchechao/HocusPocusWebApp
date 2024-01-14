@@ -12,7 +12,7 @@ export class PaymentRecordsService {
       data: {
         amount: body.amount,
         user_id: Number(body.userId),
-        status: 'not paid',
+        name: body.name,
         phone_number: body.phoneNumber,
         order_id: Number(body.orderId),
         authority: authCode,
@@ -27,6 +27,18 @@ export class PaymentRecordsService {
       },
       data: {
         payment: true,
+      },
+    });
+    this.updatePayment(auth);
+  }
+
+  async updatePayment(auth: string) {
+    const order = await this.prismaService.paymentRecords.update({
+      where: {
+        authority: auth,
+      },
+      data: {
+        status: true,
       },
     });
   }

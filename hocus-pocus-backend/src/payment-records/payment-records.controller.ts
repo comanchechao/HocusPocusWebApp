@@ -31,6 +31,7 @@ export class PaymentRecordsController {
       phoneNumber: dto.phoneNumber,
       userId: dto.userId,
       orderId: dto.orderId,
+      name: dto.name,
     };
     const config = {
       url: 'https://api.zarinpal.com/pg/v4/payment/request.json',
