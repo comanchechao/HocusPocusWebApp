@@ -20,13 +20,24 @@ export class PaymentRecordsService {
     });
   }
 
-  async updateOrder(id: string) {
+  async updateOrder(auth: string) {
     const order = await this.prismaService.orders.update({
       where: {
-        id: Number(id),
+        authority: auth,
       },
       data: {
         payment: true,
+      },
+    });
+  }
+
+  async updateAuth(auth: string, orderId: string) {
+    const order = await this.prismaService.orders.update({
+      where: {
+        id: Number(orderId),
+      },
+      data: {
+        authority: auth,
       },
     });
   }

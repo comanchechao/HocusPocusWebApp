@@ -17,7 +17,7 @@ export class PaymentRecordsController {
     const data = JSON.stringify({
       merchant_id: process.env.MERCHANT_ID,
       amount: dto.amount,
-      callback_url: 'https://hocuspocusmagicstore.com/',
+      callback_url: 'http://localhost:3000/shop/purchaseSuccess',
       description: 'Transaction description.',
       metadata: {
         mobile: dto.phoneNumber,
@@ -49,6 +49,7 @@ export class PaymentRecordsController {
       // const url = `https://www.zarinpal.com/pg/StartPay/${response.data.data.authority}`;
       res.json(response.data);
       authCode = response.data.data.authority;
+      this.updateAuth(authCode, body.orderId);
       this.addrecord(body, authCode);
     } catch (error) {
       console.log(error);
@@ -60,9 +61,14 @@ export class PaymentRecordsController {
     return this.paymentRecordsServices.addRecord(body, authCode);
   }
 
-  @Post('/updateorder')
-  updateOrder(@Param('id') id: string) {
-    return this.paymentRecordsServices.updateOrder(id);
+  @Post('')
+  updateAuth(auth: string, orderId: string) {
+    return this.paymentRecordsServices.updateAuth(auth, orderId);
+  }
+
+  @Post('/updateorder/:auth')
+  updateOrder(@Param('auth') auth: string) {
+    return this.paymentRecordsServices.updateOrder(auth);
   }
 
   @Get('/management/getrecords')

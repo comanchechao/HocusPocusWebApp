@@ -115,6 +115,7 @@ model Orders {
   fullname              String?
   region                String?
   postal_code           String?
+  authority             String?      @unique
   payment               Boolean      @default(false)
   user_id               Int
   user                  User         @relation(fields: [user_id], references: [id])
