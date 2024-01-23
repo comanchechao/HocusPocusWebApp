@@ -66,21 +66,32 @@
         </div>
       </div>
     </div>
-    <div
-      class="h-28 w-28 rounded-full flex items-center justify-center bg-white"
-    >
-      <a
-        referrerpolicy="origin"
-        target="_blank"
-        href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
-        ><img
-          class="h-24 w-24"
+    <div class="w-full flex items-center justify-center space-x-4">
+      <div
+        class="h-28 w-28 rounded-full flex items-center justify-center bg-white"
+      >
+        <a
           referrerpolicy="origin"
-          src="https://trustseal.enamad.ir/logo.aspx?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+          target="_blank"
+          href="https://trustseal.enamad.ir/?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+          ><img
+            class="h-24 w-24"
+            referrerpolicy="origin"
+            src="https://trustseal.enamad.ir/logo.aspx?id=435207&Code=DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+            alt=""
+            style="cursor: pointer"
+            Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
+        /></a>
+      </div>
+      <div class="h-28 w-28 rounded-full flex items-center justify-center">
+        <img
+          class="h-24 object-contain"
+          referrerpolicy="origin"
+          src="../assets/images/Zarin.webp"
           alt=""
           style="cursor: pointer"
-          Code="DcYpzqb4nlQCt44A4YFztV9QSCxUfvoL"
-      /></a>
+        />
+      </div>
     </div>
     <NuxtLink to="/shop/rules">
       <button
