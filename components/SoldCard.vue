@@ -2,12 +2,15 @@
   <div
     class="h-auto w-full border-mainRed border-t py-3 place-items-center grid grid-cols-4"
   >
-    <h3 class="text-darkPurple md:text-md lg:text-base text-sm">55</h3>
+    <h3 class="text-darkPurple md:text-md lg:text-base text-sm">
+      {{ record.order_id }}
+    </h3>
     <h3 class="text-darkPurple md:text-md lg:text-base text-xs">
-      دوشنبه 24 تیر 1402
+      <p v-show="!record.status">پرداخت نشده</p>
+      <p v-show="record.status">پرداخت شده</p>
     </h3>
     <h3 class="text-darkPurple md:text-md lg:text-base text-xs text-center">
-      دوشنبه 24 تیر 1402
+      {{ date }}
     </h3>
     <h3 class="text-darkPurple md:text-sm lg:text-sm text-xs text-center px-2">
       {{ record.name }}
@@ -18,6 +21,19 @@
 <script setup>
 import { PhTrash } from "@phosphor-icons/vue";
 const props = defineProps(["record"]);
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
+
+onMounted(() => {
+  date.value = dayjs(props.record.created_at)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
 </script>
 
 <style lang="scss" scoped></style>

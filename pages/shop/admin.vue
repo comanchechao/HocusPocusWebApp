@@ -186,10 +186,12 @@ const getProducts = async () => {
       products.value = response.products;
       mainManagement.setProductCount(response.products.length);
       loading.value = false;
+      getRecords();
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+      getRecords();
     });
 };
 
@@ -197,11 +199,14 @@ const records = ref([]);
 
 const getRecords = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/getrecords", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/payment-records/management/getrecords",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       loading.value = false;
       records.value = response.records;
