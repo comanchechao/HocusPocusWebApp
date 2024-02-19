@@ -65,6 +65,8 @@
 
 <script setup>
 import { PhCheckCircle, PhAlien } from "@phosphor-icons/vue";
+import { useProductStore } from "../../stores/productStore";
+import { storeToRefs } from "pinia";
 const route = useRoute();
 
 const success = ref(false);
@@ -79,29 +81,58 @@ const code = ref("");
 //   }
 // });
 
+const productStore = useProductStore();
+
+const { shoppingCart, cartTotalPrice } = storeToRefs(productStore);
+
 const updateTable = async function () {
-  await $fetch(
-    `http://localhost:3333/payment-records/updateorder/${code.value}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      credentials: "include",
-      withCredentials: true,
-    }
-  )
-    .then(async (response, error) => {})
-    .catch((error) => {});
+  const data = new URLSearchParams({
+    amount: cartTotalPrice.value,
+    authority: route.query.Authority,
+  });
+  await $fetch(`http://localhost:3333/payment-records/verify`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then(async (response, error) => {
+      console.log(response);
+      if (response.errors) {
+        console.log("the error was detected");
+      }
+      if (response.data.length) {
+        console.log("plan is fucked");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  // await $fetch(
+  //   `http://localhost:3333/payment-records/updateorder/${code.value}`,
+  //   {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     credentials: "include",
+  //     withCredentials: true,
+  //   }
+  // )
+  //   .then(async (response, error) => {})
+  //   .catch((error) => {});
 };
 
 onMounted(() => {
   code.value = route.query.Authority;
-
+  updateTable();
   console.log(route.query.Status);
   if (route.query.Status === "OK") {
-    success.value = true;
     updateTable();
+    success.value = true;
   }
   if (route.query.Status === "NOK") {
     failed.value = true;
