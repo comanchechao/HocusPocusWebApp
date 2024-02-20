@@ -80,6 +80,9 @@ const props = defineProps(["course"]);
 
 // register course store
 
+onMounted(() => {
+  console.log("this should work ", props.course);
+});
 const courseStore = useCourseStore();
 
 const addSuccess = ref(false);

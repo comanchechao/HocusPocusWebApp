@@ -6,8 +6,8 @@
     >
       <PhMoney class="text-mainRed" :size="70" weight="fill" />
       <div class="flex flex-col items-center space-y-3">
-        <h3 class="text-mainPurple text-sm">کالاهای فروخته شده</h3>
-        <h1 class="text-darkPurple text-5xl font-bold">352</h1>
+        <h3 class="text-mainPurple text-sm">تراکنش ها</h3>
+        <h1 class="text-darkPurple text-5xl font-bold">{{ records.length }}</h1>
       </div>
     </div>
     <Dialog
@@ -25,7 +25,7 @@
         <h2
           class="text-mainRed border-b-8 border-mainYellow rounded-xl pb-3 text-3xl"
         >
-          کالاهای فروخته شده
+          لیست تراکنش ها
         </h2>
         <div
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
@@ -33,10 +33,10 @@
           <div
             class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-4"
           >
-            <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
-            <h3 class="text-mainPurple text-sm">تاریخ فروش</h3>
-            <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
-            <h3 class="text-mainPurple text-sm">نام کالا</h3>
+            <h3 class="text-mainPurple text-sm">شماره سفارش</h3>
+            <h3 class="text-mainPurple text-sm">وضعیت فروش</h3>
+            <h3 class="text-mainPurple text-sm">تاریخ ثبت</h3>
+            <h3 class="text-mainPurple text-sm">نام خریدار</h3>
           </div>
 
           <LazySoldCard

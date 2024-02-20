@@ -383,43 +383,43 @@ watch(selectedFilters, (cur, old) => {
   }
 });
 
-watch(allFilterItems, (cur, old) => {
-  console.log(selectedFilters.value);
-  if (selectedFilters) {
-    if (selectedFilters.value.name === "نوع") {
-      filterItems.value = [];
-      allFilterItems.value.forEach((item) => {
-        if (item.filter_id === selectedFilters.value.id) {
-          filterItems.value.push(item);
-        }
-      });
-    }
-    if (selectedFilters.value.name === "برند") {
-      filterItems.value = [];
-      allFilterItems.value.forEach((item) => {
-        if (item.filter_id === selectedFilters.value.id) {
-          filterItems.value.push(item);
-        }
-      });
-    }
-    if (selectedFilters.value.name === "دسته بندی") {
-      filterItems.value = [];
-      allFilterItems.value.forEach((item) => {
-        if (item.filter_id === selectedFilters.value.id) {
-          filterItems.value.push(item);
-        }
-      });
-    }
-    if (selectedFilters.value.name === "کمیت") {
-      filterItems.value = [];
-      allFilterItems.value.forEach((item) => {
-        if (item.filter_id === selectedFilters.value.id) {
-          filterItems.value.push(item);
-        }
-      });
-    }
-  }
-});
+// watch(allFilterItems, (cur, old) => {
+//   console.log(selectedFilters.value);
+//   if (selectedFilters) {
+//     if (selectedFilters.value.name === "نوع") {
+//       filterItems.value = [];
+//       allFilterItems.value.forEach((item) => {
+//         if (item.filter_id === selectedFilters.value.id) {
+//           filterItems.value.push(item);
+//         }
+//       });
+//     }
+//     if (selectedFilters.value.name === "برند") {
+//       filterItems.value = [];
+//       allFilterItems.value.forEach((item) => {
+//         if (item.filter_id === selectedFilters.value.id) {
+//           filterItems.value.push(item);
+//         }
+//       });
+//     }
+//     if (selectedFilters.value.name === "دسته بندی") {
+//       filterItems.value = [];
+//       allFilterItems.value.forEach((item) => {
+//         if (item.filter_id === selectedFilters.value.id) {
+//           filterItems.value.push(item);
+//         }
+//       });
+//     }
+//     if (selectedFilters.value.name === "کمیت") {
+//       filterItems.value = [];
+//       allFilterItems.value.forEach((item) => {
+//         if (item.filter_id === selectedFilters.value.id) {
+//           filterItems.value.push(item);
+//         }
+//       });
+//     }
+//   }
+// });
 // watch(selectedTypes, (current, old) => {
 //   managementStore.setType(current[0].name);
 //   console.log(selectedTypes.value);

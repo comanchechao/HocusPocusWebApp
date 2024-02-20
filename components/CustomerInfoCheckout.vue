@@ -74,6 +74,13 @@
         ثبت کد تخفیف
       </button>
     </div>
+    <Message
+      class="space-x-4 flex items-center justify-center"
+      severity="success"
+      v-show="discountSucess"
+    >
+      <span class="text-white mx-3"> ثبت شد</span>
+    </Message>
   </div>
 </template>
 <script setup>
@@ -156,6 +163,8 @@ watch(selectedRegion, (cur, old) => {
 });
 
 const loading = ref(false);
+const discountSucess = ref(false);
+
 const validateCode = async (status) => {
   loading.value = true;
   const data = new URLSearchParams({});
@@ -178,6 +187,10 @@ const validateCode = async (status) => {
         let finalPrice = cartTotalPrice.value - discount;
         console.log(finalPrice);
         productsStore.setDiscount(finalPrice);
+        discountSucess.value = true;
+        setTimeout(() => {
+          discountSucess.value = false;
+        }, 3000);
       } else {
         console.log("is not valid");
       }

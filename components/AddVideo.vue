@@ -189,6 +189,15 @@
             />
           </Message>
         </div>
+        <div v-show="videoUploadLoading" class="card w-full h-10 px-24">
+          <div
+            class="flex text-mainBlue items-end justify-end space-x-2 w-full text-opacity-70"
+          >
+            <span dir="rtl">{{ `${seconds} ثانیه ` }}</span> <span>و</span>
+            <span dir="rtl"> {{ `${minutes} دقیقه` }}</span>
+          </div>
+          <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+        </div>
       </div>
     </div>
   </div>
@@ -238,6 +247,8 @@ const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
 // handle adding product via submit
 
 const videoUploadLoading = ref(false);
+const minutes = ref();
+const seconds = ref();
 
 const handleCourse = async () => {
   videoUploadLoading.value = true;
@@ -258,6 +269,34 @@ const handleCourse = async () => {
   formData.append("type", type.value);
   formData.append("trainer", trainer.value);
   formData.append("description", courseDescription.value);
+
+  const uploadTimeSeconds = eventVideo.value.size / 100000;
+
+  minutes.value = Math.floor(uploadTimeSeconds / 60);
+  seconds.value = Math.round(uploadTimeSeconds % 60);
+  console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
+
+  const countdown = setInterval(() => {
+    // Print the current countdown value
+    console.log(
+      `${minutes.value} minutes and ${seconds.value} seconds remaining`
+    );
+
+    // Decrease the seconds by 1
+    seconds.value--;
+
+    // If seconds reach 0, decrease the minutes and reset the seconds to 59
+    if (seconds.value < 0) {
+      minutes.value--;
+      seconds.value = 59;
+    }
+
+    // If both minutes and seconds reach 0, stop the countdown
+    if (minutes.value === 0 && seconds.value === 0) {
+      console.log("Upload complete!");
+      clearInterval(countdown);
+    }
+  }, 1000); // Run the countdown every 1 second
 
   await $fetch("http://localhost:3333/management/addvideo", {
     method: "POST",

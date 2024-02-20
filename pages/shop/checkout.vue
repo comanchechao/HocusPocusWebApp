@@ -52,6 +52,19 @@
             </button>
           </NuxtLink>
           <Message
+            class="space-x-4 flex items-center justify-center"
+            severity="info"
+            v-show="gatewayRedirect"
+          >
+            <span class="text-right mx-3"> درحال انتقال به درگاه</span>
+            <ProgressSpinner
+              style="width: 20px; height: 20px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+          </Message>
+          <Message
             v-for="error in errorMessages.slice(0, 2)"
             :key="error"
             severity="error"
@@ -163,11 +176,16 @@ const runtimeConfig = useRuntimeConfig();
 
 // checkout function
 
+const gatewayRedirect = ref(false);
 const auth = ref();
 
 const checkoutFunc = async function () {
+  gatewayRedirect.value = true;
+  setTimeout(() => {
+    gatewayRedirect.value = false;
+  }, 5000);
   const data = new URLSearchParams({
-    amount: cartTotalPrice.value,
+    amount: cartTotalPrice.value * 10,
     phoneNumber: phoneNumber.value,
     orderId: submitedOrdersId.value,
     userId: userId.value,
