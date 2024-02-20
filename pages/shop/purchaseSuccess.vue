@@ -87,7 +87,7 @@ const { shoppingCart, cartTotalPrice } = storeToRefs(productStore);
 
 const updateTable = async function () {
   const data = new URLSearchParams({
-    amount: cartTotalPrice.value,
+    amount: cartTotalPrice.value * 10,
     authority: route.query.Authority,
   });
   await $fetch(`http://localhost:3333/payment-records/verify`, {
