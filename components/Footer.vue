@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="flex items-center justify-center space-x-2">
-          <a href="https://www.instagram.com/hocus_pocus.official/?hl=en">
+          <a href="https://www.instagram.com/hocus_pocus.official.1/">
             <button
               class="text-mainRed cursor-pointer transition ease-in-out duration-150 p-2 shadow-sm shadow-transparent hover:shadow-mainPurple rounded-md border border-transparent hover:border-mainPink"
             >
