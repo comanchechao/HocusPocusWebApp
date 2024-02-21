@@ -57,7 +57,8 @@
         {{ discount.perc }}
       </div>
       <div class="flex items-center space-x-3">
-        {{ discount.valid }}
+        <p v-show="discount.value">معتبر</p>
+        <p v-show="!discount.value">منقضی شده</p>
       </div>
       <h3 class="text-darkPurple text-center px-5">
         {{ discount.code }}

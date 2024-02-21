@@ -17,6 +17,13 @@
       :order="order"
     >
       <template #Status>
+        <span v-show="order.status === 'NOT PAIED'">پرداخت نشده</span>
+        <PhPackage
+          v-show="order.status === 'NOT PAIED'"
+          class="text-red-500"
+          :size="25"
+          weight="fill"
+        />
         <span v-show="order.status === 'PROCESSING'">درحال پردازش</span>
         <PhPackage
           v-show="order.status === 'PROCESSING'"

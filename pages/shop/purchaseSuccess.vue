@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>خرید موفقیت آمیز بود</title>
+    <title>نتیجه خرید</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -86,49 +86,49 @@ const productStore = useProductStore();
 const { shoppingCart, cartTotalPrice } = storeToRefs(productStore);
 
 const updateTable = async function () {
-  const data = new URLSearchParams({
-    amount: cartTotalPrice.value * 10,
-    authority: route.query.Authority,
-  });
-  await $fetch(`http://localhost:3333/payment-records/verify`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
-    .then(async (response, error) => {
-      console.log(response);
-      if (response.errors) {
-        console.log("the error was detected");
-      }
-      if (response.data.length) {
-        console.log("plan is fucked");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  // await $fetch(
-  //   `http://localhost:3333/payment-records/updateorder/${code.value}`,
-  //   {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/x-www-form-urlencoded",
-  //     },
-  //     credentials: "include",
-  //     withCredentials: true,
-  //   }
-  // )
-  //   .then(async (response, error) => {})
-  //   .catch((error) => {});
+  // const data = new URLSearchParams({
+  //   amount: cartTotalPrice.value * 10,
+  //   authority: route.query.Authority,
+  // });
+  // await $fetch(`http://localhost:3333/payment-records/verify`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/x-www-form-urlencoded",
+  //   },
+  //   credentials: "include",
+  //   body: data,
+  //   withCredentials: true,
+  // })
+  //   .then(async (response, error) => {
+  //     console.log(response);
+  //     if (response.errors) {
+  //       console.log("the error was detected");
+  //     }
+  //     if (response.data.length) {
+  //       console.log("plan is fucked");
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  await $fetch(
+    `http://localhost:3333/payment-records/updateorder/${code.value}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      withCredentials: true,
+    }
+  )
+    .then(async (response, error) => {})
+    .catch((error) => {});
 };
 
 onMounted(() => {
   code.value = route.query.Authority;
-  updateTable();
+
   console.log(route.query.Status);
   if (route.query.Status === "OK") {
     updateTable();
