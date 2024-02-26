@@ -99,6 +99,18 @@
             class="w-full h-full flex items-center flex-col px-9 pt-9 overscroll-y-scroll"
           >
             <div
+              class="w-full flex-col space-y-3 h-full flex items-center justify-center"
+              v-if="item in shoppingCart === false"
+              :key="item"
+            >
+              <PhBasket size="99" class="opacity-60 text-mainBlack" />
+              <h3
+                class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-lg lg:text-2xl"
+              >
+                <span> سبد شما خالیست </span>
+              </h3>
+            </div>
+            <div
               v-for="item in shoppingCart"
               :key="item"
               class="w-full flex flex-col items-center space-y-7 h-48"

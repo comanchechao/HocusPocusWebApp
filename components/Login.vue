@@ -90,14 +90,14 @@
         </div>
         <div class="h-full w-full flex flex-col items-center space-y-5">
           <Message
-            class="w-full bg-mainWhite text-right absolute"
+            class="w-full bg-mainWhite text-right absolute top-0"
             v-show="successLogin"
             severity="success"
           >
             <span class="lg:text-2xl text-md">ورود موفقیت آمیز بود</span>
           </Message>
           <Message
-            class="w-full text-right absolute"
+            class="w-full text-right absolute bg-mainWhite"
             v-show="faildLogin"
             severity="error"
           >

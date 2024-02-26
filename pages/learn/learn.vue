@@ -17,9 +17,14 @@
         class="h-40 my-3 object-contain lg:px-0 px-3 Stat1 opacity-0"
         alt=""
       />
-      <h2 class="text-2xl px-6 text-center text-mainYellow">
+      <h1
+        class="flex space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+      >
         <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
-      </h2>
+        <span class="lg:text-xl text-sm">
+          قدیمی ترین فروشگاه محصولات شعبده بازی در ایران</span
+        >
+      </h1>
     </div>
 
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">

@@ -9,20 +9,21 @@
     class=""
   >
     <Dropdown
+      v-model="selectedRegion"
+      :options="provinces"
+      optionLabel="name"
+      placeholder="انتخاب استان"
+      class="w-full rounded-lg lg:col-span-2 h-11"
+    />
+    <Dropdown
       v-model="selectedCity"
       :options="cities"
       optionLabel="name"
       inputId="dd-city"
       placeholder="انتخاب شهر"
-      class="w-full rounded-lg h-11"
+      class="w-full rounded-lg lg:col-span-2 h-11"
     />
-    <Dropdown
-      v-model="selectedRegion"
-      :options="provinces"
-      optionLabel="name"
-      placeholder="انتخاب استان"
-      class="w-full rounded-lg h-11"
-    />
+
     <InputMask
       placeholder="شماره تلفن"
       v-model="phoneNumber"

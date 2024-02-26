@@ -10,6 +10,14 @@
   >
     <Dropdown
       v-if="isVisible"
+      v-model="selectedRegion"
+      :options="provinces"
+      optionLabel="name"
+      placeholder="انتخاب استان"
+      class="w-full rounded-lg h-11"
+    />
+    <Dropdown
+      v-if="isVisible"
       v-model="selectedCity"
       :options="cities"
       optionLabel="name"
@@ -17,14 +25,7 @@
       placeholder="انتخاب شهر"
       class="w-full rounded-lg h-11"
     />
-    <Dropdown
-      v-if="isVisible"
-      v-model="selectedRegion"
-      :options="provinces"
-      optionLabel="name"
-      placeholder="انتخاب استان"
-      class="w-full rounded-lg h-11"
-    />
+
     <InputMask
       placeholder="شماره تلفن"
       v-model="phoneNumber"

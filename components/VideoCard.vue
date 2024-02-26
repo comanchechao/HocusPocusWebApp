@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="course"
-    class="lg:w-rem38 w-full h-auto lg:h-rem28 rounded-md shadow-lg bg-mainPurple transition flex-col items-center"
+    class="lg:w-rem38 w-full h-auto lg:h-rem28 rounded-md shadow-lg bg-mainWhite transition flex-col items-center"
   >
     <NuxtLink :to="'/learn/coursedetail/' + course.id">
       <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>
     </NuxtLink>
 
     <div
-      class="lg:h-2/4 h-auto space-y-2 text-right w-full bg bg-white rounded-b-md flex items-center flex-col p-4"
+      class="h-auto lg:h-full mt-14 space-y-2 text-right w-full bg bg-white rounded-b-md flex items-center flex-col p-4"
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2

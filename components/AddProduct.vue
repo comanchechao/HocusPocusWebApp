@@ -280,8 +280,15 @@
         @click="addFilter()"
         class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
       >
-        <span> اضافه کردن فیلتر </span>
-        <PhSortAscending weight="fill" :size="23" />
+        <ProgressSpinner
+          v-if="updateFilter"
+          style="width: 30px; height: 30px"
+          strokeWidth="8"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
+        <span v-if="!updateFilter"> اضافه کردن فیلتر </span>
+        <PhSortAscending v-if="!updateFilter" weight="fill" :size="23" />
       </button>
       <div>
         <Message severity="success" v-show="message2"
@@ -303,13 +310,20 @@
         placeholder="فیلترها"
       />
     </div>
-    <div class="flex flex-wrap space-y-4 space-x-2 justify-center items-center">
+    <div
+      class="flex flex-wrap lg:space-y-0 space-y-4 space-x-2 justify-center items-center"
+    >
       <p
-        class="p-2 text-sm bg-white rounded-md"
+        class="p-2 flex items-center justify-center space-x-2 text-sm bg-white rounded-md"
         v-for="item in filterItems"
         :key="item.name"
       >
-        {{ item.name }}
+        <span> {{ item.name }} </span>
+        <button
+          class="text-mainRed duration-200 transition ease-in hover:bg-mainRed hover:text-mainWhite"
+        >
+          <PhX size="23" weight="fill" />
+        </button>
       </p>
     </div>
   </div>
@@ -318,6 +332,7 @@
 <script setup>
 import { ref } from "vue";
 import {
+  PhX,
   PhPlus,
   PhUpload,
   PhSortAscending,
@@ -454,7 +469,7 @@ const rarity = ref([]);
 const brands = ref([]);
 const categories = ref([]);
 // register main management
-
+const updateFilter = ref(false);
 const mainManagement = useMainManagement();
 
 // image from events
@@ -621,6 +636,7 @@ const getFilterItems = async () => {
 };
 
 const addFilter = async (userId, username) => {
+  updateFilter.value = true;
   console.log(selectedFilters.value.id);
   const body = new URLSearchParams({
     filterId: selectedFilters.value.id,
@@ -637,6 +653,7 @@ const addFilter = async (userId, username) => {
   })
     .then(function (response) {
       message2.value = true;
+      updateFilter.value = false;
       getFilterItems();
       if (selectedFilters.value.name === "نوع") {
         filterItems.value = [];

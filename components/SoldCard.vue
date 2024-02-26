@@ -6,8 +6,8 @@
       {{ record.order_id }}
     </h3>
     <h3 class="text-darkPurple md:text-md lg:text-base text-xs">
-      <p v-show="!record.status">پرداخت نشده</p>
-      <p v-show="record.status">پرداخت شده</p>
+      <p v-if="!record.status">پرداخت ناموفق</p>
+      <p v-if="record.status">پرداخت شده</p>
     </h3>
     <h3 class="text-darkPurple md:text-md lg:text-base text-xs text-center">
       {{ date }}

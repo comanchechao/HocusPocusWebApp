@@ -18,31 +18,31 @@
     >
       <template #Status>
         <span v-show="order.status === 'NOT PAIED'">پرداخت نشده</span>
-        <PhPackage
+        <PhX
           v-show="order.status === 'NOT PAIED'"
           class="text-red-500"
-          :size="25"
+          :size="30"
           weight="fill"
         />
         <span v-show="order.status === 'PROCESSING'">درحال پردازش</span>
         <PhPackage
           v-show="order.status === 'PROCESSING'"
-          class="text-mainYellow"
-          :size="25"
+          class="text-mainViolet"
+          :size="30"
           weight="fill"
         />
         <span v-show="order.status === 'SHIPPING'">ارسال شده</span>
         <PhAirplaneTilt
           v-show="order.status === 'SHIPPING'"
           class="text-blue-700"
-          :size="25"
+          :size="30"
           weight="fill"
         />
         <span v-show="order.status === 'DELIVERED'">تحویل داده شده</span>
         <PhCheckCircle
           v-show="order.status === 'DELIVERED'"
           class="text-green-500"
-          :size="25"
+          :size="30"
           weight="fill"
         />
       </template>
@@ -57,7 +57,12 @@ const props = defineProps(["orders"]);
 
 const loading = ref(false);
 
-import { PhCheckCircle, PhAirplaneTilt, PhPackage } from "@phosphor-icons/vue";
+import {
+  PhCheckCircle,
+  PhAirplaneTilt,
+  PhPackage,
+  PhX,
+} from "@phosphor-icons/vue";
 </script>
 
 <style></style>

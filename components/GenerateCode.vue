@@ -3,35 +3,44 @@
     class="w-full h-rem28 overflow-y-scroll bg-white flex flex-col rounded-md text-xs lg:text-lg"
   >
     <div
-      class="flex justify-around lg:flex-row md:flex-row flex-col bg-darkPurple rounded-md m-5 text-white p-2 lg:p-5"
+      class="flex justify-end lg:flex-row md:flex-row flex-col bg-darkPurple rounded-md m-5 text-white p-2 lg:p-5"
     >
       <div
-        class="flex text-lg items-center justify-around space-y-2 flex-col text-darkPurple p-3 w-full"
+        class="flex text-lg items-end justify-center text-darkPurple p-3 space-x-7"
       >
+        <button
+          @click="submitCode"
+          v-show="code"
+          class="text-lg flex h-10 items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+        >
+          ثبت
+        </button>
+        <div class="flex flex-col items-center space-y-2 justify-center">
+          <InputMask
+            placeholder="درصد کد تخفیف"
+            v-model="perc"
+            mask="99"
+            class="w-full bg-white rounded-lg text-sm h-11"
+            aria-describedby="username-help"
+          />
+          <InputMask
+            placeholder="تعداد روزهای فعال"
+            v-model="perc"
+            mask="999"
+            class="w-full bg-white rounded-lg text-sm h-11"
+            aria-describedby="username-help"
+          />
+        </div>
+      </div>
+      <div class="flex items-center flex-col justify-center p-3">
         <input
-          class="p-3 lg:w-1/2 w-full text-right text-sm"
+          class="p-3 lg:w-1/2 bg-darkPurple text-mainWhite w-full text-right text-lg"
           placeholder="کد تخفیف را تولید کنید"
           type="text"
           v-model="code"
         />
-        <InputMask
-          placeholder="درصد کد تخفیف"
-          v-model="perc"
-          mask="99"
-          class="lg:w-1/2 w-full bg-white rounded-lg text-sm h-11"
-          aria-describedby="username-help"
-        />
-      </div>
-      <div class="flex w-full items-center justify-around p-3">
         <button
-          @click="submitCode"
-          v-show="code"
-          class="bg-red-500 p-2 rounded px-5"
-        >
-          ثبت
-        </button>
-        <button
-          class="text-sm flex h-10 items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+          class="text-lg flex h-10 items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
           @click="generateRandomNumber"
         >
           دریافت کد
@@ -41,7 +50,7 @@
     <div
       class="w-full text-center h-20 py-5 grid grid-cols-4 place-items-center border-b border-Indigo-600"
     >
-      <h3 class="text-mainPurple">-</h3>
+      <h3 class="text-mainPurple">روزهای فعال</h3>
       <h3 class="text-mainPurple">درصد کد</h3>
       <h3 class="text-mainPurple">وضعیت کد</h3>
       <h3 class="text-mainPurple">نام کد</h3>

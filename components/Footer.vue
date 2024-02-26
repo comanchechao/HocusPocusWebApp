@@ -27,10 +27,10 @@
         </h2>
         <div class="w-full flex flex-col h-48 items-center justify-center">
           <div class="flex flex-col items-center justify-center">
-            <div class="flex items-center absolute justify-center w-full">
+            <div class="flex items-center justify-center w-full">
               <img
                 src="../assets/images/HOCUSPOCUS.webp"
-                class="object-contain absolute Up w-rem21"
+                class="object-contain Up w-rem21"
                 alt=""
               />
             </div>
