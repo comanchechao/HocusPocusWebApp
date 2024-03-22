@@ -155,6 +155,7 @@
             >توضیحات کالا</label
           >
           <Textarea
+            dir="rtl"
             class="w-full text-darkPurple"
             autoResize
             v-model="productDescription"
@@ -294,6 +295,7 @@
         <Message severity="success" v-show="message2"
           >به فیلترها اضافه شد</Message
         >
+        <Message severity="error" v-show="filterRemove"> فیلتر حذف شد</Message>
       </div>
       <InputText
         placeholder="فیلتر جدید"
@@ -322,7 +324,7 @@
         <button
           class="text-mainRed duration-200 transition ease-in hover:bg-mainRed hover:text-mainWhite"
         >
-          <PhX size="23" weight="fill" />
+          <PhX @click="removeFilter(item.id)" size="23" weight="fill" />
         </button>
       </p>
     </div>
@@ -691,6 +693,27 @@ const addFilter = async (userId, username) => {
     .catch(function (error) {
       console.error(error);
     });
+};
+
+const filterRemove = ref(false);
+
+const removeFilter = async function (itemId) {
+  const data = new URLSearchParams({
+    id: itemId,
+  });
+  await $fetch(`http://localhost:3333/filters/remove/${itemId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then((response) => {
+      filterRemove.value = true;
+    })
+    .catch((error) => {});
 };
 
 onMounted(() => {

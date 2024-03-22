@@ -121,6 +121,7 @@
               </h1>
               <h1
                 class="text-darkPurple my-2 w-full bg-white p-3 rounded-md flex flex-col space-y-6 text-right text-sm"
+                dir="rtl"
               >
                 <span> {{ product.description }} </span>
               </h1>
