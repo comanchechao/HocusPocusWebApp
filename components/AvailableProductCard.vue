@@ -99,7 +99,7 @@
             >
               <MultiSelect
                 :maxSelectedLabels="1"
-                v-model="selectedRarity"
+                v-model="newRarity"
                 :options="rarity"
                 optionLabel="name"
                 display="chip"
@@ -235,7 +235,13 @@
 <script setup>
 import { ref } from "vue";
 import { PhNotePencil, PhTrash, PhFloppyDisk } from "@phosphor-icons/vue";
-const props = defineProps(["product"]);
+const props = defineProps([
+  "product",
+  "categories",
+  "types",
+  "rarity",
+  "brands",
+]);
 import { useManagementStore } from "~/stores/productManagement";
 import { useMainManagement } from "~/stores/managementStore";
 // register productManagement store
@@ -278,20 +284,31 @@ const handleProduct = async () => {
   // Add title if it has a value
   if (newTitle.value) {
     data.set("title", newTitle.value);
-    console.log('we ran this')
+    console.log("we ran this");
   }
 
   // Add price if it has a value
   if (newPrice.value) {
     data.set("price", newPrice.value);
-      console.log('we ran this price')
   }
 
   // Add values for type, brand, design, category similarly based on their values
 
   // Add rarity if it has a value
   if (newRarity.value) {
-    data.set("rarity", newRarity.value);
+    data.set("rarity", newRarity.value[0].name);
+    console.log("we ran this price");
+  }
+
+  if (newBrand.value) {
+    data.set("brand", newBrand.value[0].name);
+  }
+  if (newCategory.value) {
+    data.set("category", newCategory.value[0].name);
+  }
+
+  if (newDesign.value) {
+    data.set("design", newDesign.value[0].name);
   }
 
   // Add inStock if it has a value (assuming inStock.value is truthy/falsy)
@@ -303,12 +320,15 @@ const handleProduct = async () => {
 
   // Add description if it has a value
   if (newDescription.value) {
-    data.append("description", newDescription.value);
+    data.set("description", newDescription.value);
   }
 
   console.log("Title:", data.get("title"));
   console.log("price:", data.get("price"));
   console.log("rarity:", data.get("rarity"));
+  console.log("brand:", data.get("brand"));
+  console.log("design:", data.get("design"));
+  console.log("category:", data.get("category"));
   console.log("quantity:", data.get("quantity"));
   console.log("description:", data.get("description"));
 
