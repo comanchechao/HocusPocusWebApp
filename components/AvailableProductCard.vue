@@ -155,9 +155,7 @@
           {{ rarity }} -->
             <div class="h-28 w-full flex flex-col items-center justify-center">
               <div>
-                <Message severity="success" v-show="success"
-                  >کالا به انبار اضافه شد</Message
-                >
+                <Message severity="success" v-show="success">آپدیت شد</Message>
               </div>
               <div>
                 <Message
@@ -267,6 +265,8 @@ onMounted(() => {
   prvProduct.value = props.product;
 });
 
+const success = ref(false);
+
 const handleProduct = async () => {
   const data = new URLSearchParams({
     id: props.product.id,
@@ -344,6 +344,10 @@ const handleProduct = async () => {
   })
     .then((response, error) => {
       console.log(response);
+      success.value = true;
+      setTimeout(() => {
+        success.value = false;
+      }, 2000);
       mainManagement.setStateChange();
     })
     .catch((error) => {});
