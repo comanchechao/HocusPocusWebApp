@@ -11,8 +11,8 @@ export class EditsController {
 
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(AuthenticatedGuard, RolesGuard)
-  @Post('/newfilter')
+  @Post('/updateproduct')
   addFilter(@Body() dto: EditDto) {
-    return this.editServices.addFilter(dto);
+    return this.editServices.updateProduct(dto);
   }
 }

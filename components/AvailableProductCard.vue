@@ -269,6 +269,7 @@ onMounted(() => {
 
 const handleProduct = async () => {
   const data = new URLSearchParams({
+    id: props.product.id,
     title: props.product.title,
     price: props.product.price,
     type: props.product.type,
@@ -332,40 +333,20 @@ const handleProduct = async () => {
   console.log("quantity:", data.get("quantity"));
   console.log("description:", data.get("description"));
 
-  // await $fetch("http://localhost:3333/management/addproduct", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/x-www-form-urlencoded",
-  //   },
-  //   credentials: "include",
-  //   body: data,
-  //   withCredentials: true,
-  // })
-  //   .then((response, error) => {
-  //     addedProductID.value = response.product.id;
-
-  //     let images = [
-  //       eventFileOne.value,
-  //       eventFileTwo.value,
-  //       eventFileThree.value,
-  //       eventFileFour.value,
-  //     ];
-
-  //     images.forEach((image) => {
-  //       setTimeout(() => {
-  //         imageUploadLoading.value = true;
-  //         uploadImage(image);
-  //       }, 3000);
-  //     });
-  //     mainManagement.setStateChange();
-  //   })
-  //   .catch((error) => {
-  //     faild.value = true;
-  //     errorMessage.value = error.data.message;
-  //     setTimeout(() => {
-  //       faild.value = false;
-  //     }, 3000);
-  //   });
+  await $fetch("http://localhost:3333/edits/updateproduct", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+      mainManagement.setStateChange();
+    })
+    .catch((error) => {});
 };
 
 const removeComments = async function (product) {

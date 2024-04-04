@@ -21,5 +21,5 @@ export class EditDto {
 
   rarity: string;
 
-  productId: string;
+  id: string;
 }
