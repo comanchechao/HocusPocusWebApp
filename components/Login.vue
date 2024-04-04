@@ -36,7 +36,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">نام کاربری</span>
             </div>
-            <input
+            <input   
+            dir="ltr"
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
@@ -55,7 +56,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">ایمیل</span>
             </div>
-            <input
+            <input             dir="ltr"
+
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
@@ -74,7 +76,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">رمز عبور</span>
             </div>
-            <input
+            <input             dir="ltr"
+
               id="password"
               v-model="loginPassword"
               aria-describedby="username-help"

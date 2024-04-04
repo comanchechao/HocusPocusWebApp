@@ -38,6 +38,7 @@
       <div
         class="flex lg:items-center lg:flex-row flex-col lg:space-y-0 space-y-8 lg:space-x-8 justify-center items-center Stat1 lg:justify-center w-full my-9"
       >
+     
         <div
           class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
         >
@@ -58,6 +59,26 @@
             />
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
+        </div> <div
+          class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
+        >
+          <div class="flex items-center space-x-3 Stat1">
+            <h4 class="text-white">تومان</h4>
+            <h1
+              v-if="!loading"
+              class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+            >
+              {{ totalSales }}
+            </h1>
+            <ProgressSpinner
+              v-show="loading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+          </div>
+          <h3 class="text-white text-lg">مقدار فروش رفته ماه جاری</h3>
         </div>
         <div
           class="flex flex-col items-center rounded-md md:w-full w-full lg:w-96 shadow-lg border border-mainPink shadow-mainPurple p-6"

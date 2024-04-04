@@ -90,7 +90,7 @@
             <h3 class="text-mainPurple text-sm">تخفیف</h3>
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
-            <h3 class="text-mainPurple text-sm">نام خریدار</h3>
+            <h3 class="text-mainPurple text-sm">نام کالا</h3>
           </div>
 
           <LazyAvailableProductCard
