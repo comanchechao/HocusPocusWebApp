@@ -177,13 +177,30 @@
               >{{ error }}</Message
             >
           </div>
+        <div class="flex items-center justify-center space-x-4">
+          <button
+      @click="removeComments(product)"
+      class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+    >            <span> حذف کامل کالا </span>
+
+      <ProgressSpinner
+        v-if="loading"
+        style="width: 30px; height: 30px"
+        strokeWidth="8"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
+      <PhTrash v-if="!loading" :size="30" />
+    </button>
           <button
             @click="handleProduct()"
-            class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+            class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow   hover:border-mainRed rounded-lg      hover:shadow-darkPurple hover:text-mainYellow text-mainRed"
           >
             <span> ذخیره تغییرات </span>
-            <PhPlus weight="fill" :size="23" />
+            <PhFloppyDisk   :size="30" />
+            
           </button>
+        </div>
         </div>
       </div>
 
@@ -215,7 +232,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhNotePencil, PhTrash } from "@phosphor-icons/vue";
+import { PhNotePencil, PhTrash, PhFloppyDisk } from "@phosphor-icons/vue";
 const props = defineProps(["product"]);
 import { useManagementStore } from "~/stores/productManagement";
 import { useMainManagement } from "~/stores/managementStore";

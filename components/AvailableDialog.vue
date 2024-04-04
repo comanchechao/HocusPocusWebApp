@@ -82,16 +82,17 @@
         <div
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
         >
-          <div
+          <div 
             class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-5"
           >
             <h3 class="text-mainPurple text-sm">ویرایش</h3>
             <h3 class="text-mainPurple text-sm">تخفیف</h3>
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
-            <h3 class="text-mainPurple text-sm">نام کالا</h3>
+            <h3 class="text-mainPurple text-sm">نام کالا</h3> 
+            
           </div>
-
+ 
           <LazyAvailableProductCard
             v-for="product in products"
             :key="product.id"

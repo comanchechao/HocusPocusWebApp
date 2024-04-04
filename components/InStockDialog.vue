@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-        <div
+        <div v-if="!loading"
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
         >
           <div
@@ -91,14 +91,24 @@
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
-          </div>
 
+          </div>
+  
           <LazyAvailableProductCard
             v-for="product in products"
             :key="product.id"
             :product="product"
           />
         </div>
+        <div  
+            class="h-full w-full   place-items-center grid grid-cols-4"
+          >
+           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+
+          </div>
       </div>
     </Dialog>
   </div>
