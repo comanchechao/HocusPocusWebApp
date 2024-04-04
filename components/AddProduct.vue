@@ -25,8 +25,9 @@
       >
         <label
           for="imageone"
-          class="lg:w-40 lg:h-52 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
+          class="lg:w-40 lg:h-52 text-center flex-col space-y-3 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
+          <p class="font-bold text-white">عکس کاور</p>
           <PhUpload v-show="!eventFileOne" weight="fill" :size="66" />
           <PhCheckCircle
             v-show="eventFileOne"
@@ -542,8 +543,10 @@ const handleProduct = async () => {
       ];
 
       images.forEach((image) => {
-        imageUploadLoading.value = true;
-        uploadImage(image);
+        setTimeout(() => {
+          imageUploadLoading.value = true;
+          uploadImage(image);
+        }, 3000);
       });
       mainManagement.setStateChange();
     })
