@@ -82,18 +82,21 @@
         <div
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
         >
-          <div 
+          <div
             class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-5"
           >
             <h3 class="text-mainPurple text-sm">ویرایش</h3>
             <h3 class="text-mainPurple text-sm">تخفیف</h3>
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
-            <h3 class="text-mainPurple text-sm">نام کالا</h3> 
-            
+            <h3 class="text-mainPurple text-sm">نام کالا</h3>
           </div>
- 
+
           <LazyAvailableProductCard
+            :categories="categories"
+            :types="types"
+            :brands="brands"
+            :rarity="rarity"
             v-for="product in products"
             :key="product.id"
             :product="product"
@@ -123,6 +126,49 @@ const mainManagement = useMainManagement();
 const { productsCount } = storeToRefs(mainManagement);
 
 const visible = ref(false);
+
+onMounted(() => {
+  getFilterItems();
+});
+
+// getting filters
+
+const categories = ref([]);
+const rarity = ref([]);
+const types = ref([]);
+const brands = ref([]);
+
+const getFilterItems = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      types.value = [];
+      brands.value = [];
+      rarity.value = [];
+      categories.value = [];
+      response.filters.forEach((item) => {
+        if (item.filter_id === 2) {
+          categories.value.push(item);
+        }
+        if (item.filter_id === 4) {
+          brands.value.push(item);
+        }
+        if (item.filter_id === 3) {
+          rarity.value.push(item);
+        }
+        if (item.filter_id === 1) {
+          types.value.push(item);
+          console.log(types.value);
+        }
+      });
+    })
+    .catch(function (error) {});
+};
 </script>
 
 <style>
