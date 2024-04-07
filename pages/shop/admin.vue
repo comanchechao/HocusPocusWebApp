@@ -38,7 +38,6 @@
       <div
         class="flex lg:items-center lg:flex-row flex-col lg:space-y-0 space-y-8 lg:space-x-8 justify-center items-center Stat1 lg:justify-center w-full my-9"
       >
-     
         <div
           class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
         >
@@ -59,7 +58,8 @@
             />
           </div>
           <h3 class="text-white text-lg">مقدار کل فروش رفته</h3>
-        </div> <div
+        </div>
+        <div
           class="flex flex-col items-center rounded-md shadow-lg lg:w-auto w-full border border-mainPink shadow-mainPurple p-6"
         >
           <div class="flex items-center space-x-3 Stat1">
@@ -106,7 +106,7 @@
         class="flex Store items-center lg:flex-row md:flex-col md:space-y-5 md:space-x-0 flex-col lg:space-y-0 space-y-14 lg:space-x-20 my-11"
       >
         <LazySoldDialog class="Stat2" :records="records" />
-        <LazyInStockDialog class="Stat2" :products="products" />
+        <LazyInStockDialog class="Stat2" :products="inStockProducts" />
         <LazyAvailableDialog class="Stat2" :products="products" />
       </div>
       <div
@@ -237,6 +237,8 @@ watch(orderStatus, (cur, old) => {
 const loading = ref(false);
 const products = ref();
 
+const inStockProducts = ref([]);
+
 const getProducts = async () => {
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/management/products", {
@@ -249,6 +251,9 @@ const getProducts = async () => {
       mainManagement.setProductCount(response.products.length);
       loading.value = false;
       getRecords();
+      inStockProducts.value = response.products.filter(
+        (product: any) => product.inStock === true
+      );
     })
     .catch(function (error) {
       console.error(error);

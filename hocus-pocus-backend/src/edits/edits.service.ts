@@ -7,6 +7,12 @@ export class EditsService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async updateProduct(dto: EditDto) {
+    let instock = null;
+    if (dto.inStock === 'false') {
+      instock = false;
+    } else if (dto.inStock === 'true') {
+      instock = true;
+    }
     const product = await this.prismaService.products.updateMany({
       where: {
         id: Number(dto.id),
@@ -18,6 +24,7 @@ export class EditsService {
         brand: dto.brand,
         category: dto.category,
         quantity: dto.quantity,
+        inStock: instock,
         type: dto.type,
         design: dto.design,
       },

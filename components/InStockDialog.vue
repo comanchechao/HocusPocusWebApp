@@ -8,7 +8,7 @@
       <div class="flex flex-col items-center space-y-3">
         <h3 class="text-mainPurple text-md">کالاهای موجود</h3>
         <h1 v-show="productsCount" class="text-darkPurple text-5xl font-bold">
-          {{ productsCount }}
+          {{ products.length }}
         </h1>
         <ProgressSpinner
           v-show="!productsCount"
@@ -52,7 +52,7 @@
               required
             />
             <button
-              @click.prevent="getSearch()"
+              @click.prevent="searchProduct()"
               type="submit"
               class="text-white top-0 absolute bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -79,7 +79,8 @@
             </div>
           </div>
         </div>
-        <div v-if="!loading"
+        <div
+          v-if="!loading"
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
         >
           <div
@@ -91,24 +92,42 @@
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
-
           </div>
-  
+
           <LazyAvailableProductCard
+            v-show="!showSearch"
             v-for="product in products"
             :key="product.id"
             :product="product"
           />
+          <LazyAvailableProductCard
+            v-show="showSearch"
+            v-for="product in searchedProduct"
+            :key="product.id"
+            :product="product"
+          />
         </div>
-        <div  
-            class="h-full w-full   place-items-center grid grid-cols-4"
-          >
-           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
-           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
-           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
-           <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
-
-          </div>
+        <div
+          v-show="loading"
+          class="h-full w-full place-items-center grid grid-cols-4"
+        >
+          <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+          <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+          <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+          <Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton
+          ><Skeleton height="3rem" width="14rem" class="mb-2"></Skeleton>
+        </div>
       </div>
     </Dialog>
   </div>
@@ -122,10 +141,39 @@ import { storeToRefs } from "pinia";
 
 const visible = ref(false);
 const props = defineProps(["products"]);
+const inStockProducts = ref([]);
+
+const search = ref("");
+const searchedProduct = ref([]);
+
+const showSearch = ref(false);
+
+const searchProduct = () => {
+  const regex = new RegExp(search.value, "i"); // 'i' flag for case-insensitive search
+  searchedProduct.value = props.products.filter((product) =>
+    regex.test(product.title)
+  );
+  console.log(searchedProduct.value);
+  showSearch.value = true;
+};
+
+watch(search, (cur, old) => {
+  if (cur === "") {
+    showSearch.value = false;
+  }
+});
 
 // register mainManagement store
 
 const mainManagement = useMainManagement();
+
+const loading = ref(false);
+
+onMounted(() => {
+  if (props.products) {
+    loading.value = false;
+  }
+});
 
 const { productsCount } = storeToRefs(mainManagement);
 </script>

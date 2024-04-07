@@ -11,6 +11,8 @@ export class EditDto {
 
   description: string;
 
+  inStock: string;
+
   brand: string;
 
   type: string;

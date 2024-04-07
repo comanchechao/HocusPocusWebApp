@@ -22,7 +22,7 @@
       <div class="grid lg:grid-cols-2 place-items-center gap-4 grid-cols-1">
         <div class="flex items-end flex-col space-y-2">
           <label class="text-xl text-mainRed" for="username">نام کاربری</label>
-          <InputText
+          <input
             id="username"
             v-model="signupUsername"
             aria-describedby="username-help"
@@ -33,8 +33,9 @@
         </div>
         <div class="flex items-end flex-col space-y-2">
           <label class="text-xl text-mainRed" for="email">ایمیل</label>
-          <InputText
+          <input
             id="email"
+            class="text-lowercase"
             v-model="signupEmail"
             aria-describedby="username-help"
           />
@@ -133,9 +134,9 @@ const succussLogin = ref(false);
 async function formSubmit() {
   loading.value = true;
   const data = new URLSearchParams({
-    email: signupEmail.value,
+    email: signupEmail.value.toLocaleLowerCase(),
     password: signupPassword.value,
-    username: signupUsername.value,
+    username: signupUsername.value.toLocaleLowerCase(),
   });
 
   await $fetch("http://localhost:3333/auth/signup", {
@@ -153,6 +154,7 @@ async function formSubmit() {
     .catch((error) => {
       loading.value = false;
       faildSignup.value = true;
+      successSignup.value = false;
       errorMessage.value = error.data.message;
     });
 }

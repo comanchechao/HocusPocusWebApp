@@ -16,14 +16,14 @@
           ثبت
         </button>
         <div class="flex flex-col items-center space-y-2 justify-center">
-          <InputMask
+          <input
             placeholder="درصد کد تخفیف"
             v-model="perc"
             mask="99"
             class="w-full bg-white rounded-lg text-sm h-11"
             aria-describedby="username-help"
           />
-          <InputMask
+          <input
             placeholder="تعداد روزهای فعال"
             v-model="perc"
             mask="999"

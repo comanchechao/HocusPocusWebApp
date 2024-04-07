@@ -222,7 +222,7 @@
       {{ product.quantity }}
     </h3>
     <h3 class="text-darkPurple md:text-md lg:text-lg text-xs text-center">
-      دوشنبه 24 تیر 1402
+      {{ date }}
     </h3>
     <h3 class="text-darkPurple md:text-sm lg:text-sm text-xs text-center px-2">
       {{ product.title }}
@@ -233,6 +233,21 @@
 <script setup>
 import { ref } from "vue";
 import { PhNotePencil, PhTrash, PhFloppyDisk } from "@phosphor-icons/vue";
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
+
+onMounted(() => {
+  console.log(props.product.createdAt);
+  date.value = dayjs(props.product.createdAt)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
+
 const props = defineProps([
   "product",
   "categories",
@@ -260,9 +275,11 @@ const newDescription = ref(null);
 const newRarity = ref(null);
 const newQuantity = ref(null);
 const newCategory = ref(null);
+const inStock = ref(null);
 
 onMounted(() => {
   prvProduct.value = props.product;
+  inStock.value = props.product.inStock;
 });
 
 const success = ref(false);
@@ -291,6 +308,11 @@ const handleProduct = async () => {
   // Add price if it has a value
   if (newPrice.value) {
     data.set("price", newPrice.value);
+  }
+
+  if (inStock.value !== props.product.inStock) {
+    data.set("inStock", inStock.value);
+    console.log(inStock.value);
   }
 
   // Add values for type, brand, design, category similarly based on their values

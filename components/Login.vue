@@ -36,8 +36,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">نام کاربری</span>
             </div>
-            <input   
-            dir="ltr"
+            <input
+              dir="ltr"
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
@@ -56,8 +56,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">ایمیل</span>
             </div>
-            <input             dir="ltr"
-
+            <input
+              dir="ltr"
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
@@ -76,8 +76,8 @@
             <div class="label">
               <span class="text-md text-mainYellow">رمز عبور</span>
             </div>
-            <input             dir="ltr"
-
+            <input
+              dir="ltr"
               id="password"
               v-model="loginPassword"
               aria-describedby="username-help"
@@ -159,9 +159,9 @@ const errorMessage = ref("");
 async function formSubmit() {
   loading.value = true;
   const data = new URLSearchParams({
-    email: loginEmail.value,
+    email: loginEmail.value.toLowerCase(),
     password: loginPassword.value,
-    username: loginUsername.value,
+    username: loginUsername.value.toLowerCase(),
   });
 
   await $fetch(
@@ -184,15 +184,19 @@ async function formSubmit() {
       testFunction();
       setTimeout(() => {
         successLogin.value = false;
-      }, 3000);
+      }, 2000);
       setTimeout(() => {
         visible.value = false;
       }, 2000);
     })
     .catch(function (error) {
       console.error(error);
+      successLogin.value = false;
       loading.value = false;
       faildLogin.value = true;
+      setTimeout(() => {
+        faildLogin.value = false;
+      }, 2000);
     });
 }
 

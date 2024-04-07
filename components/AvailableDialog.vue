@@ -52,7 +52,7 @@
               required
             />
             <button
-              @click.prevent="getSearch()"
+              @click.prevent="searchProduct()"
               type="submit"
               class="text-white top-0 absolute bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -93,11 +93,22 @@
           </div>
 
           <LazyAvailableProductCard
+            v-show="!showSearch"
             :categories="categories"
             :types="types"
             :brands="brands"
             :rarity="rarity"
             v-for="product in products"
+            :key="product.id"
+            :product="product"
+          />
+          <LazyAvailableProductCard
+            v-show="showSearch"
+            :categories="categories"
+            :types="types"
+            :brands="brands"
+            :rarity="rarity"
+            v-for="product in searchedProduct"
             :key="product.id"
             :product="product"
           />
@@ -118,6 +129,26 @@ import { PhStack } from "@phosphor-icons/vue";
 import { useMainManagement } from "~/stores/managementStore";
 import { storeToRefs } from "pinia";
 const props = defineProps(["products"]);
+
+const search = ref("");
+const searchedProduct = ref([]);
+
+const showSearch = ref(false);
+
+const searchProduct = () => {
+  const regex = new RegExp(search.value, "i"); // 'i' flag for case-insensitive search
+  searchedProduct.value = props.products.filter((product) =>
+    regex.test(product.title)
+  );
+  console.log(searchedProduct.value);
+  showSearch.value = true;
+};
+
+watch(search, (cur, old) => {
+  if (cur === "") {
+    showSearch.value = false;
+  }
+});
 
 // register mainManagement store
 
