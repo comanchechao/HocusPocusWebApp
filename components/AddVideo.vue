@@ -73,7 +73,13 @@
             for="imageOne"
             class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
-            <PhUpload weight="fill" :size="66" />
+            <PhCheckCircle
+              v-show="eventImageOne"
+              class="text-green-400"
+              weight="fill"
+              :size="66"
+            />
+            <PhUpload v-show="!eventImageOne" weight="fill" :size="66" />
           </label>
           <input
             @change="
@@ -89,7 +95,13 @@
             for="imageTwo"
             class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
-            <PhUpload weight="fill" :size="66" />
+            <PhCheckCircle
+              v-show="eventImageTwo"
+              class="text-green-400"
+              weight="fill"
+              :size="66"
+            />
+            <PhUpload v-show="!eventImageTwo" weight="fill" :size="66" />
           </label>
           <input
             @change="
@@ -105,7 +117,13 @@
             for="imageThree"
             class="lg:w-40 lg:h-52 w-28 h-32 bg-mainYellow transition ease-in-out col-span-2 duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
           >
-            <PhUpload weight="fill" :size="66" />
+            <PhCheckCircle
+              v-show="eventImageThree"
+              class="text-green-400"
+              weight="fill"
+              :size="66"
+            />
+            <PhUpload v-show="!eventImageThree" weight="fill" :size="66" />
           </label>
           <input
             @change="
@@ -141,7 +159,13 @@
               class="lg:text-md text-sm cursor-pointer flex mb-10 active:text-mainYellow active:bg-darkPurple items-center space-x-2 px-4 py-2 transition duration-150 ease-in-out border-2 border-transparent bg-mainYellow hover:border-mainPurple rounded-md shadow-md shadow-transparent hover:shadow-mainPurple hover:text-darkPurple text-darkPurple"
             >
               <span> آپلود ویدیو آموزش </span>
-              <PhPlus weight="fill" :size="23" />
+              <PhPlus v-show="!eventVideo" weight="fill" :size="23" />
+              <PhCheckCircle
+                weight="fill"
+                :size="23"
+                class="text-green-500"
+                v-show="eventVideo"
+              />
               <input
                 @change="
                   (event) => {
@@ -205,7 +229,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPlus, PhUpload, PhVideo } from "@phosphor-icons/vue";
+import { PhPlus, PhUpload, PhVideo, PhCheckCircle } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "~/stores/managementStore";
@@ -249,6 +273,12 @@ const { type, brand, design, rarity, inStock } = storeToRefs(managementStore);
 const videoUploadLoading = ref(false);
 const minutes = ref();
 const seconds = ref();
+
+watch(minutes, (cur, old) => {
+  if (cur === 0 && seconds.value === 0) {
+    minutes.value = "لطفن کمی صبر کنید";
+  }
+});
 
 const handleCourse = async () => {
   videoUploadLoading.value = true;
@@ -320,6 +350,9 @@ const handleCourse = async () => {
         uploadImage(image);
       });
       success.value = true;
+      setTimeout(() => {
+        success.value = false;
+      }, 3000);
     })
     .catch((error) => {
       faild.value = true;
@@ -354,6 +387,7 @@ const uploadImage = async function (image) {
     .catch((error) => {
       imageUploadError.value = true;
       uploadErrorMessage.value = error.data.message;
+      imageUploadError.value = false;
     });
 };
 </script>

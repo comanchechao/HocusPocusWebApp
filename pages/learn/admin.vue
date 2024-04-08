@@ -36,7 +36,7 @@
             <div class="flex items-center space-x-3 Stat1">
               <h4 class="text-white">تومان</h4>
               <h1 class="lg:text-6xl text-4xl text-mainYellow Text font-bold">
-                221,450,88
+                {{ totalPrice }}
               </h1>
             </div>
             <h3 class="text-white text-lg">اشتراک های های خریداری شده</h3>
@@ -154,6 +154,7 @@ const getCourses = async () => {
 };
 
 const memberships = ref();
+const totalPrice = ref(0);
 
 const getMemberships = async () => {
   loading.value = true;
@@ -168,10 +169,12 @@ const getMemberships = async () => {
     .then(function (response) {
       memberships.value = response.memberships;
       loading.value = false;
-      const sum = response.orders.reduce(
+      console.log(response.memberships);
+      const sum = response.memberships.reduce(
         (total: number, obj: any) => total + Number(obj.totalPrice),
         0
       );
+      totalPrice.value = sum;
     })
     .catch(function (error) {
       console.error(error);

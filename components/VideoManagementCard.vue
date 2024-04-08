@@ -15,7 +15,7 @@
       />
       <PhTrash v-if="!loading" :size="30" />
     </button>
-    <h3 class="text-darkPurple">دوشنبه 25 تیر</h3>
+    <h3 class="text-darkPurple">{{ date }}</h3>
     <div class="flex items-center space-x-3">
       <InputSwitch v-model="checked"></InputSwitch>
       <h3 class="text-sm text-darkPurple">موجود</h3>
@@ -44,6 +44,20 @@ import {
   PhVideo,
 } from "@phosphor-icons/vue";
 import { useMainManagement } from "~/stores/managementStore";
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
+
+onMounted(() => {
+  console.log(props.course.createdAt);
+  date.value = dayjs(props.course.createdAt)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
 
 // resiger mainmanagement store
 
