@@ -136,9 +136,9 @@
         <div
           class="h-full LazyCard mt-10 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
-          <div class="flex absolute w-full justify-center items-center">
+          <div class="flex   h-full w-full justify-center items-center">
             <h2
-              class="text-white self-center w-full font-bold text-center"
+              class="text-mainRed text-4xl p-4 border-dashed border-mainRed border-4  self-center w-full   text-center"
               v-show="empty && !loading"
             >
               محصولی برای نمایش وجود ندارد
