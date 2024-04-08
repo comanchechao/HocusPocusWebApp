@@ -25,7 +25,7 @@
           />
           <input
             placeholder="تعداد روزهای فعال"
-            v-model="perc"
+            v-model="days"
             mask="999"
             class="w-full bg-white rounded-lg text-sm h-11"
             aria-describedby="username-help"
@@ -66,8 +66,8 @@
         {{ discount.perc }}
       </div>
       <div class="flex items-center space-x-3">
-        <p v-show="discount.value">معتبر</p>
-        <p v-show="!discount.value">منقضی شده</p>
+        <p v-show="discount.valid">معتبر</p>
+        <p v-show="!discount.valid">منقضی شده</p>
       </div>
       <h3 class="text-darkPurple text-center px-5">
         {{ discount.code }}
@@ -105,6 +105,7 @@ function generateRandomNumber() {
 }
 
 const perc = ref();
+const days = ref();
 const discounts = ref();
 const loading = ref();
 
@@ -130,6 +131,7 @@ const submitCode = async (status) => {
   console.log(perc.value);
   data.append("code", code.value);
   data.append("perc", perc.value);
+  data.append("days", days.value);
 
   await $fetch("http://localhost:3333/management/generatediscount", {
     method: "POST",

@@ -58,6 +58,7 @@ const submitComment = async (userId, username) => {
   const body = new URLSearchParams({
     username: username,
     comment: comment.value,
+    rating: value.value,
     userId: userId,
   });
   loading.value = true;

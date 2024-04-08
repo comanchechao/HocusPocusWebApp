@@ -12,7 +12,11 @@
       <h3>
         {{ comment.comment }}
       </h3>
-      <Rating class="rounded-sm" v-model="value" :cancel="false" />
+      <Rating
+        class="rounded-sm"
+        v-model="props.comment.rating"
+        :cancel="false"
+      />
     </div>
   </div>
 </template>
