@@ -103,8 +103,13 @@
               v-if="item in shoppingCart === false"
               :key="item"
             >
-              <PhBasket size="99" class="opacity-60 text-mainBlack" />
+              <PhBasket
+                v-show="cartTotalPrice === 0"
+                size="99"
+                class="opacity-60 text-mainBlack"
+              />
               <h3
+                v-show="cartTotalPrice === 0"
                 class="border-b-4 pb-2 flex items-center space-x-2 rounded-md border-mainRed text-darkPurple text-lg lg:text-2xl"
               >
                 <span> سبد شما خالیست </span>
