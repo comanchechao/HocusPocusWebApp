@@ -6,15 +6,14 @@
       class="flex items-center flex-col justify-center space-y-3 w-full h-full"
     >
       <div
-        class="w-full h-full hidden lg:grid grid-cols-4 place-items-center bmembership-b bmembership-mainRed"
+        class="w-full h-full hidden lg:grid grid-cols-3 place-items-center bmembership-b bmembership-mainRed"
       >
         <h2 class="text-mainPurple text-md">اطلاعات تکمیلی</h2>
         <h2 class="text-mainPurple text-md">تاریخ خرید</h2>
-        <h2 class="text-mainPurple text-md">تعداد</h2>
         <h2 class="text-mainPurple text-md">نام کالا</h2>
       </div>
       <div
-        class="w-full h-full flex flex-col-reverse items-center lg:grid lg:grid-cols-4 lg:place-items-center text-center text-darkPurple"
+        class="w-full h-full flex flex-col-reverse items-center lg:grid lg:grid-cols-3 lg:place-items-center text-center text-darkPurple"
       >
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
@@ -28,12 +27,7 @@
           <h2 class="text-md">{{ date }}</h2>
           <h2 class="text-md lg:hidden">تاریخ خرید</h2>
         </div>
-        <div
-          class="flex items-center lg:justify-center justify-end space-x-2 w-full"
-        >
-          <h2 class="text-md">4</h2>
-          <h2 class="text-md lg:hidden">تعداد کالا</h2>
-        </div>
+
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >

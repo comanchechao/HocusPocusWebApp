@@ -88,12 +88,19 @@
               <h2
                 class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                دوشنبه 19 تیر 1402
+                {{ date }}
               </h2>
               <h2 class="lg:text-md md:text-md text-sm">تاریخ خرید</h2>
             </div>
             <div class="flex items-center justify-end space-x-2 w-full">
               <h2
+                v-show="order.payment === false"
+                class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
+              >
+                پرداخت نشده
+              </h2>
+              <h2
+                v-show="order.payment === true"
                 class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
               >
                 پرداخت شده
@@ -129,6 +136,20 @@ import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
 const props = defineProps(["order"]);
 const visible = ref(false);
+
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
+
+dayjs.extend(jalaliday);
+
+onMounted(() => {
+  date.value = dayjs(props.order.created_at)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
 
 const loading = ref(true);
 const orderItems = ref();

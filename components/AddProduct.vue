@@ -27,8 +27,8 @@
           for="imageone"
           class="lg:w-40 lg:h-52 text-center flex-col space-y-3 w-full h-32 bg-mainRed transition ease-in-out duration-300 shadow-lg shadow-transparent hover:shadow-mainPurple text-darkPurple flex items-center justify-center cursor-pointer rounded-md"
         >
-        <PhEye v-show="!eventFileOne" weight="fill" :size="66" />
-           <PhCheckCircle
+          <PhEye v-show="!eventFileOne" weight="fill" :size="66" />
+          <PhCheckCircle
             v-show="eventFileOne"
             class="text-green-400"
             weight="fill"
@@ -231,6 +231,10 @@
             <Message severity="success" v-show="success"
               >کالا به انبار اضافه شد</Message
             >
+            <Message severity="error" v-show="addError">{{ error }}</Message>
+            <Message severity="error" v-show="loginErr"
+              >وارد حساب ادمین شوید</Message
+            >
           </div>
           <div>
             <Message
@@ -296,7 +300,14 @@
           >به فیلترها اضافه شد</Message
         >
         <Message severity="error" v-show="filterRemove"> فیلتر حذف شد</Message>
+        <Message severity="error" v-show="authError">
+          وارد حساب ادمین شوید</Message
+        >
+        <Message severity="error" v-show="selectedFilterError">
+          یک فیلتر انتخاب کنید</Message
+        >
       </div>
+
       <InputText
         placeholder="فیلتر جدید"
         id="fullname"
@@ -339,13 +350,15 @@ import {
   PhUpload,
   PhSortAscending,
   PhCheckCircle,
-PhEye,
+  PhEye,
 } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "../stores/managementStore";
 
 const message2 = ref(false);
+
+const authError = ref(false);
 
 // filter refs
 
@@ -359,11 +372,11 @@ const inStock = ref();
 const selectedFilters = ref();
 const filterItems = ref();
 
-const selectedTypes = ref();
-const selectedBrands = ref();
-const selectedRarity = ref();
-const selectedDesigns = ref();
-const selectedCategory = ref();
+const selectedTypes = ref(null);
+const selectedBrands = ref(null);
+const selectedRarity = ref(null);
+const selectedDesigns = ref(null);
+const selectedCategory = ref(null);
 
 watch(selectedFilters, (cur, old) => {
   console.log(cur.id);
@@ -491,8 +504,8 @@ const errorMessage = ref("");
 
 const productTitle = ref("");
 const productDescription = ref("");
-const productPrice = ref();
-const productQuantity = ref();
+const productPrice = ref(null);
+const productQuantity = ref(null);
 
 const addedProductID = ref();
 
@@ -505,58 +518,143 @@ const managementStore = useManagementStore();
 
 // handle adding product via submit
 
+const error = ref("");
+const addError = ref(false);
+
+const loginErr = ref(false);
+
 watch(selectedCategory, (cur, old) => {
   console.log(selectedBrands.value, selectedCategory.value[0].name);
 });
 
 const handleProduct = async () => {
-  const data = new URLSearchParams({
-    title: productTitle.value,
-    price: productPrice.value,
-    type: selectedTypes.value[0].name,
-    brand: selectedBrands.value[0].name,
-    design: selectedDesigns.value[0].name,
-    category: selectedCategory.value[0].name,
-    rarity: rarity.value,
-    inStock: inStock.value,
-    quantity: productQuantity.value,
-    description: productDescription.value,
-  });
+  if (productTitle.value === "") {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "عنوان را وارد کنید";
+  }
+  if (productPrice.value === null) {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "قیمت را وارد کنید";
+  }
+  if (selectedTypes.value === null) {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "نوع را وارد کنید";
+  }
+  if (selectedBrands.value === null) {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "برند را وارد کنید";
+  }
+  if (selectedDesigns.value === null) {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "طراحی را وارد کنید";
+  }
+  if (selectedCategory.value === null) {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "دسته بندی را وارد کنید";
+  }
+  if (productQuantity.value === "") {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "کمیت را وارد کنید";
+  }
+  if (productDescription.value === "") {
+    addError.value = true;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+    error.value = "توضیحات را وارد کنید";
+  }
 
-  await $fetch("http://localhost:3333/management/addproduct", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
-    .then((response, error) => {
-      addedProductID.value = response.product.id;
+  if (eventFileOne.value === null || eventFileTwo.value === null) {
+    addError.value = true;
+    error.value = "عکس کاور و دوم را وارد کنید";
+  }
 
-      let images = [
-        eventFileOne.value,
-        eventFileTwo.value,
-        eventFileThree.value,
-        eventFileFour.value,
-      ];
+  if (
+    productTitle.value !== "" ||
+    productPrice.value !== null ||
+    selectedTypes.value !== null ||
+    selectedBrands.value !== null ||
+    selectedDesigns.value !== null ||
+    selectedCategory.value !== null ||
+    productQuantity.value !== null ||
+    productDescription.value !== ""
+  ) {
+    const data = new URLSearchParams({
+      title: productTitle.value,
+      price: productPrice.value,
+      type: selectedTypes.value[0].name,
+      brand: selectedBrands.value[0].name,
+      design: selectedDesigns.value[0].name,
+      category: selectedCategory.value[0].name,
+      rarity: rarity.value,
+      inStock: inStock.value,
+      quantity: productQuantity.value,
+      description: productDescription.value,
+    });
 
-      images.forEach((image) => {
+    await $fetch("http://localhost:3333/management/addproduct", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: data,
+      withCredentials: true,
+    })
+      .then((response, error) => {
+        addedProductID.value = response.product.id;
+
+        let images = [
+          eventFileOne.value,
+          eventFileTwo.value,
+          eventFileThree.value,
+          eventFileFour.value,
+        ];
+
+        if (eventFileOne.value !== null || eventFileTwo.value !== null) {
+          images.forEach((image) => {
+            setTimeout(() => {
+              uploadImage(image);
+            }, 3000);
+          });
+        }
+        mainManagement.setStateChange();
+      })
+      .catch((error) => {
+        faild.value = true;
+        errorMessage.value = error.data.message;
+        if (error.status === 403) {
+          loginErr.value = true;
+          setTimeout(() => {
+            loginErr.value = false;
+          }, 2000);
+        }
         setTimeout(() => {
-          imageUploadLoading.value = true;
-          uploadImage(image);
+          faild.value = false;
         }, 3000);
       });
-      mainManagement.setStateChange();
-    })
-    .catch((error) => {
-      faild.value = true;
-      errorMessage.value = error.data.message;
-      setTimeout(() => {
-        faild.value = false;
-      }, 3000);
-    });
+  }
 };
 
 // handling image upload
@@ -571,23 +669,26 @@ const uploadImage = async function (image) {
 
   formData.append("file", image);
   formData.append("productId", addedProductID.value);
-  await $fetch("http://localhost:3333/management/upload", {
-    method: "POST",
-    headers: {},
-    body: formData,
-    withCredentials: true,
-    credentials: "include",
-  })
-    .then((response) => {
-      if (response.data) {
-        imageUploadLoading.value = false;
-        success.value = true;
-      }
+  if (eventFileOne.value !== null || eventFileTwo.value !== null) {
+    imageUploadLoading.value = true;
+    await $fetch("http://localhost:3333/management/upload", {
+      method: "POST",
+      headers: {},
+      body: formData,
+      withCredentials: true,
+      credentials: "include",
     })
-    .catch((error) => {
-      imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
-    });
+      .then((response) => {
+        if (response.data) {
+          imageUploadLoading.value = false;
+          success.value = true;
+        }
+      })
+      .catch((error) => {
+        imageUploadError.value = true;
+        uploadErrorMessage.value = error.data.message;
+      });
+  }
 };
 
 // handling filter addition
@@ -640,62 +741,81 @@ const getFilterItems = async () => {
     .catch(function (error) {});
 };
 
+const selectedFilterError = ref(false);
+
 const addFilter = async (userId, username) => {
-  updateFilter.value = true;
   console.log(selectedFilters.value.id);
   const body = new URLSearchParams({
     filterId: selectedFilters.value.id,
     name: newFilter.value,
   });
-  const { data } = await $fetch("http://localhost:3333/filters/newfilter", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    withCredentials: true,
-    body: body,
-    credentials: "include",
-  })
-    .then(function (response) {
-      message2.value = true;
-      updateFilter.value = false;
-      getFilterItems();
-      if (selectedFilters.value.name === "نوع") {
-        filterItems.value = [];
-        allFilterItems.value.forEach((item) => {
-          if (item.filter_id === selectedFilters.value.id) {
-            filterItems.value.push(item);
-          }
-        });
-      }
-      if (selectedFilters.value.name === "برند") {
-        filterItems.value = [];
-        allFilterItems.value.forEach((item) => {
-          if (item.filter_id === selectedFilters.value.id) {
-            filterItems.value.push(item);
-          }
-        });
-      }
-      if (selectedFilters.value.name === "دسته بندی") {
-        filterItems.value = [];
-        allFilterItems.value.forEach((item) => {
-          if (item.filter_id === selectedFilters.value.id) {
-            filterItems.value.push(item);
-          }
-        });
-      }
-      if (selectedFilters.value.name === "کمیت") {
-        filterItems.value = [];
-        allFilterItems.value.forEach((item) => {
-          if (item.filter_id === selectedFilters.value.id) {
-            filterItems.value.push(item);
-          }
-        });
-      }
+  if (selectedFilters.value) {
+    updateFilter.value = true;
+    const { data } = await $fetch("http://localhost:3333/filters/newfilter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      withCredentials: true,
+      body: body,
+      credentials: "include",
     })
-    .catch(function (error) {
-      console.error(error);
-    });
+      .then(function (response) {
+        message2.value = true;
+        setTimeout(() => {
+          message2.value = false;
+        }, 2000);
+        updateFilter.value = false;
+        getFilterItems();
+        if (selectedFilters.value.name === "نوع") {
+          filterItems.value = [];
+          allFilterItems.value.forEach((item) => {
+            if (item.filter_id === selectedFilters.value.id) {
+              filterItems.value.push(item);
+            }
+          });
+        }
+        if (selectedFilters.value.name === "برند") {
+          filterItems.value = [];
+          allFilterItems.value.forEach((item) => {
+            if (item.filter_id === selectedFilters.value.id) {
+              filterItems.value.push(item);
+            }
+          });
+        }
+        if (selectedFilters.value.name === "دسته بندی") {
+          filterItems.value = [];
+          allFilterItems.value.forEach((item) => {
+            if (item.filter_id === selectedFilters.value.id) {
+              filterItems.value.push(item);
+            }
+          });
+        }
+        if (selectedFilters.value.name === "کمیت") {
+          filterItems.value = [];
+          allFilterItems.value.forEach((item) => {
+            if (item.filter_id === selectedFilters.value.id) {
+              filterItems.value.push(item);
+            }
+          });
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+        updateFilter.value = false;
+        if (error.status === 403) {
+          authError.value = true;
+          setTimeout(() => {
+            authError.value = false;
+          }, 2000);
+        }
+      });
+  } else {
+    selectedFilterError.value = true;
+    setTimeout(() => {
+      selectedFilterError.value = false;
+    }, 2000);
+  }
 };
 
 const filterRemove = ref(false);
@@ -716,7 +836,14 @@ const removeFilter = async function (itemId) {
     .then((response) => {
       filterRemove.value = true;
     })
-    .catch((error) => {});
+    .catch((error) => {
+      if (error.status === 403) {
+        authError.value = true;
+        setTimeout(() => {
+          authError.value = false;
+        }, 2000);
+      }
+    });
 };
 
 onMounted(() => {

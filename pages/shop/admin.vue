@@ -140,8 +140,7 @@
           </label>
           <div class="relative">
             <input
-            dir="rtl"
-
+              dir="rtl"
               v-model="search"
               type="search"
               id="default-search"
@@ -157,9 +156,7 @@
             </button>
             <div
               class="absolute inset-y-0 end-0 flex pr-4 items-center ps-3 pointer-events-none"
-            >
-              
-            </div>
+            ></div>
           </div>
         </div>
         <LazyProductStatusManagement :products="products" />
@@ -193,6 +190,10 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
+import { useUserStore } from "../../stores/user";
+
+const userStore = useUserStore();
+const { isLogged, isManager } = storeToRefs(userStore);
 
 dayjs.extend(jalaliday);
 import { PhCaretLeft, PhCoffee } from "@phosphor-icons/vue";
@@ -210,6 +211,16 @@ const orderMainStore = useOrderMainStore();
 const mode = ref(false);
 
 const totalSales = ref(0);
+
+onMounted(() => {
+  setTimeout(() => {
+    if (isManager.value === false) {
+      navigateTo({
+        path: "/",
+      });
+    }
+  }, 2000);
+});
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);

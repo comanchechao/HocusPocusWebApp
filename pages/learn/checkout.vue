@@ -36,10 +36,7 @@
           <div class="h-full w-full flex items-center">
             <LazyCustomerInfoCheckout :isVisible="true" />
           </div>
-          <NuxtLink
-            class="w-full flex items-center justify-center"
-            to="/shop/purchaseSuccess"
-          >
+          <NuxtLink class="w-full flex items-center justify-center">
             <button
               v-show="isLogged"
               @click="getUser()"
@@ -57,6 +54,7 @@
             <LazyLogin v-show="!isLogged" />
             <span> برای تکمیل خرید وارد خود شوید </span>
           </div>
+          <Message severity="error" v-show="faild">{{ errorMessages }}</Message>
         </div>
         <div
           class="h-full lg:h-dialog w-full lg:w-1/3 lg:border-l-2 border-mainYellow flex flex-col items-end"
@@ -161,6 +159,51 @@ const submit = () => {
   );
 };
 
+// checkout function
+
+const gatewayRedirect = ref(false);
+const auth = ref();
+
+const checkoutFunc = async function () {
+  gatewayRedirect.value = true;
+  setTimeout(() => {
+    gatewayRedirect.value = false;
+  }, 5000);
+  const data = new URLSearchParams({
+    amount: cartTotalPrice.value * 10,
+    phoneNumber: phoneNumber.value,
+    orderId: submitedOrdersId.value,
+    userId: userId.value,
+    email: email.value,
+    name: fullname.value,
+  });
+  await $fetch("http://localhost:3333/payment-records/togateway", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then(async (response, error) => {
+      console.log(response.data.authority);
+      auth.value = response.data.authority;
+    })
+    .catch((error) => {});
+};
+
+watch(auth, (cur, old) => {
+  openNewTab(`https://www.zarinpal.com/pg/StartPay/${cur}`);
+});
+
+function openNewTab(url) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.click();
+}
+
 // register courseStore
 
 const courseStore = useCourseStore();
@@ -200,38 +243,95 @@ const getUser = async () => {
 };
 
 const submitedOrdersId = ref();
+const errorMessages = ref("");
+const faild = ref(false);
 
 const submitOrder = async () => {
-  const data = new URLSearchParams({
-    userId: userId.value,
-    totalPrice: cartTotalPrice.value,
-    estimatedDeliveryDays: 5,
-    city: city.value,
-    region: region.value,
-    address: address.value,
-    fullname: fullname.value,
-    phone_number: phoneNumber.value,
-    postal_code: postalCode.value,
-  });
+  faild.value = false;
 
-  await $fetch("http://localhost:3333/videos/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
-    .then((response, error) => {
-      if (response.order) {
-        submitedOrdersId.value = response.order.id;
-        orderItems();
-      }
-    })
-    .catch((error) => {
-      console.log(error);
+  if (phoneNumber.value === "") {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "لطفا شماره تلفن خود را وارد کنید";
+  }
+  if (fullname.value === "") {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "نام خود را وارد کنید";
+  }
+  if (city.value === "") {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "شهر محل سکونت خود را انتخاب فرمایید";
+  }
+  if (region.value === "") {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "استان محل سکونت خود را انتخاب فرمایید";
+  }
+  if (address.value === "") {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "ادرس محل سکونت خود را وارد کنید";
+  }
+  if (cartTotalPrice.value === 0) {
+    faild.value = true;
+    setTimeout(() => {
+      faild.value = false;
+    }, 2000);
+    errorMessages.value = "سبد کالا شما خالی میباشد";
+  }
+
+  if (
+    phoneNumber.value !== "" &&
+    fullname.value !== "" &&
+    city.value !== "" &&
+    region.value !== "" &&
+    address.value !== "" &&
+    cartTotalPrice.value !== 0
+  ) {
+    const data = new URLSearchParams({
+      userId: userId.value,
+      totalPrice: cartTotalPrice.value,
+      estimatedDeliveryDays: 5,
+      city: city.value,
+      region: region.value,
+      address: address.value,
+      fullname: fullname.value,
+      phone_number: phoneNumber.value,
+      postal_code: postalCode.value,
     });
+
+    await $fetch("http://localhost:3333/videos/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: data,
+      withCredentials: true,
+    })
+      .then((response, error) => {
+        if (response.order) {
+          submitedOrdersId.value = response.order.id;
+          orderItems();
+          checkoutFunc();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
 // const getUser = async () => {
