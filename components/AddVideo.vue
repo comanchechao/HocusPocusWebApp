@@ -144,6 +144,12 @@
         <div class="h-full w-full flex space-x-6 items-center justify-center">
           <div>
             <Message v-show="success">کالا به انبار اضافه شد</Message>
+            <Message severity="error" v-show="faild">{{
+              errorMessage
+            }}</Message>
+            <Message severity="error" v-show="loginErr"
+              >وارد حساب ادمین شوید</Message
+            >
           </div>
           <div v-if="Array.isArray(errorMessage)">
             <Message
@@ -246,10 +252,10 @@ const errorMessage = ref("");
 const courseDate = ref("");
 const courseTitle = ref("");
 const courseDescription = ref("");
-const coursePrice = ref();
+const coursePrice = ref(null);
 const trainer = ref("");
 
-const eventVideo = ref();
+const eventVideo = ref(null);
 
 // event images
 
@@ -274,6 +280,8 @@ const videoUploadLoading = ref(false);
 const minutes = ref();
 const seconds = ref();
 
+const loginErr = ref(false);
+
 watch(minutes, (cur, old) => {
   if (cur === 0 && seconds.value === 0) {
     minutes.value = "لطفن کمی صبر کنید";
@@ -281,7 +289,6 @@ watch(minutes, (cur, old) => {
 });
 
 const handleCourse = async () => {
-  videoUploadLoading.value = true;
   // const data = new URLSearchParams({
   //   title: courseTitle.value,
   //   price: coursePrice.value,
@@ -291,77 +298,113 @@ const handleCourse = async () => {
   //   description: courseDescription.value,
   // });
 
-  const formData = new FormData();
+  if (eventVideo.value === null) {
+    faild.value = true;
+    errorMessage.value = "فایل ویدیو را انتخاب کنید";
+  }
+  if (courseTitle.value === "") {
+    faild.value = true;
+    errorMessage.value = "عنوان آموزش را وارد نمایید";
+  }
+  if (coursePrice.value === null) {
+    faild.value = true;
+    errorMessage.value = "قیمت آموزش را انتخاب کنید";
+  }
+  if (trainer.value === "") {
+    faild.value = true;
+    errorMessage.value = "مدرس ویدیو را انتخاب کنید";
+  }
+  if (courseDescription.value === "") {
+    faild.value = true;
+    errorMessage.value = "توضیحات آموزش را وارد کنید";
+  }
 
-  formData.append("file", eventVideo.value);
-  formData.append("title", courseTitle.value);
-  formData.append("price", coursePrice.value);
-  formData.append("type", type.value);
-  formData.append("trainer", trainer.value);
-  formData.append("description", courseDescription.value);
+  if (
+    eventVideo.value !== null &&
+    courseTitle.value !== "" &&
+    coursePrice.value !== null &&
+    trainer.value !== "" &&
+    courseDescription.value !== ""
+  ) {
+    videoUploadLoading.value = true;
+    const formData = new FormData();
 
-  const uploadTimeSeconds = eventVideo.value.size / 100000;
+    formData.append("file", eventVideo.value);
+    formData.append("title", courseTitle.value);
+    formData.append("price", coursePrice.value);
+    formData.append("type", type.value);
+    formData.append("trainer", trainer.value);
+    formData.append("description", courseDescription.value);
 
-  minutes.value = Math.floor(uploadTimeSeconds / 60);
-  seconds.value = Math.round(uploadTimeSeconds % 60);
-  console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
+    const uploadTimeSeconds = eventVideo.value.size / 100000;
 
-  const countdown = setInterval(() => {
-    // Print the current countdown value
-    console.log(
-      `${minutes.value} minutes and ${seconds.value} seconds remaining`
-    );
+    minutes.value = Math.floor(uploadTimeSeconds / 60);
+    seconds.value = Math.round(uploadTimeSeconds % 60);
+    console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
 
-    // Decrease the seconds by 1
-    seconds.value--;
+    const countdown = setInterval(() => {
+      // Print the current countdown value
+      console.log(
+        `${minutes.value} minutes and ${seconds.value} seconds remaining`
+      );
 
-    // If seconds reach 0, decrease the minutes and reset the seconds to 59
-    if (seconds.value < 0) {
-      minutes.value--;
-      seconds.value = 59;
-    }
+      // Decrease the seconds by 1
+      seconds.value--;
 
-    // If both minutes and seconds reach 0, stop the countdown
-    if (minutes.value === 0 && seconds.value === 0) {
-      console.log("Upload complete!");
-      clearInterval(countdown);
-    }
-  }, 1000); // Run the countdown every 1 second
-
-  await $fetch("http://localhost:3333/management/addvideo", {
-    method: "POST",
-    headers: {},
-    credentials: "include",
-    body: formData,
-    withCredentials: true,
-  })
-    .then((response, error) => {
-      addedCourseId.value = response.video.id;
-      mainManagement.setStateChange();
-      let images = [
-        eventImageOne.value,
-        eventImageTwo.value,
-        eventImageThree.value,
-      ];
-      if (response.video) {
-        videoUploadLoading.value = false;
+      // If seconds reach 0, decrease the minutes and reset the seconds to 59
+      if (seconds.value < 0) {
+        minutes.value--;
+        seconds.value = 59;
       }
-      images.forEach((image) => {
-        uploadImage(image);
-      });
-      success.value = true;
-      setTimeout(() => {
-        success.value = false;
-      }, 3000);
+
+      // If both minutes and seconds reach 0, stop the countdown
+      if (minutes.value === 0 && seconds.value === 0) {
+        console.log("Upload complete!");
+        clearInterval(countdown);
+      }
+    }, 1000); // Run the countdown every 1 second
+
+    await $fetch("http://localhost:3333/management/addvideo", {
+      method: "POST",
+      headers: {},
+      credentials: "include",
+      body: formData,
+      withCredentials: true,
     })
-    .catch((error) => {
-      faild.value = true;
-      videoUploadLoading.value = false;
-      errorMessage.value = error.data.message;
-      setTimeout(() => {
-        faild.value = false;
-      }, 3000);
-    });
+      .then((response, error) => {
+        addedCourseId.value = response.video.id;
+        mainManagement.setStateChange();
+        let images = [
+          eventImageOne.value,
+          eventImageTwo.value,
+          eventImageThree.value,
+        ];
+        if (response.video) {
+          videoUploadLoading.value = false;
+        }
+        images.forEach((image) => {
+          uploadImage(image);
+        });
+        success.value = true;
+        setTimeout(() => {
+          success.value = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error.status === 403) {
+          loginErr.value = true;
+          setTimeout(() => {
+            loginErr.value = false;
+          }, 2000);
+        }
+        faild.value = true;
+        videoUploadLoading.value = false;
+        errorMessage.value = error.data.message;
+        setTimeout(() => {
+          faild.value = false;
+        }, 3000);
+      });
+  }
 };
 
 // handling image upload

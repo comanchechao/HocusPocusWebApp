@@ -31,8 +31,21 @@
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
         >
-          <h2 class="text-md">4</h2>
-          <h2 class="text-md lg:hidden">تعداد کالا</h2>
+          <h2 class="text-md">
+            <h2
+              v-show="order.payment === false"
+              class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
+            >
+              پرداخت نشده
+            </h2>
+            <h2
+              v-show="order.payment === true"
+              class="lg:text-md md:text-md text-sm p-2 border-2 border-dashed border-mainPink rounded-md"
+            >
+              پرداخت شده
+            </h2>
+          </h2>
+          <h2 class="text-md lg:hidden">وضعیت پرداخت</h2>
         </div>
         <div
           class="flex items-center lg:justify-center justify-end space-x-2 w-full"
@@ -66,6 +79,8 @@ onMounted(() => {
     .calendar("jalali")
     .locale("en")
     .format("DD MMMM YYYY");
+
+  console.log(props.order);
 });
 </script>
 

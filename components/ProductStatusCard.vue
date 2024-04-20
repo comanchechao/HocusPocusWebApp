@@ -79,6 +79,8 @@ const updateSpecialOffer = async function () {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    withCredentials: true,
+    credentials: "include",
     body: data,
   })
     .then((response, error) => {
@@ -102,6 +104,8 @@ const deupdateSpecialOffer = async function () {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    withCredentials: true,
+    credentials: "include",
     body: data,
   })
     .then((response, error) => {
@@ -124,6 +128,8 @@ const updateWeekSelection = async function () {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    withCredentials: true,
+    credentials: "include",
     body: data,
   })
     .then((response, error) => {
@@ -147,6 +153,8 @@ const deupdateWeekSelection = async function () {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    withCredentials: true,
+    credentials: "include",
     body: data,
   })
     .then((response, error) => {
@@ -170,6 +178,8 @@ const removeProductImage = async function () {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        withCredentials: true,
+        credentials: "include",
       }
     )
       .then((response, error) => {
@@ -189,6 +199,8 @@ const removeProductImage = async function () {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        withCredentials: true,
+        credentials: "include",
       }
     )
       .then((response, error) => {
@@ -205,6 +217,8 @@ const removeProductImage = async function () {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        withCredentials: true,
+        credentials: "include",
       }
     )
       .then((response, error) => {
@@ -221,6 +235,8 @@ const removeProductImage = async function () {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        withCredentials: true,
+        credentials: "include",
       }
     )
       .then((response, error) => {
@@ -243,6 +259,8 @@ const removeProduct = async function () {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
+      withCredentials: true,
+      credentials: "include",
     }
   )
     .then((response, error) => {

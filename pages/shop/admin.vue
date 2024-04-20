@@ -132,7 +132,6 @@
         >
           مدیریت صفحه ی اول
         </h2>
-
         <LazyProductStatusManagement :products="products" />
       </div>
       <div
@@ -164,6 +163,10 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
+import { useUserStore } from "../../stores/user";
+
+const userStore = useUserStore();
+const { isLogged, isManager } = storeToRefs(userStore);
 
 dayjs.extend(jalaliday);
 import { PhCaretLeft, PhCoffee } from "@phosphor-icons/vue";
@@ -181,6 +184,16 @@ const orderMainStore = useOrderMainStore();
 const mode = ref(false);
 
 const totalSales = ref(0);
+
+onMounted(() => {
+  setTimeout(() => {
+    if (isManager.value === false) {
+      navigateTo({
+        path: "/",
+      });
+    }
+  }, 2000);
+});
 
 const { orderStatus } = storeToRefs(orderMainStore);
 const { stateChange } = storeToRefs(mainManagement);

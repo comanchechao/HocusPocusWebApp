@@ -44,8 +44,8 @@
           >
           </label>
           <div class="relative">
-            <input             dir="rtl"
-
+            <input
+              dir="rtl"
               v-model="search"
               type="search"
               id="default-search"
@@ -61,9 +61,7 @@
             </button>
             <div
               class="absolute inset-y-0 end-0 flex pr-4 items-center ps-3 pointer-events-none"
-            >
-             
-            </div>
+            ></div>
           </div>
         </div>
         <div
@@ -82,12 +80,20 @@
           </div>
 
           <LazyAvailableProductCard
+            :categories="categories"
+            :types="types"
+            :brands="brands"
+            :rarity="rarity"
             v-show="!showSearch"
             v-for="product in products"
             :key="product.id"
             :product="product"
           />
           <LazyAvailableProductCard
+            :categories="categories"
+            :types="types"
+            :brands="brands"
+            :rarity="rarity"
             v-show="showSearch"
             v-for="product in searchedProduct"
             :key="product.id"
@@ -163,6 +169,49 @@ onMounted(() => {
 });
 
 const { productsCount } = storeToRefs(mainManagement);
+
+onMounted(() => {
+  getFilterItems();
+});
+
+// getting filters
+
+const categories = ref([]);
+const rarity = ref([]);
+const types = ref([]);
+const brands = ref([]);
+
+const getFilterItems = async () => {
+  const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      types.value = [];
+      brands.value = [];
+      rarity.value = [];
+      categories.value = [];
+      response.filters.forEach((item) => {
+        if (item.filter_id === 2) {
+          categories.value.push(item);
+        }
+        if (item.filter_id === 4) {
+          brands.value.push(item);
+        }
+        if (item.filter_id === 3) {
+          rarity.value.push(item);
+        }
+        if (item.filter_id === 1) {
+          types.value.push(item);
+          console.log(types.value);
+        }
+      });
+    })
+    .catch(function (error) {});
+};
 </script>
 
 <style scoped></style>

@@ -89,7 +89,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                دوشنبه 19 تیر 1402
+                {{ date }}
               </h2>
               <h2 class="text-md">تاریخ خرید</h2>
             </div>
@@ -97,7 +97,7 @@
               <h2
                 class="text-md p-2 border-2 border-dashed border-mainPink rounded-md"
               >
-                پرداخت شده
+                پرداخت نشده
               </h2>
               <h2 class="text-md">وضعیت سفارش</h2>
             </div>
@@ -128,8 +128,20 @@
 <script setup>
 import { ref } from "vue";
 import { PhInfo, PhCheckCircle } from "@phosphor-icons/vue";
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+
+const date = ref();
 const props = defineProps(["membership"]);
 const visible = ref(false);
+dayjs.extend(jalaliday);
+
+onMounted(() => {
+  date.value = dayjs(props.membership.created_at)
+    .calendar("jalali")
+    .locale("en")
+    .format("DD MMMM YYYY");
+});
 
 const loading = ref(true);
 const orderItems = ref();
