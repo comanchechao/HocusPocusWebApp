@@ -92,10 +92,9 @@
           }"
           class="text-lg flex active:text-mainRed active:bg-darkPurple items-center space-x-2 px-4 py-1 border-2 border-transparent rounded-sm"
         >
-          <span> خونه </span>
           <img
             src="../assets/images/MagicianLogo.webp"
-            class="w-7 object-contain"
+            class="w-10 object-contain"
             alt=""
           />
         </button>
