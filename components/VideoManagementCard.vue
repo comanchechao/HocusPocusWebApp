@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
+    class="w-full h-20 grid grid-cols-3 place-items-center border-b border-mainYellow"
   >
     <button
       @click="removeComments()"
@@ -16,10 +16,7 @@
       <PhTrash v-if="!loading" :size="30" />
     </button>
     <h3 class="text-darkPurple">{{ date }}</h3>
-    <div class="flex items-center space-x-3">
-      <InputSwitch v-model="checked"></InputSwitch>
-      <h3 class="text-sm text-darkPurple">موجود</h3>
-    </div>
+
     <!-- <h3 class="text-darkPurple">{{ course.trainer }}</h3> -->
     <h3 class="text-mainBrown text-center px-5">{{ course.title }}</h3>
 

@@ -22,12 +22,11 @@
           class="w-full h-full bg-white my-4 flex flex-col rounded-md text-xs lg:text-lg"
         >
           <div
-            class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
+            class="w-full h-20 grid grid-cols-3 place-items-center border-b border-Indigo-600"
           >
             <h3 class="text-mainPurple">ویرایش</h3>
 
             <h3 class="text-mainPurple">تاریخ آپلود</h3>
-            <h3 class="text-mainPurple">موجودی آموزش</h3>
             <h3 class="text-mainPurple">نام آموزش</h3>
           </div>
           <LazyVideoManagementCard
