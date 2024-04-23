@@ -389,7 +389,7 @@
 
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
-          v-for="item in products.slice(0, 4)"
+          v-for="item in offers"
           :key="item.id"
           :item="item"
         />
@@ -476,6 +476,7 @@ const getProducts = async () => {
       products.value = response.products;
       productStore.setProducts(response.products);
       getCourses();
+      getSpecialOffers();
       loading.value = false;
     })
     .catch(function (error) {
@@ -516,7 +517,7 @@ const getLatestProduct = async () => {
     .then(function (response) {
       console.log(response.product);
       latestProduct.value = response.product[0];
-      getLatestFour();
+      getSpecialOffers();
       loadingTwo.value = false;
     })
     .catch(function (error) {
@@ -524,19 +525,19 @@ const getLatestProduct = async () => {
     });
 };
 
-const latestFour = ref([]);
+const offers = ref([]);
 const loadingThree = ref(true);
 
-const getLatestFour = async () => {
+const getSpecialOffers = async () => {
   loadingThree.value = true;
-  const { data } = await $fetch("http://localhost:3333/products/lastfour", {
+  const { data } = await $fetch("http://localhost:3333/products/offers", {
     headers: {},
     withCredentials: true,
     credentials: "include",
   })
     .then(function (response) {
       console.log(response.products);
-      latestFour.value = response.products;
+      offers.value = response.products;
       loadingThree.value = false;
     })
     .catch(function (error) {

@@ -21,6 +21,7 @@ export class ProductsService {
         price: true,
         category: true,
         discount: true,
+        cover: true,
         quantity: true,
         ProductImages: {
           take: 2,
@@ -81,6 +82,35 @@ export class ProductsService {
     });
 
     return { product: product };
+  }
+
+  async getSpecialOffers() {
+    const products = await this.prismaService.products.findMany({
+      where: {
+        special_offer: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: 4,
+      select: {
+        createdAt: true,
+        id: true,
+        title: true,
+        price: true,
+        brand: true,
+        type: true,
+        cover: true,
+        design: true,
+        discount: true,
+        quantity: true,
+        category: true,
+        description: true,
+        ProductImages: { take: 1 },
+      },
+    });
+
+    return { products: products };
   }
 
   async getFourBeforeOne() {
