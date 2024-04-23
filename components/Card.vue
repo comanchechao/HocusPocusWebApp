@@ -28,13 +28,9 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <NuxtLink :to="'/shop/productdetail/' + product.id">
-        <ProductImage
-          class="h-72 object-fill"
-          :productId="props.product.ProductImages[0].id"
-        >
-        </ProductImage>
-      </NuxtLink>
+      <div class="object-contain">
+        <img :src="image" class="h-72 object-fill" alt="" />
+      </div>
 
       <!-- <img
           src="../assets/images/Psychonauts.webp"
@@ -166,6 +162,7 @@ const props = defineProps(["product"]);
 // register product store
 
 const productStore = useProductStore();
+const image = ref(`data:image/jpeg;base64,${props.product.cover}`);
 
 const addToCart = (product: any) => {
   productStore.addToShoppingCart(product);
