@@ -625,20 +625,7 @@ const handleProduct = async () => {
       .then((response, error) => {
         addedProductID.value = response.product.id;
 
-        let images = [
-          eventFileOne.value,
-          eventFileTwo.value,
-          eventFileThree.value,
-          eventFileFour.value,
-        ];
-
-        if (eventFileOne.value !== null || eventFileTwo.value !== null) {
-          images.forEach((image) => {
-            setTimeout(() => {
-              uploadImage(image);
-            }, 3000);
-          });
-        }
+        uploadOrder();
         mainManagement.setStateChange();
       })
       .catch((error) => {
@@ -653,6 +640,43 @@ const handleProduct = async () => {
         setTimeout(() => {
           faild.value = false;
         }, 3000);
+      });
+  }
+};
+
+// upload order
+
+const uploadOrder = async function () {
+  const formData = new FormData();
+  formData.append("file", eventFileOne.value);
+  formData.append("productId", addedProductID.value);
+  if (eventFileOne.value !== null || eventFileTwo.value !== null) {
+    imageUploadLoading.value = true;
+    await $fetch("http://localhost:3333/management/cover", {
+      method: "POST",
+      headers: {},
+      body: formData,
+      withCredentials: true,
+      credentials: "include",
+    })
+      .then((response) => {
+        if (response.data) {
+          imageUploadLoading.value = false;
+          success.value = true;
+        }
+        setTimeout(() => {
+          uploadImage(eventFileTwo.value);
+          setTimeout(() => {
+            uploadImage(eventFileThree.value);
+            setTimeout(() => {
+              uploadImage(eventFileThree.value);
+            }, 2000);
+          }, 3000);
+        }, 1000);
+      })
+      .catch((error) => {
+        imageUploadError.value = true;
+        uploadErrorMessage.value = error.data.message;
       });
   }
 };

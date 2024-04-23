@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="loading"
-    class="w-full h-full lg:h-20 py-5 p-10 grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
+    class="w-full h-full lg:h-20 py-5 p-10 grid grid-rows-4 lg:grid-cols-5 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
   >
     <Skeleton height="2rem" width="10rem" class="mb-2"></Skeleton>
     <Skeleton height="2rem" width="10rem" class="mb-2"></Skeleton
@@ -9,7 +9,7 @@
     ><Skeleton height="2rem" width="10rem" class="mb-2"></Skeleton>
   </div>
   <div
-    class="w-full h-full lg:h-20 py-5 p-10 grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
+    class="w-full h-full lg:h-20 py-5 p-10 grid grid-rows-4 lg:grid-cols-5 lg:grid-rows-1 lg:justify-items-center place-items-center justify-items-center border-b border-mainRed"
   >
     <LazyOrderInfoDialog :order="order" />
     <div class="flex items-center justify-end space-x-2">
@@ -26,6 +26,12 @@
     <div class="flex items-center justify-end space-x-2">
       <h3 class="text-darkPurple text-center text-sm font-bold px-5">
         {{ order.fullname }}
+      </h3>
+      <h3 class="text-darkPurple text-sm lg:hidden flex">نام خریدار</h3>
+    </div>
+    <div class="flex items-center justify-end space-x-2">
+      <h3 class="text-darkPurple text-center text-sm font-bold px-5">
+        {{ order.id }}
       </h3>
       <h3 class="text-darkPurple text-sm lg:hidden flex">نام خریدار</h3>
     </div>

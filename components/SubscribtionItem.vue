@@ -4,25 +4,23 @@
   >
     <LazyVideoOrderInfo :membership="membership"></LazyVideoOrderInfo>
     <h3 class="text-darkPurple flex items-center space-x-2">
-      <PhCheckCircle class="text-green-500" :size="25" weight="fill" />
-
       <span v-show="membership.status === 'PROCESSING'">درحال پردازش</span>
       <PhPackage
-        v-show="membership.status === 'PROCESSING'"
+        v-show="status === 'PROCESSING'"
         class="text-mainYellow"
         :size="25"
         weight="fill"
       />
       <span v-show="membership.status === 'SHIPPING'">ارسال شده</span>
       <PhAirplaneTilt
-        v-show="membership.status === 'SHIPPING'"
+        v-show="status === 'SHIPPING'"
         class="text-blue-700"
         :size="25"
         weight="fill"
       />
       <span v-show="membership.status === 'DELIVERED'">تحویل داده شده</span>
       <PhCheckCircle
-        v-show="membership.status === 'DELIVERED'"
+        v-show="status === 'DELIVERED'"
         class="text-green-500"
         :size="25"
         weight="fill"
@@ -40,11 +38,18 @@
 
 <script setup>
 const props = defineProps(["membership"]);
+import {
+  PhCheckCircle,
+  PhAirplaneTilt,
+  PhPackage,
+  PhX,
+} from "@phosphor-icons/vue";
 
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
 
 const username = ref();
+const status = ref();
 
 const getusername = async () => {
   const data = new URLSearchParams({
@@ -63,13 +68,16 @@ const getusername = async () => {
     .then((response, error) => {
       username.value = response.username.username;
     })
-    .catch((error) => {});
+    .catch((error) => {
+      console.log(error);
+    });
 };
 const date = ref();
 
 dayjs.extend(jalaliday);
 
 onMounted(() => {
+  status.value = props.membership.status;
   getusername();
   date.value = dayjs(props.membership.created_at)
     .calendar("jalali")

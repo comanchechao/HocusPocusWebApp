@@ -4,10 +4,16 @@
   >
     <div class="w-full h-52 flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
-        <!-- <LazyLastProductImage
-          class="h-52"
-          :productId="item.ProductImages[0].id"
-        /> -->
+        <div class="flex justify-center items-center">
+          <img v-if="!loading" :src="image" class="h-full" alt="" />
+          <ProgressSpinner
+            v-if="loading"
+            style="width: 50px; height: 50px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+        </div>
       </NuxtLink>
     </div>
     <div
@@ -51,7 +57,17 @@ const props = defineProps(["item"]);
 
 const productStore = useProductStore();
 
+const image = ref(`data:image/jpeg;base64,${props.item.cover}`);
+
 const addSuccess = ref(false);
+
+const loading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 3000);
+});
 
 const addToCart = (product) => {
   productStore.addToShoppingCart(product);
