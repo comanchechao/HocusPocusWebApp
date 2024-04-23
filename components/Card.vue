@@ -9,16 +9,8 @@
       @mouseenter="toggleDiv1"
       @mouseleave="toggleDiv2"
     >
-      <!-- <img
-        src="../assets/images/Psychonauts2.webp"
-        class="w-full object-fill opacity-100 backdrop-blur-3xl"
-        alt=""
-      /> -->
       <NuxtLink :to="'/shop/productdetail/' + product.id">
-        <ProductImage
-          class="h-72 object-contain"
-          :productId="props.product.ProductImages[0].id"
-        >
+        <ProductImage class="" :productId="props.product.ProductImages[0].id">
         </ProductImage>
       </NuxtLink>
     </div>
@@ -28,13 +20,16 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <NuxtLink :to="'/shop/productdetail/' + product.id">
+      <!-- <NuxtLink :to="'/shop/productdetail/' + product.id">
         <ProductImage
           class="h-72 object-contain"
           :productId="props.product.ProductImages[1].id"
         >
         </ProductImage>
-      </NuxtLink>
+      </NuxtLink> -->
+      <div class=" object-contain">
+        <img :src="image" class="h-72  object-fill" alt="" />
+      </div>
 
       <!-- <img
           src="../assets/images/Psychonauts.webp"
@@ -125,6 +120,7 @@ const addSuccess = ref(false);
 const loading = ref(true);
 const showDiv1 = ref();
 const showDiv2 = ref(true);
+
 function toggleDiv1() {
   showDiv1.value = true;
   showDiv2.value = false;
@@ -160,6 +156,8 @@ watch([showDiv1, showDiv2], (values) => {
   }
 });
 const props = defineProps(["product"]);
+
+const image = ref(`data:image/jpeg;base64,${props.product.cover}`);
 
 // register product store
 

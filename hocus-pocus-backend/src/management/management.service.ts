@@ -95,6 +95,19 @@ export class ManagementService {
     return { data: image };
   }
 
+  async storeCover(file: any, body: any) {
+    const image = await this.prismaService.products.update({
+      where: {
+        id: Number(body.productId),
+      },
+      data: {
+        cover: file.buffer.toString('base64'),
+      },
+    });
+
+    return { data: image };
+  }
+
   async updateProductStatus(dto: ProductStatusDto) {
     const product = await this.prismaService.products.update({
       where: {

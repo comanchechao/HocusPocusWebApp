@@ -41,6 +41,7 @@ export class ProductsService {
         createdAt: true,
         id: true,
         title: true,
+        cover: true,
         price: true,
         brand: true,
         type: true,
