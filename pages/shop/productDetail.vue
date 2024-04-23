@@ -19,7 +19,7 @@
         </h2>
       </div>
       <div
-        class="w-full Product flex lg:flex-row flex-col-reverse items-start mt-9 rounded-md h-full lg:space-x-5"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-start mt-9 rounded-md h-16 lg:space-x-5"
       >
         <div class="lg:w-1/2 w-full h-full flex flex-col items-start">
           <div

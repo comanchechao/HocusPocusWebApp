@@ -78,7 +78,7 @@
       </div>
       <div
         v-if="!loading"
-        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-auto lg:h-screen lg:space-x-5"
+        class="w-full Product flex lg:flex-row flex-col-reverse items-center mt-9 rounded-md h-auto lg:h-dialog lg:space-x-5"
       >
         <div
           class="lg:w-1/2 w-full h-full flex flex-col items-center justify-center"

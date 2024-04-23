@@ -106,8 +106,7 @@
     </NuxtLink>
     <div class="flex items-end justify-between flex-col px-6 pt-7">
       <h2 class="text-mainWhite text-right space-x-1 text-sm">
-        <span>1402</span>
-        <span>-</span>
+        <span>1403 - 2024</span>
         <span>
           .تمامی حقوق مادی و معنوی متعلق به فروشگاه اینترنتی هوکوس پوکوس میباشد
         </span>
