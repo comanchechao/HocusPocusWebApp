@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="course"
-    class="lg:w-rem38 w-full h-auto lg:h-72 rounded-md shadow-lg bg-mainWhite transition flex-col items-center"
+    class="lg:w-rem28 w-full h-auto lg:h-dialog rounded-md shadow-lg transition flex-col items-center"
   >
     <NuxtLink :to="'/learn/coursedetail/' + course.id">
       <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>
     </NuxtLink>
 
     <div
-      class="h-32 lg:h-44   space-y-2 text-right w-full     rounded-b-md flex items-center flex-col p-4"
+      class="h-32 bg-mainWhite lg:h-44 space-y-2 text-right w-full rounded-b-md flex items-center flex-col p-4"
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2
@@ -18,12 +18,11 @@
         </h2>
       </NuxtLink>
 
-      
       <div
         class="w-full h-auto flex lg:flex-row flex-col items-center space-y-7 lg:space-y-0 justify-center lg:justify-around px-3"
       >
         <h3
-          class="lg:text-4xl text-xl border-2 border-dashed border-mainOrange rounded-md py-2 px-2 lg:px-8 text-mainBrown flex items-center justify-center space-x-2"
+          class="lg:text-3xl text-xl border-2 border-dashed border-mainOrange rounded-md py-2 px-2 lg:px-3 text-mainBrown flex items-center justify-center space-x-2"
         >
           <span class="text-xs text-mainOrange">تومان</span>
           <span>{{ course.price }}</span>

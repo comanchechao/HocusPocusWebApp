@@ -160,7 +160,7 @@
         </NuxtLink>
       </div>
       <div
-        class="h-full w-full flex flex-col items-center lg:items-end px-7 lg:px-28 my-9"
+        class="h-screen w-full flex flex-col items-center lg:items-end px-7 lg:px-28 my-9"
       >
         <h2
           class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
@@ -302,9 +302,9 @@
       >
         <div
           v-show="latestProduct"
-          class="h-full space-y-1 w-full rounded-md lg:col-span-2 bg-mainWhite lg:row-span-2 flex flex-col items-end justify-center"
+          class="h-full bg-mainWhite w-full rounded-md lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-between"
         >
-          <div class="h-rem28 w-full flex items-center justify-center">
+          <div class="lg:h-full h-auto w-full flex items-center justify-center">
             <ProgressSpinner
               class="self-center"
               v-if="loading"
@@ -315,14 +315,13 @@
             />
             <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
               <LazyLastProductImage
-                class="h-rem28 object-cover"
                 v-if="!loadingTwo"
                 :productId="latestProduct.ProductImages[0].id"
               />
             </NuxtLink>
           </div>
           <div
-            class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
+            class="w-full p-4 h-full lg:h-1/4 flex flex-col items-end justify-center space-y-4"
           >
             <Skeleton
               class="hidden lg:flex"
@@ -334,7 +333,7 @@
             <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
               <h2
                 v-if="!loadingTwo"
-                class="text-darkPurple font-bold text-center text-lg lg:text-3xl flex"
+                class="text-darkPurple text-center text-lg lg:text-2xl flex"
               >
                 <span> {{ latestProduct.title }} </span>
               </h2>

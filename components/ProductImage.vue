@@ -1,6 +1,11 @@
 <template>
-  <div class="flex justify-center items-center">
-    <img v-if="!loading" :src="image" class="h-full object-fill" alt="" />
+  <div class="flex justify-center w-full h-full items-center">
+    <img
+      v-if="!loading"
+      :src="image"
+      class="h-full w-full object-fill"
+      alt=""
+    />
     <ProgressSpinner
       v-if="loading"
       style="width: 50px; height: 50px"

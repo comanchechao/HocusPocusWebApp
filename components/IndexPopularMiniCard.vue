@@ -1,16 +1,18 @@
 <template>
   <div
-    class="h-full w-full bg-mainWhite space-y-2 flex flex-col rounded-md items-end justify-between"
+    class="h-full w-full bg-mainWhite flex flex-col rounded-md items-end justify-between"
   >
-    <div class="w-full h-3/4 flex items-start justify-center">
+    <div class="w-full h-52 flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
-        <LazyLastProductImage
-          class="h-52 object-cover"
+        <!-- <LazyLastProductImage
+          class="h-52"
           :productId="item.ProductImages[0].id"
-        />
+        /> -->
       </NuxtLink>
     </div>
-    <div class="h-1/4 w-full p-2 flex items-end justify-end flex-col">
+    <div
+      class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
+    >
       <div class="flex items-center justify-around w-full">
         <h3
           class="text-sm border-2 border-dashed border-darkPurple rounded-md px-5 text-mainBrown flex items-center justify-center space-x-2"
@@ -21,7 +23,9 @@
         </h3>
 
         <NuxtLink :to="'/shop/productdetail/' + item.id">
-          <h2 class="text-darkPurple text-center text-md lg:text-sm flex">
+          <h2
+            class="text-darkPurple text-center text-md lg:text-xs text-right flex"
+          >
             <span> {{ item.title }} </span>
           </h2>
         </NuxtLink>

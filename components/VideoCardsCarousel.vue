@@ -1,7 +1,6 @@
 <template>
   <div class="h-full w-screen px-5 lg:px-14">
     <swiper
-      :navigation="true"
       :breakpoints="{
         '480': {
           slidesPerView: 1,
@@ -16,7 +15,7 @@
           spaceBetween: 40,
         },
         '1024': {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 50,
         },
       }"

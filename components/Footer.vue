@@ -25,16 +25,13 @@
         <h2 class="text-lg text-mainRed lg:px-0 px-14">
           وبسایت آموزش و فروش محصولات شعبده بازی
         </h2>
-        <div class="w-full flex flex-col h-48 items-center justify-center">
-          <div class="flex flex-col items-center justify-center">
-            <div class="flex items-center justify-center w-full">
-              <img
-                src="../assets/images/HOCUSPOCUS.webp"
-                class="object-contain Up w-rem21"
-                alt=""
-              />
-            </div>
-          </div>
+
+        <div class="flex items-center h-52 justify-center w-full">
+          <img
+            src="../assets/images/HOCUSPOCUS.webp"
+            class="object-contain h-52 Up w-rem21"
+            alt=""
+          />
         </div>
         <div class="flex items-center justify-center space-x-2">
           <a href="https://www.instagram.com/hocus_pocus.official.1/">

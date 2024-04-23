@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-auto rounded-lg bg-mainWhite duration-200 ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
+    class="h-auto rounded-lg bg-mainWhite duration-200 overflow-hidden ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
       class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
@@ -17,21 +17,21 @@
       <NuxtLink :to="'/shop/productdetail/' + product.id">
         <ProductImage
           class="h-72 object-contain"
-          :productId="props.product.ProductImages[0].id"
+          :productId="props.product.ProductImages[1].id"
         >
         </ProductImage>
       </NuxtLink>
     </div>
     <div
-      class="w-full items-center justify-center flex h-72 mb-3 bg-mainWhite rounded-t-lg"
+      class="w-full items-center justify-center overflow-hidden flex h-72 mb-3 bg-mainWhite rounded-t-lg"
       id="div2"
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
       <NuxtLink :to="'/shop/productdetail/' + product.id">
         <ProductImage
-          class="h-72 object-contain"
-          :productId="props.product.ProductImages[1].id"
+          class="h-72 object-fill"
+          :productId="props.product.ProductImages[0].id"
         >
         </ProductImage>
       </NuxtLink>
@@ -43,7 +43,9 @@
         /> -->
     </div>
 
-    <div class="w-full h-full flex items-end flex-col px-7 py-5 space-y-4">
+    <div
+      class="w-full h-full z-30 mt-3 flex items-end flex-col px-7 py-5 space-y-4"
+    >
       <div class="w-full justify-between flex items-center">
         <h2 class="flex items-center space-x-1">
           <PhStar class="text-mainPink" size="20" weight="fill"></PhStar>
@@ -51,7 +53,7 @@
         </h2>
         <NuxtLink :to="'/shop/productdetail/' + product.id">
           <h3
-            class="text-center rounded-sm border-b-4 border-mainPink hover:border-mainYellow title text-md duration-200 transition ease-in-out hover:text-blue-600 text-darkPurple"
+            class="text-center rounded-sm border-b-4 border-mainPink hover:border-mainYellow title text-sm duration-200 transition ease-in-out hover:text-blue-600 text-darkPurple"
           >
             {{ props.product.title }}
           </h3>
