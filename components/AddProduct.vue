@@ -263,8 +263,15 @@
             @click="handleProduct()"
             class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
           >
-            <span> اضافه کردن کالا </span>
-            <PhPlus weight="fill" :size="23" />
+            <span v-if="!addingLoading"> اضافه کردن کالا </span>
+            <PhPlus v-if="!addingLoading" weight="fill" :size="23" />
+            <ProgressSpinner
+              v-if="addingLoading"
+              style="width: 30px; height: 30px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
           </button>
         </div>
       </div>
@@ -527,9 +534,15 @@ watch(selectedCategory, (cur, old) => {
   console.log(selectedBrands.value, selectedCategory.value[0].name);
 });
 
+const addingLoading = ref(false);
+
 const handleProduct = async () => {
+  success.value = false;
+
+  addingLoading.value = true;
   if (productTitle.value === "") {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -537,6 +550,7 @@ const handleProduct = async () => {
   }
   if (productPrice.value === null) {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -544,6 +558,7 @@ const handleProduct = async () => {
   }
   if (selectedTypes.value === null) {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -551,6 +566,7 @@ const handleProduct = async () => {
   }
   if (selectedBrands.value === null) {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -558,6 +574,7 @@ const handleProduct = async () => {
   }
   if (selectedDesigns.value === null) {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -565,6 +582,7 @@ const handleProduct = async () => {
   }
   if (selectedCategory.value === null) {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -572,6 +590,7 @@ const handleProduct = async () => {
   }
   if (productQuantity.value === "") {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -579,6 +598,7 @@ const handleProduct = async () => {
   }
   if (productDescription.value === "") {
     addError.value = true;
+    addingLoading.value = false;
     setTimeout(() => {
       addError.value = false;
     }, 2000);
@@ -588,16 +608,22 @@ const handleProduct = async () => {
   if (eventFileOne.value === null || eventFileTwo.value === null) {
     addError.value = true;
     error.value = "عکس کاور و دوم را وارد کنید";
+    addingLoading.value = false;
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
   }
 
   if (
-    productTitle.value !== "" ||
-    productPrice.value !== null ||
-    selectedTypes.value !== null ||
-    selectedBrands.value !== null ||
-    selectedDesigns.value !== null ||
-    selectedCategory.value !== null ||
-    productQuantity.value !== null ||
+    productTitle.value !== "" &&
+    eventFileOne.value !== null &&
+    eventFileTwo.value !== null &&
+    productPrice.value !== null &&
+    selectedTypes.value !== null &&
+    selectedBrands.value !== null &&
+    selectedDesigns.value !== null &&
+    selectedCategory.value !== null &&
+    productQuantity.value !== null &&
     productDescription.value !== ""
   ) {
     const data = new URLSearchParams({
@@ -624,7 +650,7 @@ const handleProduct = async () => {
     })
       .then((response, error) => {
         addedProductID.value = response.product.id;
-
+        addingLoading.value = false;
         uploadOrder();
         mainManagement.setStateChange();
       })
@@ -633,6 +659,7 @@ const handleProduct = async () => {
         errorMessage.value = error.data.message;
         if (error.status === 403) {
           loginErr.value = true;
+          addingLoading.value = false;
           setTimeout(() => {
             loginErr.value = false;
           }, 2000);
@@ -710,6 +737,7 @@ const uploadImage = async function (image) {
       })
       .catch((error) => {
         imageUploadError.value = true;
+        imageUploadLoading.value = false;
         uploadErrorMessage.value = error.data.message;
       });
   }

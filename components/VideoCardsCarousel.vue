@@ -31,6 +31,19 @@
         ><LazyVideoCard :course="course"
       /></swiper-slide>
     </swiper>
+    <div
+      class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 lg:px-20 px-4 w-full"
+      v-if="loading"
+    >
+      <Skeleton
+        class="flex lg:hidden md:hidden"
+        width="17rem"
+        height="25rem"
+      ></Skeleton>
+
+      <Skeleton class="lg:flex hidden" width="35rem" height="25rem"></Skeleton>
+      <Skeleton class="lg:flex hidden" width="35rem" height="25rem"></Skeleton>
+    </div>
   </div>
 </template>
 <script>

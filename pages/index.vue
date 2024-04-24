@@ -228,7 +228,7 @@
         </h2>
         <div
           class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
-          v-if="loading"
+          v-if="loadingProducts"
         >
           <Skeleton width="18rem" height="25rem"></Skeleton>
           <Skeleton
@@ -248,7 +248,7 @@
           ></Skeleton>
         </div>
         <LazyCardsCarousel
-          v-if="!loading"
+          v-if="!loadingProducts"
           :products="products"
           class="self-center"
         />
@@ -275,7 +275,7 @@
       >
         <div
           class="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-7 px-4 w-full"
-          v-if="loading"
+          v-if="loadingSwiper"
         >
           <Skeleton width="18rem" height="25rem"></Skeleton>
           <Skeleton
@@ -285,10 +285,16 @@
           ></Skeleton>
         </div>
         <div class="SCards">
-          <LazyCardsSwiper v-if="!loading" :products="products.slice(0, 4)" />
+          <LazyCardsSwiper
+            v-if="!loadingSwiper"
+            :products="products.slice(0, 4)"
+          />
         </div>
         <div class="lg:flex SCards hidden md:flex">
-          <LazyCardsSwiper v-if="!loading" :products="products.slice(4, 8)" />
+          <LazyCardsSwiper
+            v-if="!loadingSwiper"
+            :products="products.slice(4, 8)"
+          />
         </div>
       </div>
     </div>
@@ -464,6 +470,9 @@ const addToCart = (product) => {
   }, 3000);
 };
 
+const loadingProducts = ref(true);
+const loadingSwiper = ref(true);
+
 const getProducts = async () => {
   const { data } = await $fetch("http://localhost:3333/products", {
     headers: {},
@@ -474,12 +483,18 @@ const getProducts = async () => {
       console.log(response.products);
       products.value = response.products;
       productStore.setProducts(response.products);
+      setTimeout(() => {
+        loadingProducts.value = false;
+      }, 1000);
+      setTimeout(() => {
+        loadingSwiper.value = false;
+      }, 2000);
       getCourses();
       getSpecialOffers();
-      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
+      loadingProducts.value = false;
     });
 };
 
@@ -495,8 +510,10 @@ const getCourses = async () => {
     .then(function (response) {
       console.log(response.courses);
       courses.value = response.courses;
+      setTimeout(() => {
+        loading.value = false;
+      }, 2500);
       getLatestProduct();
-      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);

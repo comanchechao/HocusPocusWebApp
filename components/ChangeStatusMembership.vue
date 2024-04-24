@@ -69,6 +69,7 @@
           class="text-xl flex items-center mb-10 space-x-2 px-4 lg:px-10 py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
         >
           <span> تایید تغییرات </span>
+          <PhCheckCircle weight="fill" :size="23" />
         </button>
       </div>
     </Dialog>
