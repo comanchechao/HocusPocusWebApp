@@ -25,6 +25,27 @@
       <swiper-slide v-for="product in products.slice(0, 6)" :key="product"
         ><LazyCard :product="product"
       /></swiper-slide>
+      <div
+        class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
+        v-show="!products.length"
+      >
+        <Skeleton width="18rem" height="25rem"></Skeleton>
+        <Skeleton
+          class="lg:flex hidden"
+          width="18rem"
+          height="25rem"
+        ></Skeleton>
+        <Skeleton
+          class="lg:flex hidden"
+          width="18rem"
+          height="25rem"
+        ></Skeleton>
+        <Skeleton
+          class="lg:flex hidden"
+          width="18rem"
+          height="25rem"
+        ></Skeleton>
+      </div>
       <!-- <swiper-slide><LazyCard /></swiper-slide>
       <swiper-slide><LazyCard /></swiper-slide>
       <swiper-slide><LazyCard /></swiper-slide> -->
