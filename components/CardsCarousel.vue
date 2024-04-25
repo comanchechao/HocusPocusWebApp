@@ -27,7 +27,7 @@
       /></swiper-slide>
       <div
         class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-7 px-4 w-full"
-        v-show="!products.length"
+        v-show="loading"
       >
         <Skeleton width="18rem" height="25rem"></Skeleton>
         <Skeleton
@@ -70,8 +70,15 @@ export default {
     SwiperSlide,
   },
   setup() {
+    const loading = ref(true);
+
+    onMounted(() => {
+      setTimeout(() => {
+        loading.value = false;
+      }, 1500);
+    });
     return {
-      modules: [Autoplay],
+      modules: [Autoplay, loading],
     };
   },
 };
