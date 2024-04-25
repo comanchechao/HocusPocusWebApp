@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-20 grid grid-cols-4 place-items-center border-b border-mainYellow"
+    class="w-full h-20 grid grid-cols-4 overflow-y-scroll place-items-center border-b border-mainYellow"
   >
     <LazyVideoOrderInfo :membership="membership"></LazyVideoOrderInfo>
     <h3 class="text-darkPurple flex items-center space-x-2">

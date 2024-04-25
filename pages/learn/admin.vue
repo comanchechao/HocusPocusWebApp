@@ -68,7 +68,7 @@
         <LazyAddVideo class="Product" />
       </div>
       <div
-        class="w-full mt-10 lg:mt-0 h-full lg:h-dialog flex flex-col items-end space-y-6"
+        class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
       >
         <div
           class="w-full flex items-center justify-center lg:flex-row flex-col-reverse space-y-3 lg:space-y-0 lg:justify-end lg:space-x-6 mb-10"
@@ -80,7 +80,7 @@
           <h2 class="text-4xl text-mainYellow">اشتراک ها</h2>
         </div>
         <div
-          class="w-full h-auto border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
+          class="w-full h-dialog border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
         >
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"

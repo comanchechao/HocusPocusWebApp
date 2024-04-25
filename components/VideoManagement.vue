@@ -8,11 +8,11 @@
       <PhVideo />
     </button>
     <Dialog
+      :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
-      :responsive="['md', 'lg', 'xl']"
       modal
-      :showHeader="false"
-      :style="{ width: '70vw', backgroundColor: '#150531', height: '100vw' }"
+      :showHeader="true"
+      :style="{ width: '70vw', backgroundColor: '#150531', height: '80vh' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
