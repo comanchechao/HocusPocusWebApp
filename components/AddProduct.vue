@@ -694,9 +694,13 @@ const uploadOrder = async function () {
         setTimeout(() => {
           uploadImage(eventFileTwo.value);
           setTimeout(() => {
-            uploadImage(eventFileThree.value);
-            setTimeout(() => {
+            if (eventFileThree.value !== null) {
               uploadImage(eventFileThree.value);
+            }
+            setTimeout(() => {
+              if (eventFileFour.value !== null) {
+                uploadImage(eventFileFour.value);
+              }
             }, 2000);
           }, 3000);
         }, 1000);

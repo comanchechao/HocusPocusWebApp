@@ -424,7 +424,7 @@
         />
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
-          v-for="item in offers"
+          v-for="item in offers.slice[(0, 4)]"
           :key="item.id"
           :item="item"
         />
@@ -504,11 +504,14 @@ const loadingProducts = ref(true);
 const loadingSwiper = ref(true);
 
 const getProducts = async () => {
-  const { data } = await $fetch("http://localhost:3333/products", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/products/weekselection",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       console.log(response.products);
       products.value = response.products;

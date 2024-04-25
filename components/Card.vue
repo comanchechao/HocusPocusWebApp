@@ -28,9 +28,16 @@
       v-show="showDiv2"
       @mouseenter="toggleDiv1"
     >
-      <div class="object-contain">
+      <div v-if="!loading" class="object-contain">
         <img :src="image" class="h-72 object-fill" alt="" />
       </div>
+      <ProgressSpinner
+        v-if="loading"
+        style="width: 50px; height: 50px"
+        strokeWidth="8"
+        animationDuration=".5s"
+        aria-label="Custom ProgressSpinner"
+      />
 
       <!-- <img
           src="../assets/images/Psychonauts.webp"
@@ -132,6 +139,12 @@ function toggleDiv2() {
   showDiv1.value = false;
   showDiv2.value = true;
 }
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 1500);
+});
 
 watch([showDiv1, showDiv2], (values) => {
   const [div1Visible, div2Visible] = values;
