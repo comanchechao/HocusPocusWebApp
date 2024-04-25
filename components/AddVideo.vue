@@ -58,7 +58,7 @@
             >توضیحات ویدیو
           </label>
           <Textarea
-            class="w-full text-right text-2xl py-3"
+            class="w-full text-right text-2xl py-3 px-6"
             autoResize
             v-model="courseDescription"
             rows="6"
@@ -79,7 +79,7 @@
               weight="fill"
               :size="66"
             />
-            <PhUpload v-show="!eventImageOne" weight="fill" :size="66" />
+            <PhEye v-show="!eventImageOne" weight="fill" :size="66" />
           </label>
           <input
             @change="
@@ -235,7 +235,13 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPlus, PhUpload, PhVideo, PhCheckCircle } from "@phosphor-icons/vue";
+import {
+  PhPlus,
+  PhUpload,
+  PhVideo,
+  PhCheckCircle,
+  PhEye,
+} from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/productManagement";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "~/stores/managementStore";
