@@ -17,7 +17,7 @@ import Badge from "primevue/badge";
 import Textarea from "primevue/textarea";
 import Skeleton from "primevue/skeleton";
 import ProgressSpinner from "primevue/progressspinner";
-
+import Checkbox from "primevue/checkbox";
 import Password from "primevue/password";
 
 import InputMask from "primevue/inputmask";
@@ -25,6 +25,8 @@ import InputMask from "primevue/inputmask";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
+  nuxtApp.vueApp.component("Checkbox", Checkbox);
+
   nuxtApp.vueApp.component("InputText", InputText);
   nuxtApp.vueApp.component("MultiSelect", MultiSelect);
   nuxtApp.vueApp.component("InputSwitch", InputSwitch);

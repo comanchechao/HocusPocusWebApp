@@ -25,7 +25,7 @@
       v-model:visible="visible"
       modal
       :showHeader="true"
-      :style="{ width: '60vw', backgroundColor: '#150531', height: '80vh' }"
+      :style="{ width: '70vw', backgroundColor: '#150531', height: '80vh' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#150531' }"
     >
@@ -69,7 +69,7 @@
           class="w-full h-full bg-white rounded-md overflow-y-scroll lg:px-11 md:px-14"
         >
           <div
-            class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-5"
+            class="h-10 w-full border-b border-mainPurple place-items-center grid grid-cols-6"
           >
             <h3 class="text-mainPurple text-sm">ویرایش</h3>
 
@@ -77,6 +77,7 @@
             <h3 class="text-mainPurple text-sm">تعداد کالا</h3>
             <h3 class="text-mainPurple text-sm">تاریخ ورود</h3>
             <h3 class="text-mainPurple text-sm">نام کالا</h3>
+            <h3 class="text-mainPurple text-sm">انتخاب</h3>
           </div>
 
           <LazyAvailableProductCard

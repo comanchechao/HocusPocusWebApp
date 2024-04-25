@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-auto w-full border-mainRed border-t py-3 place-items-center grid grid-cols-5"
+    class="h-auto w-full border-mainRed border-t py-3 place-items-center grid grid-cols-6"
   >
     <button
       @click="visible = true"
@@ -227,6 +227,7 @@
     <h3 class="text-darkPurple md:text-sm lg:text-sm text-xs text-center px-2">
       {{ product.title }}
     </h3>
+    <Checkbox v-model="checked" variant="filled" :binary="true" />
   </div>
 </template>
 
@@ -235,7 +236,7 @@ import { ref } from "vue";
 import { PhNotePencil, PhTrash, PhFloppyDisk } from "@phosphor-icons/vue";
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
-
+const checked = ref(false);
 const date = ref();
 
 dayjs.extend(jalaliday);
@@ -558,5 +559,3 @@ const removeProduct = async function () {
     });
 };
 </script>
-
-<style lang="scss" scoped></style>
