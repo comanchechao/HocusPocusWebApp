@@ -97,8 +97,8 @@
           >
           </label>
           <div class="relative">
-            <input             dir="rtl"
-
+            <input
+              dir="rtl"
               v-model="search"
               type="search"
               id="default-search"
@@ -114,19 +114,19 @@
             </button>
             <div
               class="absolute inset-y-0 end-0 flex pr-4 items-center ps-3 pointer-events-none"
-            >
-             
-            </div>
+            ></div>
           </div>
         </div>
 
         <div
           class="h-full LazyCard mt-10 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-0 px-1 grid-rows-1 gap-x-10 overscroll-y-scroll gap-4 justify-items-center"
         >
-          <div class="flex   h-full w-full justify-center items-center">
+          <div
+            v-show="empty && !loading"
+            class="flex h-full w-full col-span-4 justify-center items-center"
+          >
             <h2
-              class="text-mainRed text-4xl p-4 border-dashed border-mainRed border-4  self-center w-full   text-center"
-              v-show="empty && !loading"
+              class="text-mainRed text-3xl my-10 font-light p-6 border-dashed border-mainRed border-4 self-center w-full text-center"
             >
               محصولی برای نمایش وجود ندارد
             </h2>

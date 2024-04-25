@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="course"
-    class="lg:w-rem28 w-full h-auto lg:h-dialog rounded-md shadow-lg transition flex-col items-center"
+    class="lg:w-rem28 w-full h-auto lg:h-dialog bg-mainWhite rounded-md shadow-lg transition flex-col items-center"
   >
     <NuxtLink :to="'/learn/coursedetail/' + course.id">
       <LazyVideoCardImage :courseId="course.CoursesImages"></LazyVideoCardImage>

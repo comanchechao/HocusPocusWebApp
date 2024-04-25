@@ -2,10 +2,15 @@
   <div
     class="h-full w-full bg-mainWhite flex flex-col rounded-md items-end justify-between"
   >
-    <div class="w-full h-52 flex items-start justify-center">
+    <div class="w-full overflow-hidden h-full flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
         <div class="flex justify-center items-center">
-          <img v-if="!loading" :src="image" class="h-full" alt="" />
+          <img
+            v-if="!loading"
+            :src="image"
+            class="h-full w-full object-fill"
+            alt=""
+          />
           <ProgressSpinner
             v-if="loading"
             style="width: 50px; height: 50px"
@@ -17,17 +22,9 @@
       </NuxtLink>
     </div>
     <div
-      class="w-full p-4 h-1/4 flex flex-col items-end justify-center space-y-4"
+      class="w-full p-4 h-1/4 flex flex-col items-center justify-center space-y-4"
     >
-      <div class="flex items-center justify-around w-full">
-        <h3
-          class="text-sm border-2 border-dashed border-darkPurple rounded-md px-5 text-mainBrown flex items-center justify-center space-x-2"
-        >
-          <span class="text-xs text-darkPurple">تومان</span>
-          <span>{{ item.price }}</span>
-          <PhMoney :size="20" weight="fill" />
-        </h3>
-
+      <div class="flex items-center flex-col space-y-2 justify-around w-full">
         <NuxtLink :to="'/shop/productdetail/' + item.id">
           <h2
             class="text-darkPurple text-center text-md lg:text-xs text-right flex"
@@ -35,6 +32,13 @@
             <span> {{ item.title }} </span>
           </h2>
         </NuxtLink>
+        <h3
+          class="text-sm border-2 border-dashed border-darkPurple rounded-md px-5 text-mainBrown flex items-center justify-center space-x-2"
+        >
+          <span class="text-xs text-darkPurple">تومان</span>
+          <span>{{ item.price }}</span>
+          <PhMoney :size="20" weight="fill" />
+        </h3>
       </div>
       <button
         @click="addToCart(item)"
@@ -43,7 +47,9 @@
         <span> اضافه به سبد خرید </span> <PhShoppingBagOpen :size="20" />
       </button>
       <Message :closable="false" v-show="addSuccess" severity="success">
-        <span class="lg:text-sm text-xs font-bold">به سبد خرید اضافه شد</span>
+        <span class="lg:text-sm text-xs z-30 bg-mainWhite"
+          >به سبد خرید اضافه شد</span
+        >
       </Message>
     </div>
   </div>

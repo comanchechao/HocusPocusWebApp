@@ -1,5 +1,7 @@
 <template>
-  <div class="flex justify-center w-full h-auto lg:h-full items-center">
+  <div
+    class="flex justify-center w-full h-auto bg-mainPink lg:h-full items-center"
+  >
     <img
       v-if="!loading"
       :src="image"

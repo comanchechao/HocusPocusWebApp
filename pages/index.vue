@@ -304,9 +304,9 @@
         <span> محصولات پرطرفدار </span>
       </h2>
       <div
-        class="w-full h-full lg:h-screen grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5"
+        class="w-full h-full lg:h-auto grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5 gap-y-9"
       >
-        <div
+        <!-- <div
           v-show="latestProduct"
           class="h-full bg-mainWhite w-full rounded-md lg:col-span-2 lg:row-span-2 flex flex-col items-end justify-between"
         >
@@ -321,6 +321,7 @@
             />
             <NuxtLink :to="'/shop/productdetail/' + latestProduct.id">
               <LazyLastProductImage
+                class="w-full h-full object-fill"
                 v-if="!loadingTwo"
                 :productId="latestProduct.ProductImages[0].id"
               />
@@ -366,7 +367,7 @@
               >
             </Message>
           </div>
-        </div>
+        </div> -->
         <Skeleton
           class="hidden lg:flex"
           v-if="loadingThree"
@@ -391,7 +392,36 @@
           width="20rem"
           height="20rem"
         ></Skeleton>
-
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <Skeleton
+          class="hidden lg:flex"
+          v-if="loadingThree"
+          width="20rem"
+          height="20rem"
+        ></Skeleton>
+        <LazyIndexPopularMiniCard
+          v-if="!loadingThree"
+          v-for="item in offers"
+          :key="item.id"
+          :item="item"
+        />
         <LazyIndexPopularMiniCard
           v-if="!loadingThree"
           v-for="item in offers"
