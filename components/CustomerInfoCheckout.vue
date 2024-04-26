@@ -67,14 +67,12 @@
       class="w-full rounded-lg h-11 col-span-2"
       aria-describedby="username-help"
     />
-    <div class="w-full flex items-end">
-      <button
-        @click="validateCode"
-        class="bg-darkPurple hover:bg-blue-900 transition text-white p-2 px-5"
-      >
-        ثبت کد تخفیف
-      </button>
-    </div>
+    <button
+      @click="validateCode"
+      class="bg-darkPurple col-span-2 hover:bg-blue-900 transition text-white p-2 px-5"
+    >
+      ثبت کد تخفیف
+    </button>
     <Message
       class="space-x-4 flex items-center justify-center"
       severity="success"

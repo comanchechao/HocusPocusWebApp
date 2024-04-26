@@ -96,7 +96,7 @@
             <PhBasket :size="30" weight="fill" />
           </h3>
           <div
-            class="w-full h-full flex items-center flex-col px-9 pt-9 overscroll-y-scroll"
+            class="w-full h-full flex items-start flex-col px-9 overscroll-y-scroll"
           >
             <div
               class="w-full flex-col space-y-3 h-full flex items-center justify-center"
