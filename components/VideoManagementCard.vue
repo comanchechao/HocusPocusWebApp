@@ -55,9 +55,10 @@
               <label class="text-md text-mainYellow" for="email"
                 >قیمت اشتراک <span class="text-sm">(به تومان)</span></label
               >
-              <InputNumber
+              <input
                 id="email"
-                v-model="coursePrice"
+                :placeholder="course.price"
+                v-model="newPrice"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -68,7 +69,8 @@
               >
               <InputText
                 id="title"
-                v-model="courseTitle"
+                v-model="newTitle"
+                :placeholder="course.title"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -83,7 +85,8 @@
               >
               <InputText
                 id="trainer"
-                v-model="trainer"
+                v-model="newTrainer"
+                :placeholder="course.trainer"
                 aria-describedby="username-help"
                 class="w-full"
               />
@@ -96,7 +99,8 @@
             <Textarea
               class="w-full text-right text-2xl py-3"
               autoResize
-              v-model="courseDescription"
+              v-model="newDescription"
+              :placeholder="course.description"
               rows="6"
               cols="90"
             />
@@ -179,7 +183,7 @@
           {{ rarity }} -->
           <div class="h-full w-full flex space-x-6 items-center justify-center">
             <div>
-              <Message v-show="success">کالا به انبار اضافه شد</Message>
+              <Message v-show="success">ویرایش موفقیت آمیز بود</Message>
               <Message severity="error" v-show="faild">{{
                 errorMessage
               }}</Message>
@@ -313,6 +317,71 @@ const visible = ref(false);
 const checked = ref(false);
 const props = defineProps(["course"]);
 const loading = ref(false);
+
+const newTitle = ref(null);
+const newPrice = ref(null);
+const newTrainer = ref(null);
+const newDescription = ref(null);
+
+const success = ref(false);
+
+const handleCourse = async () => {
+  const data = new URLSearchParams({
+    id: props.course.id,
+    title: props.course.title,
+    price: props.course.price,
+    newTrainer: props.course.trainer,
+    description: props.course.description,
+  });
+
+  // Add title if it has a value
+  if (newTitle.value) {
+    data.set("title", newTitle.value);
+    console.log("we ran this");
+  }
+
+  // Add price if it has a value
+  if (newPrice.value) {
+    data.set("price", newPrice.value);
+  }
+
+  // Add inStock if it has a value (assuming inStock.value is truthy/falsy)
+
+  // Add quantity if it has a value
+  if (newTrainer.value) {
+    data.set("quantity", newTrainer.value);
+  }
+
+  // Add description if it has a value
+  if (newDescription.value) {
+    data.set("description", newDescription.value);
+  }
+
+  console.log("Title:", data.get("title"));
+  console.log("price:", data.get("price"));
+  console.log("category:", data.get("category"));
+  console.log("quantity:", data.get("quantity"));
+  console.log("description:", data.get("description"));
+
+  await $fetch("http://localhost:3333/edits/updatecourse", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then((response, error) => {
+      console.log(response);
+      success.value = true;
+      setTimeout(() => {
+        success.value = false;
+      }, 2000);
+      mainManagement.setStateChange();
+    })
+    .catch((error) => {});
+};
 
 const removeComments = async function (product) {
   loading.value = true;
