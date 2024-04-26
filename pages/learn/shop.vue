@@ -15,15 +15,10 @@
       >
         <LazySortBy class="Sort"></LazySortBy>
         <div
-          class="h-full my-14 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 lg:px-14 gap-10 justify-items-center"
+          class="lg:h-full h-dialog my-14 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-4 lg:px-14 gap-10 justify-items-center"
         >
           <Skeleton v-if="loading" width="35rem" height="25rem"></Skeleton>
-          <Skeleton
-            v-if="loading"
-            class="lg:flex hidden"
-            width="35rem"
-            height="25rem"
-          ></Skeleton>
+
           <Skeleton
             v-if="loading"
             class="lg:flex hidden"

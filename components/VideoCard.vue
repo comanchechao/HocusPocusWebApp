@@ -8,7 +8,7 @@
     </NuxtLink>
 
     <div
-      class="h-full bg-mainWhite lg:h-44 space-y-2 text-right w-full rounded-b-md flex items-center flex-col p-4"
+      class="h-auto bg-mainWhite lg:h-44 space-y-2 text-right w-full rounded-b-md flex items-center flex-col p-4"
     >
       <NuxtLink :to="'/learn/coursedetail/' + course.id">
         <h2
