@@ -127,6 +127,19 @@ watch(membershipStat, (cur, old) => {
   getMemberships();
 });
 
+const userStore = useUserStore();
+const { isLogged, isManager } = storeToRefs(userStore);
+
+onMounted(() => {
+  setTimeout(() => {
+    if (isManager.value === false) {
+      navigateTo({
+        path: "/learn/learn",
+      });
+    }
+  }, 2000);
+});
+
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
