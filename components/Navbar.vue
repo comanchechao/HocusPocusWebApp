@@ -59,7 +59,7 @@
         </button>
       </NuxtLink>
 
-      <NuxtLink to="/learn/shop">
+      <NuxtLink to="/learn/shop?page=1">
         <button
           :class="{
             hidden: $route.path === '/' || $route.path.startsWith('/shop/'),
