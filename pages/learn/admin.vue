@@ -149,7 +149,7 @@ import {
 } from "@phosphor-icons/vue";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "~/stores/managementStore";
-
+import { useUserStore } from "../../stores/user";
 // register managmentstore
 
 const managementStore = useMainManagement();
