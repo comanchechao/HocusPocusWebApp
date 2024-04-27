@@ -51,8 +51,13 @@
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const filterStore = useFilterStore();
+
+const { category, sortBy, discount } = storeToRefs(filterStore);
+
 const loading = ref(true);
 const courses = ref();
+const allCourses = ref();
 
 const getCourses = async () => {
   loading.value = true;
@@ -63,6 +68,7 @@ const getCourses = async () => {
   })
     .then(function (response) {
       courses.value = response.courses;
+      allCourses.value = response.courses;
       loading.value = false;
     })
     .catch(function (error) {
@@ -70,6 +76,20 @@ const getCourses = async () => {
       loading.value = false;
     });
 };
+
+watch(sortBy, (cur, old) => {
+  if (sortBy.value === "lowest") {
+    courses.value = allCourses.value.sort(
+      (a: any, b: any) => Number(a.price) - Number(b.price)
+    );
+  }
+
+  if (sortBy.value === "highest") {
+    courses.value = allCourses.value.sort(
+      (a: any, b: any) => Number(b.price) - Number(a.price)
+    );
+  }
+});
 
 onMounted(() => {
   getCourses();
