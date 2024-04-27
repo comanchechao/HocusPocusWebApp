@@ -4,7 +4,9 @@
       <div
         class="w-full h-full bg-darkPurple flex items-center justify-center flex-col pb-5"
       >
-        <div class="w-full h-full flex items-center space-y-10 flex-col p-5">
+        <div
+          class="w-full h-full overflow-y-scroll flex items-center space-y-10 flex-col p-5"
+        >
           <div
             v-show="shoppingCart.length"
             v-for="item in shoppingCart"

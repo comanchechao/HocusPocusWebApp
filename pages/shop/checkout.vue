@@ -7,7 +7,7 @@
   <div class="h-full w-screen bg-darkPurple">
     <LazyNavbar />
 
-    <div class="lg:h-full pt-24 h-auto w-full p-6 lg:px-20">
+    <div class="lg:h-full pt-24 h-auto w-full pb-24 p-6 lg:px-20">
       <div
         class="flex Bread text-sm lg:text-lg items-center w-full justify-end my-10 space-x-2 lg:space-x-4"
       >
@@ -96,7 +96,7 @@
             <PhBasket :size="30" weight="fill" />
           </h3>
           <div
-            class="w-full h-full flex items-start flex-col px-9 overscroll-y-scroll"
+            class="w-full h-full flex overflow-y-scroll items-start flex-col px-9"
           >
             <div
               class="w-full flex-col space-y-3 h-full flex items-center justify-center"
