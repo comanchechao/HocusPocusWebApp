@@ -61,6 +61,7 @@
               </div>
             </div>
             <LazyVideoManagement :courses="courses" />
+            <LazySoldDialog class="Stat2" :records="records" />
           </div>
         </div>
       </div>
@@ -79,9 +80,38 @@
           />
           <h2 class="text-4xl text-mainYellow">اشتراک ها</h2>
         </div>
+
         <div
           class="w-full h-dialog border-t-8 border-mainYellow bg-white my-10 flex flex-col rounded-md text-xs lg:text-lg"
         >
+          <div class="Search self-end m-4">
+            <label
+              for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >
+            </label>
+            <div class="relative">
+              <input
+                dir="rtl"
+                v-model="search"
+                placeholder="جستجو بر اساس اسم و یا شماره سفارش"
+                type="search"
+                id="default-search"
+                class="block w-96 bg-mainWhite p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              />
+              <button
+                @click.prevent="searchMemberships()"
+                type="submit"
+                class="text-white top-0 absolute bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                جستجو
+              </button>
+              <div
+                class="absolute inset-y-0 end-0 flex pr-4 items-center ps-3 pointer-events-none"
+              ></div>
+            </div>
+          </div>
           <div
             class="w-full h-20 grid grid-cols-4 place-items-center border-b border-Indigo-600"
           >
@@ -91,7 +121,14 @@
             <h3 class="text-mainPurple">نام کاربر</h3>
           </div>
           <LazySubscribtionItem
+            v-show="!showSearch"
             v-for="membership in memberships"
+            :key="membership"
+            :membership="membership"
+          />
+          <LazySubscribtionItem
+            v-show="showSearch"
+            v-for="membership in searchedMemberships"
             :key="membership"
             :membership="membership"
           />
@@ -112,7 +149,7 @@ import {
 } from "@phosphor-icons/vue";
 import { storeToRefs } from "pinia";
 import { useMainManagement } from "~/stores/managementStore";
-
+import { useUserStore } from "../../stores/user";
 // register managmentstore
 
 const managementStore = useMainManagement();
@@ -125,6 +162,19 @@ watch(stateChange, (cur, old) => {
 });
 watch(membershipStat, (cur, old) => {
   getMemberships();
+});
+
+const userStore = useUserStore();
+const { isLogged, isManager } = storeToRefs(userStore);
+
+onMounted(() => {
+  setTimeout(() => {
+    if (isManager.value === false) {
+      navigateTo({
+        path: "/learn/learn",
+      });
+    }
+  }, 2000);
 });
 
 const { $gsap } = useNuxtApp();
@@ -153,7 +203,7 @@ const getCourses = async () => {
     });
 };
 
-const memberships = ref();
+const memberships = ref([]);
 const totalPrice = ref(0);
 
 const getMemberships = async () => {
@@ -175,12 +225,60 @@ const getMemberships = async () => {
         0
       );
       totalPrice.value = sum;
+      getRecords();
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
     });
 };
+
+// get records
+
+const records = ref([]);
+
+const getRecords = async () => {
+  loading.value = true;
+  const { data } = await $fetch(
+    "http://localhost:3333/payment-records/management/getrecords",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      loading.value = false;
+      records.value = response.records;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+// search function
+
+const search = ref("");
+const searchedMemberships = ref([]);
+const searchedId = ref([]);
+
+const showSearch = ref(false);
+
+const searchMemberships = () => {
+  const regex = new RegExp(search.value, "i"); // 'i' flag for case-insensitive search
+  searchedMemberships.value = memberships.value.filter((membership: any) =>
+    regex.test(membership.fullname)
+  );
+
+  showSearch.value = true;
+};
+
+watch(search, (cur, old) => {
+  if (cur === "") {
+    showSearch.value = false;
+  }
+});
 
 onMounted(() => {
   getCourses();
