@@ -61,6 +61,7 @@
               </div>
             </div>
             <LazyVideoManagement :courses="courses" />
+            <LazySoldDialog class="Stat2" :records="records" />
           </div>
         </div>
       </div>
@@ -224,6 +225,31 @@ const getMemberships = async () => {
         0
       );
       totalPrice.value = sum;
+      getRecords();
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+// get records
+
+const records = ref([]);
+
+const getRecords = async () => {
+  loading.value = true;
+  const { data } = await $fetch(
+    "http://localhost:3333/payment-records/management/getrecords",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      loading.value = false;
+      records.value = response.records;
     })
     .catch(function (error) {
       console.error(error);
