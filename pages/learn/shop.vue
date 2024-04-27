@@ -53,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+import { useFilterStore } from "../../stores/filtersStore";
+import { storeToRefs } from "pinia";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
