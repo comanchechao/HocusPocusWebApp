@@ -61,7 +61,7 @@
       :key="discount.id"
       class="w-full h-full lg:h-20 py-5 grid grid-cols-4 place-items-center border-b border-mainRed"
     >
-      <div class="flex items-center space-x-3">=</div>
+      <div class="flex items-center space-x-3">{{ discount.days }}</div>
       <div class="flex items-center space-x-3">
         {{ discount.perc }}
       </div>
