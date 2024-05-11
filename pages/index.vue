@@ -15,10 +15,10 @@
 
     <div
       ref="container"
-      class="lg:h-full container h-auto w-full flex flex-col items-center bg pt-14 justify-center"
+      class="lg:h-full md:h-dialog container h-auto w-full flex flex-col items-center bg pt-14 justify-center"
     >
       <div
-        class="w-full md:h-rem26 h-72 lg:h-screen flex flex-col items-center justify-center"
+        class="w-full md:h-rem28 md:my-20 h-72 lg:h-screen flex flex-col items-center justify-center"
       >
         <div class="flex flex-col items-center justify-center px-48">
           <div class="flex items-center absolute justify-center w-full">
