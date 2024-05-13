@@ -12,6 +12,7 @@ import {
   Redirect,
   UseInterceptors,
   Param,
+  NotFoundException,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto';
@@ -131,6 +132,18 @@ export class AuthController {
   @UseGuards(AuthenticatedGuard)
   isAuth(@Res({ passthrough: true }) res: Response) {
     return { check: true };
+  }
+
+  @Get('email/forgot-password/:email')
+  public async sendEmailForgotPassword(@Param() params) {
+    const isEmailSent = await this.authService.sendEmailForgotPassword(
+      params.email,
+    );
+    if (isEmailSent) {
+      return { status: 200, message: 'LOGIN.EMAIL_RESENT' };
+    } else {
+      return new NotFoundException('email not found');
+    }
   }
 
   // @UseGuards(AtGuard)
