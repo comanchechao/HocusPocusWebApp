@@ -142,8 +142,34 @@ export class AuthService {
     // save the user into the dataabase
   }
 
-  async createForgottenPasswordToken(email: string) {
+  async getForgetPasswordModel(token: string) {
     const forgottenPassword = await this.prisma.forgottenPassword.findFirst({
+      where: {
+        token: token,
+      },
+    });
+
+    return forgottenPassword;
+  }
+
+  async setPassword(email: string, newPassword: string): Promise<boolean> {
+    const hash = await argon.hash(newPassword);
+    const userFromDb = await this.prisma.user.update({
+      where: { email: email },
+      data: {
+        password: hash,
+      },
+    });
+    if (!userFromDb)
+      throw new HttpException('LOGIN.USER_NOT_FOUND', HttpStatus.NOT_FOUND);
+
+    console.log('till here');
+
+    return true;
+  }
+
+  async createForgottenPasswordToken(email: string) {
+    const forgottenPassword = await this.prisma.forgottenPassword.findUnique({
       where: {
         email: email,
       },
@@ -156,6 +182,27 @@ export class AuthService {
         'RESET_PASSWORD.EMAIL_SENT_RECENTLY',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
+    } else if (forgottenPassword) {
+      const forgottenPasswordModel = await this.prisma.forgottenPassword.update(
+        {
+          where: {
+            email: email,
+          },
+          data: {
+            email: email,
+            token: (Math.floor(Math.random() * 9000000) + 1000000).toString(), //Generate 7 digits number,
+            date: new Date(),
+          },
+        },
+      );
+      if (forgottenPasswordModel) {
+        return forgottenPasswordModel;
+      } else {
+        throw new HttpException(
+          'LOGIN.ERROR.GENERIC_ERROR',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
     } else {
       const forgottenPasswordModel = await this.prisma.forgottenPassword.create(
         {

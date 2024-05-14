@@ -13,6 +13,7 @@ import {
   UseInterceptors,
   Param,
   NotFoundException,
+  HttpCode,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto';
@@ -30,6 +31,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { lastValueFrom } from 'rxjs';
 import { RedirectError } from './interceptors/RedirectCustom';
+import { ResetPassword } from './dto/ResetPassword.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -143,6 +145,32 @@ export class AuthController {
       return { status: 200, message: 'LOGIN.EMAIL_RESENT' };
     } else {
       return new NotFoundException('email not found');
+    }
+  }
+
+  @Post('email/reset-password')
+  @HttpCode(200)
+  public async setNewPassord(@Body() resetPassword: ResetPassword) {
+    try {
+      let isNewPasswordChanged = false;
+      if (resetPassword.newPasswordToken) {
+        const forgottenPasswordModel =
+          await this.authService.getForgetPasswordModel(
+            resetPassword.newPasswordToken,
+          );
+        isNewPasswordChanged = await this.authService.setPassword(
+          forgottenPasswordModel.email,
+          resetPassword.newPassword,
+        );
+      } else {
+        return { message: 'RESET_PASSWORD.CHANGE_PASSWORD_ERROR' };
+      }
+      return {
+        message: 'RESET_PASSWORD.PASSWORD_CHANGED',
+        isNewPasswordChanged,
+      };
+    } catch (error) {
+      return { message: 'RESET_PASSWORD.CHANGE_PASSWORD_ERROR', error };
     }
   }
 
