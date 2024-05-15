@@ -91,7 +91,7 @@
       <button
         label="Show"
         @click="formSubmit()"
-        class="text-xl flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+        class="text-md flex items-center space-x-2 px-8 justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
       >
         <ProgressSpinner
           v-if="loading"
@@ -100,9 +100,11 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
-        <span v-if="!loading"> ثبت نام </span>
+        <span v-if="!loading"> ثبت نام با ایمیل</span>
         <PhSignature v-if="!loading" :size="25" />
       </button>
+      <h2 class="text-lg text-mainRed">یا</h2>
+      <LazyPhoneLogin></LazyPhoneLogin>
     </div>
   </Dialog>
 </template>

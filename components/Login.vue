@@ -114,7 +114,7 @@
             <button
               label="Show"
               @click="formSubmit()"
-              class="text-lg flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+              class="text-sm flex items-center space-x-2 w-full justify-center py-2 transition duration-150 ease-in-out border-b-8 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
               <ProgressSpinner
                 v-if="loading"
@@ -123,12 +123,17 @@
                 animationDuration=".5s"
                 aria-label="Custom ProgressSpinner"
               />
-              <span v-if="!loading"> ورود </span>
-              <PhKeyhole v-if="!loading" :size="25" />
+              <span v-if="!loading"> ورود با ایمیل </span>
+              <PhAt v-if="!loading" :size="25" />
             </button>
             <LazySignUp />
           </div>
-          <LazyPasswordRecovery></LazyPasswordRecovery>
+          <h2 class="text-lg text-mainRed">یا</h2>
+          <LazyPhoneLogin></LazyPhoneLogin>
+          <div class="flex space-x-2 items-center">
+            <LazyPasswordRecovery></LazyPasswordRecovery>
+            <h2 class="text-sm text-mainRed">گذرواژه خود را فراموش کردید؟</h2>
+          </div>
         </div>
       </div>
     </Dialog>
@@ -137,7 +142,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhKeyhole } from "@phosphor-icons/vue";
+import { PhAt, PhKeyhole } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 
 const visible = ref(false);
