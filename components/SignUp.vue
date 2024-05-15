@@ -61,24 +61,15 @@
         </div>
       </div>
       <div class="h-full w-full flex flex-col items-center relative space-y-5">
-        <div class="absolute" v-if="Array.isArray(errorMessage)">
+        <div class="absolute">
           <Message class="w-full" v-show="successSignup" severity="success">
             <span class="text-2xl">حساب کاربری با موفقیت ساخته شد</span>
           </Message>
           <Message class="w-full" v-show="succussLogin" severity="success">
             <span class="text-2xl">وارد حساب کاربری شدید</span>
           </Message>
-          <Message
-            v-for="error in errorMessage"
-            :key="error"
-            class="w-full"
-            v-show="faildSignup"
-            severity="error"
-          >
-            <span class="lg:text-xl text-md">{{ error }}</span>
-          </Message>
         </div>
-        <div v-else>
+        <div>
           <Message
             class="w-full text-right"
             v-show="faildSignup"
