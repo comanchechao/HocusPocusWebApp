@@ -8,7 +8,7 @@
     <LazyNavbar />
     <div class="flex items-center justify-center h-screen flex-col w-full">
       <div
-        class="flex-col flex items-center Bread NavbarTrigger opacity-0 justify-center space-y-6"
+        class="flex-col flex mt-24 items-center Bread NavbarTrigger opacity-0 justify-center space-y-6"
       >
         <h1 class="Pocused text-center">Hocus Pocus</h1>
       </div>
@@ -17,19 +17,23 @@
         class="h-40 my-3 object-contain lg:px-0 px-3 Stat1 opacity-0"
         alt=""
       />
-      <h1
-        class="flex space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
-      >
-        <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
-        <span class="lg:text-xl text-sm">
-          قدیمی ترین فروشگاه محصولات شعبده بازی در ایران</span
+      <div class=" ">
+        <h1
+          class="flex md:h-[10rem] space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
-      </h1>
+          <span class="md:text-3xl font-bold">
+            وبسایت آموزش و فروش محصولات شعبده بازی</span
+          >
+          <span class="lg:text-xl text-sm md:text-lg font-bold">
+            قدیمی ترین فروشگاه محصولات شعبده بازی در ایران</span
+          >
+        </h1>
+      </div>
     </div>
 
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <h2
-        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
+        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center md:text-4xl text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -46,12 +50,12 @@
           >
             <img
               src="../../assets/images/TeachM.webp"
-              class="lg:w-rem28 w-72 object-contain"
+              class="lg:w-rem28 w-72 md:w-[22rem] object-contain"
               alt=""
             />
             <img
               src="../../assets/images/StarsTeach.webp"
-              class="lg:w-rem28 w-72 absolute star2 object-contain"
+              class="lg:w-rem28 w-72 md:w-[22rem] absolute star2 object-contain"
               alt=""
             />
           </div>
@@ -63,12 +67,12 @@
           <div class="relative w-full h-full flex items-center justify-center">
             <img
               src="../../assets/images/ShopM.webp"
-              class="lg:w-rem28 w-72 absolute object-contain"
+              class="lg:w-rem28 w-72 md:w-[22rem] absolute object-contain"
               alt=""
             />
             <img
               src="../../assets/images/StarsShop.webp"
-              class="lg:w-rem28 w-72 absolute star object-contain"
+              class="lg:w-rem28 w-72 md:w-[22rem] absolute star object-contain"
               alt=""
             />
           </div>
@@ -90,7 +94,7 @@
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-md lg:text-2xl rounded-full"
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-md md:text-2xl lg:text-2xl rounded-full"
           >
             <PhNotebook
               :size="35"
@@ -103,7 +107,7 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
         <h2
-          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
+          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
@@ -150,7 +154,7 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
         <h2
-          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
         >
           <PhCards :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
@@ -187,7 +191,9 @@
     <div
       class="h-auto lg:my-10 hidden md:flex lg:flex SCardsTrigger my-5 w-screen items-center justify-center"
     >
-      <h2 class="text-mainRed text-center text-3xl lg:text-5xl flex">
+      <h2
+        class="text-mainRed text-center text-3xl md:text-4xl mt-10 lg:text-5xl flex"
+      >
         <PhCards weight="fill" class="mr-3" />
         <span> محصولات منتخب هفته </span>
       </h2>

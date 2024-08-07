@@ -87,10 +87,10 @@
         alt=""
       />
       <h2
-        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl lg:text-5xl flex"
+        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl md:text-4xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
-        <span> محصولات هوکوس پوکوس </span>
+        <span class=""> محصولات هوکوس پوکوس </span>
       </h2>
       <div
         class="lg:h-dialog md:h-full h-screen FCardsTrigger w-full flex items-center lg:flex-row flex-col justify-between space-y-5 lg:space-y-0 lg:space-x-20 p-10 lg:my-8"
@@ -165,7 +165,7 @@
         class="h-screen w-full flex flex-col items-center lg:items-end px-7 lg:px-28 my-9"
       >
         <h2
-          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-4xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
@@ -213,7 +213,7 @@
         </h2>
         <NuxtLink to="/shop/shop?page=1">
           <button
-            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-1 text-mainPink text-sm lg:text-2xl rounded-full"
+            class="lg:px-20 lg:w-auto md:w-full w-full px-4 py-2 transition duration-300 ease-in hover:bg-mainPink hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-1 text-mainPink text-sm md:text-xl lg:text-2xl rounded-full"
           >
             <span>ورود به بخش خرید هوکوس پوکوس </span>
           </button>
@@ -223,7 +223,7 @@
         class="h-full w-full flex flex-col items-center lg:items-end px-5 lg:px-28"
       >
         <h2
-          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl lg:text-3xl flex"
+          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-4xl lg:text-3xl flex"
         >
           <PhCards :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>

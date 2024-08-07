@@ -21,7 +21,7 @@
       class="h-full w-screen from-mainPurple to-darkPurple bg-gradient-to-t md:p-10 pt-28 lg:p-20 flex items-center"
     >
       <div
-        class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end"
+        class="w-full h-full lg:px-0 px-7 rounded-sm flex flex-col lg:items-end mt-16"
       >
         <LazySortBy class="Sort"></LazySortBy>
         <div
@@ -197,7 +197,7 @@
             :product="product"
           ></LazyCard>
         </div>
-        <div class="flex items-center justify-center w-full">
+        <div class="flex items-center justify-center w-full mt-16">
           <Paginator
             v-model:first="page"
             class="Paginator opacity-0"
