@@ -66,7 +66,7 @@
         <h1
           class="flex md:h-[10rem] space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
-          <span class="md:text-lg font-bold">
+          <span class="md:text-3xl font-bold">
             وبسایت آموزش و فروش محصولات شعبده بازی</span
           >
           <span class="lg:text-xl text-sm md:text-lg font-bold">
@@ -543,11 +543,13 @@ const getCourses = async () => {
   })
     .then(function (response) {
       console.log(response.courses);
-      courses.value = response.courses;
+      if (response) {
+        courses.value = response.courses;
+      }
+      getLatestProduct();
       setTimeout(() => {
         loading.value = false;
       }, 2500);
-      getLatestProduct();
     })
     .catch(function (error) {
       console.error(error);
