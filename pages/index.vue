@@ -15,7 +15,7 @@
 
     <div
       ref="container"
-      class="lg:h-full md:h-dialog container h-auto w-full flex flex-col items-center bg pt-14 justify-center"
+      class="lg:h-full md:h-full container h-auto w-full flex flex-col items-center bg pt-14 justify-center"
     >
       <div
         class="w-full md:h-rem28 md:my-20 h-72 lg:h-screen flex flex-col items-center justify-center"
@@ -64,10 +64,12 @@
       </div>
       <div class="Store opacity-0">
         <h1
-          class="flex space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex md:h-[10rem] space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
         >
-          <span> وبسایت آموزش و فروش محصولات شعبده بازی</span>
-          <span class="lg:text-xl text-sm">
+          <span class="md:text-lg font-bold">
+            وبسایت آموزش و فروش محصولات شعبده بازی</span
+          >
+          <span class="lg:text-xl text-sm md:text-lg font-bold">
             قدیمی ترین فروشگاه محصولات شعبده بازی در ایران</span
           >
         </h1>
