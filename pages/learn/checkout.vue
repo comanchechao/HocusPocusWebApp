@@ -112,6 +112,13 @@
             <h2
               class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
             >
+              <span class="text-sm text-darkPurple">تومان هزینه پست</span>
+              <span>20000</span>
+            </h2>
+            <h2 class="font-bold text-2xl">+</h2>
+            <h2
+              class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
+            >
               <span class="text-sm text-darkPurple">تومان</span>
               <span>{{ cartTotalPrice }}</span>
             </h2>
