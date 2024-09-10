@@ -12,14 +12,10 @@
       >
         <h1 class="Pocused text-center">Hocus Pocus</h1>
       </div>
-      <img
-        src="../../assets/images/LearnDivider.webp"
-        class="h-40 my-3 object-contain lg:px-0 px-3 Stat1 opacity-0"
-        alt=""
-      />
+
       <div class=" ">
         <h1
-          class="flex md:h-[10rem] space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainRed"
+          class="flex md:h-[10rem] space-x-2 lg:px-0 space-y-3 px-8 lg:mt-7 ease-in-out text-2xl my-4 lg:text-4xl flex-col text-center border-mainViolet drop-shadow-sm rounded-sm text-mainYellow"
         >
           <span class="md:text-3xl font-bold">
             وبسایت آموزش و فروش محصولات شعبده بازی</span
@@ -33,7 +29,7 @@
 
     <div class="h-full w-screen lg:my-9 flex flex-col items-center">
       <h2
-        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center md:text-4xl text-2xl lg:text-5xl flex"
+        class="text-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center md:text-4xl text-2xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span> محصولات هوکوس پوکوس </span>
@@ -82,19 +78,19 @@
         class="w-full Cardist lg:px-0 px-5 h-rem22 flex flex-col items-center justify-center space-y-3 bg-Amber-400"
       >
         <h2
-          class="text-darkPurple border-b-8 rounded-md border-darkPurple pb-1 text-center text-3xl lg:text-3xl flex"
+          class="text-mainBrown border-b-8 rounded-md border-mainBrown pb-1 text-center text-3xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="35" weight="fill" class="mr-3" />
           <span> شعبده باز تازه کارید؟ </span>
         </h2>
         <h2
-          class="text-darkPurple rounded-lg text-center text-xl lg:text-xl flex"
+          class="text-mainBrown rounded-lg text-center text-xl lg:text-xl flex"
         >
           <span> این بخش مخصوص شماست</span>
         </h2>
         <NuxtLink to="/learn/learn">
           <button
-            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-darkPurple border-4 border-transparent hover:border-darkPurple bg-darkPurple flex items-center space-x-3 text-mainYellow text-md md:text-2xl lg:text-2xl rounded-full"
+            class="w-full lg:px-20 px-4 lg:w-auto md:w-full justify-center py-2 lg:flex-row md:flex-row flex-col-reverse lg:py-4 transition duration-300 ease-in hover:bg-mainYellow hover:text-mainBrown border-4 border-transparent hover:border-mainBrown bg-mainBrown flex items-center space-x-3 text-mainYellow text-md md:text-2xl lg:text-2xl rounded-full"
           >
             <PhNotebook
               :size="35"
@@ -107,7 +103,7 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28 my-9">
         <h2
-          class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
+          class="text-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
         >
           <PhGraduationCap :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین آموزش ها </span>
@@ -154,7 +150,7 @@
       </div>
       <div class="h-full w-full flex flex-col items-end px-5 lg:px-28">
         <h2
-          class="text-mainRed border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
+          class="text-mainYellow border-b-4 rounded-md border-mainYellow pb-2 my-14 text-center text-xl md:text-2xl lg:text-3xl flex"
         >
           <PhCards :size="30" weight="fill" class="mr-3" />
           <span> جدیدترین محصولات </span>
@@ -192,7 +188,7 @@
       class="h-auto lg:my-10 hidden md:flex lg:flex SCardsTrigger my-5 w-screen items-center justify-center"
     >
       <h2
-        class="text-mainRed text-center text-3xl md:text-4xl mt-10 lg:text-5xl flex"
+        class="text-mainYellow text-center text-3xl md:text-4xl mt-10 lg:text-5xl flex"
       >
         <PhCards weight="fill" class="mr-3" />
         <span> محصولات منتخب هفته </span>

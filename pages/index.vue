@@ -87,7 +87,7 @@
         alt=""
       />
       <h2
-        class="text-mainRed border-b-8 rounded-md border-mainYellow pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl md:text-4xl lg:text-5xl flex"
+        class="text-mainRed pb-2 my-3 md:my-7 lg:my-14 text-center text-2xl md:text-4xl lg:text-5xl flex"
       >
         <PhPackage weight="fill" />
         <span class=""> محصولات هوکوس پوکوس </span>

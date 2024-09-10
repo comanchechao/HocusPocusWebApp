@@ -3,7 +3,7 @@
     class="h-auto rounded-lg bg-mainWhite duration-200 overflow-hidden ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed my-10 border-mainRed"
   >
     <div
-      class="w-full flex items-center justify-center h-72 overflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
+      class="w-full flex items-center justify-center h-72 oerflow-hidden mb-3 bg-mainWhite rounded-t-lg opacity-0"
       id="div1"
       v-show="showDiv1"
       @mouseenter="toggleDiv1"
