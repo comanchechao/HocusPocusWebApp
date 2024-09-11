@@ -113,6 +113,51 @@
         class="w-full justify-center my-7 flex-col space-x-0 space-y-4 flex items-center"
       >
         <LazyAddProduct class="Product" />
+        <div
+          class="flex flex-col w-full border-2 p-5 border-dashed border-mainPink rounded-md items-end my-24 justify-end"
+        >
+          <h2
+            class="lg:text-4xl text-xl font-bold text-mainRed border-b-8 border-mainYellow rounded-xl pb-3"
+          >
+            هزینه پست
+          </h2>
+          <div
+            class="w-full h-full flex lg:flex-row flex-col-reverse lg:space-x-5 items-center justify-center lg:justify-end py-12"
+          >
+            <button
+              @click="addFilter()"
+              class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
+            >
+              <ProgressSpinner
+                v-if="updateFilter"
+                style="width: 30px; height: 30px"
+                strokeWidth="8"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+              />
+              <span v-if="!updateFilter"> تایید </span>
+              <PhSortAscending v-if="!updateFilter" weight="fill" :size="23" />
+            </button>
+            <div
+              class="flex items-center justify-center space-x-4 h-full w-auto"
+            >
+              <h2 class="text-mainPink text-2xl font-bold">تومان</h2>
+              <InputMask
+                placeholder="10"
+                v-model="discount"
+                mask="99999999999"
+                class="w-full rounded-lg h-11"
+                aria-describedby="username-help"
+              />
+            </div>
+
+            <div>
+              <Message severity="success" v-show="message2"
+                >به هزینه پست اضافه شد</Message
+              >
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="w-full mt-10 lg:mt-0 h-full lg:h-full flex flex-col items-end space-y-6"
