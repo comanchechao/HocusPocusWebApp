@@ -209,7 +209,7 @@ const checkoutFunc = async function () {
     gatewayRedirect.value = false;
   }, 5000);
   const data = new URLSearchParams({
-    amount: cartTotalPrice.value * 10,
+    amount: (cartTotalPrice.value + shippmentCost.value) * 10,
     phoneNumber: phoneNumber.value,
     orderId: submitedOrdersId.value,
     userId: userId.value,
@@ -393,6 +393,32 @@ const getUser = async () => {
         authError.value = false;
       }, 3000);
     });
+};
+
+const shippmentCost = ref(0);
+
+const getShippmentCost = async () => {
+  try {
+    const { data } = await $fetch(
+      "http://localhost:3333/shippment/getShippmentCost",
+      {
+        method: "GET", // Since it's a GET request
+        headers: {
+          // Any necessary headers can be added here
+        },
+        credentials: "include", // Include credentials if necessary (for cookies, etc.)
+        withCredentials: true, // To support cross-site credentials
+      }
+    );
+
+    console.log("Shippment Cost Data:", data);
+    shippmentCost.value = data.cost;
+    // You can handle the response data here (e.g., set it in a store or use it in the UI)
+    return data;
+  } catch (error) {
+    console.error("Error fetching shippment cost:", error);
+    // Handle any errors (e.g., display an error message)
+  }
 };
 
 // assign router
