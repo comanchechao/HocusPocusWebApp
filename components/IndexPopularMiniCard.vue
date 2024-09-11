@@ -2,7 +2,7 @@
   <div
     class="h-full w-full bg-mainWhite flex flex-col rounded-md items-end justify-between"
   >
-    <div class="w-full overflow-hidden h-full flex items-center justify-center">
+    <div class="w-full overflow-hidden h-full flex items-start justify-center">
       <NuxtLink :to="'/shop/productdetail/' + item.id">
         <div class="flex justify-center items-center">
           <img
@@ -26,9 +26,7 @@
     >
       <div class="flex items-center flex-col space-y-2 justify-around w-full">
         <NuxtLink :to="'/shop/productdetail/' + item.id">
-          <h2
-            class="text-darkPurple text-center text-md lg:text-lg text-right flex"
-          >
+          <h2 class="text-darkPurple text-center text-md lg:text-lg flex">
             <span> {{ item.title }} </span>
           </h2>
         </NuxtLink>
