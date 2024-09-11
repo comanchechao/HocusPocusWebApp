@@ -344,7 +344,7 @@ export class ManagementController {
 
   // shippment cost
 
-  @Post('update-cost')
+  @Post('updateshippmentcost')
   async updateShippment(@Body('cost') cost: string) {
     return await this.managementService.updateShippment(cost);
   }
