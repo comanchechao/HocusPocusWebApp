@@ -371,6 +371,16 @@ export class ManagementService {
     });
   }
 
+  async getShippmentCost() {
+    const shippmentCost = await this.prismaService.shippmentCost.findUnique({
+      where: {
+        id: 1, // Target the row with id = 1
+      },
+    });
+
+    return shippmentCost;
+  }
+
   // discount
 
   async getDiscounts() {
@@ -395,6 +405,17 @@ export class ManagementService {
         code: dto.code,
         perc: dto.perc,
         days: dto.days,
+      },
+    });
+  }
+
+  async updateShippment(cost: string) {
+    const shippmentCost = await this.prismaService.shippmentCost.update({
+      where: {
+        id: 1,
+      },
+      data: {
+        cost: cost,
       },
     });
   }

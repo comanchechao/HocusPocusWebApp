@@ -211,6 +211,13 @@ model Discounts {
   code       String   @unique
 }
 
+model shippmentCost {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  cost       String   @default("40000")
+}
+
 model PaymentRecords {
   id           Int      @id @default(autoincrement())
   created_at   DateTime @default(now())
