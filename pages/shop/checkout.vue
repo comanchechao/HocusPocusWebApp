@@ -166,7 +166,7 @@
               class="text-mainPink flex items-center justify-center space-x-1 text-md px-3 py-2 rounded-md border-2 border-dashed border-mainPink"
             >
               <span class="text-sm text-darkPurple">تومان هزینه پست</span>
-              <span>20000</span>
+              <span>{{ shippmentCost }}</span>
             </h2>
             <h2 class="font-bold text-2xl">+</h2>
             <h2
@@ -394,6 +394,10 @@ const getUser = async () => {
       }, 3000);
     });
 };
+
+onMounted(() => {
+  getShippmentCost();
+});
 
 const shippmentCost = ref(0);
 
