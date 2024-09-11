@@ -29,7 +29,7 @@
       @mouseenter="toggleDiv1"
     >
       <div v-if="!loading" class="object-contain">
-        <img :src="image" class="h-72 object-fill" alt="" />
+        <img :src="image" class="h-72 object-contain" alt="" />
       </div>
       <ProgressSpinner
         v-if="loading"
