@@ -378,6 +378,8 @@ export class ManagementService {
       },
     });
 
+    console.log(shippmentCost)
+
     return shippmentCost;
   }
 

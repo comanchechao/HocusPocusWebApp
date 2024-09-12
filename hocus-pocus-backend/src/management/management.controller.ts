@@ -346,10 +346,11 @@ export class ManagementController {
 
   @Post('updateshippmentcost')
   async updateShippment(@Body('cost') cost: string) {
+    console.log(cost);
     return await this.managementService.updateShippment(cost);
   }
 
-  @Get('/getShippmentCost')
+  @Get('getShippmentCost')
   async getShippmentCost() {
     return await this.managementService.getShippmentCost();
   }
