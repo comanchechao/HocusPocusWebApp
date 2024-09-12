@@ -125,27 +125,18 @@
             class="w-full h-full flex lg:flex-row flex-col-reverse lg:space-x-5 items-center justify-center lg:justify-end py-12"
           >
             <button
-              @click="addFilter()"
+              @click="updateShippmentCost()"
               class="text-sm flex items-center space-x-2 px-3 lg:px-5 transition duration-150 ease-in-out border-b-4 border-mainYellow bg-mainRed hover:border-mainRed rounded-lg py-2 shadow-mainOrange shadow-md hover:shadow-darkPurple hover:text-darkPurple text-darkPurple"
             >
-              <ProgressSpinner
-                v-if="updateFilter"
-                style="width: 30px; height: 30px"
-                strokeWidth="8"
-                animationDuration=".5s"
-                aria-label="Custom ProgressSpinner"
-              />
-              <span v-if="!updateFilter"> تایید </span>
-              <PhSortAscending v-if="!updateFilter" weight="fill" :size="23" />
+              <span> تایید </span>
             </button>
             <div
               class="flex items-center justify-center space-x-4 h-full w-auto"
             >
               <h2 class="text-mainPink text-2xl font-bold">تومان</h2>
-              <InputMask
-                placeholder="10"
-                v-model="discount"
-                mask="99999999999"
+              <input
+                :placeholder="shippmentCost"
+                v-model="shippmentCost"
                 class="w-full rounded-lg h-11"
                 aria-describedby="username-help"
               />
@@ -258,11 +249,14 @@ const inStockProducts = ref([]);
 
 const getProducts = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/products", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/management/products",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       products.value = response.products;
       mainManagement.setProductCount(response.products.length);
@@ -299,6 +293,63 @@ const getRecords = async () => {
       console.error(error);
       loading.value = false;
     });
+};
+
+onMounted(() => {
+  getShippmentCost();
+});
+
+const newShipment = ref();
+
+const updateShippmentCost = async () => {
+  const data = new URLSearchParams({
+    cost: shippmentCost.value,
+  });
+  try {
+    const response = await $fetch(
+      "http://localhost:3333/management/updateshippmentcost",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: data,
+        withCredentials: true,
+        credentials: "include",
+      }
+    );
+    console.log(data);
+
+    // Handle the response as needed
+    getShippmentCost();
+    return response;
+  } catch (error) {
+    console.error("Error updating shippment cost:", error);
+    throw error;
+  }
+};
+
+const shippmentCost = ref("0");
+
+const getShippmentCost = async () => {
+  try {
+    const response = await $fetch(
+      "http://localhost:3333/management/getShippmentCost",
+      {
+        headers: {},
+        withCredentials: true,
+        credentials: "include",
+      }
+    );
+
+    console.log("Shippment Cost Data:", response.cost);
+    shippmentCost.value = response.cost;
+    // You can handle the response data here (e.g., set it in a store or use it in the UI)
+    return response;
+  } catch (error) {
+    console.error("Error fetching shippment cost:", error);
+    // Handle any errors (e.g., display an error message)
+  }
 };
 
 // watch(mode, (cur, old) => {
@@ -344,11 +395,14 @@ const orders = ref();
 
 const getOrders = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/orders", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/management/orders",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       orders.value = response.orders;
       mainManagement.setOrdersCount(response.orders.length);

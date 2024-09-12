@@ -1,0 +1,18 @@
+.p-paginator {
+  background-color: #561ab5;
+  color: #25f75a;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  color: #25f7a3;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: #41f725;
+  color: #150531;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background-color: #0f960d;
+  color: #5317b4;
+}

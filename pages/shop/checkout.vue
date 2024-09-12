@@ -216,15 +216,18 @@ const checkoutFunc = async function () {
     email: email.value,
     name: fullname.value,
   });
-  await $fetch("http://localhost:3333/payment-records/togateway", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
+  await $fetch(
+    "http://localhost:3333/payment-records/togateway",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: data,
+      withCredentials: true,
+    }
+  )
     .then(async (response, error) => {
       console.log(response.data.authority);
       auth.value = response.data.authority;
@@ -247,14 +250,17 @@ const togateway = async function (authority) {
   const data = new URLSearchParams({
     authority: authority,
   });
-  await $fetch(`http://localhost:3333/auth/togateway/${authority}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-    withCredentials: true,
-  })
+  await $fetch(
+    `http://localhost:3333/auth/togateway/${authority}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      withCredentials: true,
+    }
+  )
     .then(async (response, error) => {
       console.log(response, "here");
     })
@@ -377,11 +383,14 @@ const submitOrder = async (userId) => {
 const authError = ref(false);
 
 const getUser = async () => {
-  const { data } = await $fetch("http://localhost:3333/auth/isauthenticated", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/auth/isauthenticated",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       userId.value = response.userId;
       submitOrder(response.userId);
@@ -403,22 +412,19 @@ const shippmentCost = ref(0);
 
 const getShippmentCost = async () => {
   try {
-    const { data } = await $fetch(
-      "http://localhost:3333/shippment/getShippmentCost",
+    const response = await $fetch(
+      "http://localhost:3333/management/getShippmentCost",
       {
-        method: "GET", // Since it's a GET request
-        headers: {
-          // Any necessary headers can be added here
-        },
-        credentials: "include", // Include credentials if necessary (for cookies, etc.)
-        withCredentials: true, // To support cross-site credentials
+        headers: {},
+        withCredentials: true,
+        credentials: "include",
       }
     );
 
-    console.log("Shippment Cost Data:", data);
-    shippmentCost.value = data.cost;
+    console.log("Shippment Cost Data:", response);
+    shippmentCost.value = response.cost;
     // You can handle the response data here (e.g., set it in a store or use it in the UI)
-    return data;
+    return response;
   } catch (error) {
     console.error("Error fetching shippment cost:", error);
     // Handle any errors (e.g., display an error message)
