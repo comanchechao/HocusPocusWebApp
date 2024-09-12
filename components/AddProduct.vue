@@ -223,8 +223,8 @@
           </MultiSelect>
           <MultiSelect
             :maxSelectedLabels="1"
-            v-model="selectedTypes"
-            :options="types"
+            v-model="selectedColor"
+            :options="colors"
             optionLabel="name"
             display="chip"
             class="col-span-2 lg:col-span-1"
@@ -395,6 +395,7 @@ const selectedBrands = ref(null);
 const selectedRarity = ref(null);
 const selectedDesigns = ref(null);
 const selectedCategory = ref(null);
+const selectedColor = ref(null);
 
 watch(selectedFilters, (cur, old) => {
   console.log(cur.id);
@@ -497,6 +498,17 @@ watch(selectedFilters, (cur, old) => {
 //   console.log(current[0].name);
 // });
 
+const colors = ref([
+  { name: "قرمز" },
+  { name: "آبی" },
+  { name: "سبز" },
+  { name: "سفید" },
+  { name: "سیاه" },
+  { name: "بنفش" },
+  { name: "زرد" },
+  { name: "نارنجی" },
+  { name: "سرمه ای" },
+]);
 const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
 const rarity = ref([]);
@@ -643,6 +655,7 @@ const handleProduct = async () => {
       type: selectedTypes.value[0].name,
       brand: selectedBrands.value[0].name,
       design: selectedDesigns.value[0].name,
+      color: selectedColor.value[0].name,
       category: selectedCategory.value[0].name,
       rarity: rarity.value,
       inStock: inStock.value,

@@ -54,6 +54,7 @@ model Products {
   category       String?
   design         String?
   discount       String?
+  color          String?
   quantity       String?
   weeksSelection Boolean?        @default(false)
   mode           Boolean         @default(false)
