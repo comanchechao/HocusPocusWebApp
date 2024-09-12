@@ -91,8 +91,8 @@
           </MultiSelect>
           <MultiSelect
             :maxSelectedLabels="1"
-            v-model="selectedCategory"
-            :options="categories"
+            v-model="selectedColor"
+            :options="colors"
             optionLabel="color"
             placeholder="رنگ"
             :showToggleAll="false"
@@ -349,6 +349,19 @@ const allFilterItems = ref();
 const allFilters = ref();
 const categories = ref();
 const filterLoading = ref(true);
+const colors = ref([
+  { name: "قرمز" },
+  { name: "آبی" },
+  { name: "سبز" },
+  { name: "سفید" },
+  { name: "سیاه" },
+  { name: "بنفش" },
+  { name: "زرد" },
+  { name: "نارنجی" },
+  { name: "سرمه ای" },
+]);
+
+const selectedColor = ref(null);
 
 const filtersOn = ref(false);
 
@@ -450,6 +463,19 @@ watch(selectedCategory, (cur, old) => {
       selectedCategory.value.some(
         (category: any) => category.name === product.category
       )
+    );
+    products.value = filtered;
+  }
+  if (cur.length === 0) {
+    products.value = allProducts.value;
+  }
+});
+
+watch(selectedColor, (cur, old) => {
+  if (cur.length > 0) {
+    filtersOn.value = true;
+    const filtered = allProducts.value.filter((product: any) =>
+      selectedColor.value.some((color: any) => color.name === product.colors)
     );
     products.value = filtered;
   }
