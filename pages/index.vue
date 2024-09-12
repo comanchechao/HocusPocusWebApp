@@ -306,7 +306,7 @@
         <span> محصولات پرطرفدار </span>
       </h2>
       <div
-        class="w-full h-full lg:h-auto grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center px-4 lg:px-24 py-9 gap-5 gap-y-9"
+        class="w-full h-full lg:h-auto grid-cols-1 grid lg:grid-cols-4 lg:grid-rows-2 place-items-center md:grid-cols-2 px-10 lg:px-24 py-9 gap-5 gap-y-9"
       >
         <!-- <div
           v-show="latestProduct"

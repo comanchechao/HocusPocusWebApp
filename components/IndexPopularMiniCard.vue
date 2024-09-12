@@ -1,14 +1,16 @@
 <template>
   <div
-    class="h-full w-full bg-mainWhite flex flex-col rounded-md items-end justify-between"
+    class="h-auto rounded-lg bg-mainWhite duration-200 overflow-hidden ease-in-out transition hover:shadow-lg cursor-pointer w-full shadow-md shadow-transparent hover:shadow-mainRed border-mainRed"
   >
-    <div class="w-full overflow-hidden h-full flex items-start justify-center">
+    <div
+      class="w-full flex items-center justify-center h-72 oerflow-hidden mb-3 bg-mainWhite rounded-t-lg"
+    >
       <NuxtLink :to="'/shop/productdetail/' + item.id">
         <div class="flex justify-center items-center">
           <img
             v-if="!loading"
             :src="image"
-            class="h-full w-full object-fill"
+            class="h-[17rem] w-full object-fill"
             alt=""
           />
           <ProgressSpinner

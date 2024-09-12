@@ -135,6 +135,14 @@
                   : امتیاز
                 </h3>
               </div>
+              <MultiSelect
+                :maxSelectedLabels="1"
+                v-model="selectedCategory"
+                :options="categories"
+                optionLabel="name"
+                placeholder="رنگ"
+                :showToggleAll="false"
+              ></MultiSelect>
             </div>
 
             <button

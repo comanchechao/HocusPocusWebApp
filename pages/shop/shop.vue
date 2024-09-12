@@ -89,6 +89,14 @@
             :showToggleAll="false"
           >
           </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="1"
+            v-model="selectedCategory"
+            :options="categories"
+            optionLabel="color"
+            placeholder="رنگ"
+            :showToggleAll="false"
+          ></MultiSelect>
         </div>
         <div class="Search">
           <label

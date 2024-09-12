@@ -9,18 +9,11 @@
       @mouseenter="toggleDiv1"
       @mouseleave="toggleDiv2"
     >
-      <!-- <img
-        src="../assets/images/Psychonauts2.webp"
-        class="w-full object-fill opacity-100 backdrop-blur-3xl"
-        alt=""
-      /> -->
-      <NuxtLink :to="'/shop/productdetail/' + product.id">
-        <ProductImage
-          class="h-72 object-contain"
-          :productId="props.product.ProductImages[1].id"
-        >
-        </ProductImage>
-      </NuxtLink>
+      <ProductImage
+        class="h-72 object-fill"
+        :productId="props.product.ProductImages[1].id"
+      >
+      </ProductImage>
     </div>
     <div
       class="w-full items-center justify-center overflow-hidden flex h-72 mb-3 bg-mainWhite rounded-t-lg"
@@ -29,7 +22,7 @@
       @mouseenter="toggleDiv1"
     >
       <div v-if="!loading" class="object-contain">
-        <img :src="image" class="h-72 object-contain" alt="" />
+        <img :src="image" class="h-72 object-fill" alt="" />
       </div>
       <ProgressSpinner
         v-if="loading"
