@@ -154,10 +154,9 @@
           <label class="text-xl text-mainRed" for="description"
             >توضیحات کالا</label
           >
-          <Textarea
+          <textarea
             dir="ltr"
-            class="w-full text-darkPurple"
-            autoResize
+            class="w-full p-4 rounded-lg h-44 text-md text-darkPurple"
             v-model="productDescription"
             rows="1"
             cols="90"
@@ -229,6 +228,17 @@
             display="chip"
             class="col-span-2 lg:col-span-1"
             placeholder="رنگ"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="1"
+            v-model="selectedColor"
+            :options="colors"
+            optionLabel="name"
+            display="chip"
+            class="col-span-2 lg:col-span-1"
+            placeholder="سایز"
             :showToggleAll="false"
           >
           </MultiSelect>
@@ -663,18 +673,15 @@ const handleProduct = async () => {
       description: productDescription.value,
     });
 
-    await $fetch(
-      "http://localhost:3333/management/addproduct",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        credentials: "include",
-        body: data,
-        withCredentials: true,
-      }
-    )
+    await $fetch("http://localhost:3333/management/addproduct", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: data,
+      withCredentials: true,
+    })
       .then((response, error) => {
         addedProductID.value = response.product.id;
         addingLoading.value = false;
@@ -777,16 +784,13 @@ const uploadImage = async function (image) {
 // handling filter addition
 
 const getFilters = async () => {
-  const { data } = await $fetch(
-    "http://localhost:3333/filters",
-    {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
+  const { data } = await $fetch("http://localhost:3333/filters", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
     .then(function (response) {
       allFilters.value = response.filters;
       getFilterItems();
@@ -795,16 +799,13 @@ const getFilters = async () => {
 };
 
 const getFilterItems = async () => {
-  const { data } = await $fetch(
-    "http://localhost:3333/filters/filteritems",
-    {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
+  const { data } = await $fetch("http://localhost:3333/filters/filteritems", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    withCredentials: true,
+    credentials: "include",
+  })
     .then(function (response) {
       types.value = [];
       brands.value = [];
@@ -840,18 +841,15 @@ const addFilter = async (userId, username) => {
   });
   if (selectedFilters.value) {
     updateFilter.value = true;
-    const { data } = await $fetch(
-      "http://localhost:3333/filters/newfilter",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        withCredentials: true,
-        body: body,
-        credentials: "include",
-      }
-    )
+    const { data } = await $fetch("http://localhost:3333/filters/newfilter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      withCredentials: true,
+      body: body,
+      credentials: "include",
+    })
       .then(function (response) {
         message2.value = true;
         setTimeout(() => {
@@ -916,18 +914,15 @@ const removeFilter = async function (itemId) {
   const data = new URLSearchParams({
     id: itemId,
   });
-  await $fetch(
-    `http://localhost:3333/filters/remove/${itemId}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: data,
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
+  await $fetch(`http://localhost:3333/filters/remove/${itemId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+    withCredentials: true,
+    credentials: "include",
+  })
     .then((response) => {
       filterRemove.value = true;
     })

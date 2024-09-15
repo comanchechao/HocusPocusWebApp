@@ -178,7 +178,7 @@
           ></Skeleton>
           <Skeleton
             v-if="loading"
-            class="lg:flex hidden"
+            class="lg:flex md:flex hidden"
             width="18rem"
             height="25rem"
           ></Skeleton>

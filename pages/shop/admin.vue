@@ -249,14 +249,11 @@ const inStockProducts = ref([]);
 
 const getProducts = async () => {
   loading.value = true;
-  const { data } = await $fetch(
-    "http://localhost:3333/management/products",
-    {
-      headers: {},
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
+  const { data } = await $fetch("http://localhost:3333/management/products", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
     .then(function (response) {
       products.value = response.products;
       mainManagement.setProductCount(response.products.length);
@@ -395,14 +392,11 @@ const orders = ref();
 
 const getOrders = async () => {
   loading.value = true;
-  const { data } = await $fetch(
-    "http://localhost:3333/management/orders",
-    {
-      headers: {},
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
+  const { data } = await $fetch("http://localhost:3333/management/orders", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
     .then(function (response) {
       orders.value = response.orders;
       mainManagement.setOrdersCount(response.orders.length);
