@@ -365,7 +365,7 @@ onMounted(() => {
 @media only screen and (max-width: 480px) {
   .Pocused {
     font-family: "Pocused";
-    color: #fdbe39;
+    color: #ffd900;
     font-size: 6rem;
     text-shadow: 7px 0px 1px #fb6107;
   }
@@ -373,7 +373,7 @@ onMounted(() => {
 @media only screen and (max-width: 768px) {
   .Pocused {
     font-family: "Pocused";
-    color: #fdbe39;
+    color: #ffd900;
     font-size: 6rem;
     text-shadow: 7px 0px 1px #fb6107;
   }
