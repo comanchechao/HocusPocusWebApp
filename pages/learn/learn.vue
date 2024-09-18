@@ -356,8 +356,8 @@ onMounted(() => {
 
 .Pocused {
   font-family: "Pocused";
-  color: #fdbe39;
-  font-size: 10rem;
+  color: #ffd900;
+  font-size: 12rem;
   text-shadow: 2px 0px 1px #fb6107, 4px 0px 1px #fb6107, 6px 0px 1px #fb6107,
     8px 0px 1px #fb6107;
 }
