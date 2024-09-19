@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-96 lg:w-full flex items-center flex-col my-9 justify-center lg:items-end space-y-7"
+    class="w-full md:w-full lg:w-full flex items-center flex-col my-9 justify-center lg:items-end space-y-7"
   >
     <div class="flex items-end flex-col space-y-4">
       <label class="text-md text-mainRed" for="description"
@@ -9,7 +9,7 @@
       <Textarea
         dir="rtl"
         v-model="comment"
-        class="lg:w-textArea w-72 text-darkPurple text-sm"
+        class="lg:w-textArea md:w-full w-full text-darkPurple text-sm"
         autoResize
         rows="5"
         cols="90"

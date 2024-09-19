@@ -63,7 +63,7 @@
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span>{{ props.product.price }}</span>
+        <span>{{ formatPrice(props.product.price) }}</span>
         <PhMoney :size="34" weight="fill" />
       </h3>
       <h3
@@ -71,10 +71,12 @@
         class="text-xl border-2 border-dashed w-full border-darkPurple rounded-md py-1 px-5 text-mainBrown flex items-center justify-center space-x-2"
       >
         <span class="text-xs text-mainRed">تومان</span>
-        <span v-if="offPrice" class="text-mainPink">{{ offPrice }}</span>
+        <span v-if="offPrice" class="text-mainPink">{{
+          formatPrice(offPrice)
+        }}</span>
         <span
           :class="{ 'line-through': offPrice, 'no-underline': !offPrice }"
-          >{{ props.product.price }}</span
+          >{{ formatPrice(props.product.price) }}</span
         >
         <PhMoney :size="34" weight="fill" />
       </h3>
@@ -123,6 +125,9 @@ const addSuccess = ref(false);
 const loading = ref(true);
 const showDiv1 = ref();
 const showDiv2 = ref(true);
+const formatPrice = (value) => {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 function toggleDiv1() {
   showDiv1.value = true;
   showDiv2.value = false;

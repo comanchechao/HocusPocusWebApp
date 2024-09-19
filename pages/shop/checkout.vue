@@ -209,7 +209,7 @@ const checkoutFunc = async function () {
     gatewayRedirect.value = false;
   }, 5000);
   const data = new URLSearchParams({
-    amount: (cartTotalPrice.value + shippmentCost.value) * 10,
+    amount: (Number(cartTotalPrice.value) + Number(shippmentCost.value)) * 10,
     phoneNumber: phoneNumber.value,
     orderId: submitedOrdersId.value,
     userId: userId.value,

@@ -18,6 +18,7 @@
       :contentStyle="{ backgroundColor: '#150531' }"
     >
       <div
+        ref="printableContent"
         class="h-full w-full flex flex-col space-y-4 items-center justify-around p-3"
       >
         <div class="flex items-center justify-center w-full h-full p-2">
@@ -100,7 +101,12 @@
               </h2>
               <h2 class="text-md">تعداد کالا</h2>
             </div>
-
+            <button
+              @click="printOrder"
+              class="text-sm flex items-center p-1 lg:px-4 px-2 lg:py-2 rounded-full transition duration-300 ease-in-out bg-mainPink hover:bg-darkPurple hover:text-mainPink text-darkPurple ml-4"
+            >
+              پرینت
+            </button>
             <div
               v-for="product in products"
               :key="product.id"
@@ -143,19 +149,32 @@ watch(orderItems, (cur, old) => {
   let toArray = cur[0].items.split(" ");
 });
 
+const printOrder = () => {
+  const printableContent = document.querySelector('[ref="printableContent"]');
+  const newWindow = window.open("", "", "width=800,height=600");
+  newWindow.document.write(printableContent.innerHTML);
+  newWindow.document.close();
+  newWindow.focus();
+  newWindow.print();
+  newWindow.close();
+};
+
 const getOrderItems = async () => {
   const body = new URLSearchParams({
     orderId: props.order.id,
   });
 
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/orderitems", {
-    method: "Post",
-    headers: {},
-    credentials: "include",
-    body: body,
-    withCredentials: true,
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/management/orderitems",
+    {
+      method: "Post",
+      headers: {},
+      credentials: "include",
+      body: body,
+      withCredentials: true,
+    }
+  )
     .then(function (response) {
       orderItems.value = response.orderItems;
       loading.value = false;
@@ -182,11 +201,14 @@ const products = ref([]);
 
 const getProduct = async (productId, productQuantity) => {
   loading.value = true;
-  const { data } = await $fetch(`http://localhost:3333/products/${productId}`, {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/products/${productId}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       products.value.push({
         product: response.product,

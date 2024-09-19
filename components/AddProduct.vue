@@ -154,10 +154,9 @@
           <label class="text-xl text-mainRed" for="description"
             >توضیحات کالا</label
           >
-          <Textarea
+          <textarea
             dir="ltr"
-            class="w-full text-darkPurple"
-            autoResize
+            class="w-full p-4 rounded-lg h-44 text-md text-darkPurple"
             v-model="productDescription"
             rows="1"
             cols="90"
@@ -229,6 +228,17 @@
             display="chip"
             class="col-span-2 lg:col-span-1"
             placeholder="رنگ"
+            :showToggleAll="false"
+          >
+          </MultiSelect>
+          <MultiSelect
+            :maxSelectedLabels="1"
+            v-model="selectedSize"
+            :options="sizes"
+            optionLabel="name"
+            display="chip"
+            class="col-span-2 lg:col-span-1"
+            placeholder="سایز"
             :showToggleAll="false"
           >
           </MultiSelect>
@@ -396,6 +406,7 @@ const selectedRarity = ref(null);
 const selectedDesigns = ref(null);
 const selectedCategory = ref(null);
 const selectedColor = ref(null);
+const selectedSize = ref(null);
 
 watch(selectedFilters, (cur, old) => {
   console.log(cur.id);
@@ -509,6 +520,8 @@ const colors = ref([
   { name: "نارنجی" },
   { name: "سرمه ای" },
 ]);
+const sizes = ref([{ name: "بریج" }, { name: "پوکر" }]);
+
 const types = ref([]);
 const designs = ref([{ name: "کلاسیک" }, { name: "کاستوم" }]);
 const rarity = ref([]);
@@ -657,6 +670,7 @@ const handleProduct = async () => {
       design: selectedDesigns.value[0].name,
       color: selectedColor.value[0].name,
       category: selectedCategory.value[0].name,
+      size: selectedSize.value[0].name || "",
       rarity: rarity.value,
       inStock: inStock.value,
       quantity: productQuantity.value,

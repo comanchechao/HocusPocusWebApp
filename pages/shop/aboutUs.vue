@@ -19,7 +19,7 @@
       />
     </div>
     <div
-      class="lg:h-dialog md:h-dialog h-auto md:pt-44 pt-44 lg:pb-28 lg:pt-32 w-full relative flex mt-24 items-end lg:items-center justify-center lg:px-44 px-10 lg:my-24"
+      class="lg:h-dialog md:h-dialog h-[18rem] md:pt-44 pt-44 lg:pb-28 lg:pt-32 w-full relative flex mt-24 items-end lg:items-center justify-center lg:px-44 px-10 lg:my-24"
     >
       <img
         src="../../assets/images/AboutUsH.webp"
@@ -92,7 +92,7 @@
           تاریخچه فروشگاه شعبده بازی هوکوس پوکوس
         </h2>
         <h2>
-          فروشگاه شعبده بازی هوکوس پوکوس در سال 1379 توسط آقای امیر فاطمی در شهر
+          فروشگاه شعبده بازی هوکوس پوکوس در سال 1384 توسط آقای امیر فاطمی در شهر
           ارومیه تاسیس شد. این فروشگاه قدیمی ترین فروشگاه شعبده بازی ایران است و
           در طول این سال ها به یکی از معتبرترین و شناخته شده ترین فروشگاه های
           این حوزه تبدیل شده است. فروشگاه هوکوس پوکوس در طول این سال ها نقش مهمی
